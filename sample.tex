@@ -1,0 +1,55 @@
+\documentclass[bachelor,openright]{buaathesis}
+%目前的bachelor等四个参数仅改变“目录”的标题
+\title{测试：BUAAthesis用户手册}
+\author{Joseph}
+
+\begin{document}
+\maketitle
+\frontmatter
+\tableofcontents
+\mainmatter
+\chapter{简介}
+	\section{版权声明}
+	\section{免责声明}
+	\section{版本历史}
+\chapter{下载和使用}
+	\section{发行版本}
+	\section{开发版本}
+	\section{如何使用}
+\chapter{软件和环境的配置}
+	\section{Windows用户}
+	\section{Linux用户}
+	\section{Mac用户}
+\chapter{使用说明}
+	\section{基本范例}
+	\section{选项}
+\chapter{LaTeX{}基础语法}
+	\section{字体字号设置}
+	\section{章节标题设置}
+\chapter{模板代码实现}
+%此章主要为对本模板进行代码讲解，以供有兴趣的同学进行研究
+	\section{选项和编译}
+	\section{页面设置}
+	\section{正文前的部分}
+	\section{正文}
+		\subsection{图形和多个图形}
+		\subsection{表格和长表格}
+		\subsection{定理和公式}
+	\section{参考文献}
+	\section{正文之后的部分}
+\chapter{致谢}
+\cleardoublepage
+%\renewcommand\refname{参考文献}
+%\bibliography{bibs}
+%\addcontentsline{toc}{chapter}{参考文献}
+%\cleardoublepage
+
+\appendix
+
+%\backmatter
+%backmatter会使后面的附录没有“附录A”之类的字样
+%这三个命令的具体定义可见http://m.lilacbbs.com/bbstcon.php?board=TeX&gid=2269
+
+\chapter{常见问题}
+\chapter{联系我们}
+\end{document}
