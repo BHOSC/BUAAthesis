@@ -214,7 +214,7 @@
   \begin{center}
     \zihao{5}\heiti
     \begin{flushleft}
-      中图分类号：\@buaa@category \hfill 密级\ding{73}~~\buaa@mibao \\
+      中图分类号：\buaa@category \hfill 密级\ding{73}~~\buaa@mibao \\
       论\,\,文\,\,编\,\,号：\buaa@thesisID\\
     \end{flushleft}
     \vspace{5em}
