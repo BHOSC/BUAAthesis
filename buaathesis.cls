@@ -144,7 +144,7 @@
     \def\buaa@degree{#1}
     \def\buaa@degreeeng{#2}
 }
-%申请学位等级
+%申请学位等级，这个信息不需要，通过class参数来判别即可，在后面写的时候注意
 \def\buaa@thesisID{}
 \newcommand{\thesisID}[1]{%
     \def\buaa@thesisID{#1}}
@@ -169,44 +169,104 @@
 %授予学位时间
 %==========用户录入的信息到此完毕============
 
+%--------------------页面设置------------------------------
 \RequirePackage[top=3cm,bottom=3.2cm,left=3cm,right=2cm]{geometry}
 
+%---------------------字体字号的一些设置-------------------
+\setmainfont{Times New Roman}
+\setCJKmainfont{宋体}
+%设置主要字体为Times New Roman和宋体
+\setCJKfamilyfont{hwxingkai}{STXingkai}
+\newcommand{\hwxingkai}{\CJKfamily{hwxingkai}}
+\newcommand{\chuyihao}{\fontsize{32pt}{\baselineskip}\selectfont}
+%研究生论文的首页需要华文行楷和32号字
+%其余的都可以用ctex自带的
 
+%------------------图形表格的一些设置--------------------
 \RequirePackage{graphicx}
 \DeclareGraphicsExtensions{.eps,.ps,.jpg,.bmp}
 \RequirePackage{pifont}%这个包主要是在“秘级”后加一个五角星
 
+%---------------------间距的一些设置--------------------
+\renewcommand{\baselinestretch}{1.5}
+\setlength{\parindent}{2em}
+%\setlength{\parskip}{3pt plus1pt minus1pt}          %段落间距离，是否需要？
+\setlength{\itemsep}{3pt plus1pt minus2pt}          % 连续items之间的距离.
+\setlength{\floatsep}{10pt plus 3pt minus 2pt}      % 图形之间或图形与正文之间的距离
+\setlength{\abovecaptionskip}{2pt plus1pt minus1pt} % 图形中的图与标题之间的距离
+\setlength{\belowcaptionskip}{3pt plus1pt minus2pt} % 表格中的表与标题之间的距离
 
-
-
-
-
-\ifbuaa@master
-\renewcommand{\contentsname}{\buaa@university 论文目录}
-\fi
-
+%--------------------页眉页脚的设置-----------------------
+\RequirePackage{fancyhdr}
 \ifbuaa@bachelor
-\renewcommand{\contentsname}{\buaa@universityeng 论文目录}
+\pagestyle{fancy}
+\newbox\buaamark
+\setbox\buaamark=\hbox{\includegraphics[width=45bp]{figure/buaamark.eps}}
+\newcommand{\titletext}{\heiti\zihao{4} 北京航空航天大学毕业设计(论文)}
+\newcommand{\titlesize}{210bp}
+\lhead{\strut{\copy\buaamark}\strut}
+\chead{\flushleft\hbox{\hskip 130bp\hbox to \titlesize{\zihao{4}\titletext}%
+\hskip 90bp \zihao{5}\hbox to 40bp{\rmfamily\bf\upshape 第\hfil \thepage \hfil 页}}} %都是量出来的，不准确
+\rhead{}
+\lfoot{}\cfoot{}\rfoot{}
+\renewcommand{\headrulewidth}{0.5bp} %页眉线宽度
+%%页眉和下面的文本相距20pt.
+\setlength{\headsep}{50pt}
+%    这个本科生论文的页眉页脚一直是用的06年的那个，等有时间再改吧，现在这个太乱了
+\else
+\pagestyle{fancy}
+\fancyhead{}
+    \ifbuaa@doctor
+        \fancyhead[CO]{\zihao{-5}\songti 北京航空航天大学博士学位论文\vspace{1.5mm}}
+    \else
+        \fancyhead[CO]{\zihao{-5}\songti 北京航空航天大学硕士学位论文\vspace{1.5mm}}
+    \fi
+\fancyhead[CE]{\zihao{-5}\songti\leftmark\vspace{1.5mm}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.5bp} %页眉线宽度
+\setlength{\headsep}{5mm}
 \fi
 
-\ifbuaa@engineer
-\renewcommand{\contentsname}{\buaa@school 论文目录}
-\fi
+%-----------------标题和目录的格式设置-----------------
 
-\ifbuaa@doctor
-\renewcommand{\contentsname}{\buaa@schooleng 论文目录}
-\fi
+%---------------------------文章中标题的格式设置(研究生)--------------------------%
+\usepackage{titlesec,titletoc}
+\titleformat{\chapter}[block]{\centering\zihao{3}\heiti}{第\,\thechapter\,章}{1em}{}
+\titleformat{\section}[block]{\zihao{4}\heiti}{\thesection}{1em}{}
+\titleformat{\subsection}[block]{\zihao{-4}\heiti}{\thesubsection}{1em}{}
+\titlespacing*{\chapter}{0pt}{.5\baselineskip}{.5\baselineskip} % 标题间距
+\titlespacing*{\section}{0pt}{.5\baselineskip}{.5\baselineskip}
+\titlespacing*{\subsection}{0pt}{.5\baselineskip}{.5\baselineskip}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%------------------------目录中标题格式进行设置(研究生)---------------------------%
+\titlecontents{chapter}[0pt]{\heiti\zihao{4}}{\thecontentslabel\ }{}
+    {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}
+\titlecontents{section}[2em]{\vspace{0.15\baselineskip}\songti\zihao{-4}}{\thecontentslabel\ }{}
+    {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.25\baselineskip}]
+\titlecontents{subsection}[4em]{\vspace{0.1\baselineskip}\heiti\zihao{5}}{\thecontentslabel\ }{}
+    {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.1\baselineskip}]
+
+
+
+
+%++++++++++++++++++设置首页+++++++++++++++++++
 %
-%以上四段为进行选择判断的示例，因为前面master默认为true
-%所以务必将master的判断语句放在最前面
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifbuaa@bachelor
+\renewcommand{\maketitle}{%
+\zihao{2}\heiti
+\vspace{3em}
+\centerline{\buaa@thesistitle}
 
 
-%+++++++++++设置首页+++++++++++++
-%
+%本科生的论文首页还没处理好，有时间再写
+
+
+
+\zihao{-4}
+}
+
+\else
+
 %----研究生论文首页---------
 %间距、字体字号还需要调整
 \renewcommand{\maketitle}{%
@@ -220,7 +280,17 @@
     \vspace{5em}
     \includegraphics[width=.55\textwidth]{figure/buaaname.eps}\\
     \vspace{3mm}
-      \zihao{0}\kai\centerline{\buaa@degree 学位论文}%此处应该是华文行楷
+    \ifbuaa@master
+      \zihao{0}\hwxingkai\centerline{博士学位论文}
+    \else
+        \ifbuaa@engineer
+            \zihao{0}\hwxingkai\centerline{工程硕士学位论文}
+        \else
+        \ifbuaa@doctor
+            \zihao{0}\hwxingkai\centerline{学士硕士学位论文}
+        \fi
+    \fi
+    %这儿的连环嵌套很有问题，得再测试！
     \vspace{1em}%此处用绝对距离更好些？
     \begin{minipage}[h]{.85\textwidth}
       \zihao{0}\songti\centering{\buaa@thesistitle}
@@ -240,17 +310,9 @@
   \end{center}
 \end{titlepage}
 }
-
-%\ifbuaa@bachelor
-%\renewcommand{\maketitle}{%
+\fi
 
 
-
-
-
-
-%}
-%\fi
 %++++++++++++设置首页完毕+++++++++++
 
 

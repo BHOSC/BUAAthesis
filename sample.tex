@@ -1,4 +1,4 @@
-\documentclass[bachelor,openright]{buaathesis}
+\documentclass[doctor,openright]{buaathesis}
 %目前的bachelor等四个参数仅改变“目录”的标题
 %\title{测试：BUAAthesis用户手册}
 %\author{Joseph}
@@ -24,7 +24,6 @@
 %--------------研究生的信息--------------------
 \direction{研究方向}%研究方向
 \teacherdegree{老师的等级}{engdegree}%需要英文？
-\degree{申请学位}{engdegree}%中英文都需要
 \thesisID{0000}%论文编号
 \commit{2012}{3}{3}%论文提交时间
 \award{2012}{4}{4}%学位授予日期，好奇葩...
@@ -41,8 +40,15 @@
 \mainmatter
 \chapter{简介}
 	\section{版权声明}
+	这里是奇数页\par
+	这里是段首\hfill 这里是行尾\\
+	这里是行首\hfill 这里是行尾\\
 	\section{免责声明}
+	\newpage
 	\section{版本历史}
+	这里是偶数页\par
+	这里是段首\hfill 这里是行尾\\
+	这里是行首\hfill 这里是行尾\\
 	
 \chapter{下载和使用}
 	\section{发行版本}
@@ -65,11 +71,13 @@
 %此章主要为对本模板进行代码讲解，以供有兴趣的同学进行研究
 	\section{选项和编译}
 	\section{页面设置}
+	\newpage
 	\section{正文前的部分}
 	\section{正文}
 		\subsection{图形和多个图形}
 		\subsection{表格和长表格}
 		\subsection{定理和公式}
+	\newpage
 	\section{参考文献}
 	\section{正文之后的部分}
 	
