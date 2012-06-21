@@ -110,6 +110,14 @@
     \def\buaa@defenseday{#3}
 }
 %答辩时间
+\def\buaa@ckeyword{}
+\newcommand{\ckeyword}[1]{%
+	\def\buaa@ckeyword{#1}}
+\def\buaa@ekeyword{}
+\newcommand{\ekeyword}[1]{%
+	\def\buaa@ekeyword{#1}}
+%中英文摘要关键词
+
 %+++++++++++++++本科生的信息+++++++++++++++++++
 \def\buaa@class{}
 \newcommand{\class}[1]{%
@@ -138,13 +146,6 @@
     \def\buaa@teacherdegreeeng{#2}
 }
 %教师职称
-\def\buaa@degree{}
-\def\buaa@degreeeng{}
-\newcommand{\degree}[2]{%
-    \def\buaa@degree{#1}
-    \def\buaa@degreeeng{#2}
-}
-%申请学位等级，这个信息不需要，通过class参数来判别即可，在后面写的时候注意
 \def\buaa@thesisID{}
 \newcommand{\thesisID}[1]{%
     \def\buaa@thesisID{#1}}
@@ -186,7 +187,16 @@
 \RequirePackage{graphicx}
 \DeclareGraphicsExtensions{.eps,.ps,.jpg,.bmp}
 \RequirePackage{pifont}%这个包主要是在“秘级”后加一个五角星
+\ifbuaa@bachelor
+	\renewcommand{\thefigure}{\arabic{section}-\arabic{figure}}
+	\renewcommand{\thetable}{\arabic{section}-\arabic{table}}
+	\renewcommand{\theequation}{\arabic{section}-\arabic{equation}}
+	\renewcommand{\figurename}{图}
+	%修改表格、公式、图形的编号形式，如“图3-5”“表6-1”样式
+\else
 
+\fi
+	
 %---------------------间距的一些设置--------------------
 \renewcommand{\baselinestretch}{1.5}
 \setlength{\parindent}{2em}
@@ -196,35 +206,31 @@
 \setlength{\abovecaptionskip}{2pt plus1pt minus1pt} % 图形中的图与标题之间的距离
 \setlength{\belowcaptionskip}{3pt plus1pt minus2pt} % 表格中的表与标题之间的距离
 
-%--------------------页眉页脚的设置-----------------------
+%--------------------页眉页脚的设置（具体间距还有待修正）-----------------------
 \RequirePackage{fancyhdr}
-\ifbuaa@bachelor
-\pagestyle{fancy}
-\newbox\buaamark
-\setbox\buaamark=\hbox{\includegraphics[width=45bp]{figure/buaamark.eps}}
-\newcommand{\titletext}{\heiti\zihao{4} 北京航空航天大学毕业设计(论文)}
-\newcommand{\titlesize}{210bp}
-\lhead{\strut{\copy\buaamark}\strut}
-\chead{\flushleft\hbox{\hskip 130bp\hbox to \titlesize{\zihao{4}\titletext}%
-\hskip 90bp \zihao{5}\hbox to 40bp{\rmfamily\bf\upshape 第\hfil \thepage \hfil 页}}} %都是量出来的，不准确
-\rhead{}
-\lfoot{}\cfoot{}\rfoot{}
-\renewcommand{\headrulewidth}{0.5bp} %页眉线宽度
-%%页眉和下面的文本相距20pt.
-\setlength{\headsep}{50pt}
-%    这个本科生论文的页眉页脚一直是用的06年的那个，等有时间再改吧，现在这个太乱了
-\else
 \pagestyle{fancy}
 \fancyhead{}
-    \ifbuaa@doctor
-        \fancyhead[CO]{\zihao{-5}\songti 北京航空航天大学博士学位论文\vspace{1.5mm}}
-    \else
-        \fancyhead[CO]{\zihao{-5}\songti 北京航空航天大学硕士学位论文\vspace{1.5mm}}
-    \fi
-\fancyhead[CE]{\zihao{-5}\songti\leftmark\vspace{1.5mm}}
-\fancyfoot[C]{\thepage}
+	\ifbuaa@bachelor
+		\fancyhead[C]{%
+		\includegraphics[width=45bp]{figure/buaamark.eps}\hspace{\stretch{1}}
+		\raisebox{2ex}{\heiti\zihao{4} 北京航空航天大学毕业设计(论文)}\hspace{\stretch{1}}
+		\raisebox{2ex}{\heiti\zihao{4}第\quad\thepage\quad 页}
+		}
+	\else
+		\ifbuaa@doctor
+			\fancyhead[CO]{\zihao{-5}\songti 北京航空航天大学博士学位论文\vspace{1.5mm}}
+		\else
+			\fancyhead[CO]{\zihao{-5}\songti 北京航空航天大学硕士学位论文\vspace{1.5mm}}
+		\fi
+		\fancyhead[CE]{\zihao{-5}\songti\leftmark\vspace{1.5mm}}
+		\fancyfoot[C]{\thepage}
+	\fi
 \renewcommand{\headrulewidth}{0.5bp} %页眉线宽度
-\setlength{\headsep}{5mm}
+	\ifbuaa@bachelor
+		\setlength{\headsep}{45bp}
+	\else
+		\setlength{\headsep}{5mm}
+	\fi
 \fi
 
 %-----------------标题和目录的格式设置-----------------
@@ -267,7 +273,7 @@
 
 \else
 
-%----研究生论文首页---------
+%------研究生论文首页---------
 %间距、字体字号还需要调整
 \renewcommand{\maketitle}{%
 \begin{titlepage}
@@ -280,17 +286,15 @@
     \vspace{5em}
     \includegraphics[width=.55\textwidth]{figure/buaaname.eps}\\
     \vspace{3mm}
-    \ifbuaa@master
+    \ifbuaa@doctor
       \zihao{0}\hwxingkai\centerline{博士学位论文}
     \else
         \ifbuaa@engineer
             \zihao{0}\hwxingkai\centerline{工程硕士学位论文}
         \else
-        \ifbuaa@doctor
             \zihao{0}\hwxingkai\centerline{学士硕士学位论文}
         \fi
     \fi
-    %这儿的连环嵌套很有问题，得再测试！
     \vspace{1em}%此处用绝对距离更好些？
     \begin{minipage}[h]{.85\textwidth}
       \zihao{0}\songti\centering{\buaa@thesistitle}
@@ -315,6 +319,55 @@
 
 %++++++++++++设置首页完毕+++++++++++
 
+%中文摘要
+\newenvironment{cabstract}{%
+	\newpage
+	\vskip10.5bp
+	\ifbuaa@bachelor
+			\centerline{\bf\zihao{3}\buaa@thesistitle}
+		\hfill
+		{\begin{tabular}{cl}
+			\ziju{2}学生：&\buaa@thesisauthor\\
+			指导教师：&\buaa@teacher\\
+		\end{tabular}}
+	\fi
+	\centerline{\bf\zihao{3} 摘~~~~要}
+	\ifbuaa@bachelor
+		\vskip10bp
+		\par
+	\else
+		\vspace{3ex}
+	\fi
+	\setlength{\parindent}{24bp}
+}{%
+	\vskip21bp
+	{\noindent {\bf\zihao{-4} 关键词：}\buaa@ckeyword}
+}
+
+%英文摘要
+\newenvironment{eabstract}{%
+	\newpage
+	\vskip10.5bp
+	\ifbuaa@bachelor
+			\centerline{\bf\zihao{3}\buaa@thesistitleeng}
+		\hfill
+		{\begin{tabular}{rl}
+			Author：&\buaa@thesisauthoreng\\
+			Tutor：&\buaa@teachereng\\
+		\end{tabular}}
+	\fi
+	\centerline{\bf\zihao{3} Abstract}
+	\ifbuaa@bachelor
+		\vskip10bp
+		\par
+	\else
+		\vspace{3ex}
+	\fi
+	\setlength{\parindent}{24bp}
+}{%
+	\vskip21bp
+	{\noindent {\bf\zihao{-4} Key words: }\buaa@ekeyword}
+}
 
 
 
