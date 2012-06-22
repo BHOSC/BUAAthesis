@@ -1,7 +1,4 @@
-\documentclass[doctor,openright]{buaathesis}
-%目前的bachelor等四个参数仅改变“目录”的标题
-%\title{测试：BUAAthesis用户手册}
-%\author{Joseph}
+\documentclass[bachelor]{buaathesis}
 
 %-------------------------------------------
 %------        用户公共信息            -------
@@ -21,6 +18,7 @@
 %--------------本科生的信息--------------------
 \class{3702}%班级，在任务书里需要用到
 \studentID{233}%学号
+\unicode{8606}
 \thesisdate{2012}{6}%论文时间，用于首页
 
 %--------------研究生的信息--------------------
@@ -35,8 +33,6 @@
 
 \begin{document}
 \maketitle
-
-\frontmatter
 \tableofcontents
 \begin{cabstract}
 这里是中文摘要部分。
@@ -69,7 +65,13 @@ Here is the Abstract in English.
 	
 \chapter{使用说明}
 	\section{基本范例}
+	\texttt{documentclass[master,oneside]\{buaathesis\}}
+	\newpage
 	\section{选项}
+参数为\texttt{bachelor/master/engineer/doctor;openright/openany; oneside/twoside}。
+默认参数为\texttt{master,openright,twoside}。\par
+前面四个参数就不说了，\texttt{openright}会使新的章在奇数页开始，\texttt{openany}则只会新起一页，
+并不判断是奇数或偶数页；\texttt{oneside/twoside}则为单面/双面打印，“双面打印”时，左右边距会根据奇偶页变化。
 \chapter{LaTeX{}基础语法}
 	\section{字体字号设置}
 	\section{章节标题设置}
