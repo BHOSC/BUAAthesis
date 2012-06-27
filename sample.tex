@@ -1,14 +1,15 @@
-\documentclass[bachelor]{buaathesis}
+\documentclass[master]{buaathesis}
+%默认参数为：master,openright,twoside
 
 %-------------------------------------------
 %------        用户公共信息            -------
-\thesisauthor{作者}{engname}
-\thesistitle{论文标题}{engtitle}
-\school{学院}{xueyuan}
-\major{专业}{zhuanye}%专业
-\teacher{指导老师}{laoshi}
+\thesisauthor{张三}{ZhangSan}
+\thesistitle{基于Texlive的北航毕设论文模板设计}{How to design the BUAA-thesis Style with \LaTeX{}}
+\school{二逼青年学院}{The School of 2B}
+\major{吊丝专业}{DiaoSi}%专业
+\teacher{王小五}{Wang Xiaowu}
 \category{TP312}%中图分类号
-\mibao{密保等级}%本科生此项必须写“不涉密”或为空
+\mibao{机密}%本科生此项必须写“不涉密”或为空
 \thesisbegin{2011}{1}{1}%本科生为毕设开始时间；研究生为学习开始时间
 \thesisend{2012}{2}{2}%本科生为毕设结束时间；研究生为学习结束时间
 \defense{2012}{07}{05}%毕设答辩时间
@@ -22,88 +23,42 @@
 \thesisdate{2012}{6}%论文时间，用于首页
 
 %--------------研究生的信息--------------------
-\direction{研究方向}%研究方向
-\teacherdegree{老师的等级}{engdegree}%需要英文？
+\direction{搬砖方向}%研究方向
+\teacherdegree{教授}{Prof.}%需要英文？
 \thesisID{0000}%论文编号
 \commit{2012}{3}{3}%论文提交时间
 \award{2012}{4}{4}%学位授予日期，好奇葩...
-
 %--------------------------------------------
-
 
 \begin{document}
 \maketitle
+\include{file/abstract}
 \tableofcontents
-\begin{cabstract}
-这里是中文摘要部分。
-\end{cabstract}
-\begin{eabstract}
-Here is the Abstract in English.
-\end{eabstract}
+\listoffigures
+\listoftables
+
 \mainmatter
-\chapter{简介}
-	\section{版权声明}
-	这里是奇数页\par
-	这里是段首\hfill 这里是行尾\\
-	这里是行首\hfill 这里是行尾\\
-	\section{免责声明}
-	\newpage
-	\section{版本历史}
-	这里是偶数页\par
-	这里是段首\hfill 这里是行尾\\
-	这里是行首\hfill 这里是行尾\\
-	
-\chapter{下载和使用}
-	\section{发行版本}
-	\section{开发版本}
-	\section{如何使用}
-	
-\chapter{软件和环境的配置}
-	\section{Windows用户}
-	\section{Linux用户}
-	\section{Mac用户}
-	
-\chapter{使用说明}
-	\section{基本范例}
-	\texttt{documentclass[master,oneside]\{buaathesis\}}
-	\newpage
-	\section{选项}
-参数为\texttt{bachelor/master/engineer/doctor;openright/openany; oneside/twoside}。
-默认参数为\texttt{master,openright,twoside}。\par
-前面四个参数就不说了，\texttt{openright}会使新的章在奇数页开始，\texttt{openany}则只会新起一页，
-并不判断是奇数或偶数页；\texttt{oneside/twoside}则为单面/双面打印，“双面打印”时，左右边距会根据奇偶页变化。
-\chapter{LaTeX{}基础语法}
-	\section{字体字号设置}
-	\section{章节标题设置}
-	
-\chapter{模板代码实现}
-%此章主要为对本模板进行代码讲解，以供有兴趣的同学进行研究
-	\section{选项和编译}
-	\section{页面设置}
-	\newpage
-	\section{正文前的部分}
-	\section{正文}
-		\subsection{图形和多个图形}
-		\subsection{表格和长表格}
-		\subsection{定理和公式}
-	\newpage
-	\section{参考文献}
-	\section{正文之后的部分}
-	
-\chapter{致谢}
+\include{file/chapter1-jianjie}	
+\include{file/chapter2-xiazai}
+\include{file/chapter3-peizhi}	
+\include{file/chapter4-shiyong}
+\include{file/chapter5-yufa}
+\include{file/chapter6-daima}
 \cleardoublepage
-%\renewcommand\refname{参考文献}
-%\bibliography{bibs}
-%\addcontentsline{toc}{chapter}{参考文献}
-%\cleardoublepage
+
+\bibliography{file/bibs}
+\addcontentsline{toc}{chapter}{参考文献}
+\cleardoublepage
 
 \appendix
+\chapter{常见问题}
+\chapter{联系我们}
 
-%\backmatter
+\backmatter
 %backmatter会使后面的附录没有“附录A”之类的字样
 %这三个命令的具体定义可见http://m.lilacbbs.com/bbstcon.php?board=TeX&gid=2269
+\chapter{攻读博士/硕士学位期间取得的学术成果}%这儿的博士/硕士不好选，只能用户自己写的时候注意。
+\chapter{致谢}
+\chapter{作者简介}
 
-\chapter{常见问题}
-
-\chapter{联系我们}
 \end{document}
