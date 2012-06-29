@@ -1,7 +1,5 @@
 % !Mode:: "TeX:UTF-8"
 
-
-
 \NeedsTeXFormat{LaTeX2e}[2007/10/19]
 \ProvidesClass{buaathesis}[2010/06 1.0.0 The LaTeX template for thesis of BeiHang University]
 \typeout{Document Class `buaathesis' v1.0.0 by BHOSC (2012/06)}
@@ -24,6 +22,7 @@
 %如若需要其他的参数亦可参照如上格式写代码即可。
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessOptions\relax
@@ -77,7 +76,7 @@
 \def\buaa@category{}
 \newcommand{\category}[1]{%
     \def\buaa@category{#1}
-}%中国分类号
+}%中国分类号，可以在http://www.ztflh.com/查询
 
 \def\buaa@mibao{}
 \newcommand{\mibao}[1]{%
@@ -128,7 +127,7 @@
 \def\buaa@unicode{}
 \newcommand{\unicode}[1]{%
 	\def\buaa@unicode{#1}
-}%单位代码
+}%单位代码，北航应该为10006，但手册上说由教务老师统一填写。
 
 \def\buaa@studentID{}
 \newcommand{\studentID}[1]{%
@@ -200,11 +199,7 @@
 		\fi
 	\fi
 \fi
-
-
-
-
-%==========用户录入的信息到此完毕============
+%=============用户录入的信息到此完毕================
 
 
 %---------------------字体字号的一些设置-------------------
@@ -312,6 +307,7 @@
 %------------------------图形表格的一些设置------------------------
 \RequirePackage{graphicx}
 \DeclareGraphicsExtensions{.eps,.ps,.jpg,.bmp}
+\graphicspath{figure/}
 \RequirePackage{pifont}%这个包主要是在“秘级”后加一个五角星
 
 \RequirePackage{caption}
@@ -359,13 +355,53 @@
 
 %------------------其他一些设置---------------
 \RequirePackage{ulem}               %比较容易加入下划线\uline{}
-\newcommand{\filltable}[1]{\uline{~\hfill #1\hfill ~}} %带下划线单元格
-
+\newcommand{\CoverOption}[2]{%
+\makebox[1.5cm][c]{#1}\,{\underline{\makebox[1.5cm][c]{#2}}}
+}
+\RequirePackage{array}
 \renewcommand{\frontmatter}{        %将frontmatter页码定义为大写罗马数字
 \cleardoublepage
 \@mainmatterfalse
 \pagenumbering{Roman}
 }
+
+%-----------------代码环境定义和设置---------------
+\RequirePackage{xcolor}
+\RequirePackage{listings}
+%此宏包的设置请参考 http://bbs.ctex.org/forum.php?mod=viewthread&tid=53451
+\lstset{tabsize=4, %
+  frame=shadowbox, %把代码用带有阴影的框圈起来
+  commentstyle=\color{red!50!green!50!blue!50},%浅灰色的注释
+  rulesepcolor=\color{red!20!green!20!blue!20},%代码块边框为淡青色
+  keywordstyle=\color{blue!90}\bfseries, %代码关键字的颜色为蓝色，粗体
+  showstringspaces=false,%不显示代码字符串中间的空格标记
+  stringstyle=\ttfamily, % 代码字符串的特殊格式
+  keepspaces=true, %
+  breakindent=22pt, %
+  numbers=left,%左侧显示行号
+  stepnumber=1,%
+  numberstyle=\tiny, %行号字体用小号
+  basicstyle=\footnotesize, %
+  showspaces=false, %
+  flexiblecolumns=true, %
+  breaklines=true, %对过长的代码自动换行
+  breakautoindent=true,%
+  breakindent=4em, %
+  escapebegin=\begin{CJK*}{GBK}{kai},escapeend=\end{CJK*},
+  aboveskip=1em, %代码块边框
+  fontadjust,
+  captionpos=t,
+  framextopmargin=2pt,framexbottommargin=2pt,abovecaptionskip=-3pt,belowcaptionskip=3pt,
+  xleftmargin=4em,xrightmargin=4em, % 设定listing左右的空白
+  texcl=true,
+  % 设定中文冲突，断行，列模式，数学环境输入，listing数字的样式
+  extendedchars=false,columns=flexible,mathescape=true
+  % numbersep=-1em
+}
+\renewcommand{\lstlistingname}{代码} %% 重命名Listings标题头
+
+
+
 
 
 
@@ -374,12 +410,28 @@
 %
 \newcommand{\titlech}{
 \ifbuaa@bachelor
-
 \thispagestyle{empty}
-%首页搞不定！真DT！
-\vspace{5cm}
-\centerline{\zihao{1}\heiti 本科生\buaa@thesistitle}
 
+
+%\begin{tabluar}{cc}
+%	\CoverOption{单位代码}{~~}\\
+%	\CoverOption{学\qquad 号}{\buaa@studentID}\\
+%	\CoverOption{分\,\,\,类\,\,\,号}{\buaa@category}\\
+%	\CoverOption{密\qquad 级}{\buaa@mibao}\\%本科生切勿填写此项！
+%	%coveroption在“其他一些设置”里有定义，为一个带下划线的盒子。
+%\end{tabluar}
+
+%\begin{picture}(-50,-50)
+%	\includegraphics[width=90pt]{figure/buaamark.eps}
+%\end{picture}
+
+\vspace*{7cm}
+
+\newline
+这里是标题\newline
+\vspace{3ex}
+
+\centerline{\today}
 \else
 
 %------研究生论文首页---------
