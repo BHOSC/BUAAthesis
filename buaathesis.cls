@@ -8,11 +8,13 @@
 \newif\ifbuaa@master\buaa@mastertrue
 \newif\ifbuaa@engineer\buaa@engineerfalse
 \newif\ifbuaa@doctor\buaa@doctorfalse
+\newif\ifbuaa@nocolor\buaa@nocolorfalse
 
 \DeclareOption{bachelor}{\buaa@bachelortrue}
 \DeclareOption{master}{\buaa@mastertrue}
 \DeclareOption{engineer}{\buaa@engineertrue}
 \DeclareOption{doctor}{\buaa@doctortrue}
+\DeclareOption{nocolor}{\buaa@nocolortrue}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -205,12 +207,17 @@
 %---------------------字体字号的一些设置-------------------
 %   设置主要字体为Times New Roman和宋体
 %   研究生论文的首页需要华文行楷和32号字
-%   其余的都可以用ctex自带的
+%   其余的都可以用ctex自带的，貌似不能使用隶书和幼圆字体
+%   此两个字体有问题，需要重新定义
 %----------------------------------------------------------
 \setmainfont{Times New Roman}
 \setCJKmainfont{宋体}
 \setCJKfamilyfont{hwxingkai}{STXingkai}
 \newcommand{\hwxingkai}{\CJKfamily{hwxingkai}}
+\setCJKfamilyfont{you}{YouYuan}
+\newcommand*{\youyuan}{\CJKfamily{you}}
+\setCJKfamilyfont{li}{LiSu}
+\newcommand*{\lishu}{\CJKfamily{li}}
 \newcommand{\xiaochuhao}{\fontsize{32pt}{\baselineskip}\selectfont}
 
 
@@ -286,14 +293,22 @@
 \fi
 %-------------------交叉引用和参考文献整理---------------------
 \RequirePackage[xetex,unicode,
-				bookmarksnumbered,colorlinks,
-				linkcolor=blue,citecolor=blue,
-				urlcolor=blue,
-				filecolor=black,
+				bookmarksnumbered,
 				bookmarksopen]{hyperref}
+	\ifbuaa@nocolor
+		\hypersetup{colorlinks=false}
+	\else
+		\hypersetup{colorlinks=true}
+	\fi
+	\hypersetup{
+		linkcolor=blue,
+		citecolor=blue,
+		urlcolor=blue,
+		filecolor=black
+	}
 	\hypersetup{%
 				pdftitle=BUAA thesis,
-				pdfauthor={\buaa@thesisauthor },%这个pdf作者项设置有问题？编译结果一直不对！
+				%pdfauthor={\buaa@thesisauthor },%这个pdf作者项设置有问题？编译结果一直不对！
 				pdfsubject={北航-\buaa@appdegree 论文},
 				pdfcreator={LaTeXed~By~BHOSC}
 				}
@@ -342,10 +357,19 @@
 \renewcommand{\baselinestretch}{1.5}
 \setlength{\parindent}{2em}
 %\setlength{\parskip}{3pt plus1pt minus1pt}          %段落间距离，是否需要？
-\setlength{\itemsep}{3pt plus1pt minus2pt}          % 连续items之间的距离.
+%\setlength{\itemsep}{3pt plus1pt minus2pt}          % 连续items之间的距离.
+\setlength{\itemsep}{0pt}
 \setlength{\floatsep}{10pt plus 3pt minus 2pt}      % 图形之间或图形与正文之间的距离
 \setlength{\abovecaptionskip}{2pt plus1pt minus1pt} % 图形中的图与标题之间的距离
 \setlength{\belowcaptionskip}{3pt plus1pt minus2pt} % 表格中的表与标题之间的距离
+
+%-----------------定义item及间距---------------
+\RequirePackage{enumitem}
+\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+%注：使用上面的代码并未能改变item之间的间距，原因未知
+%更多关于间距的设置请见http://blog.sina.com.cn/s/blog_5e16f1770100gdhm.html
 
 %==================若干标题的汉化================%
 \renewcommand{\contentsname}{目\qquad 录}
@@ -365,15 +389,42 @@
 \pagenumbering{Roman}
 }
 
+
+
+
+
 %-----------------代码环境定义和设置---------------
 \RequirePackage{xcolor}
 \RequirePackage{listings}
 %此宏包的设置请参考 http://bbs.ctex.org/forum.php?mod=viewthread&tid=53451
+\ifbuaa@nocolor
+	\lstset{
+		commentstyle=\color{black!100},%浅灰色的注释
+		rulesepcolor=\color{black!100},%代码块边框为淡青色
+		keywordstyle=\color{black!100}\bfseries, %代码关键字的颜色为蓝色，粗体	
+	}
+\else
+	\lstset{
+		commentstyle=\color{red!50!green!50!blue!50},%浅灰色的注释
+		rulesepcolor=\color{red!20!green!20!blue!20},%代码块边框为淡青色
+		keywordstyle=\color{blue!90}\bfseries, %代码关键字的颜色为蓝色，粗体	
+	}
+\fi
+
+\lstdefinelanguage{LaTeX}{
+	morekeywords={%
+	documentclass,begin,end,maketitle,tableofcontent,include,%
+	usepackage,par,chapter,section,subsection,%
+	hspace,vspace,quad,qquad,frontmatter,mainmatter,backmatter,%
+	clearpage,cleardoublepage,appendix,item,upcite,url},
+	otherkeywords={},
+	sensitive=true
+}
+
+
+
 \lstset{tabsize=4, %
   frame=shadowbox, %把代码用带有阴影的框圈起来
-  commentstyle=\color{red!50!green!50!blue!50},%浅灰色的注释
-  rulesepcolor=\color{red!20!green!20!blue!20},%代码块边框为淡青色
-  keywordstyle=\color{blue!90}\bfseries, %代码关键字的颜色为蓝色，粗体
   showstringspaces=false,%不显示代码字符串中间的空格标记
   stringstyle=\ttfamily, % 代码字符串的特殊格式
   keepspaces=true, %
@@ -476,6 +527,7 @@
 	\end{minipage}
 	~~~\\
 	\vspace{\stretch{2}}
+	~~~\\
 	\zihao{4}A Dissertation Submitted for the Degree of \buaa@appdegreeeng\\
 	\vspace{\stretch{4}}
 	\zihao{-3}
@@ -658,7 +710,13 @@
 {\bf\zihao{-4} Key words: }\buaa@ekeyword
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%---      以下是写用户手册时需要用到的一新命令     ---
+%---      可根据需要放到发行的模板中               ---
 
+\setCJKfamilyfont{fangqingke}{FZQingKeBenYueSongS-R-GB}
+\newcommand{\fzqingke}{\CJKfamily{fangqingke}}
+%使用本地的一个方正清刻本字体，个人觉得挺不错的一款字体
 
 
 
