@@ -1,8 +1,8 @@
 % !Mode:: "TeX:UTF-8"
 
 \NeedsTeXFormat{LaTeX2e}[2007/10/19]
-\ProvidesClass{buaathesis}[2010/06 1.0.0 The LaTeX template for thesis of BeiHang University]
-\typeout{Document Class `buaathesis' v1.0.0 by BHOSC (2012/06)}
+\ProvidesClass{buaathesis}[2012/07 0.9.0 The LaTeX template for thesis of BeiHang University]
+\typeout{Document Class `buaathesis' v0.9.0 by BHOSC (2012/07)}
 
 \newif\ifbuaa@bachelor\buaa@bachelorfalse
 \newif\ifbuaa@master\buaa@mastertrue
@@ -24,7 +24,6 @@
 %如若需要其他的参数亦可参照如上格式写代码即可。
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessOptions\relax
@@ -203,7 +202,6 @@
 \fi
 %=============用户录入的信息到此完毕================
 
-
 %---------------------字体字号的一些设置-------------------
 %   设置主要字体为Times New Roman和宋体
 %   研究生论文的首页需要华文行楷和32号字
@@ -219,7 +217,6 @@
 \setCJKfamilyfont{li}{LiSu}
 \newcommand*{\lishu}{\CJKfamily{li}}
 \newcommand{\xiaochuhao}{\fontsize{32pt}{\baselineskip}\selectfont}
-
 
 %--------------------页面、页眉页脚的设置（具体间距还有待修正）-----------------------
 \RequirePackage[top=3cm,bottom=2.5cm,left=3cm,right=2cm]{geometry}
@@ -389,25 +386,21 @@
 \pagenumbering{Roman}
 }
 
-
-
-
-
 %-----------------代码环境定义和设置---------------
 \RequirePackage{xcolor}
 \RequirePackage{listings}
 %此宏包的设置请参考 http://bbs.ctex.org/forum.php?mod=viewthread&tid=53451
 \ifbuaa@nocolor
 	\lstset{
-		commentstyle=\color{black!100},%浅灰色的注释
-		rulesepcolor=\color{black!100},%代码块边框为淡青色
-		keywordstyle=\color{black!100}\bfseries, %代码关键字的颜色为蓝色，粗体	
+		commentstyle=\color{black!100},%黑色的注释
+		rulesepcolor=\color{black!100},%代码块边框为黑色
+		keywordstyle=\color{black!100}\bfseries, %代码关键字的颜色为黑色，粗体
 	}
 \else
 	\lstset{
 		commentstyle=\color{red!50!green!50!blue!50},%浅灰色的注释
 		rulesepcolor=\color{red!20!green!20!blue!20},%代码块边框为淡青色
-		keywordstyle=\color{blue!90}\bfseries, %代码关键字的颜色为蓝色，粗体	
+		keywordstyle=\color{blue!90}\bfseries, %代码关键字的颜色为蓝色，粗体
 	}
 \fi
 
@@ -420,8 +413,6 @@
 	otherkeywords={},
 	sensitive=true
 }
-
-
 
 \lstset{tabsize=4, %
   frame=shadowbox, %把代码用带有阴影的框圈起来
@@ -451,18 +442,11 @@
 }
 \renewcommand{\lstlistingname}{代码} %% 重命名Listings标题头
 
-
-
-
-
-
-
 %++++++++++++++++++设置首页+++++++++++++++++++
 %
 \newcommand{\titlech}{
 \ifbuaa@bachelor
 \thispagestyle{empty}
-
 
 %\begin{tabluar}{cc}
 %	\CoverOption{单位代码}{~~}\\
@@ -596,6 +580,7 @@
 	学位授予单位 & \buaa@university &学位授予日期 &\buaa@awardyear~~年~~\buaa@awardmonth~~月~~\buaa@awardday~~日~\qquad\\
 \end{tabular}
 }
+
 %+++++++++++研究生独创声明和使用授权书++++++++++++++
 \newcommand{\creationanduse}{%
 \clearemptydoublepage
@@ -627,14 +612,10 @@
 指导教师签名：\uline{\hspace{8em}}\hspace{8em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日}
 }
 
-
-
-
-
 \renewcommand{\maketitle}{%
 \titlech
 \ifbuaa@bachelor
-%此处应该加入任务书
+        % TODO(huxuan): 此处应该加入任务书
 	\clearemptydoublepage
 	\frontmatter
 	\announce
@@ -717,12 +698,3 @@
 \setCJKfamilyfont{fangqingke}{FZQingKeBenYueSongS-R-GB}
 \newcommand{\fzqingke}{\CJKfamily{fangqingke}}
 %使用本地的一个方正清刻本字体，个人觉得挺不错的一款字体
-
-
-
-
-
-
-
-
-
