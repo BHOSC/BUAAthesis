@@ -129,7 +129,7 @@
 \def\buaa@unicode{}
 \newcommand{\unicode}[1]{%
 	\def\buaa@unicode{#1}
-}
+}%单位代码，北航应该为10006，但手册上说由教务老师统一填写。
 
 \def\buaa@studentID{}
 \newcommand{\studentID}[1]{%
@@ -222,24 +222,7 @@
 
 
 %--------------------页面、页眉页脚的设置（具体间距还有待修正）-----------------------
-\RequirePackage{geometry}
-\newgeometry{top=30mm,bottom=25mm,left=30mm,right=20mm}
-%%学位论文的上边距：30mm；下边距：25mm；左边距：30mm；右边距：20mm；
-\savegeometry{bachelorgeometry}
-\newgeometry{
-	top=25mm,bottom=25mm,left=30mm,right=20mm,
-	headsep=5mm,headheight=10mm,footskip=10mm}
-%学位论文的上边距：25mm；下边距：25mm；左边距：30mm；右边距：20mm；
-%页眉都用小五号宋体字，页眉的上边距为15mm；页脚的下边距为15mm。
-%按照上面的设置，个人觉得基本符合要求。
-\savegeometry{mastergeometry}
-
-\ifbuaa@bachelor
-	\loadgeometry{bachelorgeometry}
-\else
-	\loadgeometry{mastergeometry}
-\fi
-
+\RequirePackage[top=3cm,bottom=2.5cm,left=3cm,right=2cm]{geometry}
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhead{}
@@ -261,8 +244,9 @@
 \renewcommand{\headrulewidth}{0.5bp} %页眉线宽度
 \ifbuaa@bachelor
 	\setlength{\headsep}{45bp}
+\else
+	\setlength{\headsep}{5mm}
 \fi
-
 \newcommand{\clearemptydoublepage}{%
 \clearpage
 \if@twoside
@@ -275,7 +259,6 @@
 		\fi
 	\fi
 \fi}
-%这个clearemptydoublepage我也不知道怎么设置，这一段是从网上找的，基本能用。
 
 %---------------------------文章中标题的格式设置--------------------------%
 \usepackage{titlesec,titletoc}
@@ -324,17 +307,18 @@
 		filecolor=black
 	}
 	\hypersetup{%
-		pdftitle=BUAA thesis,
-		%pdfauthor={\buaa@thesisauthor },%这个pdf作者项设置有问题？编译结果一直不对！
-		pdfsubject={北航-\buaa@appdegree 论文},
-		pdfcreator={LaTeXed~By~BHOSC}}
-				
+				pdftitle=BUAA thesis,
+				%pdfauthor={\buaa@thesisauthor },%这个pdf作者项设置有问题？编译结果一直不对！
+				pdfsubject={北航-\buaa@appdegree 论文},
+				pdfcreator={LaTeXed~By~BHOSC}
+				}
+
 \RequirePackage[sort&compress]{natbib}
 	\bibpunct{[}{]}{,}{n}{}{}
 \RequirePackage{hypernat}
 	\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
-%上面四行代码是06版中的，我也不懂，但使用上没有问题。
-	
+    %上面四行代码是06版中的，我也不懂，但使用上没有问题。
+
 %------------------------图形表格的一些设置------------------------
 \RequirePackage{graphicx}
 \DeclareGraphicsExtensions{.eps,.ps,.jpg,.bmp}
@@ -365,6 +349,8 @@
 	\renewcommand{\thetable}{\arabic{table}}
 	\renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
 \fi
+	\renewcommand{\figurename}{图}
+	\renewcommand{\tablename}{表}
 
 
 %---------------------间距的一些设置--------------------
@@ -390,9 +376,6 @@
 \renewcommand\listfigurename{插\ 图\ 目\ 录}
 \renewcommand\listtablename{表\ 格\ 目\ 录}
 \renewcommand\bibname{参\ 考\ 文\ 献}
-\renewcommand{\figurename}{图}
-\renewcommand{\tablename}{表}
-
 
 %------------------其他一些设置---------------
 \RequirePackage{ulem}               %比较容易加入下划线\uline{}
@@ -406,7 +389,7 @@
 \pagenumbering{Roman}
 }
 
-\RequirePackage{setspace}          %用此包来设置行距
+
 
 
 
@@ -496,7 +479,7 @@
 \vspace*{7cm}
 
 \newline
-\centerline{这里是标题}\newline
+这里是标题\newline
 \vspace{3ex}
 
 \centerline{\today}
@@ -513,15 +496,15 @@
 		\end{flushleft}
 		\vspace{5em}
 		\includegraphics[width=.55\textwidth]{figure/buaaname.eps}\\
-		\vskip20bp
+		\vspace{3mm}
 		\zihao{0}\hwxingkai\centerline{\buaa@appdegree 论文}
-		\vskip 25mm
-		\begin{minipage}[h]{.8\textwidth}
-			\begin{spacing}{1.5}
+		\vspace{1em}%此处用绝对距离更好些？
+		\begin{minipage}[h]{.85\textwidth}
 			\xiaochuhao\songti\centering{\buaa@thesistitle}
-			\end{spacing}
-		\end{minipage}
-		\vfill
+		\end{minipage}   
+		\vspace{\stretch{1}}
+	%这个橡皮长度很容易出bug(下面的空白行删除的话就会有bug)啊！如果可以的话还是不要用这种方式好了~
+
 		\heiti\zihao{4}
 		\begin{tabular}[b]{ll}
 			作\,者\,姓\,名~~ & \buaa@thesisauthor \\
@@ -531,7 +514,6 @@
 		\end{tabular}
 	\end{center}
 \end{titlepage}
-
 \fi
 }
 
@@ -732,10 +714,9 @@
 %---      以下是写用户手册时需要用到的一新命令     ---
 %---      可根据需要放到发行的模板中               ---
 
-%\setCJKfamilyfont{fangqingke}{FZQingKeBenYueSongS-R-GB}
-%\newcommand{\fzqingke}{\CJKfamily{fangqingke}}
+\setCJKfamilyfont{fangqingke}{FZQingKeBenYueSongS-R-GB}
+\newcommand{\fzqingke}{\CJKfamily{fangqingke}}
 %使用本地的一个方正清刻本字体，个人觉得挺不错的一款字体
-
 
 
 
