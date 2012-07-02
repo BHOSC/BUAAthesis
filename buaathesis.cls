@@ -662,12 +662,6 @@
     \def\buaa@bachelor@assign@ref@seven{#7}
     \def\buaa@bachelor@assign@ref@eight{#8}
 } % 参考文献
-\def\buaa@bachelor@assign@partutor@one{}
-\def\buaa@bachelor@assign@partutor@two{}
-\newcommand{\assignPartutor}[2]{
-    \def\buaa@bachelor@assign@partutor@one{#1}
-    \def\buaa@bachelor@assign@partutor@two{#2}
-} % 兼职教师
 \def\buaa@bachelor@assign@school{}
 \newcommand{\assignSchool}[1]{
     \def\buaa@bachelor@assign@school{#1}
@@ -680,10 +674,6 @@
 \newcommand{\assignClass}[1]{
     \def\buaa@bachelor@assign@class{#1}
 } % 班级
-\def\buaa@bachelor@assign@dep{}
-\newcommand{\assignDep}[1]{
-    \def\buaa@bachelor@assign@dep{#1}
-} % 系
 \def\buaa@bachelor@assign{
     \newpage
     \pagestyle{empty}
@@ -736,11 +726,11 @@
         毕业设计(论文)时间：\ulinec[.1]{\buaa@thesisbeginyear}年\ulinec[.06]{\buaa@thesisbeginmonth}月\ulinec[.06]{\buaa@thesisbeginday}日至\ulinec[.1]{\buaa@thesisendyear}年\ulinec[.06]{\buaa@thesisendmonth}月\ulinec[.06]{\buaa@thesisendday}日 \\
         答辩时间：\ulinec[.16]{\buaa@defenseyear}年\ulinec[.08]{\buaa@defensemonth}月\ulinec[.08]{\buaa@defenseday}日 \\
         成\qquad 绩：\ulinec[.3]{} \\
-        指导教师：\ulinec[.3]{\buaa@teacher} \\
+        指导教师：\ulinec[.3]{} \\
         兼职教师或答疑教师（并指出所负责部分）\\
-        \ulinel{\buaa@bachelor@assign@partutor@one}
-        \ulinel{\buaa@bachelor@assign@partutor@two}
-        \ulinec[.3]{\buaa@bachelor@assign@dep}系（教研室） 主任（签字）：\ulinec[.3]{} \\
+        \ulinel{}
+        \ulinel{}
+        \ulinec[.3]{}系（教研室） 主任（签字）：\ulinec[.3]{} \\
         ~ \\
         注：任务书应该附在已完成的毕业设计（论文）的首页。
     }
