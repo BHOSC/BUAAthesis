@@ -28,7 +28,7 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessOptions\relax
 \LoadClass[cs4size,a4paper,fancyhdr]{ctexbook}[2007/10/19]
-\bibliographystyle{BUAAbibsty}%参考文献格式
+\bibliographystyle{buaabibsty}%参考文献格式
 
 %===============需要用户输入的信息==================
 \def\buaa@university{北京航空航天大学}
@@ -128,7 +128,7 @@
 \def\buaa@unicode{}
 \newcommand{\unicode}[1]{%
 	\def\buaa@unicode{#1}
-}
+}%单位代码
 
 \def\buaa@studentID{}
 \newcommand{\studentID}[1]{%
