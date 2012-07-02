@@ -27,7 +27,7 @@
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessOptions\relax
-\LoadClass[cs4size,a4paper,fancyhdr]{ctexbook}[2007/10/19]
+\LoadClass[cs4size,a4paper,fancyhdr,adobefonts]{ctexbook}[2007/10/19]
 \bibliographystyle{buaathesis}%参考文献格式
 
 %===============需要用户输入的信息==================
