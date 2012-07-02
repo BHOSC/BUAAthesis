@@ -461,8 +461,7 @@
 %\end{picture}
 
 \vspace*{7cm}
-
-\newline
+~\newline
 这里是标题\newline
 \vspace{3ex}
 
