@@ -27,7 +27,7 @@
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessOptions\relax
-\LoadClass[cs4size,a4paper,fancyhdr]{ctexbook}[2007/10/19]
+\LoadClass[cs4size,a4paper,fancyhdr,adobefonts]{ctexbook}[2007/10/19]
 \bibliographystyle{buaathesis}%参考文献格式
 
 %===============需要用户输入的信息==================
@@ -461,8 +461,7 @@
 %\end{picture}
 
 \vspace*{7cm}
-
-\newline
+~\newline
 这里是标题\newline
 \vspace{3ex}
 
@@ -612,10 +611,146 @@
 指导教师签名：\uline{\hspace{8em}}\hspace{8em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日}
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 本科生任务书
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ulinel}[2][]{\uline{\makebox[#1\textwidth][l]{#2}}} % 文字左对齐的下划线
+\newcommand{\ulinec}[2][]{\uline{\makebox[#1\textwidth][c]{#2}}} % 文字居中的下划线
+\newcounter{assign} % 任务书条目序号
+\def\buaa@bachelor@assign@req@one{}
+\def\buaa@bachelor@assign@req@two{}
+\def\buaa@bachelor@assign@req@three{}
+\def\buaa@bachelor@assign@req@four{}
+\def\buaa@bachelor@assign@req@five{}
+\newcommand{\assignReq}[5]{
+    \def\buaa@bachelor@assign@req@one{#1}
+    \def\buaa@bachelor@assign@req@two{#2}
+    \def\buaa@bachelor@assign@req@three{#3}
+    \def\buaa@bachelor@assign@req@four{#4}
+    \def\buaa@bachelor@assign@req@five{#5}
+} % 原始资料及设计要求
+\def\buaa@bachelor@assign@work@one{}
+\def\buaa@bachelor@assign@work@two{}
+\def\buaa@bachelor@assign@work@three{}
+\def\buaa@bachelor@assign@work@four{}
+\def\buaa@bachelor@assign@work@five{}
+\def\buaa@bachelor@assign@work@six{}
+\newcommand{\assignWork}[6]{
+    \def\buaa@bachelor@assign@work@one{#1}
+    \def\buaa@bachelor@assign@work@two{#2}
+    \def\buaa@bachelor@assign@work@three{#3}
+    \def\buaa@bachelor@assign@work@four{#4}
+    \def\buaa@bachelor@assign@work@five{#5}
+    \def\buaa@bachelor@assign@work@six{#6}
+} % 工作内容
+\def\buaa@bachelor@assign@ref@one{}
+\def\buaa@bachelor@assign@ref@two{}
+\def\buaa@bachelor@assign@ref@three{}
+\def\buaa@bachelor@assign@ref@four{}
+\def\buaa@bachelor@assign@ref@five{}
+\def\buaa@bachelor@assign@ref@six{}
+\def\buaa@bachelor@assign@ref@seven{}
+\def\buaa@bachelor@assign@ref@eight{}
+\newcommand{\assignRef}[8]{
+    \def\buaa@bachelor@assign@ref@one{#1}
+    \def\buaa@bachelor@assign@ref@two{#2}
+    \def\buaa@bachelor@assign@ref@three{#3}
+    \def\buaa@bachelor@assign@ref@four{#4}
+    \def\buaa@bachelor@assign@ref@five{#5}
+    \def\buaa@bachelor@assign@ref@six{#6}
+    \def\buaa@bachelor@assign@ref@seven{#7}
+    \def\buaa@bachelor@assign@ref@eight{#8}
+} % 参考文献
+\def\buaa@bachelor@assign@partutor@one{}
+\def\buaa@bachelor@assign@partutor@two{}
+\newcommand{\assignPartutor}[2]{
+    \def\buaa@bachelor@assign@partutor@one{#1}
+    \def\buaa@bachelor@assign@partutor@two{#2}
+} % 兼职教师
+\def\buaa@bachelor@assign@school{}
+\newcommand{\assignSchool}[1]{
+    \def\buaa@bachelor@assign@school{#1}
+} % 学院
+\def\buaa@bachelor@assign@major{}
+\newcommand{\assignMajor}[1]{
+    \def\buaa@bachelor@assign@major{#1}
+} % 专业
+\def\buaa@bachelor@assign@class{}
+\newcommand{\assignClass}[1]{
+    \def\buaa@bachelor@assign@class{#1}
+} % 班级
+\def\buaa@bachelor@assign@dep{}
+\newcommand{\assignDep}[1]{
+    \def\buaa@bachelor@assign@dep{#1}
+} % 系
+\def\buaa@bachelor@assign{
+    \newpage
+    \pagestyle{empty}
+    \CTEXnoindent
+    \linespread{2}
+    \zihao{2}{
+        {
+            \renewcommand{\CJKglue}{\hskip 1pt}
+            \centerline{\hwxingkai{北京航空航天大学}}
+        }
+        {
+            \renewcommand{\CJKglue}{\hskip 1.2pt}
+            \centerline{本科生毕业设计（论文）任务书}
+        }
+    }
+    \zihao{4}{
+        \stepcounter{assign}
+        \Roman{assign}、毕业设计（论文）题目： \\
+        \ulinel{\buaa@thesistitle}
+        \ulinel{}
+        \ulinel{}
+        \stepcounter{assign}
+        \Roman{assign}、毕业设计（论文）使用的原始资料（数据）及设计技术要求： \\
+        \ulinel{\buaa@bachelor@assign@req@one}
+        \ulinel{\buaa@bachelor@assign@req@two}
+        \ulinel{\buaa@bachelor@assign@req@three}
+        \ulinel{\buaa@bachelor@assign@req@four}
+        \ulinel{\buaa@bachelor@assign@req@five}
+        \stepcounter{assign}
+        \Roman{assign}、毕业设计（论文）工作内容： \\
+        \ulinel{\buaa@bachelor@assign@work@one}
+        \ulinel{\buaa@bachelor@assign@work@two}
+        \ulinel{\buaa@bachelor@assign@work@three}
+        \ulinel{\buaa@bachelor@assign@work@four}
+        \ulinel{\buaa@bachelor@assign@work@five}
+        \ulinel{\buaa@bachelor@assign@work@six}
+        \newpage
+        \stepcounter{assign}
+        \Roman{assign}、主要参考资料： \\
+        \ulinel{\buaa@bachelor@assign@ref@one}
+        \ulinel{\buaa@bachelor@assign@ref@two}
+        \ulinel{\buaa@bachelor@assign@ref@three}
+        \ulinel{\buaa@bachelor@assign@ref@four}
+        \ulinel{\buaa@bachelor@assign@ref@five}
+        \ulinel{\buaa@bachelor@assign@ref@six}
+        \ulinel{\buaa@bachelor@assign@ref@seven}
+        \ulinel{\buaa@bachelor@assign@ref@eight}
+        \ulinec[.3]{\buaa@bachelor@assign@school}学院\ulinec[.35]{\buaa@bachelor@assign@major}专业\ulinec[.18]{\buaa@bachelor@assign@class}班 \\
+        学生\ulinec[.3]{\buaa@thesisauthor} \\
+        毕业设计(论文)时间：\ulinec[.1]{\buaa@thesisbeginyear}年\ulinec[.06]{\buaa@thesisbeginmonth}月\ulinec[.06]{\buaa@thesisbeginday}日至\ulinec[.1]{\buaa@thesisendyear}年\ulinec[.06]{\buaa@thesisendmonth}月\ulinec[.06]{\buaa@thesisendday}日 \\
+        答辩时间：\ulinec[.16]{\buaa@defenseyear}年\ulinec[.08]{\buaa@defensemonth}月\ulinec[.08]{\buaa@defenseday}日 \\
+        成\qquad 绩：\ulinec[.3]{} \\
+        指导教师：\ulinec[.3]{\buaa@teacher} \\
+        兼职教师或答疑教师（并指出所负责部分）\\
+        \ulinel{\buaa@bachelor@assign@partutor@one}
+        \ulinel{\buaa@bachelor@assign@partutor@two}
+        \ulinec[.3]{\buaa@bachelor@assign@dep}系（教研室） 主任（签字）：\ulinec[.3]{} \\
+        ~ \\
+        注：任务书应该附在已完成的毕业设计（论文）的首页。
+    }
+    \CTEXindent
+}
+
+% 首页重定义
 \renewcommand{\maketitle}{%
 \titlech
 \ifbuaa@bachelor
-        % TODO(huxuan): 此处应该加入任务书
+        \buaa@bachelor@assign
 	\clearemptydoublepage
 	\frontmatter
 	\announce
