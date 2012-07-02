@@ -509,9 +509,9 @@
 		\heiti\zihao{4}
 		\begin{tabular}[b]{ll}
 			作\,者\,姓\,名~~ & \buaa@thesisauthor \\
-			学\,科\,专\,业~~ & \buaa@major \\
+			学\,科\,专\,业~~ & \buaa@major 专业\\
 			指\,导\,教\,师~~ & \buaa@teacher \\
-			培\,养\,院\,系~~ & \buaa@school \\
+			培\,养\,院\,系~~ & \buaa@school 学院\\
 		\end{tabular}
 	\end{center}
 \end{titlepage}
@@ -679,21 +679,24 @@
     \def\buaa@bachelor@assign@ref@seven{#7}
     \def\buaa@bachelor@assign@ref@eight{#8}
 } % 参考文献
-\def\buaa@bachelor@assign@school{}
-\newcommand{\assignSchool}[1]{
-    \def\buaa@bachelor@assign@school{#1}
-} % 学院
-\def\buaa@bachelor@assign@major{}
-\newcommand{\assignMajor}[1]{
-    \def\buaa@bachelor@assign@major{#1}
-} % 专业
-\def\buaa@bachelor@assign@class{}
-\newcommand{\assignClass}[1]{
-    \def\buaa@bachelor@assign@class{#1}
-} % 班级
+%\def\buaa@bachelor@assign@school{}
+%\newcommand{\assignSchool}[1]{
+%    \def\buaa@bachelor@assign@school{#1}
+%} % 学院
+%彭勇注：已经将前面的使用\buaa@school的地方更正，此处用buaa@school即可
+%\def\buaa@bachelor@assign@major{}
+%\newcommand{\assignMajor}[1]{
+%    \def\buaa@bachelor@assign@major{#1}
+%} % 专业
+%同理此得可使用buaa@major
+%\def\buaa@bachelor@assign@class{}
+%\newcommand{\assignClass}[1]{
+%    \def\buaa@bachelor@assign@class{#1}
+%} % 班级
+%同理此处可用buaa@class
 \def\buaa@bachelor@assign{
     \newpage
-    \pagestyle{empty}
+    \thispagestyle{empty}
     \CTEXnoindent
     \linespread{2}
     \zihao{2}{
@@ -728,6 +731,7 @@
         \ulinel{\buaa@bachelor@assign@work@five}
         \ulinel{\buaa@bachelor@assign@work@six}
         \newpage
+		\thispagestyle{empty}
         \stepcounter{assign}
         \Roman{assign}、主要参考资料： \\
         \ulinel{\buaa@bachelor@assign@ref@one}
@@ -738,17 +742,17 @@
         \ulinel{\buaa@bachelor@assign@ref@six}
         \ulinel{\buaa@bachelor@assign@ref@seven}
         \ulinel{\buaa@bachelor@assign@ref@eight}
-        \ulinec[.3]{\buaa@bachelor@assign@school}学院\ulinec[.35]{\buaa@bachelor@assign@major}专业\ulinec[.18]{\buaa@bachelor@assign@class}班 \\
+        \ulinec[.28]{\buaa@school}学院\ulinec[.28]{\buaa@major}~专业类~\ulinec[.15]{\buaa@class}班 \\
         学生\ulinec[.3]{\buaa@thesisauthor} \\
-        毕业设计(论文)时间：\ulinec[.1]{\buaa@thesisbeginyear}年\ulinec[.06]{\buaa@thesisbeginmonth}月\ulinec[.06]{\buaa@thesisbeginday}日至\ulinec[.1]{\buaa@thesisendyear}年\ulinec[.06]{\buaa@thesisendmonth}月\ulinec[.06]{\buaa@thesisendday}日 \\
+        毕业设计(论文)时间：~~\ulinec[.1]{\buaa@thesisbeginyear}年\ulinec[.06]{\buaa@thesisbeginmonth}月\ulinec[.06]{\buaa@thesisbeginday}日至\ulinec[.1]{\buaa@thesisendyear}年\ulinec[.06]{\buaa@thesisendmonth}月\ulinec[.06]{\buaa@thesisendday}日 \\
         答辩时间：\ulinec[.16]{\buaa@defenseyear}年\ulinec[.08]{\buaa@defensemonth}月\ulinec[.08]{\buaa@defenseday}日 \\
         成\qquad 绩：\ulinec[.3]{} \\
         指导教师：\ulinec[.3]{} \\
-        兼职教师或答疑教师（并指出所负责部分）\\
+        兼职教师或答疑教师（并指出所负责部分）：\\
         \ulinel{}
         \ulinel{}
-        \ulinec[.33]{}系（教研室） 主任（签字）：\ulinec[.3]{} \\
-        ~ \\
+        \ulinec[.28]{}系（教研室） 主任（签字）：\ulinec[.28]{} \\
+        \vfill
         注：任务书应该附在已完成的毕业设计（论文）的首页。
     }
     \CTEXindent
@@ -758,11 +762,11 @@
 \renewcommand{\maketitle}{%
 \titlech
 \ifbuaa@bachelor
-<<<<<<< HEAD
+%<<<<<<< HEAD
 	% TODO(huxuan): %此处应该加入任务书
-=======
+%=======
         \buaa@bachelor@assign
->>>>>>> upstream/master
+%>>>>>>> upstream/master
 	\clearemptydoublepage
 	\frontmatter
 	\announce
