@@ -212,10 +212,6 @@
 \setCJKmainfont{宋体}
 \setCJKfamilyfont{hwxingkai}{STXingkai}
 \newcommand{\hwxingkai}{\CJKfamily{hwxingkai}}
-\setCJKfamilyfont{you}{YouYuan}
-\newcommand*{\youyuan}{\CJKfamily{you}}
-\setCJKfamilyfont{li}{LiSu}
-\newcommand*{\lishu}{\CJKfamily{li}}
 \newcommand{\xiaochuhao}{\fontsize{32pt}{\baselineskip}\selectfont}
 
 %--------------------页面、页眉页脚的设置（具体间距还有待修正）-----------------------
@@ -819,7 +815,3 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %---      以下是写用户手册时需要用到的一新命令     ---
 %---      可根据需要放到发行的模板中               ---
-
-\setCJKfamilyfont{fangqingke}{FZQingKeBenYueSongS-R-GB}
-\newcommand{\fzqingke}{\CJKfamily{fangqingke}}
-%使用本地的一个方正清刻本字体，个人觉得挺不错的一款字体
