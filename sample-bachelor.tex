@@ -1,13 +1,13 @@
 % !Mode:: "TeX:UTF-8"
-\documentclass[bachelor,openany,onside]{buaathesis}
+\documentclass[bachelor,openany,oneside]{buaathesis}
 %-------------------------------------------
 %------        用户公共信息            -------
 \thesisauthor{张三}{ZhangSan}
 \thesistitle{基于Texlive的北航毕设论文模板设计}{How to design the BUAA-thesis with \LaTeX{}}
-\school{二逼青年学院}{The School of 2B}
-\major{吊丝专业}{DiaoSi}%专业
+\school{二逼青年}{The School of 2B}%i怕不怕
+\major{吊丝}{DiaoSi}%专业
 \teacher{王小五}{Wang Xiaowu}
-\category{TP312}%中图分类号
+\category{TP312}%中图分类号，可以在http://www.ztflh.com/查询
 \mibao{不涉密}%本科生此项必须写“不涉密”或为空
 \thesisbegin{2011}{1}{1}%本科生为毕设开始时间；研究生为学习开始时间
 \thesisend{2012}{2}{2}%本科生为毕设结束时间；研究生为学习结束时间
@@ -22,13 +22,10 @@
 \thesisdate{2012}{6} % 论文时间，用于首页
 \include{file/assign} % 导入任务书内容
 
-
 \begin{document}
 \maketitle
 \include{file/abstract}
 \tableofcontents
-\listoffigures
-\listoftables
 
 \mainmatter
 \include{file/chapter1-jianjie}	
@@ -37,19 +34,19 @@
 \include{file/chapter4-shiyong}
 \include{file/chapter5-yufa}
 \include{file/chapter6-daima}
+\chapter*{致谢}
+\addcontentsline{toc}{chapter}{致谢}
+感谢天，感谢地；感谢阳光，照耀着大地……
 \cleardoublepage
 \nocite*{}
 \bibliography{file/bibs}
 \addcontentsline{toc}{chapter}{参考文献}
-\cleardoublepage
 
+\cleardoublepage
 \appendix
 \chapter{常见问题}
+问题1：测试。
 \chapter{联系我们}
-
-\backmatter
-%backmatter会使后面的附录没有“附录A”之类的字样
-%这三个命令的具体定义可见http://m.lilacbbs.com/bbstcon.php?board=TeX&gid=2269
-\chapter{致谢}
+联系作者：blabla
 
 \end{document}

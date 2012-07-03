@@ -1,8 +1,8 @@
 % !Mode:: "TeX:UTF-8"
 
 \NeedsTeXFormat{LaTeX2e}[2007/10/19]
-\ProvidesClass{buaathesis}[2012/07 0.9.0 The LaTeX template for thesis of BeiHang University]
-\typeout{Document Class `buaathesis' v0.9.0 by BHOSC (2012/07)}
+\ProvidesClass{buaathesis}[2012/07 0.8 The LaTeX template for thesis of BeiHang University]
+\typeout{Document Class `buaathesis' v0.8 by BHOSC (2012/07)}
 
 \newif\ifbuaa@bachelor\buaa@bachelorfalse
 \newif\ifbuaa@master\buaa@mastertrue
@@ -18,7 +18,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%声明四个选项，用来判断用户是应该选择哪种样式
+%声明五个选项，用来判断用户是应该选择哪种样式
 %其中，master选项为默认为true，在往后的编写判断语句时
 %须先将其放在后面进行判断，此处就注意！
 %如若需要其他的参数亦可参照如上格式写代码即可。
@@ -27,7 +27,7 @@
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessOptions\relax
-\LoadClass[cs4size,a4paper,fancyhdr,adobefonts]{ctexbook}[2007/10/19]
+\LoadClass[cs4size,a4paper,fancyhdr]{ctexbook}[2007/10/19]
 \bibliographystyle{buaathesis}%参考文献格式
 
 %===============需要用户输入的信息==================
@@ -77,7 +77,7 @@
 \def\buaa@category{}
 \newcommand{\category}[1]{%
     \def\buaa@category{#1}
-}%中国分类号，可以在http://www.ztflh.com/查询
+}%中国分类号
 
 \def\buaa@mibao{}
 \newcommand{\mibao}[1]{%
@@ -128,7 +128,7 @@
 \def\buaa@unicode{}
 \newcommand{\unicode}[1]{%
 	\def\buaa@unicode{#1}
-}%单位代码，北航应该为10006，但手册上说由教务老师统一填写。
+}%单位代码
 
 \def\buaa@studentID{}
 \newcommand{\studentID}[1]{%
@@ -215,7 +215,24 @@
 \newcommand{\xiaochuhao}{\fontsize{32pt}{\baselineskip}\selectfont}
 
 %--------------------页面、页眉页脚的设置（具体间距还有待修正）-----------------------
-\RequirePackage[top=3cm,bottom=2.5cm,left=3cm,right=2cm]{geometry}
+\RequirePackage{geometry}
+\newgeometry{top=30mm,bottom=25mm,left=30mm,right=20mm}
+%%学位论文的上边距：30mm；下边距：25mm；左边距：30mm；右边距：20mm；
+\savegeometry{bachelorgeometry}
+\newgeometry{
+	top=25mm,bottom=25mm,left=30mm,right=20mm,
+	headsep=5mm,headheight=10mm,footskip=10mm}
+%学位论文的上边距：25mm；下边距：25mm；左边距：30mm；右边距：20mm；
+%页眉都用小五号宋体字，页眉的上边距为15mm；页脚的下边距为15mm。
+%按照上面的设置，个人觉得基本符合要求。
+\savegeometry{mastergeometry}
+
+\ifbuaa@bachelor
+	\loadgeometry{bachelorgeometry}
+\else
+	\loadgeometry{mastergeometry}
+\fi
+
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhead{}
@@ -237,9 +254,8 @@
 \renewcommand{\headrulewidth}{0.5bp} %页眉线宽度
 \ifbuaa@bachelor
 	\setlength{\headsep}{45bp}
-\else
-	\setlength{\headsep}{5mm}
 \fi
+
 \newcommand{\clearemptydoublepage}{%
 \clearpage
 \if@twoside
@@ -252,6 +268,7 @@
 		\fi
 	\fi
 \fi}
+%这个clearemptydoublepage我也不知道怎么设置，这一段是从网上找的，基本能用。
 
 %---------------------------文章中标题的格式设置--------------------------%
 \usepackage{titlesec,titletoc}
@@ -300,17 +317,16 @@
 		filecolor=black
 	}
 	\hypersetup{%
-				pdftitle=BUAA thesis,
-				%pdfauthor={\buaa@thesisauthor },%这个pdf作者项设置有问题？编译结果一直不对！
-				pdfsubject={北航-\buaa@appdegree 论文},
-				pdfcreator={LaTeXed~By~BHOSC}
-				}
+		pdftitle=BUAA thesis,
+		%pdfauthor={\buaa@thesisauthor },%这个pdf作者项设置有问题？编译结果一直不对！
+		pdfsubject={北航-\buaa@appdegree 论文},
+		pdfcreator={LaTeXed~By~BHOSC}}
 				
 \RequirePackage[sort&compress]{natbib}
 	\bibpunct{[}{]}{,}{n}{}{}
 \RequirePackage{hypernat}
 	\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
-    %上面四行代码是06版中的，我也不懂，但使用上没有问题。
+%上面四行代码是06版中的，我也不懂，但使用上没有问题。
 	
 %------------------------图形表格的一些设置------------------------
 \RequirePackage{graphicx}
@@ -342,9 +358,6 @@
 	\renewcommand{\thetable}{\arabic{table}}
 	\renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
 \fi
-	\renewcommand{\figurename}{图}
-	\renewcommand{\tablename}{表}
-
 
 %---------------------间距的一些设置--------------------
 \renewcommand{\baselinestretch}{1.5}
@@ -369,6 +382,8 @@
 \renewcommand\listfigurename{插\ 图\ 目\ 录}
 \renewcommand\listtablename{表\ 格\ 目\ 录}
 \renewcommand\bibname{参\ 考\ 文\ 献}
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
 
 %------------------其他一些设置---------------
 \RequirePackage{ulem}               %比较容易加入下划线\uline{}
@@ -381,6 +396,10 @@
 \@mainmatterfalse
 \pagenumbering{Roman}
 }
+%backmatter会使后面的附录没有“附录A”之类的字样
+%这三个命令的具体定义可见http://m.lilacbbs.com/bbstcon.php?board=TeX&gid=2269
+
+\RequirePackage{setspace}          %用此包来设置行距
 
 %-----------------代码环境定义和设置---------------
 \RequirePackage{xcolor}
@@ -457,8 +476,8 @@
 %\end{picture}
 
 \vspace*{7cm}
-~\newline
-这里是标题\newline
+
+\centerline{这里是标题}\newline
 \vspace{3ex}
 
 \centerline{\today}
@@ -475,30 +494,31 @@
 		\end{flushleft}
 		\vspace{5em}
 		\includegraphics[width=.55\textwidth]{figure/buaaname.eps}\\
-		\vspace{3mm}
+		\vskip20bp
 		\zihao{0}\hwxingkai\centerline{\buaa@appdegree 论文}
-		\vspace{1em}%此处用绝对距离更好些？
-		\begin{minipage}[h]{.85\textwidth}
+		\vskip 25mm
+		\begin{minipage}[h]{.8\textwidth}
+			\begin{spacing}{2}
 			\xiaochuhao\songti\centering{\buaa@thesistitle}
-		\end{minipage}   
-		\vspace{\stretch{1}}
-	%这个橡皮长度很容易出bug(下面的空白行删除的话就会有bug)啊！如果可以的话还是不要用这种方式好了~
-
+			\end{spacing}
+		\end{minipage}
+		\vfill
 		\heiti\zihao{4}
 		\begin{tabular}[b]{ll}
 			作\,者\,姓\,名~~ & \buaa@thesisauthor \\
-			学\,科\,专\,业~~ & \buaa@major \\
+			学\,科\,专\,业~~ & \buaa@major 专业\\
 			指\,导\,教\,师~~ & \buaa@teacher \\
-			培\,养\,院\,系~~ & \buaa@school \\
+			培\,养\,院\,系~~ & \buaa@school 学院\\
 		\end{tabular}
 	\end{center}
 \end{titlepage}
+
 \fi
 }
 
 \newcommand{\titleeng}{%英文首页
 \clearemptydoublepage
-\thispagestyle{empty}%还是得定义一个空白的双页环境更好
+\thispagestyle{empty}
 \vspace*{\stretch{2}}
 \begin{center}
 	\begin{minipage}[h]{.85\textwidth}
@@ -575,7 +595,6 @@
 	学位授予单位 & \buaa@university &学位授予日期 &\buaa@awardyear~~年~~\buaa@awardmonth~~月~~\buaa@awardday~~日~\qquad\\
 \end{tabular}
 }
-
 %+++++++++++研究生独创声明和使用授权书++++++++++++++
 \newcommand{\creationanduse}{%
 \clearemptydoublepage
@@ -657,21 +676,9 @@
     \def\buaa@bachelor@assign@ref@seven{#7}
     \def\buaa@bachelor@assign@ref@eight{#8}
 } % 参考文献
-\def\buaa@bachelor@assign@school{}
-\newcommand{\assignSchool}[1]{
-    \def\buaa@bachelor@assign@school{#1}
-} % 学院
-\def\buaa@bachelor@assign@major{}
-\newcommand{\assignMajor}[1]{
-    \def\buaa@bachelor@assign@major{#1}
-} % 专业
-\def\buaa@bachelor@assign@class{}
-\newcommand{\assignClass}[1]{
-    \def\buaa@bachelor@assign@class{#1}
-} % 班级
 \def\buaa@bachelor@assign{
     \newpage
-    \pagestyle{empty}
+    \thispagestyle{empty}
     \CTEXnoindent
     \linespread{2}
     \zihao{2}{
@@ -706,6 +713,7 @@
         \ulinel{\buaa@bachelor@assign@work@five}
         \ulinel{\buaa@bachelor@assign@work@six}
         \newpage
+		\thispagestyle{empty}
         \stepcounter{assign}
         \Roman{assign}、主要参考资料： \\
         \ulinel{\buaa@bachelor@assign@ref@one}
@@ -716,34 +724,34 @@
         \ulinel{\buaa@bachelor@assign@ref@six}
         \ulinel{\buaa@bachelor@assign@ref@seven}
         \ulinel{\buaa@bachelor@assign@ref@eight}
-        \ulinec[.3]{\buaa@bachelor@assign@school}学院\ulinec[.35]{\buaa@bachelor@assign@major}专业\ulinec[.18]{\buaa@bachelor@assign@class}班 \\
+        \ulinec[.28]{\buaa@school}学院\ulinec[.28]{\buaa@major}~专业类~\ulinec[.15]{\buaa@class}班 \\
         学生\ulinec[.3]{\buaa@thesisauthor} \\
-        毕业设计(论文)时间：\ulinec[.1]{\buaa@thesisbeginyear}年\ulinec[.06]{\buaa@thesisbeginmonth}月\ulinec[.06]{\buaa@thesisbeginday}日至\ulinec[.1]{\buaa@thesisendyear}年\ulinec[.06]{\buaa@thesisendmonth}月\ulinec[.06]{\buaa@thesisendday}日 \\
+        毕业设计(论文)时间：~~\ulinec[.1]{\buaa@thesisbeginyear}年\ulinec[.06]{\buaa@thesisbeginmonth}月\ulinec[.06]{\buaa@thesisbeginday}日至\ulinec[.1]{\buaa@thesisendyear}年\ulinec[.06]{\buaa@thesisendmonth}月\ulinec[.06]{\buaa@thesisendday}日 \\
         答辩时间：\ulinec[.16]{\buaa@defenseyear}年\ulinec[.08]{\buaa@defensemonth}月\ulinec[.08]{\buaa@defenseday}日 \\
         成\qquad 绩：\ulinec[.3]{} \\
         指导教师：\ulinec[.3]{} \\
-        兼职教师或答疑教师（并指出所负责部分）\\
+        兼职教师或答疑教师（并指出所负责部分）：\\
         \ulinel{}
         \ulinel{}
-        \ulinec[.33]{}系（教研室） 主任（签字）：\ulinec[.3]{} \\
-        ~ \\
+        \ulinec[.28]{}系（教研室） 主任（签字）：\ulinec[.28]{} \\
+        \vfill
         注：任务书应该附在已完成的毕业设计（论文）的首页。
     }
     \CTEXindent
+	\linespread{1.5}
 }
 
 % 首页重定义
 \renewcommand{\maketitle}{%
 \titlech
 \ifbuaa@bachelor
-        \buaa@bachelor@assign
-	\clearemptydoublepage
+    \buaa@bachelor@assign     %本科生论文任务书
 	\frontmatter
 	\announce
 \else
-	\titleeng
-	\timingye
-	\creationanduse
+	\titleeng                 %研究生英文封面
+	\timingye                 %研究生题名页
+	\creationanduse           %研究生独创性声明和使用授权书
 	\clearemptydoublepage
 	\frontmatter
 \fi
