@@ -4,10 +4,10 @@
 %------        用户公共信息            -------
 \thesisauthor{张三}{ZhangSan}
 \thesistitle{基于Texlive的北航毕设论文模板设计}{How to design the BUAA-thesis with \LaTeX{}}
-\school{二逼青年}{The School of 2B}
+\school{二逼青年}{The School of 2B}%i怕不怕
 \major{吊丝}{DiaoSi}%专业
 \teacher{王小五}{Wang Xiaowu}
-\category{TP312}%中图分类号
+\category{TP312}%中图分类号，可以在http://www.ztflh.com/查询
 \mibao{不涉密}%本科生此项必须写“不涉密”或为空
 \thesisbegin{2011}{1}{1}%本科生为毕设开始时间；研究生为学习开始时间
 \thesisend{2012}{2}{2}%本科生为毕设结束时间；研究生为学习结束时间
@@ -26,8 +26,6 @@
 \maketitle
 \include{file/abstract}
 \tableofcontents
-%\listoffigures
-%\listoftables
 
 \mainmatter
 \include{file/chapter1-jianjie}	
@@ -43,7 +41,6 @@
 \nocite*{}
 \bibliography{file/bibs}
 \addcontentsline{toc}{chapter}{参考文献}
-%编译后“参考文献”不见了？待测试！
 
 \cleardoublepage
 \appendix

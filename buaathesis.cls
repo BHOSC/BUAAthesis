@@ -77,7 +77,7 @@
 \def\buaa@category{}
 \newcommand{\category}[1]{%
     \def\buaa@category{#1}
-}%中国分类号，可以在http://www.ztflh.com/查询
+}%中国分类号
 
 \def\buaa@mibao{}
 \newcommand{\mibao}[1]{%
@@ -396,6 +396,8 @@
 \@mainmatterfalse
 \pagenumbering{Roman}
 }
+%backmatter会使后面的附录没有“附录A”之类的字样
+%这三个命令的具体定义可见http://m.lilacbbs.com/bbstcon.php?board=TeX&gid=2269
 
 \RequirePackage{setspace}          %用此包来设置行距
 
@@ -737,6 +739,7 @@
         注：任务书应该附在已完成的毕业设计（论文）的首页。
     }
     \CTEXindent
+	\linespread{1.5}
 }
 
 % 首页重定义
@@ -744,7 +747,6 @@
 \titlech
 \ifbuaa@bachelor
     \buaa@bachelor@assign     %本科生论文任务书
-	    \linespread{1.5}      %重定义行距为1.5倍行距
 	\frontmatter
 	\announce
 \else
