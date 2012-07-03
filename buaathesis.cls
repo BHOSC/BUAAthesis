@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 % !Mode:: "TeX:UTF-8"
 
 \NeedsTeXFormat{LaTeX2e}[2007/10/19]
@@ -19,7 +18,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%声明四个选项，用来判断用户是应该选择哪种样式
+%声明五个选项，用来判断用户是应该选择哪种样式
 %其中，master选项为默认为true，在往后的编写判断语句时
 %须先将其放在后面进行判断，此处就注意！
 %如若需要其他的参数亦可参照如上格式写代码即可。
@@ -213,10 +212,6 @@
 \setCJKmainfont{宋体}
 \setCJKfamilyfont{hwxingkai}{STXingkai}
 \newcommand{\hwxingkai}{\CJKfamily{hwxingkai}}
-\setCJKfamilyfont{you}{YouYuan}
-\newcommand*{\youyuan}{\CJKfamily{you}}
-\setCJKfamilyfont{li}{LiSu}
-\newcommand*{\lishu}{\CJKfamily{li}}
 \newcommand{\xiaochuhao}{\fontsize{32pt}{\baselineskip}\selectfont}
 
 %--------------------页面、页眉页脚的设置（具体间距还有待修正）-----------------------
@@ -502,7 +497,7 @@
 		\zihao{0}\hwxingkai\centerline{\buaa@appdegree 论文}
 		\vskip 25mm
 		\begin{minipage}[h]{.8\textwidth}
-			\begin{spacing}{1.5}
+			\begin{spacing}{2}
 			\xiaochuhao\songti\centering{\buaa@thesistitle}
 			\end{spacing}
 		\end{minipage}
@@ -522,7 +517,7 @@
 
 \newcommand{\titleeng}{%英文首页
 \clearemptydoublepage
-\thispagestyle{empty}%还是得定义一个空白的双页环境更好
+\thispagestyle{empty}
 \vspace*{\stretch{2}}
 \begin{center}
 	\begin{minipage}[h]{.85\textwidth}
