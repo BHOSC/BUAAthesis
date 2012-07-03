@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 % !Mode:: "TeX:UTF-8"
 
 \NeedsTeXFormat{LaTeX2e}[2007/10/19]
@@ -679,21 +680,6 @@
     \def\buaa@bachelor@assign@ref@seven{#7}
     \def\buaa@bachelor@assign@ref@eight{#8}
 } % 参考文献
-%\def\buaa@bachelor@assign@school{}
-%\newcommand{\assignSchool}[1]{
-%    \def\buaa@bachelor@assign@school{#1}
-%} % 学院
-%彭勇注：已经将前面的使用\buaa@school的地方更正，此处用buaa@school即可
-%\def\buaa@bachelor@assign@major{}
-%\newcommand{\assignMajor}[1]{
-%    \def\buaa@bachelor@assign@major{#1}
-%} % 专业
-%同理此得可使用buaa@major
-%\def\buaa@bachelor@assign@class{}
-%\newcommand{\assignClass}[1]{
-%    \def\buaa@bachelor@assign@class{#1}
-%} % 班级
-%同理此处可用buaa@class
 \def\buaa@bachelor@assign{
     \newpage
     \thispagestyle{empty}
@@ -762,18 +748,14 @@
 \renewcommand{\maketitle}{%
 \titlech
 \ifbuaa@bachelor
-%<<<<<<< HEAD
-	% TODO(huxuan): %此处应该加入任务书
-%=======
-        \buaa@bachelor@assign
-%>>>>>>> upstream/master
-	\clearemptydoublepage
+    \buaa@bachelor@assign     %本科生论文任务书
+	    \linespread{1.5}      %重定义行距为1.5倍行距
 	\frontmatter
 	\announce
 \else
-	\titleeng
-	\timingye
-	\creationanduse
+	\titleeng                 %研究生英文封面
+	\timingye                 %研究生题名页
+	\creationanduse           %研究生独创性声明和使用授权书
 	\clearemptydoublepage
 	\frontmatter
 \fi
@@ -845,7 +827,3 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %---      以下是写用户手册时需要用到的一新命令     ---
 %---      可根据需要放到发行的模板中               ---
-
-%\setCJKfamilyfont{fangqingke}{FZQingKeBenYueSongS-R-GB}
-%\newcommand{\fzqingke}{\CJKfamily{fangqingke}}
-%使用本地的一个方正清刻本字体，个人觉得挺不错的一款字体
