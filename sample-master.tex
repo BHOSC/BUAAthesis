@@ -1,14 +1,15 @@
 % !Mode:: "TeX:UTF-8"
 \documentclass[master]{buaathesis}
 %默认参数为：master,openright,twoside
+
 %-------------------------------------------
 %------        用户公共信息            -------
 \thesisauthor{张三}{ZhangSan}
-\thesistitle{基于Texlive的北航毕设论文模板设计}{How to design the BUAA-thesis with \LaTeX{}}
-\school{二逼青年学院}{The School of 2B}
-\major{吊丝专业}{DiaoSi}%专业
+\thesistitle{基于Texlive的北航毕设论文模板设计}{Design the BUAA-thesis with \LaTeX{}}
+\school{二逼青年}{The School of 2B}%学院
+\major{吊丝}{DiaoSi}%专业
 \teacher{王小五}{Wang Xiaowu}
-\category{TP312}%中图分类号
+\category{TP312}%中图分类号，可以在http://www.ztflh.com/查询
 \mibao{机密}%本科生此项必须写“不涉密”或为空
 \thesisbegin{2011}{1}{1}%本科生为毕设开始时间；研究生为学习开始时间
 \thesisend{2012}{2}{2}%本科生为毕设结束时间；研究生为学习结束时间
@@ -18,16 +19,17 @@
 
 %--------------本科生的信息--------------------
 \class{3702}%班级，在任务书里需要用到
-\studentID{233}%学号
-\unicode{8606}
+\studentID{37020000}%学号
+\unicode{10006}%单位代码，北航应该为10006，但手册上说由教务老师统一填写。
 \thesisdate{2012}{6}%论文时间，用于首页
 
 %--------------研究生的信息--------------------
 \direction{搬砖方向}%研究方向
 \teacherdegree{教授}{Prof.}%需要英文？
-\thesisID{0000}%论文编号
+\thesisID{10006SY0000000}%论文编号为10006+学号组成
 \commit{2012}{3}{3}%论文提交时间
 \award{2012}{4}{4}%学位授予日期，好奇葩...
+
 %--------------------------------------------
 
 \begin{document}
@@ -36,6 +38,7 @@
 \tableofcontents
 \listoffigures
 \listoftables
+%此处应该再加入“论文主要符号表”，可参考其他学校的模板中的设计
 
 \mainmatter
 \include{file/chapter1-jianjie}	
@@ -55,9 +58,7 @@
 \chapter{联系我们}
 
 \backmatter
-%backmatter会使后面的附录没有“附录A”之类的字样
-%这三个命令的具体定义可见http://m.lilacbbs.com/bbstcon.php?board=TeX&gid=2269
-\chapter{攻读博士/硕士学位期间取得的学术成果}%这儿的博士/硕士不好选，只能用户自己写的时候注意。
+\chapter{攻读博士/硕士学位期间取得的学术成果}
 \chapter{致谢}
 \chapter{作者简介}
 
