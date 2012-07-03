@@ -28,7 +28,7 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessOptions\relax
 \LoadClass[cs4size,a4paper,fancyhdr]{ctexbook}[2007/10/19]
-\bibliographystyle{buaabibsty}%参考文献格式
+\bibliographystyle{buaathesis}%参考文献格式
 
 %===============需要用户输入的信息==================
 \def\buaa@university{北京航空航天大学}
