@@ -1,8 +1,8 @@
 % !Mode:: "TeX:UTF-8"
 
 \NeedsTeXFormat{LaTeX2e}[2007/10/19]
-\ProvidesClass{buaathesis}[2010/07 1.0.0 The LaTeX template for thesis of BeiHang University]
-\typeout{Document Class `buaathesis' v1.0.0 by BHOSC (2012/07)}
+\ProvidesClass{buaathesis}[2012/07 0.8 The LaTeX template for thesis of BeiHang University]
+\typeout{Document Class `buaathesis' v0.8 by BHOSC (2012/07)}
 
 \newif\ifbuaa@bachelor\buaa@bachelorfalse
 \newif\ifbuaa@master\buaa@mastertrue
@@ -409,7 +409,7 @@
 	\lstset{
 		commentstyle=\color{black!100},%黑色的注释
 		rulesepcolor=\color{black!100},%代码块边框为黑色
-		keywordstyle=\color{black!100}\bfseries, %代码关键字的颜色为黑色，粗体	
+		keywordstyle=\color{black!100}\bfseries, %代码关键字的颜色为黑色，粗体
 	}
 \else
 	\lstset{
@@ -477,7 +477,6 @@
 
 \vspace*{7cm}
 
-\newline
 \centerline{这里是标题}\newline
 \vspace{3ex}
 
