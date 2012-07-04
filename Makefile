@@ -1,5 +1,5 @@
 clean:
-	-rm *.aux *.lof *.log *.lot *.out *.toc
+	-rm *.aux *.lof *.log *.lot *.out *.toc *.bbl *.blg
 	-rm file/*.aux
 depclean: clean
 	-rm *.pdf
