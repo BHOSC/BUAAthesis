@@ -458,29 +458,47 @@
 \renewcommand{\lstlistingname}{代码} %% 重命名Listings标题头
 
 %++++++++++++++++++设置首页+++++++++++++++++++
-%
+
+\newcommand{\ulinecvrtc}[1]{\uline{\makebox[9em][c]{\bf #1}}}
+\newcommand{\ulinecvcbc}[1]{\uline{\makebox[14em][c]{#1}}}
+% 上述两条命令为本科生论文封面所使用的
+% 一个是cover-right-top-center的意思，另一个是cover-center-bottom-center
 \newcommand{\titlech}{
 \ifbuaa@bachelor
-\thispagestyle{empty}
+\begin{titlepage}
+\begin{picture}(0,0)(35,30){
+% 第二个()里的第一个参数表示向左移50pt，第二个参数为向下移30pt
+% 具体这两个参数还没有搞得很明白，暂且这么用着吧。
+\includegraphics[width=93pt]{figure/buaamark.eps}}
+\end{picture}
+\hfill
+\raisebox{.7cm}[0pt][0pt]{
+	{\zihao{5}\heiti
+	\begin{tabular}{c}
+		单位代码~\ulinecvrtc{\buaa@unicode}\\
+		学\qquad 号~\ulinecvrtc{\buaa@studentID}\\
+		分~~类~~号~\ulinecvrtc{\buaa@category}\\
+	\end{tabular}}}
+\vskip 72bp
+\centerline{\includegraphics[width=360bp]{figure/buaaname.eps}}
+\vskip 45bp
+\centerline{\zihao{-0}\heiti 毕业设计(论文)}
+\vskip70bp
+\centerline{\heiti\zihao{2}\buaa@thesistitle}
+\vskip 118bp
+\begin{center}
+{\zihao{-3}\heiti
+	\begin{tabular}{cc}
+		学~~~院~~~名~~~称~~&\ulinecvcbc{\buaa@school 学院}\\[.4ex]
+		专~~~业~~~名~~~称~~&\ulinecvcbc{\buaa@major 专业}\\[.4ex]
+		学~~~生~~~姓~~~名~~&\ulinecvcbc{\buaa@thesisauthor}\\[.4ex]
+		指~~~导~~~教~~~师~~&\ulinecvcbc{\buaa@teacher}\\
+	\end{tabular}}
+\end{center}
+\vskip 60bp
+\centerline{\heiti\zihao{-3}\buaa@thesisdateyear ~~年~~\buaa@thesisdatemonth ~~月}
+\end{titlepage}
 
-%\begin{tabluar}{cc}
-%	\CoverOption{单位代码}{~~}\\
-%	\CoverOption{学\qquad 号}{\buaa@studentID}\\
-%	\CoverOption{分\,\,\,类\,\,\,号}{\buaa@category}\\
-%	\CoverOption{密\qquad 级}{\buaa@mibao}\\%本科生切勿填写此项！
-%	%coveroption在“其他一些设置”里有定义，为一个带下划线的盒子。
-%\end{tabluar}
-
-%\begin{picture}(-50,-50)
-%	\includegraphics[width=90pt]{figure/buaamark.eps}
-%\end{picture}
-
-\vspace*{7cm}
-
-\centerline{这里是标题}\newline
-\vspace{3ex}
-
-\centerline{\today}
 \else
 
 %------研究生论文首页---------
