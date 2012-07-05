@@ -458,29 +458,47 @@
 \renewcommand{\lstlistingname}{代码} %% 重命名Listings标题头
 
 %++++++++++++++++++设置首页+++++++++++++++++++
-%
+
+\newcommand{\ulinecvrtc}[1]{\uline{\makebox[9em][c]{\bf #1}}}
+\newcommand{\ulinecvcbc}[1]{\uline{\makebox[14em][c]{#1}}}
+% 上述两条命令为本科生论文封面所使用的
+% 一个是cover-right-top-center的意思，另一个是cover-center-bottom-center
 \newcommand{\titlech}{
 \ifbuaa@bachelor
-\thispagestyle{empty}
+\begin{titlepage}
+\begin{picture}(0,0)(35,30){
+% 第二个()里的第一个参数表示向左移50pt，第二个参数为向下移30pt
+% 具体这两个参数还没有搞得很明白，暂且这么用着吧。
+\includegraphics[width=93pt]{figure/buaamark.eps}}
+\end{picture}
+\hfill
+\raisebox{.7cm}[0pt][0pt]{
+	{\zihao{5}\heiti
+	\begin{tabular}{c}
+		单位代码~\ulinecvrtc{\buaa@unicode}\\
+		学\qquad 号~\ulinecvrtc{\buaa@studentID}\\
+		分~~类~~号~\ulinecvrtc{\buaa@category}\\
+	\end{tabular}}}
+\vskip 72bp
+\centerline{\includegraphics[width=360bp]{figure/buaaname.eps}}
+\vskip 45bp
+\centerline{\zihao{-0}\heiti 毕业设计(论文)}
+\vskip70bp
+\centerline{\heiti\zihao{2}\buaa@thesistitle}
+\vskip 118bp
+\begin{center}
+{\zihao{-3}\heiti
+	\begin{tabular}{cc}
+		学~~~院~~~名~~~称~~&\ulinecvcbc{\buaa@school 学院}\\[.4ex]
+		专~~~业~~~名~~~称~~&\ulinecvcbc{\buaa@major 专业}\\[.4ex]
+		学~~~生~~~姓~~~名~~&\ulinecvcbc{\buaa@thesisauthor}\\[.4ex]
+		指~~~导~~~教~~~师~~&\ulinecvcbc{\buaa@teacher}\\
+	\end{tabular}}
+\end{center}
+\vskip 60bp
+\centerline{\heiti\zihao{-3}\buaa@thesisdateyear ~~年~~\buaa@thesisdatemonth ~~月}
+\end{titlepage}
 
-%\begin{tabluar}{cc}
-%	\CoverOption{单位代码}{~~}\\
-%	\CoverOption{学\qquad 号}{\buaa@studentID}\\
-%	\CoverOption{分\,\,\,类\,\,\,号}{\buaa@category}\\
-%	\CoverOption{密\qquad 级}{\buaa@mibao}\\%本科生切勿填写此项！
-%	%coveroption在“其他一些设置”里有定义，为一个带下划线的盒子。
-%\end{tabluar}
-
-%\begin{picture}(-50,-50)
-%	\includegraphics[width=90pt]{figure/buaamark.eps}
-%\end{picture}
-
-\vspace*{7cm}
-
-\centerline{这里是标题}\newline
-\vspace{3ex}
-
-\centerline{\today}
 \else
 
 %------研究生论文首页---------
@@ -492,24 +510,24 @@
 			中图分类号：\buaa@category \hfill 密级\ding{73}~~\buaa@mibao \\
 			论\,\,文\,\,编\,\,号：\buaa@thesisID\\
 		\end{flushleft}
-		\vspace{5em}
-		\includegraphics[width=.55\textwidth]{figure/buaaname.eps}\\
-		\vskip20bp
+		\vskip80bp
+		\includegraphics[width=.5\textwidth]{figure/buaaname.eps}
+		\vskip 10bp
 		\zihao{0}\hwxingkai\centerline{\buaa@appdegree 论文}
-		\vskip 25mm
+		\vskip100bp
 		\begin{minipage}[h]{.8\textwidth}
 			\begin{spacing}{2}
 			\xiaochuhao\songti\centering{\buaa@thesistitle}
 			\end{spacing}
 		\end{minipage}
-		\vfill
-		\heiti\zihao{4}
+		\vskip80bp
+		{\heiti\zihao{4}\ziju{0.2}
 		\begin{tabular}[b]{ll}
-			作\,者\,姓\,名~~ & \buaa@thesisauthor \\
-			学\,科\,专\,业~~ & \buaa@major 专业\\
-			指\,导\,教\,师~~ & \buaa@teacher \\
-			培\,养\,院\,系~~ & \buaa@school 学院\\
-		\end{tabular}
+			作~~者~~姓~~名~~ & \buaa@thesisauthor \\[.4ex]
+			学~~科~~专~~业~~ & \buaa@major 专业\\[.4ex]
+			指~~导~~教~~师~~ & \buaa@teacher \quad\buaa@teacherdegree\\[.4ex]
+			培~~养~~院~~系~~ & \buaa@school 学院\\
+		\end{tabular}}
 	\end{center}
 \end{titlepage}
 
@@ -519,29 +537,26 @@
 \newcommand{\titleeng}{%英文首页
 \clearemptydoublepage
 \thispagestyle{empty}
-\vspace*{\stretch{2}}
+\vspace*{100bp}
 \begin{center}
 	\begin{minipage}[h]{.85\textwidth}
-		\zihao{-2}\centering\textbf{\buaa@thesistitleeng}
+		\centerline{\zihao{-2}\textbf{\buaa@thesistitleeng}}
 	\end{minipage}
-	~~~\\
-	\vspace{\stretch{2}}
-	~~~\\
-	\zihao{4}A Dissertation Submitted for the Degree of \buaa@appdegreeeng\\
-	\vspace{\stretch{4}}
-	\zihao{-3}
+	\vskip100bp
+	{\zihao{4}A Dissertation Submitted for the Degree of \buaa@appdegreeeng}\\
+	\vskip110bp
 	\begin{center}
+	{\zihao{-3}
 		\begin{tabular}{rl}
-			\textbf{Candidate：}&\textbf{\buaa@thesisauthoreng}\\[0.7ex]
+			\textbf{Candidate：}&\textbf{\buaa@thesisauthoreng}\\[2.5ex]
 			\textbf{Supervisor：}&\textbf{\buaa@teacherdegreeeng ~~\buaa@teachereng}
-		\end{tabular}
+		\end{tabular}}
 	\end{center}
 	%这个地方编译后老感觉不是居中的，不知为嘛，或许可以直接在前面加个固定长度而不用列表环境。
 	%加入多余的center环境后编译又会报错，但出来的pdf是正确的，很诡异！
-	\newline
-	\vspace{\stretch{3}}
+	\vskip125bp
 	\zihao{3}{
-	\buaa@schooleng \\
+	\buaa@schooleng \\[1.8ex]
 	\buaa@universityeng , Beijing, China}
 \end{center}
 %说明：使用垂直橡皮长度经常需要加各种空格换行一类的，推荐还是使用vskip来替代
@@ -569,23 +584,21 @@
 \clearemptydoublepage
 \thispagestyle{empty}
 \begin{flushleft}
-	\zihao{5}\heiti
+	{\zihao{5}\heiti
 	中图分类号：\buaa@category\\
-	论\,\,文\,\,编\,\,号：\buaa@thesisID\\
+	论\,\,文\,\,编\,\,号：\buaa@thesisID\\}
 \end{flushleft}
-\zihao{-2}
-\vspace{\stretch{4}}
+\vskip130bp
+\centerline{\zihao{-2}\heiti{\ziju{1.3}\buaa@appdegree 论文}}
+\vskip120bp
 \begin{center}
-	\heiti{\ziju{1.35}\buaa@appdegree 论文}
-	\zihao{5}
-	~~\\
-	\vspace{\stretch{5}}
 	\begin{minipage}[h]{.85\textwidth}
 		\zihao{-1}\heiti\centering{\buaa@thesistitle}
 	\end{minipage}
-	\vspace{\stretch{5}}
 \end{center}
-\zihao{-4}\songti
+\vskip110bp
+\begin{spacing}{2.2}
+{\zihao{-4}\songti
 \begin{tabular}[b]{llll}
 	作\,\,\,\,者\,\,\,\,姓\,\,\,\,名 & \buaa@thesisauthor& 申请学位级别 & \buaa@appdegree \\
 	指导教师姓名 & \buaa@teacher & 职\qquad\qquad 称 & \buaa@teacherdegree \\
@@ -593,13 +606,14 @@
 	学\,\,习\,\,时\,\,间\,自 &\buaa@thesisbeginyear~~年~~\buaa@thesisbeginmonth~~月~~\buaa@thesisbeginday~~日\qquad & 起\qquad 至~  & \buaa@thesisendyear~~年~~\buaa@thesisendmonth~~月~~\buaa@thesisendday~~日止\qquad\\
 	论文提交日期 &\buaa@commityear~~年~~\buaa@commitmonth~~月~~\buaa@commitday~~日\qquad & 论文答辩日期& \buaa@defenseyear~~年~~\buaa@defensemonth~~月~~\buaa@defenseday~~日~\qquad\\
 	学位授予单位 & \buaa@university &学位授予日期 &\buaa@awardyear~~年~~\buaa@awardmonth~~月~~\buaa@awardday~~日~\qquad\\
-\end{tabular}
+\end{tabular}}
+\end{spacing}
 }
 %+++++++++++研究生独创声明和使用授权书++++++++++++++
 \newcommand{\creationanduse}{%
 \clearemptydoublepage
 \thispagestyle{empty}
-\vspace*{30bp}
+\vspace*{50bp}
 \centerline{\zihao{3}\heiti 关于学位论文的独创性声明}
 \zihao{-4}\songti
 ~~\par
@@ -610,9 +624,8 @@
 均已在论文中作出了明确的说明。\par
 若有不实之处，本人愿意承担相关法律责任。\par
 ~~\\
-\zihao{5}{学位论文作者签名：\uline{\hspace{6em}}\hspace{8em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日}
-\vspace{90bp}
-\newline
+{\zihao{5}学位论文作者签名：\uline{\hspace{6em}}\hspace{8em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日}
+\vskip130bp
 \centerline{\zihao{3}\heiti 学位论文使用授权书}
 ~~\par
 	本人完全同意北京航空航天大学有权使用本学位论文（包括但不限于其印刷版和电子版），
@@ -621,7 +634,7 @@
 或部分内容编入有关数据库进行检索，采用影印、缩印或其他复制手段保存学位论文。\par
 保密学位论文在解密后的使用授权同上。\par
 ~~\\
-\zihao{5}{
+{\zihao{5}
 学位论文作者签名：\uline{\hspace{6em}}\hspace{8em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日\\
 指导教师签名：\uline{\hspace{8em}}\hspace{8em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日}
 }
@@ -779,7 +792,7 @@
 	\vskip10bp
 	\par
 \else
-	\vspace{3ex}
+	\vspace{5ex}
 \fi
 \setlength{\parindent}{24bp}
 }{%
@@ -809,7 +822,7 @@
 	\vskip10bp
 	\par
 \else
-	\vspace{3ex}
+	\vspace{5ex}
 \fi
 \setlength{\parindent}{24bp}
 }{%
@@ -819,6 +832,24 @@
 \fi
 {\bf\zihao{-4} Key words: }\buaa@ekeyword
 }
+
+%% 主要符号对照表
+%% 来自于武汉理工大学论文模板，不知下面的间距设置是否会对别的地方有影响，待后续检验。
+\newenvironment{denotation}[1][2.5cm]{
+    \chapter*{主~要~符~号~表} % no tocline
+    \noindent\begin{list}{}%
+    {\vskip-30bp\zihao{-4}
+     \renewcommand\makelabel[1]{##1\hfil}
+     \setlength{\labelwidth}{#1} % 标签盒子宽度
+     \setlength{\labelsep}{0.5cm} % 标签与列表文本距离
+     \setlength{\itemindent}{0cm} % 标签缩进量
+     \setlength{\leftmargin}{\labelwidth+\labelsep} % 左边界
+     \setlength{\rightmargin}{0cm}
+     \setlength{\parsep}{0cm} % 段落间距
+     \setlength{\itemsep}{0cm} % 标签间距
+    \setlength{\listparindent}{0cm} % 段落缩进量
+    \setlength{\topsep}{0pt} % 标签与上文的间距
+   }}{\end{list}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %---      以下是写用户手册时需要用到的一新命令     ---
