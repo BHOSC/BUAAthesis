@@ -20,8 +20,8 @@
 	有些时候论文需要将多个图形排列在一起，成2x2或2x3的样子，以下就举例来说明这个用法。
 	
 \begin{figure}[htb]
-	\subfigure[small box with a long caption]{\label{fig:minia}\includegraphics[width=.3\textwidth]{buaamark.eps}}\hfill
-	\subfigure[big box]{\label{fig:minib}\includegraphics[width=.3\textwidth]{buaamark.eps}}
+	\subfigure[small box with a long caption]{\label{fig:minia}\includegraphics[width=.3\textwidth]{figure/buaamark.eps}}\hfill
+	\subfigure[big box]{\label{fig:minib}\includegraphics[width=.3\textwidth]{figure/buaamark.eps}}
 	\caption{Mutipicture inside subfigure}
 	\label{subfig1}
 \end{figure}	
@@ -30,13 +30,13 @@
 \begin{figure}[htb]
 \begin{minipage}{0.5\textwidth}
 	\centering
-	\includegraphics[width=0.35\textwidth]{buaamark.eps}
+	\includegraphics[width=0.35\textwidth]{figure/buaamark.eps}
 	\caption{SubfigureA}	
 	\label{minifiga}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
 	\centering
-	\includegraphics[width=0.35\textwidth]{buaamark.eps}
+	\includegraphics[width=0.35\textwidth]{figure/buaamark.eps}
 	\caption{SubfigureB}	
 	\label{minifigb}
 \end{minipage}
@@ -46,8 +46,8 @@
 \begin{figure}[htb]
 \centering
 	\begin{tabular}{cc}
-	\subfigure[Figure:A]{\label{suba}\includegraphics[width=.3\textwidth]{buaamark.eps}}\qquad & \subfigure[Figure:B]{\label{subB}\includegraphics[width=.3\textwidth]{buaamark.eps}}\\
-	\subfigure[Figure:C]{\label{subc}\includegraphics[width=.3\textwidth]{buaamark.eps}}\qquad & \subfigure[Figure:D]{\label{subd}\includegraphics[width=.3\textwidth]{buaamark.eps}}\\
+	\subfigure[Figure:A]{\label{suba}\includegraphics[width=.3\textwidth]{figure/buaamark.eps}}\qquad & \subfigure[Figure:B]{\label{subB}\includegraphics[width=.3\textwidth]{figure/buaamark.eps}}\\
+	\subfigure[Figure:C]{\label{subc}\includegraphics[width=.3\textwidth]{figure/buaamark.eps}}\qquad & \subfigure[Figure:D]{\label{subd}\includegraphics[width=.3\textwidth]{figure/buaamark.eps}}\\
 	\end{tabular}
 \caption{矩形的subfig排列}
 \label{maxfig}

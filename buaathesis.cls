@@ -1,7 +1,7 @@
 % !Mode:: "TeX:UTF-8"
 
 \NeedsTeXFormat{LaTeX2e}[2007/10/19]
-\ProvidesClass{buaathesis}[2012/07 0.8 The LaTeX template for thesis of BeiHang University]
+\ProvidesClass{buaathesis}[2012/07/06 0.8 The LaTeX template for thesis of BeiHang University]
 \typeout{Document Class `buaathesis' v0.8 by BHOSC (2012/07)}
 
 \newif\ifbuaa@bachelor\buaa@bachelorfalse
@@ -113,10 +113,10 @@
 
 \def\buaa@ckeyword{}
 \newcommand{\ckeyword}[1]{%
-	\def\buaa@ckeyword{#1}}
+    \def\buaa@ckeyword{#1}}
 \def\buaa@ekeyword{}
 \newcommand{\ekeyword}[1]{%
-	\def\buaa@ekeyword{#1}}
+    \def\buaa@ekeyword{#1}}
 %中英文摘要关键词
 
 %+++++++++++++++本科生的信息+++++++++++++++++++
@@ -127,7 +127,7 @@
 
 \def\buaa@unicode{}
 \newcommand{\unicode}[1]{%
-	\def\buaa@unicode{#1}
+    \def\buaa@unicode{#1}
 }%单位代码
 
 \def\buaa@studentID{}
@@ -182,23 +182,22 @@
 \def\buaa@appdegreeeng{}%英文首页
 \def\buaa@applydegree{}%页眉页脚
 \newcommand{\degree}[3]{%
-	\def\buaa@appdegree{#1}
-	\def\buaa@appdegreeeng{#2}
-	\def\buaa@applydegree{#3}
+    \def\buaa@appdegree{#1}
+    \def\buaa@appdegreeeng{#2}
+    \def\buaa@applydegree{#3}
 }
 \ifbuaa@doctor
-	\degree{博士学位}{Doctor of Philosophy}{博士}
+    \degree{博士学位}{Doctor of Philosophy}{博士}
 \else
-	\ifbuaa@engineer
-		\degree{专业硕士学位}{Master}{硕士}
-	\else
-		\ifbuaa@bachelor
-			\degree{本科生学位论文}{Bachelor}{本科}
-			%其实上面那一行只用到第一个参数，用来设置pdf的信息时用到。
-		\else
-			\degree{学士硕士学位}{Master}{硕士}
-		\fi
-	\fi
+    \ifbuaa@engineer
+        \degree{专业硕士学位}{Master}{硕士}
+    \else
+        \ifbuaa@bachelor
+            \degree{学士学位}{Bachelor}{学士}
+        \else
+            \degree{学士硕士学位}{Master}{硕士}
+        \fi
+    \fi
 \fi
 %=============用户录入的信息到此完毕================
 
@@ -220,66 +219,66 @@
 %%学位论文的上边距：30mm；下边距：25mm；左边距：30mm；右边距：20mm；
 \savegeometry{bachelorgeometry}
 \newgeometry{
-	top=25mm,bottom=25mm,left=30mm,right=20mm,
-	headsep=5mm,headheight=10mm,footskip=10mm}
+    top=25mm,bottom=25mm,left=30mm,right=20mm,
+    headsep=5mm,headheight=10mm,footskip=10mm}
 %学位论文的上边距：25mm；下边距：25mm；左边距：30mm；右边距：20mm；
 %页眉都用小五号宋体字，页眉的上边距为15mm；页脚的下边距为15mm。
 %按照上面的设置，个人觉得基本符合要求。
 \savegeometry{mastergeometry}
 
 \ifbuaa@bachelor
-	\loadgeometry{bachelorgeometry}
+    \loadgeometry{bachelorgeometry}
 \else
-	\loadgeometry{mastergeometry}
+    \loadgeometry{mastergeometry}
 \fi
 
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhead{}
 \fancyfoot{}
-	\ifbuaa@bachelor
-		%\newsavebox{\markbuaa}
-		%\sbox{\markbuaa}{\includegraphics[width=45bp]{figure/buaamark.eps}}
-		%<LaTeX插图指南>第十五章讲了为什么要这样做。但不顶用啊！！！
-		\fancyhead[C]{%
-		\includegraphics[width=45bp]{figure/buaamark.eps}\hspace{\stretch{1}}
-		\raisebox{2ex}{\heiti\zihao{4}\buaa@university 毕业设计(论文)}\hspace{\stretch{1}}
-		\raisebox{2ex}{\heiti\zihao{4}第\quad\thepage\quad 页}
-		}
-	\else
-		\fancyhead[CO]{\zihao{-5}\songti\buaa@university\buaa@applydegree 学位论文\vspace{1.5mm}}
-		\fancyhead[CE]{\zihao{-5}\songti\leftmark\vspace{1.5mm}}
-		\fancyfoot[C]{\zihao{5}\thepage}
-	\fi
+    \ifbuaa@bachelor
+        %\newsavebox{\markbuaa}
+        %\sbox{\markbuaa}{\includegraphics[width=45bp]{figure/buaamark.eps}}
+        %<LaTeX插图指南>第十五章讲了为什么要这样做。但不顶用啊！！！
+        \fancyhead[C]{%
+        \includegraphics[width=45bp]{figure/buaamark.eps}\hspace{\stretch{1}}
+        \raisebox{2ex}{\heiti\zihao{4}\buaa@university 毕业设计(论文)}\hspace{\stretch{1}}
+        \raisebox{2ex}{\heiti\zihao{4}第\quad\thepage\quad 页}
+        }
+    \else
+        \fancyhead[CO]{\zihao{-5}\songti\buaa@university\buaa@applydegree 学位论文\vspace{1.5mm}}
+        \fancyhead[CE]{\zihao{-5}\songti\leftmark\vspace{1.5mm}}
+        \fancyfoot[C]{\zihao{5}\thepage}
+    \fi
 \renewcommand{\headrulewidth}{0.5bp} %页眉线宽度
 \ifbuaa@bachelor
-	\setlength{\headsep}{45bp}
+    \setlength{\headsep}{45bp}
 \fi
 
 \newcommand{\clearemptydoublepage}{%
 \clearpage
 \if@twoside
-	\ifodd
-		\c@page
-	\else
-		\hbox{}\thispagestyle{empty}\newpage
-		\if@twocolumn
-			\hbox{}\newpage
-		\fi
-	\fi
+    \ifodd
+        \c@page
+    \else
+        \hbox{}\thispagestyle{empty}\newpage
+        \if@twocolumn
+            \hbox{}\newpage
+        \fi
+    \fi
 \fi}
 %这个clearemptydoublepage我也不知道怎么设置，这一段是从网上找的，基本能用。
 
 %---------------------------文章中标题的格式设置--------------------------%
 \usepackage{titlesec,titletoc}
 \ifbuaa@bachelor
-	\titleformat{\chapter}[block]{\centering\zihao{3}\heiti}{第\,\thechapter\,章}{1em}{}
-	\titleformat{\section}[block]{\zihao{-4}\heiti}{\thesection}{1em}{}
-	\titleformat{\subsection}[block]{\zihao{-4}\heiti}{\thesubsection}{1em}{}
+    \titleformat{\chapter}[block]{\centering\zihao{3}\heiti}{第\,\thechapter\,章}{1em}{}
+    \titleformat{\section}[block]{\zihao{-4}\heiti}{\thesection}{1em}{}
+    \titleformat{\subsection}[block]{\zihao{-4}\heiti}{\thesubsection}{1em}{}
 \else
-	\titleformat{\chapter}[block]{\centering\zihao{3}\heiti}{第\,\thechapter\,章}{1em}{}
-	\titleformat{\section}[block]{\zihao{4}\heiti}{\thesection}{1em}{}
-	\titleformat{\subsection}[block]{\zihao{-4}\heiti}{\thesubsection}{1em}{}
+    \titleformat{\chapter}[block]{\centering\zihao{3}\heiti}{第\,\thechapter\,章}{1em}{}
+    \titleformat{\section}[block]{\zihao{4}\heiti}{\thesection}{1em}{}
+    \titleformat{\subsection}[block]{\zihao{-4}\heiti}{\thesubsection}{1em}{}
 \fi
 \titlespacing*{\chapter}{0pt}{.5\baselineskip}{.5\baselineskip} % 标题间距
 \titlespacing*{\section}{0pt}{.5\baselineskip}{.5\baselineskip}
@@ -287,47 +286,47 @@
 
 %------------------------目录中标题格式进行设置---------------------------%
 \ifbuaa@bachelor
-	\titlecontents{chapter}[0pt]{\heiti\zihao{-4}}{\thecontentslabel\ }{}
-		{\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}
-	\titlecontents{section}[2em]{\vspace{0.1\baselineskip}\songti\zihao{-4}}{\thecontentslabel\ }{}
-		{\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.1\baselineskip}]
-	\titlecontents{subsection}[4em]{\vspace{0.1\baselineskip}\songti\zihao{-4}}{\thecontentslabel\ }{}
-		{\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.1\baselineskip}]
+    \titlecontents{chapter}[0pt]{\heiti\zihao{-4}}{\thecontentslabel\ }{}
+        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}
+    \titlecontents{section}[2em]{\vspace{0.1\baselineskip}\songti\zihao{-4}}{\thecontentslabel\ }{}
+        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.1\baselineskip}]
+    \titlecontents{subsection}[4em]{\vspace{0.1\baselineskip}\songti\zihao{-4}}{\thecontentslabel\ }{}
+        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.1\baselineskip}]
 \else
-	\titlecontents{chapter}[0pt]{\heiti\zihao{4}}{\thecontentslabel\ }{}
-		{\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}
-	\titlecontents{section}[2em]{\vspace{0.15\baselineskip}\songti\zihao{-4}}{\thecontentslabel\ }{}
-		{\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.15\baselineskip}]
-	\titlecontents{subsection}[4em]{\vspace{0.1\baselineskip}\heiti\zihao{5}}{\thecontentslabel\ }{}
-		{\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.1\baselineskip}]
+    \titlecontents{chapter}[0pt]{\heiti\zihao{4}}{\thecontentslabel\ }{}
+        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}
+    \titlecontents{section}[2em]{\vspace{0.15\baselineskip}\songti\zihao{-4}}{\thecontentslabel\ }{}
+        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.15\baselineskip}]
+    \titlecontents{subsection}[4em]{\vspace{0.1\baselineskip}\heiti\zihao{5}}{\thecontentslabel\ }{}
+        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.1\baselineskip}]
 \fi
 %-------------------交叉引用和参考文献整理---------------------
 \RequirePackage[xetex,unicode,
-				bookmarksnumbered,
-				bookmarksopen]{hyperref}
-	\ifbuaa@nocolor
-		\hypersetup{colorlinks=false}
-	\else
-		\hypersetup{colorlinks=true}
-	\fi
-	\hypersetup{
-		linkcolor=blue,
-		citecolor=blue,
-		urlcolor=blue,
-		filecolor=black
-	}
-	\hypersetup{%
-		pdftitle=BUAA thesis,
-		%pdfauthor={\buaa@thesisauthor },%这个pdf作者项设置有问题？编译结果一直不对！
-		pdfsubject={北航-\buaa@appdegree 论文},
-		pdfcreator={LaTeXed~By~BHOSC}}
-				
+                bookmarksnumbered,
+                bookmarksopen]{hyperref}
+    \ifbuaa@nocolor
+        \hypersetup{colorlinks=false}
+    \else
+        \hypersetup{colorlinks=true}
+    \fi
+    \hypersetup{
+        linkcolor=blue,
+        citecolor=blue,
+        urlcolor=blue,
+        filecolor=black
+    }
+    \hypersetup{%
+        pdftitle=BUAA thesis,
+        %pdfauthor={\buaa@thesisauthor},%这个pdf作者项设置有问题？编译结果一直不对！
+        pdfsubject={北航-\buaa@appdegree 论文},
+        pdfcreator={LaTeXed~By~BHOSC}}
+
 \RequirePackage[sort&compress]{natbib}
-	\bibpunct{[}{]}{,}{n}{}{}
+    \bibpunct{[}{]}{,}{n}{}{}
 \RequirePackage{hypernat}
-	\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
+    \newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
 %上面四行代码是06版中的，我也不懂，但使用上没有问题。
-	
+
 %------------------------图形表格的一些设置------------------------
 \RequirePackage{graphicx}
 \DeclareGraphicsExtensions{.eps,.ps,.jpg,.bmp}
@@ -342,21 +341,21 @@
 \DeclareCaptionFormat{masterfigure}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
 \DeclareCaptionFormat{mastertable}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
 \ifbuaa@bachelor
-	\captionsetup[figure]{format=bachelorfigure,labelsep=quad}
-	\captionsetup[table]{format=bachelortable,labelsep=quad}
-	\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
-	\renewcommand{\thetable}{\arabic{section}.\arabic{table}}
-	\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+    \captionsetup[figure]{format=bachelorfigure,labelsep=quad}
+    \captionsetup[table]{format=bachelortable,labelsep=quad}
+    \renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
+    \renewcommand{\thetable}{\arabic{section}.\arabic{table}}
+    \renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
 \else
-	\RequirePackage{remreset}
-	\@removefromreset{table}{chapter}
-	\@removefromreset{figure}{chapter}
-	%使图表的标号与章节无关
-	\captionsetup[figure]{format=masterfigure,labelsep=quad}
-	\captionsetup[table]{format=mastertable,labelsep=quad}
-	\renewcommand{\thefigure}{\arabic{figure}}
-	\renewcommand{\thetable}{\arabic{table}}
-	\renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
+    \RequirePackage{remreset}
+    \@removefromreset{table}{chapter}
+    \@removefromreset{figure}{chapter}
+    %使图表的标号与章节无关
+    \captionsetup[figure]{format=masterfigure,labelsep=quad}
+    \captionsetup[table]{format=mastertable,labelsep=quad}
+    \renewcommand{\thefigure}{\arabic{figure}}
+    \renewcommand{\thetable}{\arabic{table}}
+    \renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
 \fi
 
 %---------------------间距的一些设置--------------------
@@ -406,27 +405,27 @@
 \RequirePackage{listings}
 %此宏包的设置请参考 http://bbs.ctex.org/forum.php?mod=viewthread&tid=53451
 \ifbuaa@nocolor
-	\lstset{
-		commentstyle=\color{black!100},%黑色的注释
-		rulesepcolor=\color{black!100},%代码块边框为黑色
-		keywordstyle=\color{black!100}\bfseries, %代码关键字的颜色为黑色，粗体
-	}
+    \lstset{
+        commentstyle=\color{black!100},%黑色的注释
+        rulesepcolor=\color{black!100},%代码块边框为黑色
+        keywordstyle=\color{black!100}\bfseries, %代码关键字的颜色为黑色，粗体
+    }
 \else
-	\lstset{
-		commentstyle=\color{red!50!green!50!blue!50},%浅灰色的注释
-		rulesepcolor=\color{red!20!green!20!blue!20},%代码块边框为淡青色
-		keywordstyle=\color{blue!90}\bfseries, %代码关键字的颜色为蓝色，粗体
-	}
+    \lstset{
+        commentstyle=\color{red!50!green!50!blue!50},%浅灰色的注释
+        rulesepcolor=\color{red!20!green!20!blue!20},%代码块边框为淡青色
+        keywordstyle=\color{blue!90}\bfseries, %代码关键字的颜色为蓝色，粗体
+    }
 \fi
 
 \lstdefinelanguage{LaTeX}{
-	morekeywords={%
-	documentclass,begin,end,maketitle,tableofcontent,include,%
-	usepackage,par,chapter,section,subsection,%
-	hspace,vspace,quad,qquad,frontmatter,mainmatter,backmatter,%
-	clearpage,cleardoublepage,appendix,item,upcite,url},
-	otherkeywords={},
-	sensitive=true
+    morekeywords={%
+    documentclass,begin,end,maketitle,tableofcontent,include,%
+    usepackage,par,chapter,section,subsection,%
+    hspace,vspace,quad,qquad,frontmatter,mainmatter,backmatter,%
+    clearpage,cleardoublepage,appendix,item,upcite,url},
+    otherkeywords={},
+    sensitive=true
 }
 
 \lstset{tabsize=4, %
@@ -465,70 +464,73 @@
 % 一个是cover-right-top-center的意思，另一个是cover-center-bottom-center
 \newcommand{\titlech}{
 \ifbuaa@bachelor
-\begin{titlepage}
-\begin{picture}(0,0)(35,30){
-% 第二个()里的第一个参数表示向左移50pt，第二个参数为向下移30pt
-% 具体这两个参数还没有搞得很明白，暂且这么用着吧。
-\includegraphics[width=93pt]{figure/buaamark.eps}}
-\end{picture}
-\hfill
-\raisebox{.7cm}[0pt][0pt]{
-	{\zihao{5}\heiti
-	\begin{tabular}{c}
-		单位代码~\ulinecvrtc{\buaa@unicode}\\
-		学\qquad 号~\ulinecvrtc{\buaa@studentID}\\
-		分~~类~~号~\ulinecvrtc{\buaa@category}\\
-	\end{tabular}}}
-\vskip 72bp
-\centerline{\includegraphics[width=360bp]{figure/buaaname.eps}}
-\vskip 45bp
-\centerline{\zihao{-0}\heiti 毕业设计(论文)}
-\vskip70bp
-\centerline{\heiti\zihao{2}\buaa@thesistitle}
-\vskip 118bp
-\begin{center}
-{\zihao{-3}\heiti
-	\begin{tabular}{cc}
-		学~~~院~~~名~~~称~~&\ulinecvcbc{\buaa@school 学院}\\[.4ex]
-		专~~~业~~~名~~~称~~&\ulinecvcbc{\buaa@major 专业}\\[.4ex]
-		学~~~生~~~姓~~~名~~&\ulinecvcbc{\buaa@thesisauthor}\\[.4ex]
-		指~~~导~~~教~~~师~~&\ulinecvcbc{\buaa@teacher}\\
-	\end{tabular}}
-\end{center}
-\vskip 60bp
-\centerline{\heiti\zihao{-3}\buaa@thesisdateyear ~~年~~\buaa@thesisdatemonth ~~月}
-\end{titlepage}
-
+    \begin{titlepage}
+        \begin{picture}(0,0)(35,30){
+        % 第二个()里的第一个参数表示向左移35pt，第二个参数为向下移30pt
+        % 具体这两个参数还没有搞得很明白，暂且这么用着吧。
+            \includegraphics[width=93pt]{figure/buaamark.eps}}
+        \end{picture}
+        \hfill
+        \raisebox{.7cm}[0pt][0pt]{
+            {\zihao{5}\heiti
+            \begin{tabular}{c}
+                单位代码~\ulinecvrtc{\buaa@unicode}\\
+                学\qquad 号~\ulinecvrtc{\buaa@studentID}\\
+                分~~类~~号~\ulinecvrtc{\buaa@category}\\
+            \end{tabular}}
+        }
+        \vskip 72bp
+        \centerline{\includegraphics[width=360bp]{figure/buaaname.eps}}
+        \vskip 45bp
+        \centerline{\zihao{-0}\heiti 毕业设计(论文)}
+        \vskip70bp
+        \centerline{\heiti\zihao{2}\buaa@thesistitle}
+        \vskip 118bp
+        \begin{center}
+        {
+            \zihao{-3}\heiti
+            \begin{tabular}{cc}
+                学~~~院~~~名~~~称~~&\ulinecvcbc{\buaa@school 学院}\\[.4ex]
+                专~~~业~~~名~~~称~~&\ulinecvcbc{\buaa@major 专业}\\[.4ex]
+                学~~~生~~~姓~~~名~~&\ulinecvcbc{\buaa@thesisauthor}\\[.4ex]
+                指~~~导~~~教~~~师~~&\ulinecvcbc{\buaa@teacher}\\
+            \end{tabular}
+        }
+        \end{center}
+        \vskip 60bp
+        \centerline{\heiti\zihao{-3}\buaa@thesisdateyear ~~年~~\buaa@thesisdatemonth ~~月}
+    \end{titlepage}
 \else
-
 %------研究生论文首页---------
 %间距、字体字号还需要调整
 \begin{titlepage}
-	\begin{center}
-		\zihao{5}\heiti
-		\begin{flushleft}
-			中图分类号：\buaa@category \hfill 密级\ding{73}~~\buaa@mibao \\
-			论\,\,文\,\,编\,\,号：\buaa@thesisID\\
-		\end{flushleft}
-		\vskip80bp
-		\includegraphics[width=.5\textwidth]{figure/buaaname.eps}
-		\vskip 10bp
-		\zihao{0}\hwxingkai\centerline{\buaa@appdegree 论文}
-		\vskip100bp
-		\begin{minipage}[h]{.8\textwidth}
-			\begin{spacing}{2}
-			\xiaochuhao\songti\centering{\buaa@thesistitle}
-			\end{spacing}
-		\end{minipage}
-		\vskip80bp
-		{\heiti\zihao{4}\ziju{0.2}
-		\begin{tabular}[b]{ll}
-			作~~者~~姓~~名~~ & \buaa@thesisauthor \\[.4ex]
-			学~~科~~专~~业~~ & \buaa@major 专业\\[.4ex]
-			指~~导~~教~~师~~ & \buaa@teacher \quad\buaa@teacherdegree\\[.4ex]
-			培~~养~~院~~系~~ & \buaa@school 学院\\
-		\end{tabular}}
-	\end{center}
+    \begin{center}
+        \zihao{5}\heiti
+        \begin{flushleft}
+            中图分类号：\buaa@category \hfill 密级\ding{73}~~\buaa@mibao \\
+            论\,\,文\,\,编\,\,号：\buaa@thesisID\\
+        \end{flushleft}
+        \vskip80bp
+        \includegraphics[width=.5\textwidth]{figure/buaaname.eps}
+        \vskip 10bp
+        \zihao{0}\hwxingkai\centerline{\buaa@appdegree 论文}
+        \vskip100bp
+        \begin{minipage}[h]{.8\textwidth}
+            \begin{spacing}{2}
+            \xiaochuhao\songti\centering{\buaa@thesistitle}
+            \end{spacing}
+        \end{minipage}
+        \vskip80bp
+        {
+            \heiti\zihao{4}\ziju{0.2}
+            \begin{tabular}[b]{ll}
+                作~~者~~姓~~名~~ & \buaa@thesisauthor \\[.4ex]
+                学~~科~~专~~业~~ & \buaa@major 专业\\[.4ex]
+                指~~导~~教~~师~~ & \buaa@teacher \quad\buaa@teacherdegree\\[.4ex]
+                培~~养~~院~~系~~ & \buaa@school 学院\\
+            \end{tabular}
+        }
+    \end{center}
 \end{titlepage}
 
 \fi
@@ -539,25 +541,25 @@
 \thispagestyle{empty}
 \vspace*{100bp}
 \begin{center}
-	\begin{minipage}[h]{.85\textwidth}
-		\centerline{\zihao{-2}\textbf{\buaa@thesistitleeng}}
-	\end{minipage}
-	\vskip100bp
-	{\zihao{4}A Dissertation Submitted for the Degree of \buaa@appdegreeeng}\\
-	\vskip110bp
-	\begin{center}
-	{\zihao{-3}
-		\begin{tabular}{rl}
-			\textbf{Candidate：}&\textbf{\buaa@thesisauthoreng}\\[2.5ex]
-			\textbf{Supervisor：}&\textbf{\buaa@teacherdegreeeng ~~\buaa@teachereng}
-		\end{tabular}}
-	\end{center}
-	%这个地方编译后老感觉不是居中的，不知为嘛，或许可以直接在前面加个固定长度而不用列表环境。
-	%加入多余的center环境后编译又会报错，但出来的pdf是正确的，很诡异！
-	\vskip125bp
-	\zihao{3}{
-	\buaa@schooleng \\[1.8ex]
-	\buaa@universityeng , Beijing, China}
+    \begin{minipage}[h]{.85\textwidth}
+        \centerline{\zihao{-2}\textbf{\buaa@thesistitleeng}}
+    \end{minipage}
+    \vskip100bp
+    {\zihao{4}A Dissertation Submitted for the Degree of \buaa@appdegreeeng}\\
+    \vskip110bp
+    \begin{center}
+    {\zihao{-3}
+        \begin{tabular}{rl}
+            \textbf{Candidate：}&\textbf{\buaa@thesisauthoreng}\\[2.5ex]
+            \textbf{Supervisor：}&\textbf{\buaa@teacherdegreeeng ~~\buaa@teachereng}
+        \end{tabular}}
+    \end{center}
+    %这个地方编译后老感觉不是居中的，不知为嘛，或许可以直接在前面加个固定长度而不用列表环境。
+    %加入多余的center环境后编译又会报错，但出来的pdf是正确的，很诡异！
+    \vskip125bp
+    \zihao{3}{
+    \buaa@schooleng \\[1.8ex]
+    \buaa@universityeng , Beijing, China}
 \end{center}
 %说明：使用垂直橡皮长度经常需要加各种空格换行一类的，推荐还是使用vskip来替代
 }
@@ -572,11 +574,11 @@
 切资料均已在参考文献中列出。\par
 \vskip63bp
 \zihao{-4}
-\hfill	\begin{tabular}{cl}
-		作者：&\buaa@thesisauthor\\
-		签字：&~~~~\\
-		时间：& \buaa@thesisdateyear~年~\buaa@thesisdatemonth ~月
-		\end{tabular}
+\hfill    \begin{tabular}{cl}
+        作者：&\buaa@thesisauthor\\
+        签字：&~~~~\\
+        时间：& \buaa@thesisdateyear~年~\buaa@thesisdatemonth ~月
+        \end{tabular}
 }
 
 %+++++++++++++设置研究生论文的提名页+++++++++++
@@ -584,28 +586,28 @@
 \clearemptydoublepage
 \thispagestyle{empty}
 \begin{flushleft}
-	{\zihao{5}\heiti
-	中图分类号：\buaa@category\\
-	论\,\,文\,\,编\,\,号：\buaa@thesisID\\}
+    {\zihao{5}\heiti
+    中图分类号：\buaa@category\\
+    论\,\,文\,\,编\,\,号：\buaa@thesisID\\}
 \end{flushleft}
 \vskip130bp
 \centerline{\zihao{-2}\heiti{\ziju{1.3}\buaa@appdegree 论文}}
 \vskip120bp
 \begin{center}
-	\begin{minipage}[h]{.85\textwidth}
-		\zihao{-1}\heiti\centering{\buaa@thesistitle}
-	\end{minipage}
+    \begin{minipage}[h]{.85\textwidth}
+        \zihao{-1}\heiti\centering{\buaa@thesistitle}
+    \end{minipage}
 \end{center}
 \vskip110bp
 \begin{spacing}{2.2}
 {\zihao{-4}\songti
 \begin{tabular}[b]{llll}
-	作\,\,\,\,者\,\,\,\,姓\,\,\,\,名 & \buaa@thesisauthor& 申请学位级别 & \buaa@appdegree \\
-	指导教师姓名 & \buaa@teacher & 职\qquad\qquad 称 & \buaa@teacherdegree \\
-	学\,\,\,\,科\,\,\,\,专\,\,\,\,业 & \buaa@major  & 研\,\,\,\,究\,\,\,\,方\,\,\,\,向 & \buaa@direction \\
-	学\,\,习\,\,时\,\,间\,自 &\buaa@thesisbeginyear~~年~~\buaa@thesisbeginmonth~~月~~\buaa@thesisbeginday~~日\qquad & 起\qquad 至~  & \buaa@thesisendyear~~年~~\buaa@thesisendmonth~~月~~\buaa@thesisendday~~日止\qquad\\
-	论文提交日期 &\buaa@commityear~~年~~\buaa@commitmonth~~月~~\buaa@commitday~~日\qquad & 论文答辩日期& \buaa@defenseyear~~年~~\buaa@defensemonth~~月~~\buaa@defenseday~~日~\qquad\\
-	学位授予单位 & \buaa@university &学位授予日期 &\buaa@awardyear~~年~~\buaa@awardmonth~~月~~\buaa@awardday~~日~\qquad\\
+    作\,\,\,\,者\,\,\,\,姓\,\,\,\,名 & \buaa@thesisauthor& 申请学位级别 & \buaa@appdegree \\
+    指导教师姓名 & \buaa@teacher & 职\qquad\qquad 称 & \buaa@teacherdegree \\
+    学\,\,\,\,科\,\,\,\,专\,\,\,\,业 & \buaa@major  & 研\,\,\,\,究\,\,\,\,方\,\,\,\,向 & \buaa@direction \\
+    学\,\,习\,\,时\,\,间\,自 &\buaa@thesisbeginyear~~年~~\buaa@thesisbeginmonth~~月~~\buaa@thesisbeginday~~日\qquad & 起\qquad 至~  & \buaa@thesisendyear~~年~~\buaa@thesisendmonth~~月~~\buaa@thesisendday~~日止\qquad\\
+    论文提交日期 &\buaa@commityear~~年~~\buaa@commitmonth~~月~~\buaa@commitday~~日\qquad & 论文答辩日期& \buaa@defenseyear~~年~~\buaa@defensemonth~~月~~\buaa@defenseday~~日~\qquad\\
+    学位授予单位 & \buaa@university &学位授予日期 &\buaa@awardyear~~年~~\buaa@awardmonth~~月~~\buaa@awardday~~日~\qquad\\
 \end{tabular}}
 \end{spacing}
 }
@@ -617,7 +619,7 @@
 \centerline{\zihao{3}\heiti 关于学位论文的独创性声明}
 \zihao{-4}\songti
 ~~\par
-	本人郑重声明：所呈交的论文是本人在指导教师指导下独立进行研究工作所取得的成果，
+    本人郑重声明：所呈交的论文是本人在指导教师指导下独立进行研究工作所取得的成果，
 论文中有关资料和数据是实事求是的。尽我所知，除文中已经加以标注和致谢外，
 本论文不包含其他人已经发表或撰写的研究成果，也不包含本人或他人为获得北京航空航天大学
 或其它教育机构的学位或学历证书而使用过的材料。与我一同工作的同志对研究所做的任何贡献
@@ -628,7 +630,7 @@
 \vskip130bp
 \centerline{\zihao{3}\heiti 学位论文使用授权书}
 ~~\par
-	本人完全同意北京航空航天大学有权使用本学位论文（包括但不限于其印刷版和电子版），
+    本人完全同意北京航空航天大学有权使用本学位论文（包括但不限于其印刷版和电子版），
 使用方式包括但不限于：保留学位论文，按规定向国家有关部门（机构）送交学位论文，
 以学术交流为目的赠送和交换学位论文，允许学位论文被查阅、借阅和复印，将学位论文的全部
 或部分内容编入有关数据库进行检索，采用影印、缩印或其他复制手段保存学位论文。\par
@@ -726,7 +728,7 @@
         \ulinel{\buaa@bachelor@assign@work@five}
         \ulinel{\buaa@bachelor@assign@work@six}
         \newpage
-		\thispagestyle{empty}
+        \thispagestyle{empty}
         \stepcounter{assign}
         \Roman{assign}、主要参考资料： \\
         \ulinel{\buaa@bachelor@assign@ref@one}
@@ -751,7 +753,7 @@
         注：任务书应该附在已完成的毕业设计（论文）的首页。
     }
     \CTEXindent
-	\linespread{1.5}
+    \linespread{1.5}
 }
 
 % 首页重定义
@@ -759,14 +761,14 @@
 \titlech
 \ifbuaa@bachelor
     \buaa@bachelor@assign     %本科生论文任务书
-	\frontmatter
-	\announce
+    \frontmatter
+    \announce
 \else
-	\titleeng                 %研究生英文封面
-	\timingye                 %研究生题名页
-	\creationanduse           %研究生独创性声明和使用授权书
-	\clearemptydoublepage
-	\frontmatter
+    \titleeng                 %研究生英文封面
+    \timingye                 %研究生题名页
+    \creationanduse           %研究生独创性声明和使用授权书
+    \clearemptydoublepage
+    \frontmatter
 \fi
 \songti
 \zihao{-4}
@@ -778,27 +780,27 @@
 \newpage
 \vspace*{2bp}
 \ifbuaa@bachelor
-	\centerline{\zihao{3}\heiti\buaa@thesistitle}
-	\vskip10bp
-	\begin{flushright}
-		{\begin{tabular}{cl}
-			\ziju{2}学生：&\buaa@thesisauthor\\
-			指导教师：&\buaa@teacher\\
-		\end{tabular}}
-	\end{flushright}
+    \centerline{\zihao{3}\heiti\buaa@thesistitle}
+    \vskip10bp
+    \begin{flushright}
+        {\begin{tabular}{cl}
+            \ziju{2}学生：&\buaa@thesisauthor\\
+            指导教师：&\buaa@teacher\\
+        \end{tabular}}
+    \end{flushright}
 \fi
 \centerline{\heiti\zihao{3} 摘~~~~要}
 \ifbuaa@bachelor
-	\vskip10bp
-	\par
+    \vskip10bp
+    \par
 \else
-	\vspace{5ex}
+    \vspace{5ex}
 \fi
 \setlength{\parindent}{24bp}
 }{%
 \vskip21bp
 \ifbuaa@bachelor
-	\noindent
+    \noindent
 \fi
 {\heiti\zihao{-4} 关键词：}\buaa@ckeyword
 }
@@ -808,27 +810,27 @@
 \newpage
 \vspace*{2bp}
 \ifbuaa@bachelor
-	\centerline{\bf\zihao{3}\buaa@thesistitleeng}
-	\vskip10bp
-	\begin{flushright}
-		{\begin{tabular}{rl}
-			Author：&\buaa@thesisauthoreng\\
-			Tutor：&\buaa@teachereng\\
-		\end{tabular}}
-	\end{flushright}
+    \centerline{\bf\zihao{3}\buaa@thesistitleeng}
+    \vskip10bp
+    \begin{flushright}
+        {\begin{tabular}{rl}
+            Author：&\buaa@thesisauthoreng\\
+            Tutor：&\buaa@teachereng\\
+        \end{tabular}}
+    \end{flushright}
 \fi
 \centerline{\bf\zihao{3} Abstract}
 \ifbuaa@bachelor
-	\vskip10bp
-	\par
+    \vskip10bp
+    \par
 \else
-	\vspace{5ex}
+    \vspace{5ex}
 \fi
 \setlength{\parindent}{24bp}
 }{%
 \vskip21bp
 \ifbuaa@bachelor
-	\noindent
+    \noindent
 \fi
 {\bf\zihao{-4} Key words: }\buaa@ekeyword
 }
