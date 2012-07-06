@@ -273,6 +273,21 @@
 \fi}
 %这个clearemptydoublepage我也不知道怎么设置，这一段是从网上找的，基本能用。
 
+% 本科生模板要求表格内为5号字，故重定义表格环境以实现
+\ifbuaa@bachelor
+    \let\oldtable\table
+    \let\endoldtable\endtable
+    \renewenvironment{table}[1][ht]
+    {\oldtable[#1]\zihao{5}}
+    {\endoldtable}
+
+    \let\oldtabular\tabular
+    \let\endoldtabular\endtabular
+    \renewenvironment{tabular}[1][ht]
+    {\oldtabular[#1]\zihao{5}}
+    {\endoldtabular}
+\fi
+
 %---------------------------文章中标题的格式设置--------------------------%
 \usepackage{titlesec,titletoc}
 \ifbuaa@bachelor
