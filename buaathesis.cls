@@ -1,7 +1,7 @@
 % !Mode:: "TeX:UTF-8"
 
 \NeedsTeXFormat{LaTeX2e}[2007/10/19]
-\ProvidesClass{buaathesis}[2012/07 0.8 The LaTeX template for thesis of BeiHang University]
+\ProvidesClass{buaathesis}[2012/07/06 0.8 The LaTeX template for thesis of BeiHang University]
 \typeout{Document Class `buaathesis' v0.8 by BHOSC (2012/07)}
 
 \newif\ifbuaa@bachelor\buaa@bachelorfalse
