@@ -464,42 +464,43 @@
 % 一个是cover-right-top-center的意思，另一个是cover-center-bottom-center
 \newcommand{\titlech}{
 \ifbuaa@bachelor
-\begin{titlepage}
-\begin{picture}(0,0)(35,30){
-% 第二个()里的第一个参数表示向左移50pt，第二个参数为向下移30pt
-% 具体这两个参数还没有搞得很明白，暂且这么用着吧。
-\includegraphics[width=93pt]{figure/buaamark.eps}}
-\end{picture}
-\hfill
-\raisebox{.7cm}[0pt][0pt]{
-    {\zihao{5}\heiti
-    \begin{tabular}{c}
-        单位代码~\ulinecvrtc{\buaa@unicode}\\
-        学\qquad 号~\ulinecvrtc{\buaa@studentID}\\
-        分~~类~~号~\ulinecvrtc{\buaa@category}\\
-    \end{tabular}}}
-\vskip 72bp
-\centerline{\includegraphics[width=360bp]{figure/buaaname.eps}}
-\vskip 45bp
-\centerline{\zihao{-0}\heiti 毕业设计(论文)}
-\vskip70bp
-\centerline{\heiti\zihao{2}\buaa@thesistitle}
-\vskip 118bp
-\begin{center}
-{\zihao{-3}\heiti
-    \begin{tabular}{cc}
-        学~~~院~~~名~~~称~~&\ulinecvcbc{\buaa@school 学院}\\[.4ex]
-        专~~~业~~~名~~~称~~&\ulinecvcbc{\buaa@major 专业}\\[.4ex]
-        学~~~生~~~姓~~~名~~&\ulinecvcbc{\buaa@thesisauthor}\\[.4ex]
-        指~~~导~~~教~~~师~~&\ulinecvcbc{\buaa@teacher}\\
-    \end{tabular}}
-\end{center}
-\vskip 60bp
-\centerline{\heiti\zihao{-3}\buaa@thesisdateyear ~~年~~\buaa@thesisdatemonth ~~月}
-\end{titlepage}
-
+    \begin{titlepage}
+        \begin{picture}(0,0)(35,30){
+        % 第二个()里的第一个参数表示向左移50pt，第二个参数为向下移30pt
+        % 具体这两个参数还没有搞得很明白，暂且这么用着吧。
+            \includegraphics[width=93pt]{figure/buaamark.eps}}
+        \end{picture}
+        \hfill
+        \raisebox{.7cm}[0pt][0pt]{
+            {\zihao{5}\heiti
+            \begin{tabular}{c}
+                单位代码~\ulinecvrtc{\buaa@unicode}\\
+                学\qquad 号~\ulinecvrtc{\buaa@studentID}\\
+                分~~类~~号~\ulinecvrtc{\buaa@category}\\
+            \end{tabular}}
+        }
+        \vskip 72bp
+        \centerline{\includegraphics[width=360bp]{figure/buaaname.eps}}
+        \vskip 45bp
+        \centerline{\zihao{-0}\heiti 毕业设计(论文)}
+        \vskip70bp
+        \centerline{\heiti\zihao{2}\buaa@thesistitle}
+        \vskip 118bp
+        \begin{center}
+        {
+            \zihao{-3}\heiti
+            \begin{tabular}{cc}
+                学~~~院~~~名~~~称~~&\ulinecvcbc{\buaa@school 学院}\\[.4ex]
+                专~~~业~~~名~~~称~~&\ulinecvcbc{\buaa@major 专业}\\[.4ex]
+                学~~~生~~~姓~~~名~~&\ulinecvcbc{\buaa@thesisauthor}\\[.4ex]
+                指~~~导~~~教~~~师~~&\ulinecvcbc{\buaa@teacher}\\
+            \end{tabular}
+        }
+        \end{center}
+        \vskip 60bp
+        \centerline{\heiti\zihao{-3}\buaa@thesisdateyear ~~年~~\buaa@thesisdatemonth ~~月}
+    \end{titlepage}
 \else
-
 %------研究生论文首页---------
 %间距、字体字号还需要调整
 \begin{titlepage}
@@ -520,13 +521,15 @@
             \end{spacing}
         \end{minipage}
         \vskip80bp
-        {\heiti\zihao{4}\ziju{0.2}
-        \begin{tabular}[b]{ll}
-            作~~者~~姓~~名~~ & \buaa@thesisauthor \\[.4ex]
-            学~~科~~专~~业~~ & \buaa@major 专业\\[.4ex]
-            指~~导~~教~~师~~ & \buaa@teacher \quad\buaa@teacherdegree\\[.4ex]
-            培~~养~~院~~系~~ & \buaa@school 学院\\
-        \end{tabular}}
+        {
+            \heiti\zihao{4}\ziju{0.2}
+            \begin{tabular}[b]{ll}
+                作~~者~~姓~~名~~ & \buaa@thesisauthor \\[.4ex]
+                学~~科~~专~~业~~ & \buaa@major 专业\\[.4ex]
+                指~~导~~教~~师~~ & \buaa@teacher \quad\buaa@teacherdegree\\[.4ex]
+                培~~养~~院~~系~~ & \buaa@school 学院\\
+            \end{tabular}
+        }
     \end{center}
 \end{titlepage}
 
