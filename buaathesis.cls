@@ -193,8 +193,7 @@
         \degree{专业硕士学位}{Master}{硕士}
     \else
         \ifbuaa@bachelor
-            \degree{本科生学位论文}{Bachelor}{本科}
-            %其实上面那一行只用到第一个参数，用来设置pdf的信息时用到。
+            \degree{学士学位}{Bachelor}{学士}
         \else
             \degree{学士硕士学位}{Master}{硕士}
         \fi
