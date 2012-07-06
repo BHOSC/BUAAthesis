@@ -335,8 +335,8 @@
         filecolor=black
     }
     \hypersetup{%
-        pdftitle=BUAA thesis,
-        %pdfauthor={\buaa@thesisauthor},%这个pdf作者项设置有问题？编译结果一直不对！
+        pdftitle={BUAA thesis},
+        pdfauthor={BHOSC},
         pdfsubject={北航-\buaa@appdegree 论文},
         pdfcreator={LaTeXed~By~BHOSC}}
 
