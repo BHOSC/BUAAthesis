@@ -255,6 +255,10 @@
     \setlength{\headsep}{45bp}
 \fi
 
+\fancypagestyle{plain}{
+    \pagestyle{fancy}
+}
+
 \newcommand{\clearemptydoublepage}{%
 \clearpage
 \if@twoside
