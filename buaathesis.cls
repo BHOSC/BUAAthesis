@@ -466,7 +466,7 @@
 \ifbuaa@bachelor
     \begin{titlepage}
         \begin{picture}(0,0)(35,30){
-        % 第二个()里的第一个参数表示向左移50pt，第二个参数为向下移30pt
+        % 第二个()里的第一个参数表示向左移35pt，第二个参数为向下移30pt
         % 具体这两个参数还没有搞得很明白，暂且这么用着吧。
             \includegraphics[width=93pt]{figure/buaamark.eps}}
         \end{picture}
