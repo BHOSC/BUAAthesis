@@ -255,6 +255,10 @@
     \setlength{\headsep}{45bp}
 \fi
 
+\fancypagestyle{plain}{
+    \pagestyle{fancy}
+}
+
 \newcommand{\clearemptydoublepage}{%
 \clearpage
 \if@twoside
@@ -268,6 +272,20 @@
     \fi
 \fi}
 %这个clearemptydoublepage我也不知道怎么设置，这一段是从网上找的，基本能用。
+
+% 表格内为5号字，故重定义表格环境
+% 暂不支持longtable
+\let\oldtable\table
+\let\endoldtable\endtable
+\renewenvironment{table}[1][ht]
+{\oldtable[#1]\zihao{5}}
+{\endoldtable}
+
+\let\oldtabular\tabular
+\let\endoldtabular\endtabular
+\renewenvironment{tabular}[1][ht]
+{\oldtabular[#1]\zihao{5}}
+{\endoldtabular}
 
 %---------------------------文章中标题的格式设置--------------------------%
 \usepackage{titlesec,titletoc}
@@ -316,8 +334,8 @@
         filecolor=black
     }
     \hypersetup{%
-        pdftitle=BUAA thesis,
-        %pdfauthor={\buaa@thesisauthor},%这个pdf作者项设置有问题？编译结果一直不对！
+        pdftitle={BUAA thesis},
+        pdfauthor={BHOSC},
         pdfsubject={北航-\buaa@appdegree 论文},
         pdfcreator={LaTeXed~By~BHOSC}}
 
@@ -568,7 +586,7 @@
 \newcommand{\announce}{%
 \clearemptydoublepage
 \vspace*{54bp}
-\centerline{\bf\zihao{-2}本人声明}
+\centerline{\bf\zihao{-2}\songti 本人声明}
 \vskip27bp
 \zihao{4}我声明，本论文及其研究工作是由本人在导师指导下独立完成的，在完成论文时所利用的一
 切资料均已在参考文献中列出。\par
@@ -696,7 +714,9 @@
     \thispagestyle{empty}
     \CTEXnoindent
     \linespread{2}
-    \zihao{2}{
+    \songti
+    {
+        \zihao{2}
         {
             \renewcommand{\CJKglue}{\hskip 1pt}
             \centerline{\hwxingkai{北京航空航天大学}}
@@ -706,7 +726,8 @@
             \centerline{本科生毕业设计（论文）任务书}
         }
     }
-    \zihao{4}{
+    {
+        \zihao{4}
         \stepcounter{assign}
         \Roman{assign}、毕业设计（论文）题目： \\
         \ulinel{\buaa@thesistitle}
