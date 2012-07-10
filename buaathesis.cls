@@ -219,37 +219,37 @@
 %%学位论文的上边距：30mm；下边距：25mm；左边距：30mm；右边距：20mm；
 \savegeometry{bachelorgeometry}
 \newgeometry{
-	top=25mm,bottom=25mm,left=30mm,right=20mm,
-	headsep=5mm,headheight=10mm,footskip=10mm}
+    top=25mm,bottom=25mm,left=30mm,right=20mm,
+    headsep=5mm,headheight=10mm,footskip=10mm}
 %学位论文的上边距：25mm；下边距：25mm；左边距：30mm；右边距：20mm；
 %页眉都用小五号宋体字，页眉的上边距为15mm；页脚的下边距为15mm。
 %按照上面的设置，个人觉得基本符合要求。
 \savegeometry{mastergeometry}
 
 \ifbuaa@bachelor
-	\loadgeometry{bachelorgeometry}
+    \loadgeometry{bachelorgeometry}
 \else
-	\loadgeometry{mastergeometry}
+    \loadgeometry{mastergeometry}
 \fi
 
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhead{}
 \fancyfoot{}
-	\ifbuaa@bachelor
-		%\newsavebox{\markbuaa}
-		%\sbox{\markbuaa}{\includegraphics[width=45bp]{figure/buaamark.eps}}
-		%<LaTeX插图指南>第十五章讲了为什么要这样做。但不顶用啊！！！
-		\fancyhead[C]{%
-		\includegraphics[width=37bp]{figure/buaamark.eps}\hfill
-		\raisebox{2ex}{\heiti\zihao{4}\buaa@university 毕业设计(论文)}\hfill
-		\raisebox{2ex}{\songti\zihao{5}第\quad\thepage\quad 页}
-		}
-	\else
-		\fancyhead[CO]{\zihao{-5}\songti\buaa@university\buaa@applydegree 学位论文\vspace{1.5mm}}
-		\fancyhead[CE]{\zihao{-5}\songti\leftmark\vspace{1.5mm}}
-		\fancyfoot[C]{\zihao{5}\thepage}
-	\fi
+    \ifbuaa@bachelor
+        %\newsavebox{\markbuaa}
+        %\sbox{\markbuaa}{\includegraphics[width=45bp]{figure/buaamark.eps}}
+        %<LaTeX插图指南>第十五章讲了为什么要这样做。但不顶用啊！！！
+        \fancyhead[C]{%
+        \includegraphics[width=37bp]{figure/buaamark.eps}\hfill
+        \raisebox{2ex}{\heiti\zihao{4}\buaa@university 毕业设计(论文)}\hfill
+        \raisebox{2ex}{\songti\zihao{5}第\quad\thepage\quad 页}
+        }
+    \else
+        \fancyhead[CO]{\zihao{-5}\songti\buaa@university\buaa@applydegree 学位论文\vspace{1.5mm}}
+        \fancyhead[CE]{\zihao{-5}\songti\leftmark\vspace{1.5mm}}
+        \fancyfoot[C]{\zihao{5}\thepage}
+    \fi
 \renewcommand{\headrulewidth}{0.5bp} %页眉线宽度
 \ifbuaa@bachelor
     \setlength{\headsep}{45bp}
