@@ -478,21 +478,21 @@
 \newcommand{\titlech}{
 \ifbuaa@bachelor
     \begin{titlepage}
-        \begin{picture}(0,0)(35,30){
-        % 第二个()里的第一个参数表示向左移35pt，第二个参数为向下移30pt
+        \begin{picture}(0,0)(35,55){
+        % 第二个()里的第一个参数表示向左移35pt，第二个参数为向下移55pt
         % 具体这两个参数还没有搞得很明白，暂且这么用着吧。
-            \includegraphics[width=93pt]{figure/buaamark.eps}}
+            \includegraphics[width=90pt]{figure/buaamark.eps}}
         \end{picture}
         \hfill
-        \raisebox{.7cm}[0pt][0pt]{
+        \raisebox{-.2cm}[0pt][0pt]{
             {\zihao{5}\heiti
             \begin{tabular}{c}
-                单位代码~\ulinecvrtc{\buaa@unicode}\\
-                学\qquad 号~\ulinecvrtc{\buaa@studentID}\\
-                分~~类~~号~\ulinecvrtc{\buaa@category}\\
+                单位代码~\ulinecvrtc{\bf\buaa@unicode}\\[.1ex]
+                学\qquad 号~\ulinecvrtc{\bf\buaa@studentID}\\[.1ex]
+                分~~类~~号~\ulinecvrtc{\bf\buaa@category}\\
             \end{tabular}}
         }
-        \vskip 72bp
+        \vskip 95bp
         \centerline{\includegraphics[width=360bp]{figure/buaaname.eps}}
         \vskip 45bp
         \centerline{\zihao{-0}\heiti 毕业设计(论文)}
@@ -708,7 +708,6 @@
     \newpage
     \thispagestyle{empty}
     \CTEXnoindent
-    \linespread{2}
     \songti
     {
         \zihao{2}
@@ -722,21 +721,22 @@
         }
     }
     {
+        \linespread{2}
         \zihao{4}
         \stepcounter{assign}
-        \Roman{assign}、毕业设计（论文）题目： \\
+        \Roman{assign}、毕业设计（论文）题目： \\[2.5ex]
         \ulinel{\buaa@thesistitle}
         \ulinel{}
         \ulinel{}
         \stepcounter{assign}
-        \Roman{assign}、毕业设计（论文）使用的原始资料（数据）及设计技术要求： \\
+        \Roman{assign}、毕业设计（论文）使用的原始资料（数据）及设计技术要求： \\[2.5ex]
         \ulinel{\buaa@bachelor@assign@req@one}
         \ulinel{\buaa@bachelor@assign@req@two}
         \ulinel{\buaa@bachelor@assign@req@three}
         \ulinel{\buaa@bachelor@assign@req@four}
         \ulinel{\buaa@bachelor@assign@req@five}
         \stepcounter{assign}
-        \Roman{assign}、毕业设计（论文）工作内容： \\
+        \Roman{assign}、毕业设计（论文）工作内容： \\[2.5ex]
         \ulinel{\buaa@bachelor@assign@work@one}
         \ulinel{\buaa@bachelor@assign@work@two}
         \ulinel{\buaa@bachelor@assign@work@three}
@@ -745,8 +745,10 @@
         \ulinel{\buaa@bachelor@assign@work@six}
         \newpage
         \thispagestyle{empty}
+        \begin{spacing}{1.9}
+        \zihao{4}
         \stepcounter{assign}
-        \Roman{assign}、主要参考资料： \\
+        \Roman{assign}、主要参考资料： \\[1.5ex]
         \ulinel{\buaa@bachelor@assign@ref@one}
         \ulinel{\buaa@bachelor@assign@ref@two}
         \ulinel{\buaa@bachelor@assign@ref@three}
@@ -767,6 +769,7 @@
         \ulinec[.28]{}系（教研室） 主任（签字）：\ulinec[.28]{} \\
         \vfill
         注：任务书应该附在已完成的毕业设计（论文）的首页。
+        \end{spacing}
     }
     \CTEXindent
     \linespread{1.5}
