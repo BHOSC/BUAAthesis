@@ -204,8 +204,6 @@
 %---------------------字体字号的一些设置-------------------
 %   设置主要字体为Times New Roman和宋体
 %   研究生论文的首页需要华文行楷和32号字
-%   其余的都可以用ctex自带的，貌似不能使用隶书和幼圆字体
-%   此两个字体有问题，需要重新定义
 %----------------------------------------------------------
 \setmainfont{Times New Roman}
 \setCJKmainfont{宋体}
@@ -215,45 +213,42 @@
 
 %--------------------页面、页眉页脚的设置（具体间距还有待修正）-----------------------
 \RequirePackage{geometry}
-\newgeometry{top=30mm,bottom=25mm,left=30mm,right=20mm}
+\newgeometry{top=30mm,bottom=25mm,left=30mm,right=20mm,headsep=5mm}
 %%学位论文的上边距：30mm；下边距：25mm；左边距：30mm；右边距：20mm；
 \savegeometry{bachelorgeometry}
 \newgeometry{
-	top=25mm,bottom=25mm,left=30mm,right=20mm,
-	headsep=5mm,headheight=10mm,footskip=10mm}
+    top=25mm,bottom=25mm,left=30mm,right=20mm,
+    headsep=5mm,headheight=10mm,footskip=10mm}
 %学位论文的上边距：25mm；下边距：25mm；左边距：30mm；右边距：20mm；
 %页眉都用小五号宋体字，页眉的上边距为15mm；页脚的下边距为15mm。
 %按照上面的设置，个人觉得基本符合要求。
 \savegeometry{mastergeometry}
 
 \ifbuaa@bachelor
-	\loadgeometry{bachelorgeometry}
+    \loadgeometry{bachelorgeometry}
 \else
-	\loadgeometry{mastergeometry}
+    \loadgeometry{mastergeometry}
 \fi
 
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhead{}
 \fancyfoot{}
-	\ifbuaa@bachelor
-		%\newsavebox{\markbuaa}
-		%\sbox{\markbuaa}{\includegraphics[width=45bp]{figure/buaamark.eps}}
-		%<LaTeX插图指南>第十五章讲了为什么要这样做。但不顶用啊！！！
-		\fancyhead[C]{%
-		\includegraphics[width=37bp]{figure/buaamark.eps}\hfill
-		\raisebox{2ex}{\heiti\zihao{4}\buaa@university 毕业设计(论文)}\hfill
-		\raisebox{2ex}{\songti\zihao{5}第\quad\thepage\quad 页}
-		}
-	\else
-		\fancyhead[CO]{\zihao{-5}\songti\buaa@university\buaa@applydegree 学位论文\vspace{1.5mm}}
-		\fancyhead[CE]{\zihao{-5}\songti\leftmark\vspace{1.5mm}}
-		\fancyfoot[C]{\zihao{5}\thepage}
-	\fi
+    \ifbuaa@bachelor
+        %\newsavebox{\markbuaa}
+        %\sbox{\markbuaa}{\includegraphics[width=45bp]{figure/buaamark.eps}}
+        %<LaTeX插图指南>第十五章讲了为什么要这样做。但不顶用啊！！！
+        \fancyhead[C]{%
+        \includegraphics[width=37bp]{figure/buaamark.eps}\hfill
+        \raisebox{2ex}{\heiti\zihao{4}\buaa@university 毕业设计(论文)}\hfill
+        \raisebox{2ex}{\songti\zihao{5}第\quad\thepage\quad 页}
+        }
+    \else
+        \fancyhead[CO]{\zihao{-5}\songti\buaa@university\buaa@applydegree 学位论文\vspace{1.5mm}}
+        \fancyhead[CE]{\zihao{-5}\songti\leftmark\vspace{1.5mm}}
+        \fancyfoot[C]{\zihao{5}\thepage}
+    \fi
 \renewcommand{\headrulewidth}{0.5bp} %页眉线宽度
-\ifbuaa@bachelor
-    \setlength{\headsep}{45bp}
-\fi
 
 \fancypagestyle{plain}{
     \pagestyle{fancy}
@@ -298,7 +293,7 @@
     \titleformat{\section}[block]{\zihao{4}\heiti}{\thesection}{1em}{}
     \titleformat{\subsection}[block]{\zihao{-4}\heiti}{\thesubsection}{1em}{}
 \fi
-\titlespacing*{\chapter}{0pt}{.5\baselineskip}{.5\baselineskip} % 标题间距
+\titlespacing*{\chapter}{0pt}{0pt}{.5\baselineskip} % 标题间距
 \titlespacing*{\section}{0pt}{.5\baselineskip}{.5\baselineskip}
 \titlespacing*{\subsection}{0pt}{.5\baselineskip}{.5\baselineskip}
 
