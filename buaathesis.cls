@@ -293,7 +293,7 @@
     \titleformat{\section}[block]{\zihao{4}\heiti}{\thesection}{1em}{}
     \titleformat{\subsection}[block]{\zihao{-4}\heiti}{\thesubsection}{1em}{}
 \fi
-\titlespacing*{\chapter}{0pt}{.5\baselineskip}{.5\baselineskip} % 标题间距
+\titlespacing*{\chapter}{0pt}{0pt}{.5\baselineskip} % 标题间距
 \titlespacing*{\section}{0pt}{.5\baselineskip}{.5\baselineskip}
 \titlespacing*{\subsection}{0pt}{.5\baselineskip}{.5\baselineskip}
 
