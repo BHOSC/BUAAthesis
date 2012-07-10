@@ -215,7 +215,7 @@
 
 %--------------------页面、页眉页脚的设置（具体间距还有待修正）-----------------------
 \RequirePackage{geometry}
-\newgeometry{top=30mm,bottom=25mm,left=30mm,right=20mm}
+\newgeometry{top=30mm,bottom=25mm,left=30mm,right=20mm,headsep=5mm}
 %%学位论文的上边距：30mm；下边距：25mm；左边距：30mm；右边距：20mm；
 \savegeometry{bachelorgeometry}
 \newgeometry{
@@ -251,9 +251,6 @@
         \fancyfoot[C]{\zihao{5}\thepage}
     \fi
 \renewcommand{\headrulewidth}{0.5bp} %页眉线宽度
-\ifbuaa@bachelor
-    \setlength{\headsep}{45bp}
-\fi
 
 \fancypagestyle{plain}{
     \pagestyle{fancy}
