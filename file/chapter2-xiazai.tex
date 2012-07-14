@@ -1,7 +1,55 @@
 % !Mode:: "TeX:UTF-8"
 \chapter{下载和使用}
     \section{发行版本}
-    各位发行版本可以在本项目的github中找到，项目名称为BUAAthesis，或通过git软件直接访问git-only链接\url{https://github.com/BHOSC/BUAAthesis.git}。
+    各位发行版本可以在本项目的github中找到，项目名称为BUAAthesis，或通过git软件直接访问git-only链接\url{https://github.com/BHOSC/BUAAthesis.git}。\par
+    下面列出的模板的目录结构：\par
+    \begin{lstlisting}
+│  .gitignore
+│  buaathesis.bst
+│  buaathesis.cls
+│  Makefile
+│  msmake.bat
+│  README.md
+│  sample-bachelor.tex
+│  sample-master.tex
+│
+│-figure
+│      buaamark.eps
+│      buaamark.pdf
+│      buaaname.eps
+│      buaaname.pdf
+│      fgbt.jpg
+│
+│-file
+   │  abstract.tex
+   │  appendix1-faq.tex
+   │  appendix2-contactus.tex
+   │  bibs.bib
+   │  chapter1-jianjie.tex
+   │  chapter2-xiazai.tex
+   │  chapter3-peizhi.tex
+   │  chapter4-shiyong.tex
+   │  chapter5-yufa.tex
+   │  chapter6-daima.tex
+   │  reference.tex
+   │  userinfo.tex
+   │
+   │-bachelor
+   │      assign.tex
+   │      thanks.tex
+   │      userinfo.tex
+   │
+   │-master
+           back1-achievement.tex
+           back2-thanks.tex
+           back3-aboutauthor.tex
+           denotation.tex
+           userinfo.tex
+    \end{lstlisting}
+    下表列出了BUAA-Thesis的主要文件及其作用：\par
+%    \begin{tabular}
+    
+%    \end{tabular}
     \section{开发版本}
     最新的开发版本请通过git软件下载，使用命令\\[.3ex]
     \texttt{\centerline{git clone https://github.com/BHOSC/BUAAthesis.git}}\\[.3ex]
@@ -9,4 +57,4 @@
     关于git以及github如何使用，请参见GitHub官方帮助\footnote{\url{https://help.github.com/articles/set-up-git}}。
     \section{如何使用}
     将模板下载后解压，整个模板所需文件为\texttt{buaathesis.cls\ BUAAbubsty.bst}以及\texttt{figure}文件夹中的图片。而\texttt{file}文件夹为\texttt{template.pdf}的源文件，\texttt{file}文件夹中的\texttt{.bib}为{\bf 参考文献}的数据库，使用时请自行修改。\par
-    本模板在\TeX{}2011下使用Xe\LaTeX{}编译通过，如果您在使用过程中有任何问题，欢迎与我们联系。
+    本模板在\TeX{}Live~2012下使用Xe\LaTeX{}编译通过，如果您在使用过程中有任何问题，欢迎与我们联系。

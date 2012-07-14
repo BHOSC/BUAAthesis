@@ -1,71 +1,144 @@
 % !Mode:: "TeX:UTF-8"
-\chapter{\LaTeX{}基础语法}
-    \section{字体字号设置}
-    \begin{description}
-    \item{字体}\\
-        本模板使用了CTEX封装的\texttt{ctexbook}类，自带六款常用字体，但作为毕设论文只应使用黑体和宋体两种，模板为了满足学校的格式只在极少量的大标题处使用了华文行楷。字体的使用代码为\texttt{\textbackslash heiti\{\heiti{想改变为黑体的内容}\}}，以及\texttt{\textbackslash songti}。它们的演示如下：\\
-    {\songti 这一行是测试\textcolor{red}{宋体}字体的示范}\\
-    {\heiti 这一行是测试\textcolor{red}{黑体}字体的示范}\\
-    {\hwxingkai 这一行是测试\textcolor{red}{华文行楷}字体的示范}\\
-    \item{字号}\\
-    而字号的话，则可以用\texttt{\textbackslash zihao\{-4\}}，以及\texttt{\textbackslash zihao\{4\}}来表示小四号字体和四号字体，同理可以从小五号\texttt{\textbackslash zihao\{-5\}}字体到初号\texttt{\textbackslash zihao\{0\}}字体。\\
-    \item{间距}\\
-    对于间距的控制，\LaTeX{}中的间距比Office要强大得多了！Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，可使用的间隔控制命令有：\texttt{\textbackslash quad},\texttt{\textbackslash qquad}，它们分别表示间隔一个汉字和两个汉字距离，以及配合\texttt{\textbackslash hspace\{3cm\}}则表示水平空格3cm距离，同理还有\texttt{\textbackslash vspace\{3cm\}}，以及\texttt{\textbackslash hfill}表示水平填充一个距离可拉伸的空白距离。\LaTeX{}支持的单位有：\texttt{in}---英寸(inch)，\texttt{mm}---毫米，\texttt{cm}---厘米，\texttt{pt}---Points(大约1\slash 72~inch)，以及相对距离：\texttt{em}---当前字体的字符“\textbf{M}”的宽度，\texttt{ex}---当前字体的字符“\textbf{x}”的宽度，长度可以为负值，如~-1.5em~。\\
-    另外，\LaTeX{}会忽略掉你所写的论文中的空格和换行符。如果需要空格的地方请用“$\sim$”，需要换行的地方请用“\textbackslash\textbackslash ”来控制，每段段末请加“\texttt{\textbackslash par}”来表示一个段落的结束。换行的段落结束的区别在于换行后不会有缩进，而段落结束的话，下一段会自动缩进两个汉字距离。
-
-    \end{description}
-
-    \section{章节标题设置}
-    \section{图形和多图排列}
-    有些时候论文需要将多个图形排列在一起，成2x2或2x3的样子，以下就举例来说明这个用法。
-
-\begin{figure}[htb]
-    \subfigure[small box with a long caption]{\label{fig:minia}\includegraphics[width=.3\textwidth]{figure/buaamark.eps}}\hfill
-    \subfigure[big box]{\label{fig:minib}\includegraphics[width=.3\textwidth]{figure/buaamark.eps}}
-    \caption{Mutipicture inside subfigure}
-    \label{subfig1}
+\chapter{\label{chapter-yufa}\LaTeX{}基础语法}
+\section{字体设置}
+本模板使用了CTEX封装的\texttt{ctexbook}类，作为毕设论文，一般不需要过多使用字体。因此，全文默认字体为~{\bf 宋体}~和{\bf Times New Roman}字体。此外还可以使用\texttt{\textbackslash heiti}命令来使用~{\heiti 黑体}~字体。\par
+对于英文，则有\textbackslash textbf\{•\}\quad\textbackslash textit\{•\}\quad\textbackslash textsf\{•\}\quad\textbackslash texttt\{•\}\quad\textbackslash textsl\{•\}命令来进行相应的控制。\par
+{\textbackslash textbf\{•\}\qquad\textbf{0123456789abcdefgABCDEFG}}\par
+{\textbackslash textit\{•\}\qquad\textit{0123456789abcdefgABCDEFG}}\par
+{\textbackslash textsf\{•\}\qquad\textsf{0123456789abcdefgABCDEFG}}\par
+{\textbackslash texttt\{•\}\qquad\texttt{0123456789abcdefgABCDEFG}}\par
+{\textbackslash textsl\{•\}\qquad\textsl{0123456789abcdefgABCDEFG}}\par
+在论文中，有一些地方需要进行强调说明时，可以使用~{\bf 加粗}~来进行强调，比如\{\textbackslash bf加粗\}，即可以得到~“{\bf 加粗}”~的效果；\par
+还可以有~\underline{下划线}，使用命令为\textbackslash underline\{需要加下划线的内容\}即可；\par
+也还可以通过对文字使用\textcolor{blue}{颜}\textcolor{red}{色}来强调说明。使用\textcolor[rgb]{0.5,0.95,0.96}{有颜色的文字}可以通过命令\texttt{\textbackslash textcolor}\{red\}\{红色的字\}，或者\texttt{\textbackslash textcolor[rgb]}\{0.5,0.98,0.7\}\{使用RGB混合颜色\}来\textcolor[rgb]{0.5,0.98,0.7}{使用RGB混合颜色}进行强调。
+\section{字号设置}
+论文要求正文字号为小四号，除非有特别的要求，全文不需要对字号进行另外的设置。需要进行字号设置时，可以用\texttt{\textbackslash zihao\{-4\}}，以及\texttt{\textbackslash zihao\{4\}}来表示小四号字体和四号字体，同理可以从小五号\texttt{\textbackslash zihao\{-5\}}字体到初号\texttt{\textbackslash zihao\{0\}}字体。\par
+\section{间距间隔控制}
+对于间距的控制，\LaTeX{}中的间距比Office要强大得多了！Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，可使用的间隔控制命令有如表\ref{table-space}所示若干，虽然很多都用不到。\par
+\begin{table}[ht]
+\begin{center}
+\caption{\LaTeX{}中的一些常用间隔间距控制命令\label{table-space}}
+\begin{tabular}{l|l}
+\hline
+命令&效果\slash 说明\\\hline\hline
+间隔\texttt{\textbackslash quad}间隔 & 间隔\quad 间隔\\\hline
+间隔\texttt{\textbackslash qquad}间隔 & 间隔\qquad 间隔\\\hline
+间隔$\sim$间隔 & 间隔~间隔\\\hline
+间隔\texttt{\textbackslash ,}间隔 & 间隔\, 间隔\\\hline\hline
+\texttt{\textbackslash hfill} & 水平填充\\\hline
+\texttt{\textbackslash vfill} & 垂直填充\\\hline
+\texttt{\textbackslash hspace\{5cm\}} & 水平空白5cm的距离\\\hline
+\texttt{\textbackslash vspace\{5cm\}} & 垂直空白5cm的距离\\\hline
+\end{tabular}
+\end{center}
+\end{table}
+\LaTeX{}支持的单位有：\texttt{in}---英寸(inch)，\texttt{mm}---毫米，\texttt{cm}---厘米，\texttt{pt}---Points(大约1\slash 72~inch)，以及相对距离：\texttt{em}---当前字体的字符“\textbf{M}”的宽度，\texttt{ex}---当前字体的字符“\textbf{x}”的宽度，长度可以为负值，如~-1.5em~。\par
+需要换行的地方请用“\textbackslash\textbackslash ”来控制，每段段末请加“\texttt{\textbackslash par}”来表示一个段落的结束。换行的段落结束的区别在于换行后不会有缩进，而段落结束的话，下一段会自动缩进两个汉字距离。
+\section{章节标题以及条目的设置}
+新的一章将在新的页面开始，使用\texttt{\textbackslash chapter}\{\LaTeX{}基础语法\}命令时，即可以得到~\hyperref[chapter-yufa]{第5章~\LaTeX{}基础语法}~这样的章名称。\par
+同样的，还有命令\textbackslash section\{•\}、\textbackslash subsection\{•\}来定义节、条的标题。对于章节前面的“第1章”、“1.1”等标号，则不需要用户来编辑，\LaTeX{}会根据规则来进行编排。
+\section{图形和多图排列}
+在编写论文过程中，需要引用图形甚至多个图形时，可以使用\texttt{figure}环境，以代码\ref{code-fig}来说明如何使用此环境。\par
+需要注意的是，figure为浮动环境，即\LaTeX{}在排版浮动环境时，会根据一定的美观规则来排版，并不是将将代码放在某处，图片就会出现在某处，如代码\ref{code-fig}中的\texttt{[htbp]}为浮动环境选项，\texttt{h}表示为here，\texttt{t}为top，\texttt{b}为bottom，\texttt{p}为page，优先顺序依次递减，\LaTeX{}先判断here（当前位置）是否可以放置此环境（代码\ref{code-fig}中为图片），否则依次判断top、bottom、page来放置此环境中的内容。
+\begin{lstlisting}[label={code-fig},caption={使用figure环境},language={LaTeX}]
+ 如图 \ref{fig-buaamark}所示为北航校徽。
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=90bp]{figure/buaamark.eps}
+\caption{校徽\label{fig-buaamark}}
+\end{center}
 \end{figure}
-这是另外一种多图的形式。\par
+\end{lstlisting}
+代码中\textbackslash includegraphics后的[width=90bp]为对图片大小进行控制的代码，可以替换成为height,scale等。\textbackslash caption为图的标题，\textbackslash label为图的引用标号，在“如图”后引用即可得到“\ref{figbuaamark}”的效果。具体生成的效果如第\pageref{figbuaamark}页所示。\par
+如图\ref{figbuaamark}所示为北航校徽。\par
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=90bp]{figure/buaamark.eps}
+\caption{校徽\label{figbuaamark}}
+\end{center}
+\end{figure}
+而对于需要两个或三个图形并排或者矩形排列的时候，则示例代码可以如\ref{code-subfigs}所示。
+
+\begin{lstlisting}[caption={图形的排列},label={code-subfigs},language={LaTeX}]
+\begin{figure}[htb]
+\begin{center}
+    \subfigure[ 并排小图 a]{\label{fig:minia}\includegraphics[width=.2\textwidth]{figure/buaamark.eps}}\hspace{7em}
+    \subfigure[ 并排小图 b]{\label{fig:minib}\includegraphics[width=.2\textwidth]{figure/buaamark.eps}}
+    \caption{ 多个图形并排的示例 }
+    \label{subfig1}
+\end{center}
+\end{figure}
 
 \begin{figure}[htb]
 \begin{minipage}{0.5\textwidth}
     \centering
     \includegraphics[width=0.35\textwidth]{figure/buaamark.eps}
-    \caption{SubfigureA}
+    \caption{ 小图A}
     \label{minifiga}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
     \centering
     \includegraphics[width=0.35\textwidth]{figure/buaamark.eps}
-    \caption{SubfigureB}
+    \caption{ 小图B}
     \label{minifigb}
 \end{minipage}
-\caption{另外一种多图的表现}
 \end{figure}
-或者排列成矩形的形式，如图\ref{maxfig}所示。\par
+
 \begin{figure}[htb]
 \centering
     \begin{tabular}{cc}
-    \subfigure[Figure:A]{\label{suba}\includegraphics[width=.3\textwidth]{figure/buaamark.eps}}\qquad & \subfigure[Figure:B]{\label{subB}\includegraphics[width=.3\textwidth]{figure/buaamark.eps}}\\
-    \subfigure[Figure:C]{\label{subc}\includegraphics[width=.3\textwidth]{figure/buaamark.eps}}\qquad & \subfigure[Figure:D]{\label{subd}\includegraphics[width=.3\textwidth]{figure/buaamark.eps}}\\
+    \subfigure[ 子图 A]{\label{suba}\includegraphics[width=.18\textwidth]{figure/buaamark.eps}}\hspace{7em} & \subfigure[ 子图 B]{\label{subB}\includegraphics[width=.18\textwidth]{figure/buaamark.eps}}\\
+    \subfigure[ 子图 C]{\label{subc}\includegraphics[width=.18\textwidth]{figure/buaamark.eps}}\hspace{7em} & \subfigure[ 子图 D]{\label{subd}\includegraphics[width=.18\textwidth]{figure/buaamark.eps}}\\
+    \end{tabular}
+\caption{ 矩形的 subfig 排列}
+\label{maxfig}
+\end{figure}
+\end{lstlisting}
+而具体的效果如下所示。\par
+图\ref{subfig1}为子图排列的形式，两个子图有各自的图题，并有一个共同的图题。\par
+\begin{figure}[htb]
+\begin{center}
+    \subfigure[并排小图a]{\label{fig:minia}\includegraphics[width=.2\textwidth]{figure/buaamark.eps}}\hspace{7em}
+    \subfigure[并排小图b]{\label{fig:minib}\includegraphics[width=.2\textwidth]{figure/buaamark.eps}}
+    \caption{多个图形并排的示例}
+    \label{subfig1}
+\end{center}
+\end{figure}
+图\ref{minifiga}和图\ref{minifigb}为两个并排的图形，各自均有图题。\par
+\begin{figure}[htb]
+\begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.35\textwidth]{figure/buaamark.eps}
+    \caption{小图A}
+    \label{minifiga}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.35\textwidth]{figure/buaamark.eps}
+    \caption{小图B}
+    \label{minifigb}
+\end{minipage}
+\end{figure}
+图\ref{maxfig}所示为2x2排列的图形，使用\texttt{tabular}的表格环境嵌套在\texttt{figure}环境中来达到此效果。\par
+\begin{figure}[htb]
+\centering
+    \begin{tabular}{cc}
+    \subfigure[子图A]{\label{suba}\includegraphics[width=.18\textwidth]{figure/buaamark.eps}}\hspace{7em} & \subfigure[子图B]{\label{subB}\includegraphics[width=.18\textwidth]{figure/buaamark.eps}}\\
+    \subfigure[子图C]{\label{subc}\includegraphics[width=.18\textwidth]{figure/buaamark.eps}}\hspace{7em} & \subfigure[子图D]{\label{subd}\includegraphics[width=.18\textwidth]{figure/buaamark.eps}}\\
     \end{tabular}
 \caption{矩形的subfig排列}
 \label{maxfig}
-
 \end{figure}
-
-\clearpage
-
-
-    \section{表格和长表格}
-    如果您要排版的表格长度超过一页，那么推荐使用 \textsf{longtable} 或者 \textsf{supertabular}
+到此，图形的排列基本就OK了。一般只会用到图\ref{figbuaamark}这样的图形环境就可以了，后面的太复杂，一般情况下不推荐使用。如果对图形的编排的兴趣，可以google一下《\LaTeX{}插图指南》一书。
+\section{表格和长表格}
+    如果您要排版的表格长度超过一页，那么推荐使用 \textsf{longtable} 或者 \textsf{supertabular} 
 宏包，模板对 \textsf{longtable} 进行了相应的设置，所以用起来可能简单一些。
 表~\ref{example:longtable} 就是 \textsf{longtable} 的简单示例。
 \begin{center}
 \begin{longtable}{|l|l|l|}
 \caption{长表格示例} \label{example:longtable} \\
 
-\hline \multicolumn{1}{|c|}{\textbf{Time (s)}} & \multicolumn{1}{c|}{\textbf{Triple chosen}} & \multicolumn{1}{c|}{\textbf{Other feasible triples}} \\ \hline
+\hline \multicolumn{1}{|c|}{\textbf{Time (s)}} & \multicolumn{1}{c|}{\textbf{Triple chosen}} & \multicolumn{1}{c|}{\textbf{Other feasible triples}} \\ \hline 
 \endfirsthead
 
 \multicolumn{3}{l}%
@@ -98,25 +171,6 @@
 38430 & (1, 13, 10980) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
 41175 & (1, 12, 13725) & (1, 13, 10980), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
 43920 & (1, 13, 10980) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-46665 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
-49410 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
-52155 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-54900 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-57645 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-60390 & (1, 12, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-63135 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-65880 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-120780 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-123525 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-126270 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-129015 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
-131760 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
-134505 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-137250 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-139995 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
-142740 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
-145485 & (1, 12, 16470) & (1, 13, 13725), (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
-148230 & (2, 2, 2745) & (2, 3, 0), (3, 1, 0) \\
 150975 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
 153720 & (1, 12, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
 156465 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
@@ -125,93 +179,10 @@
 164700 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
 \end{longtable}
 \end{center}
+\section{公式和定理定义等}
     \section{使用~listing~显示代码}
 原先~ctexbook~文档类和~listings~宏包配合使用时，代码在换页时会出现莫名其妙的错误，后来经高人指点，顺利解决了。
 感兴趣的话，可以看看\href{http://bbs.ctex.org/viewthread.php?tid=53451}{这里}。
 这里给使用~listings~宏包插入源代码的例子，这里是一段C代码。
 另外，listings宏包真可谓博大精深，可以实现各种复杂、漂亮的效果，想要进一步学习的同学，可以参考
 \href{http://mirror.ctan.org/macros/latex/contrib/listings/listings.pdf}{listings宏包手册\footnote{此节完全参考武汉理工大学论文模板}}。
-
-\begin{lstlisting}[language={C}, caption={一段C源代码}]
-#include <stdio.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-% 这一行是测试中文支持的。
-int main() {
-  pid_t pid;
-
-  switch ((pid = fork())) {
-  case -1:
-    printf("fork failed\n");
-    break;
-  case 0:
-    /* child calls exec */
-    execl("/bin/ls", "ls", "-l", (char*)0);
-    printf("execl failed\n");
-    break;
-  default:
-    /* parent uses wait to suspend execution until child finishes */
-    wait((int*)0);
-    printf("is completed\n");
-    break;
-  }
-
-  return 0;
-}
-\end{lstlisting}
-
-再给一个插入MATLAB代码的例子，感谢~daisying~站友提供的代码。
-
-\begin{lstlisting}[language={matlab}, caption={一段MATLAB源代码}]
-function paper1
-r=0.05;
-n=100;
-T=1;
-X=1;
-v0=0.8;
-sigma=sqrt(0.08);
-deltat=T/n;
-for i=1:n
-    t(i)=i*deltat;
-    w(i)=random('norm',0,t(i),1);
-end
-for i=1:n
-    alpha(i)=0.39;
-end
-for i=1:n
-    temp=0;
-    for k=1:i
-        temp=temp+alpha(k);
-    end
-    B(i)=exp(r*t(i));
-    BB(i)=B(i)*exp(temp*deltat);
-    BBB(i)=exp(-r*(T-t(i)));
-end
-for i=1:n
-    s0(i)=X*BBB(i);
-    v(i)=v0*exp((r-0.5*sigma^2)*t(i)+sigma*w(i));
-    for j=i+1:n
-        D=X*BBB(j);
-        d1=(log(v(i)/D)+(r+sigma^2/2)*(t(j)-t(i)))/(sigma*sqrt(t(j)-t(i)));
-        d2=d1-(sigma*sqrt(t(j)-t(i)));
-        ppp(i,j)=D*exp(-r*(t(j)-t(i)))*(1-cdf('normal',d2,0,1))-v(i)*(1-cdf('n
-ormal',d1,0,1));
-    end
-end
-for i=1:n
-    s1(i)=0;
-    for j=i+1:n
-        s1(i)=s1(i)+BB(j)^(-1)*alpha(j)*deltat*(X*BBB(j)-B(j)/B(i)*ppp(i,j));
-    end
-    s2(i)=0;
-    for j=1:n
-        s2(i)=s2(i)+alpha(j);
-    end
-    s2(i)=X*exp(-r*T-s2(i)*deltat);
-    s(i)=BB(i)*(s1(i)+s2(i));
-end
-plot(s)
-hold on;
-plot(s0);
-\end{lstlisting}
