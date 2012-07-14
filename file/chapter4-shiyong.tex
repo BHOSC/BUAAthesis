@@ -1,26 +1,23 @@
-% !Mode:: "TeX:UTF-8"
 \chapter{使用说明}
-    \section{基本范例}
-    \begin{center}
-    \begin{table}[!ht]
-        \begin{tabular}{|c|c|}
-        \hline
-        本科生论文基本结构 & 研究生论文基本结构\\\hline\hline
-        封面 & 封面（中、英文）\\
-        扉页 & 题名页、独创性声明和使用授权书\\
-        中英文摘要 & 中英文摘要\\
-        目录 & 目录\\
-        正文 & 图表清单及主要符号表（根据情况可省略）\\
-        致谢 & 主体部分\\
-        参考文献 & 参考文献\\
-        附录 & 附录\\
-        ~~ & 攻读硕士/博士期间取得的研究\slash 学术成果\\
-        ~~ & 致谢\\
-        ~~ & 作者简介\\
-        \hline
-        \end{tabular}
-    \end{table}
-    \end{center}
+	\section{基本范例}
+	\begin{table}[!ht]
+		\begin{tabular}{|c|c|}
+		\hline
+		本科生论文基本结构 & 研究生论文基本结构\\\hline\hline
+		封面 & 封面（中、英文）\\
+		扉页 & 题名页、独创性声明和使用授权书\\
+		中英文摘要 & 中英文摘要\\
+		目录 & 目录\\
+		正文 & 图表清单及主要符号表（根据情况可省略）\\
+		致谢 & 主体部分\\
+		参考文献 & 参考文献\\
+		附录 & 附录\\
+		~~ & 攻读硕士/博士期间取得的研究\slash 学术成果\\
+		~~ & 致谢\\
+		~~ & 作者简介\\
+		\hline
+		\end{tabular}
+	\end{table}
 \qquad 本科生论文结构推荐按如下的代码形式来组织整个论文。具体各个参数及部分请见第xx节。\par
 \begin{lstlisting}[language={LaTeX}]
 \documentclass[bachelor,oneside,openany]{buaathesis}
@@ -89,33 +86,35 @@
 
 \end{document}
 \end{lstlisting}
+	
+	\section{模板选项}
+		\subsection{学位选项}
+		\begin{description}
+			\item{bachelor} 学士学位；
+			\item{master} 学术硕士学位（默认）；
+			\item{engineer} 专业硕士学位；
+			\item{doctor} 博士学位。
+		\end{description}
 
-    \section{模板选项}
-        \subsection{学位选项}
-        \begin{itemize}
-            \item[+] ~~bachelor\quad 学士学位；\\
-            \item[+] ~~master\quad 学术硕士学位（默认）；\\
-            \item[+] ~~engineer\quad 专业硕士学位；\\
-            \item[+] ~~doctor\quad 博士学位。\\
-        \end{itemize}
-        \subsection{其他选项}
-        \begin{itemize}
-            \item ~~oneside\slash twoside\quad 单面\slash 双面（默认）打印；\\
-            \item ~~openany\slash openright\quad 新的章节在任何页面开始\slash 新的章节从奇数页开始（默认）；\\
-            \item ~~nocolor\quad 所有链接文字、关键字均为黑色并使用框线表示（锚点为红色方框，超链接为淡蓝色方框，打印时方框将不会被打印），默认关闭。\\
-        \end{itemize}
-    \section{封面及正文前的一些设置}
-        \subsection{封面}
-        \subsection{英文封面（研究生）}
-        \subsection{题名页（研究生）}
-        \subsection{中英文摘要}
-        \subsection{目录}
-        \subsection{图表目录及符号列表（研究生）}
-    \section{正文}
-        \subsection{章节}
-        \subsection{参考文献}
-    \section{正文之后的内容}
-        \subsection{附录}
-        \subsection{攻读硕士\slash 博士期间所取得的研究\slash 学术成果（研究生）}
-        \subsection{致谢}
-        \subsection{作者简介（研究生）}
+		\subsection{其他选项}
+		\begin{description}
+			\item{oneside\slash twoside} 单面\slash 双面（默认）打印；
+			\item{openany\slash openright} 新的章节在任何页面开始\slash 新的章节从奇数页开始（默认）；
+			\item{nocolor} 所有链接文字、关键字均为黑色并使用框线表示（锚点为红色方框，超链接为淡蓝色方框，打印时方框将不会被打印），默认关闭。
+		\end{description}
+
+	\section{封面及正文前的一些设置}
+		\subsection{封面}
+		\subsection{英文封面（研究生）}
+		\subsection{题名页（研究生）}
+		\subsection{中英文摘要}
+		\subsection{目录}
+		\subsection{图表目录及符号列表（研究生）}
+	\section{正文}
+		\subsection{章节}
+		\subsection{参考文献}
+	\section{正文之后的内容}
+		\subsection{附录}
+		\subsection{攻读硕士\slash 博士期间所取得的研究\slash 学术成果（研究生）}
+		\subsection{致谢}
+		\subsection{作者简介（研究生）}
