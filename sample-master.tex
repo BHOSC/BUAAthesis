@@ -1,33 +1,11 @@
 % !Mode:: "TeX:UTF-8"
-\documentclass[master]{buaathesis}
-%默认参数为：master,openright,twoside
-
-%-------------------------------------------
-%------        用户公共信息            -------
-\thesisauthor{张三}{ZhangSan}
-\thesistitle{基于Texlive的北航毕设论文模板设计}{Design the BUAA-thesis with \LaTeX{}}
-\school{二逼青年}{The School of 2B}%学院
-\major{吊丝}{DiaoSi}            %专业
-\teacher{王小五}{Wang Xiaowu}
-\category{TP312}               %中图分类号，可以在http://www.ztflh.com/查询
-\thesisbegin{2011}{1}{1}       %本科生为毕设开始时间；研究生为学习开始时间
-\thesisend{2012}{2}{2}         %本科生为毕设结束时间；研究生为学习结束时间
-\defense{2012}{07}{05}         %毕设答辩时间
-\ckeyword{北航开源俱乐部，\LaTeX{}，论文}
-\ekeyword{BHOSC,\LaTeX{},Thesis}
-
-
-%--------------研究生的信息--------------------
-\direction{搬砖}            %研究方向
-\teacherdegree{教授}{Prof.}
-\mibao{机密}                % 保密等级
-\thesisID{10006SY0000000}  % 论文编号为10006+学号组成
-\commit{2012}{3}{3}        %论文提交时间
-\award{2012}{4}{4}         %学位授予日期
-
-%--------------------------------------------
-
+\documentclass[master,openright,twoside]{buaathesis}
 \begin{document}
+
+% 用户信息
+\include{file/userinfo} % 公共部分
+\include{file/master/userinfo} % 研究生部分
+
 \maketitle
 \include{file/abstract}
 \tableofcontents
