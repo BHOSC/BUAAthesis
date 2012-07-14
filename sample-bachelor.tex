@@ -1,20 +1,19 @@
 % !Mode:: "TeX:UTF-8"
 \documentclass[bachelor,openany,oneside,adobefonts]{buaathesis}
+\begin{document}
 
 % 用户信息
 \include{file/userinfo} % 公共部分
+\include{file/bachelor/userinfo} % 本科生部分
 
-%--------------本科生的信息--------------------
-\class{3702}         % 班级
-\studentID{12345678} % 学号
-\unicode{10006}      % 单位代码
-\thesisdate{2012}{6} % 论文时间，用于首页
+% 任务书
+\include{file/assign}
 
-\include{file/assign}% 导入任务书内容
-
-\begin{document}
 \maketitle
+
+% 摘要
 \include{file/abstract}
+
 \tableofcontents
 
 \mainmatter
