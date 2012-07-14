@@ -1,16 +1,17 @@
+% !Mode:: "TeX:UTF-8"
 \chapter{软件和环境的配置}
-	\section{Windows用户}
-		\subsection{使用\TeX{}live 2011+\TeX{}maker}
-		\TeX{}是一个自由的软件，所以它有很多种发行版本。每个发行版本都是一整套工具的集合。其中一般包括了plainTeX,LaTeX,pdfTeX,dvips等。尽管有许多的发生版本，但比较主流的还属\TeX{}live，您可以在\url{http://www.tug.org/texlive/}找到最新的版本的相应的下载链接，当然也可以从北航FGBT上搜索下载。\par
-		下载得到相应的iso文件，使用虚拟光驱软件加载后，直接双击运行，或者进行光盘里双击\textsl{install-tl.bat}运行。按照向导一步一步的安装即可。整个安装过程大概10$\sim$20分钟。\par
-		\TeX{}maker则是一款windows下比较方便和友好的\TeX{}编辑器，在\url{http://www.xm1math.net/texmaker/}可以找到相应下载。\par
-		按照向导安装完\TeX{}maker后，选择菜单栏“选项”->"配置Texmaker"，在“LaTeX”一栏中填写\texttt{xelatex -interaction=nonstopmode \%.tex}~即可。其余的配置请根据自己的需要进行配置。\par
-		\subsection{使用C\TeX{}套装}
-		C\TeX{}中文套装是基于windows下的MiKTeX系统，集成了编辑器WinEdt和PostScript处理软件Ghostscript和GSview等主要工具。C\TeX{}中文套装在MiKTeX的基础上增加了对中文的完整支持，并且其自带的ctex宏包重构了符合中文习惯的模板样式。\par
-		C\TeX{}套装可以在\url{http://www.ctex.org/CTeXDownload}找到相应的下载。
-		\subsection{使用其他的编译软件及编辑器}
-		其他的\LaTeX{}编译的，有MikTeX，而编辑器则可以是WinEdt，TeXnicCenter，甚至是windows自带的记事本都可以。
-		\subsection{使用本模板编写者写的脚本}
-		如果你对\LaTeX{}的各种编译过程及方式感到相当繁琐，可以使用模板中所提供的\texttt{msmake.bat}来通过命令行进行简单的一些编译操作。当然，首先你得需要安装\TeX{}Live 2012或更新的版本，然后进入\texttt{cmd}终端，进入到模板目录\footnote{如何在CMD中进入某个目录？在CMD终端中输入\texttt{D:}切换盘符，再键入\texttt{cd buaathesis}即可进入\texttt{D:\textbackslash buaathesis\textbackslash}目录。}后，输入\texttt{msmake}命令然后进行相应操作即可。
-	\section{Linux用户}
-	\section{Mac用户}
+    \section{Windows用户}
+        \subsection{使用\TeX{}live 2011+\TeX{}maker}
+        \TeX{}是一个自由的软件，所以它有很多种发行版本。每个发行版本都是一整套工具的集合。其中一般包括了plainTeX,LaTeX,pdfTeX,dvips等。尽管有许多的发生版本，但比较主流的还属\TeX{}live，您可以在\url{http://www.tug.org/texlive/}找到最新的版本的相应的下载链接，当然也可以从北航FGBT上搜索下载。\par
+        下载得到相应的iso文件，使用虚拟光驱软件加载后，直接双击运行，或者进行光盘里双击\textsl{install-tl.bat}运行。按照向导一步一步的安装即可。整个安装过程大概10$\sim$20分钟。\par
+        \TeX{}maker则是一款windows下比较方便和友好的\TeX{}编辑器，在\url{http://www.xm1math.net/texmaker/}可以找到相应下载。\par
+        按照向导安装完\TeX{}maker后，选择菜单栏“选项”->"配置Texmaker"，在“LaTeX”一栏中填写\texttt{xelatex -interaction=nonstopmode \%.tex}~即可。其余的配置请根据自己的需要进行配置。\par
+        \subsection{使用C\TeX{}套装}
+        C\TeX{}中文套装是基于windows下的MiKTeX系统，集成了编辑器WinEdt和PostScript处理软件Ghostscript和GSview等主要工具。C\TeX{}中文套装在MiKTeX的基础上增加了对中文的完整支持，并且其自带的ctex宏包重构了符合中文习惯的模板样式。\par
+        C\TeX{}套装可以在\url{http://www.ctex.org/CTeXDownload}找到相应的下载。
+        \subsection{使用其他的编译软件及编辑器}
+        其他的\LaTeX{}编译的，有MikTeX，而编辑器则可以是WinEdt，TeXnicCenter，甚至是windows自带的记事本都可以。
+        \subsection{使用本模板编写者写的脚本}
+        如果你对\LaTeX{}的各种编译过程及方式感到相当繁琐，可以使用模板中所提供的\texttt{msmake.bat}来通过命令行进行简单的一些编译操作。当然，首先你得需要安装\TeX{}Live 2012或更新的版本，然后进入\texttt{cmd}终端，进入到模板目录\footnote{如何在CMD中进入某个目录？在CMD终端中输入\texttt{D:}切换盘符，再键入\texttt{cd buaathesis}即可进入\texttt{D:\textbackslash buaathesis\textbackslash}目录。}后，输入\texttt{msmake}命令然后进行相应操作即可。
+    \section{Linux用户}
+    \section{Mac用户}
