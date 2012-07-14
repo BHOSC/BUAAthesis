@@ -5,33 +5,32 @@
 % 用户信息
 \include{file/userinfo} % 公共部分
 \include{file/bachelor/userinfo} % 本科生部分
-
-% 任务书
+% 任务书信息
 \include{file/assign}
 
+% 封面 & 任务书 & 声明
 \maketitle
-
 % 摘要
 \include{file/abstract}
-
+% 目录
 \tableofcontents
 
+% 正文页码样式
 \mainmatter
+
+% 正文
 \include{file/chapter1-jianjie}	
 \include{file/chapter2-xiazai}
 \include{file/chapter3-peizhi}	
 \include{file/chapter4-shiyong}
 \include{file/chapter5-yufa}
 \include{file/chapter6-daima}
-\chapter*{致谢}
-\addcontentsline{toc}{chapter}{致谢}
-感谢天，感谢地；感谢阳光，照耀着大地……
-\cleardoublepage
-\nocite*{}
-\bibliography{file/bibs}
-\addcontentsline{toc}{chapter}{参考文献}
 
-\cleardoublepage
+% 致谢
+\include{file/bachelor/thanks}
+% 参考文献
+\include{file/reference}
+
 \appendix
 \chapter{常见问题}
 问题1：测试。
