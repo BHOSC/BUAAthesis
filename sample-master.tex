@@ -6,33 +6,40 @@
 \include{file/userinfo} % 公共部分
 \include{file/master/userinfo} % 研究生部分
 
+% 中英封面 & 提名页 ＆ 授权书
 \maketitle
+% 摘要
 \include{file/abstract}
+% 目录 & 插图目录 & 表格目录 & 符号表
 \tableofcontents
 \listoffigures
 \listoftables
 \include{file/denotation}
 
+% 正文页码样式
 \mainmatter
+
+% 正文
 \include{file/chapter1-jianjie}	
 \include{file/chapter2-xiazai}
 \include{file/chapter3-peizhi}	
 \include{file/chapter4-shiyong}
 \include{file/chapter5-yufa}
 \include{file/chapter6-daima}
-\cleardoublepage
-\nocite*{}
-\bibliography{file/bibs}
-\addcontentsline{toc}{chapter}{参考文献}
-\cleardoublepage
 
+% 参考文献
+\include{file/reference}
+
+% 附录
 \appendix
-\chapter{常见问题}
-\chapter{联系我们}
+\include{file/appendix1-faq}
+\include{file/appendix2-contactus}
 
+% 附页标题样式
 \backmatter
-\chapter{攻读博士/硕士学位期间取得的学术成果}
-\chapter{致谢}
-\chapter{作者简介}
 
+% 附页
+\include{file/master/back1-achievement}
+\include{file/master/back2-thanks}
+\include{file/master/back3-aboutauthor}
 \end{document}
