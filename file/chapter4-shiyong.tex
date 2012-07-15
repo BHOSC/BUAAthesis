@@ -23,70 +23,85 @@
     \end{table}
 \qquad 本科生论文结构推荐按如下的代码形式来组织整个论文。具体各个参数及部分请见第xx节。\par
 \begin{lstlisting}[language={LaTeX}]
-\documentclass[bachelor,oneside,openany]{buaathesis}
-
-%------        论文信息            -------
-\thesisauthor{ 张三}{ZhangSan}
-\thesistitle{ 论文标题}{English Title}
-% 其他的信息请自行按照格式补充
-
+% !Mode:: "TeX:UTF-8"
+\documentclass[bachelor,openany,oneside,adobefonts]{buaathesis}
 \begin{document}
+
+% 用户信息
+\include{file/userinfo} % 公共信息部分
+\include{file/bachelor/userinfo} % 本科生信息部分
+% 任务书信息
+\include{file/bachelor/assign}
+
+% 封面 & 任务书 & 声明
 \maketitle
+% 摘要
 \include{file/abstract}
+% 目录
 \tableofcontents
-
+% 正文页码样式
 \mainmatter
-\include{file/chapter1}
+
+% 正文
+\include{file/chapter1}	
 \include{file/chapter2}
-\include{file/chapter3}
-\include{file/chapter4}
-\clearpage
-\chapter*{ 致谢}
-\bibliography{file/bibs}
-\addcontentsline{toc}{chapter}{ 参考文献}
+\include{file/chapter3}	
 
+% 致谢
+\include{file/bachelor/thanks}
+% 参考文献
+\include{file/reference}
+
+% 附录
 \appendix
-\chapter{ 附录一}
-\chapter{ 附录二}
+\include{file/appendix1}
+\include{file/appendix2}
 \end{document}
-
 \end{lstlisting}
 \qquad 研究生则推荐使用如下的代码形式来组织论文。\par
 \begin{lstlisting}[language={LaTeX}]
-\documentclass[master]{buaathesis}
-
-%------        论文信息            -------
-\thesisauthor{ 张三}{ZhangSan}
-\thesistitle{ 论文标题}{English Title}
-% 其他的信息请自行按照格式补充
-
+% !Mode:: "TeX:UTF-8"
+\documentclass[master,openright,adobefonts]{buaathesis}
 \begin{document}
+
+% 用户信息
+\include{file/userinfo} % 公共信息部分
+\include{file/master/userinfo} % 研究生信息部分
+
+% 中英封面 & 题名页 ＆ 独创声明和使用授权
 \maketitle
+% 摘要
 \include{file/abstract}
+% 目录 & 插图目录 & 表格目录
 \tableofcontents
 \listoffigures
 \listoftables
+% 符号表
+\include{file/master/denotation}
 
+% 正文页码样式
 \mainmatter
-\include{file/chapter1}
+
+% 正文
+\include{file/chapter1}	
 \include{file/chapter2}
 \include{file/chapter3}
-\include{file/chapter4}
 
-\cleardoublepage
-\bibliography{file/bibs}
-\addcontentsline{toc}{chapter}{ 参考文献}
-\cleardoublepage
+% 参考文献
+\include{file/reference}
 
+% 附录
 \appendix
-\chapter{ 附录一}
-\chapter{ 附录二}
+\include{file/appendix1}
+\include{file/appendix2}
 
+% 附页标题样式
 \backmatter
-\chapter{ 攻读博士学位期间取得的学术成果}
-\chapter{ 致谢}
-\chapter{ 作者简介}
 
+% 附页
+\include{file/master/back1-achievement}
+\include{file/master/back2-thanks}
+\include{file/master/back3-aboutauthor}
 \end{document}
 \end{lstlisting}
     
@@ -108,16 +123,23 @@
 
     \section{封面及正文前的一些设置}
         \subsection{封面}
-        \subsection{英文封面（研究生）}
-        \subsection{题名页（研究生）}
+            本科生论文封面直接使用\texttt{\textbackslash maketitle}命令，将编译生成论文封面和任务书（任务书中的各项需要自己在assign.tex中填写），以及“本人声明”页。只需将\texttt{userinfo.tex}中的信息填写完整即可自行编译生成。\par
+            研究生（包括博士研究生）的毕设论文封面使用\texttt{\textbackslash maketitle}将生成中英文封面、题名页、和独创性声明与使用授权书。只需将\texttt{userinfo.tex}中的信息填写完整即可自行编译生成。
         \subsection{中英文摘要}
+            本科生和研究生的论文中英文摘要为\texttt{abstract.tex}，请直接按照模板示例进行更改替换即可，关键词以及其他的一些个人论文信息在\texttt{userinfo.tex}中自行定义。
         \subsection{目录}
-        \subsection{图表目录及符号列表（研究生）}
+            生成目录为命令\texttt{\textbackslash tableofcontents}，需要xelatex两遍才能正确生成目录。\par
+            对于研究生，论文还需要有图表目录以及论文主要符号表。分别使用命令\texttt{\textbackslash listoffigures}\texttt{\textbackslash listoftables}，而主要符号表则在\texttt{file/master/denotation.tex}中，请自行按照模板给出的样式替换即可。
     \section{正文}
         \subsection{章节}
+            正文中的各个章节，推荐将其每一章分为单独的\texttt{.tex}文件，然后使用\texttt{\textbackslash include\{chapter.tex\}}将其包含进来即可。\par
+            章节中的内容如何编写，请见\hyperref[chapter-yufa]{第5章~~\LaTeX{}语法}。
         \subsection{参考文献}
+            参考文献使用\texttt{BiBTeX}工具，参考文献的数据库为\texttt{bibs.bib}，可以使用记事本等文本编辑器进行编辑。具体如何进行编辑也可参照示例模板给出的范例来编写。在Winedt软件中有具体的增加参考文献的选项；在\url{book.google.com}中搜索到的书籍，在页面的最下方也有\texttt{BiBTeX}的导出选项。\par
+            \texttt{.bib}参考文献数据库文件中，每个类别后的第一个为标号，在示例的\texttt{bibs.bib}中第一个书箱的标号为\textbf{lamport1994latex}，在引用此文献时，使用\textbf{\textbackslash upcite\{lamport1994latex\}}即可得到此文献\upcite{lamport1994latex}的引用\footnote{此处即为引用了此文献，得到相应的上角标。}。
     \section{正文之后的内容}
         \subsection{附录}
+            附录和正文中的章节编写方式一样。无特殊之处。
         \subsection{攻读硕士\slash 博士期间所取得的研究\slash 学术成果（研究生）}
         \subsection{致谢}
         \subsection{作者简介（研究生）}
