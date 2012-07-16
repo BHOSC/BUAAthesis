@@ -856,22 +856,22 @@
 
 %% 主要符号对照表
 %% 来自于武汉理工大学论文模板，不知下面的间距设置是否会对别的地方有影响，待后续检验。
-\newenvironment{denotation}[1][2.5cm]{
-    \chapter*{主~要~符~号~表} % no tocline
-    \noindent\begin{list}{}%
-    {\vskip-30bp\zihao{-4}
+\newenvironment{denotation}{
+  \chapter*{主要符号对照表} % no tocline
+  \begin{list}{}%
+    {\zihao{-4}
      \renewcommand\makelabel[1]{##1\hfil}
-     \setlength{\labelwidth}{#1} % 标签盒子宽度
+     \setlength{\labelwidth}{2.5cm} % 标签盒子宽度
      \setlength{\labelsep}{0.5cm} % 标签与列表文本距离
      \setlength{\itemindent}{0cm} % 标签缩进量
-     \setlength{\leftmargin}{\labelwidth+\labelsep} % 左边界
+     \setlength{\leftmargin}{10em} % 左边界
      \setlength{\rightmargin}{0cm}
      \setlength{\parsep}{0cm} % 段落间距
      \setlength{\itemsep}{0cm} % 标签间距
     \setlength{\listparindent}{0cm} % 段落缩进量
-    \setlength{\topsep}{0pt} % 标签与上文的间距
+    \setlength{\topsep}{0cm} % 标签与上文的间距
    }}{\end{list}}
-
+%% 关于列表环境的定义和使用，可以参考http://blog.sina.com.cn/s/blog_5e16f1770100h0jt.html
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %---      以下是写用户手册时需要用到的一新命令     ---
 %---      可根据需要放到发行的模板中               ---
