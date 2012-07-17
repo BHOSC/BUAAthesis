@@ -18,7 +18,7 @@
 ::======================================
 
 @echo off
-set mythesis=sample-bachelor
+set mythesis=sample-master
 ::在此处更改需要编译的文件名
 :init
 if /i {%1}=={thesis} goto thesis
@@ -55,7 +55,7 @@ goto end
 ::======================================
 :clean
 echo 删除编译临时文件
-del /f /q /s *.log *.glo *.idx *.ilg *.ind *.out *.thm *.toc *.lot *.loe *.out.bak *.blg *.synctex.gz
+del /f /q /s *.log *.glo *.idx *.ilg *.lof *.ind *.out *.thm *.toc *.lot *.loe *.out.bak *.blg *.synctex.gz
 del /f /s *.dvi *.ps
 if {%2}=={more} (goto cleanmore)
 if {%2}=={empty} (goto cleanempty)
