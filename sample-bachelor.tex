@@ -3,35 +3,35 @@
 \begin{document}
 
 % 用户信息
-\include{file/userinfo} % 公共部分
-\include{file/bachelor/userinfo} % 本科生部分
+\include{body/userinfo}
+
 % 任务书信息
-\include{file/bachelor/assign}
+\include{body/bachelor/assign}
 
 % 封面 & 任务书 & 声明
 \maketitle
 % 摘要
-\include{file/abstract}
+\include{body/abstract}
 % 目录
 \tableofcontents
 % 正文页码样式
 \mainmatter
 
 % 正文
-\include{file/chapter1-jianjie}	
-\include{file/chapter2-xiazai}
-\include{file/chapter3-peizhi}	
-\include{file/chapter4-shiyong}
-\include{file/chapter5-yufa}
-\include{file/chapter6-daima}
+\include{body/chapter1-jianjie}
+\include{body/chapter2-xiazai}
+\include{body/chapter3-peizhi}
+\include{body/chapter4-shiyong}
+\include{body/chapter5-yufa}
+\include{body/chapter6-daima}
 
 % 致谢
-\include{file/bachelor/thanks}
+\include{body/bachelor/thanks}
 % 参考文献
-\include{file/reference}
+\include{body/reference}
 
 % 附录
 \appendix
-\include{file/appendix1-faq}
-\include{file/appendix2-contactus}
+\include{body/appendix1-faq}
+\include{body/appendix2-contactus}
 \end{document}

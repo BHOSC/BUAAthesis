@@ -1,10 +1,9 @@
 % !Mode:: "TeX:UTF-8"
-\documentclass[master,openright,twoside]{buaathesis}
+\documentclass[master,openright,twoside,adobefonts]{buaathesis}
 \begin{document}
 
 % 用户信息
-\include{file/userinfo} % 公共部分
-\include{file/master/userinfo} % 研究生部分
+\include{body/userinfo}
 
 % 中英封面 & 提名页 ＆ 授权书
 \maketitle
@@ -15,32 +14,32 @@
 \listoffigures
 \listoftables
 % 符号表
-\include{file/master/denotation}
+\include{body/master/denotation}
 
 % 正文页码样式
 \mainmatter
 
 % 正文
-\include{file/chapter1-jianjie}	
-\include{file/chapter2-xiazai}
-\include{file/chapter3-peizhi}	
-\include{file/chapter4-shiyong}
-\include{file/chapter5-yufa}
-\include{file/chapter6-daima}
+\include{body/chapter1-jianjie}
+\include{body/chapter2-xiazai}
+\include{body/chapter3-peizhi}
+\include{body/chapter4-shiyong}
+\include{body/chapter5-yufa}
+\include{body/chapter6-daima}
 
 % 参考文献
-\include{file/reference}
+\include{body/reference}
 
 % 附录
 \appendix
-\include{file/appendix1-faq}
-\include{file/appendix2-contactus}
+\include{body/appendix1-faq}
+\include{body/appendix2-contactus}
 
 % 附页标题样式
 \backmatter
 
 % 附页
-\include{file/master/back1-achievement}
-\include{file/master/back2-thanks}
-\include{file/master/back3-aboutauthor}
+\include{body/master/back1-achievement}
+\include{body/master/back2-thanks}
+\include{body/master/back3-aboutauthor}
 \end{document}
