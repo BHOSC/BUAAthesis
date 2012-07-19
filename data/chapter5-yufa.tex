@@ -24,6 +24,7 @@
 间隔\texttt{\textbackslash quad}间隔 & 间隔\quad 间隔\\\hline
 间隔\texttt{\textbackslash qquad}间隔 & 间隔\qquad 间隔\\\hline
 间隔$\sim$间隔 & 间隔~间隔\\\hline
+间隔\textbackslash  间隔 & 间隔\ 间隔\\\hline
 间隔\texttt{\textbackslash ,}间隔 & 间隔\, 间隔\\\hline\hline
 \texttt{\textbackslash hfill} & 水平填充\\\hline
 \texttt{\textbackslash vfill} & 垂直填充\\\hline
@@ -38,6 +39,7 @@
 新的一章将在新的页面开始，使用\texttt{\textbackslash chapter}\{\LaTeX{}基础语法\}命令时，即可以得到~\hyperref[chapter-yufa]{第5章~\LaTeX{}基础语法}~这样的章名称。\par
 同样的，还有命令\textbackslash section\{•\}、\textbackslash subsection\{•\}来定义节、条的标题。对于章节前面的“第1章”、“1.1”等标号，则不需要用户来编辑，\LaTeX{}会根据规则来进行编排。
 \section{图形和多图排列}
+\label{sec:fig}
 在编写论文过程中，需要引用图形甚至多个图形时，可以使用\texttt{figure}环境，以代码\ref{code-fig}来说明如何使用此环境。\par
 需要注意的是，figure为浮动环境，即\LaTeX{}在排版浮动环境时，会根据一定的美观规则来排版，并不是将将代码放在某处，图片就会出现在某处，如代码\ref{code-fig}中的\texttt{[htbp]}为浮动环境选项，\texttt{h}表示为here，\texttt{t}为top，\texttt{b}为bottom，\texttt{p}为page，优先顺序依次递减，\LaTeX{}先判断here（当前位置）是否可以放置此环境（代码\ref{code-fig}中为图片），否则依次判断top、bottom、page来放置此环境中的内容。
 \begin{lstlisting}[label={code-fig},caption={使用figure环境},language={LaTeX}]
@@ -131,12 +133,52 @@
 \end{figure}
 到此，图形的排列基本就OK了。一般只会用到图\ref{figbuaamark}这样的图形环境就可以了，后面的太复杂，一般情况下不推荐使用。如果对图形的编排的兴趣，可以google一下《\LaTeX{}插图指南》一书。
 \section{表格和长表格}
-    如果您要排版的表格长度超过一页，那么推荐使用 \textsf{longtable} 或者 \textsf{supertabular} 
+表格也是论文中经常需要用到的一个元素，它也可以作为一个浮动环境（当然也可以不浮动）由\LaTeX{}自己来按照一定规则来决定如何放置。\par
+常用的表格浮动环境以代码\ref{code-table}作为示例。\par
+\begin{lstlisting}[caption={表格浮动环境},label={code-table},language={LaTeX}]
+\begin{table}[h]
+\begin{center}
+\caption{浮动表格示例\label{tab:test3}}
+\begin{tabular}{c||c|c|c}
+\hline
+序号&测试内容1&测试内容2&测试内容3\\
+\hline \hline
+1&一&二&三\\
+\hline
+2&四&五&六\\
+\hline
+3&七&八&九\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\end{lstlisting}
+经过\LaTeX{}编译排版出来的结果如表\ref{tab-test3}所示。\par
+\texttt{table}环境即为浮动环境，其后带htbp等参数，其具体意义在\ref{sec:fig}节描述过了。\texttt{tabular}即为表格环境，后面的\texttt{\{c||c|c|c\}}的意思为，表格分为四列，第一列居中{\bf c}\textit{(center)}对齐，其他对齐方式为左对齐{\bf l}\textit{(left)}，右对齐{\bf r}\textit{(right)}。然后竖直画两条竖线，第二列和第三列第四列也为居中对齐，并且用一竖线分隔。表格中需要加横线时使用\texttt{\textbackslash hline}来添加，横线或竖线可添加多条。\par
+表格中每一项使用“\& ”分隔，每一行使用\texttt{\textbackslash\textbackslash}来进行换行。\par
+\begin{table}[ht]
+\begin{center}
+\caption{浮动表格示例\label{tab-test3}}
+\begin{tabular}{c||c|c|c}
+\hline
+序号&测试内容1&测试内容2&测试内容3\\
+\hline \hline
+1&一&二&三\\
+\hline
+2&四&五&六\\
+\hline
+3&七&八&九\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+当需要排版的表格长度超过一页，那么在本模板中推荐使用 \textsf{longtable}
 宏包，模板对 \textsf{longtable} 进行了相应的设置，所以用起来可能简单一些。
-表~\ref{example:longtable} 就是 \textsf{longtable} 的简单示例。
+表~\ref{example-longtable} 就是\textsf{longtable}的简单示例。\par
 \begin{center}
 \begin{longtable}{|l|l|l|}
-\caption{长表格示例} \label{example:longtable} \\
+\caption{长表格示例} \label{example-longtable} \\
 
 \hline \multicolumn{1}{|c|}{\textbf{Time (s)}} & \multicolumn{1}{c|}{\textbf{Triple chosen}} & \multicolumn{1}{c|}{\textbf{Other feasible triples}} \\ \hline 
 \endfirsthead
@@ -179,8 +221,43 @@
 164700 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
 \end{longtable}
 \end{center}
-\section{公式和定理定义等}
-    \section{使用~listing~显示代码}
+\texttt{longtable}通过\texttt{\textbackslash endfirsthead~~\textbackslash endhead~~\textbackslash endfoot~~\textbackslash endlastfoot}来对分页进行相应的控制。具体可以参照表\ref{example-longtable}及其源代码\ref{code-longtable}来进行对比分析。\par
+代码中的\texttt{\textbackslash multicolumn}为合并单元格的命令，具体用法为\texttt{\textbackslash multicolumn \{num$-$cols\}\{alignment\}\{contents\}}。对于复杂表格中，\texttt{\textbackslash cline\{i$-$j\}}表示从第\texttt{i}列开始，画一条横线，直到第\texttt{j}列为止。具体不清楚用法的话请google吧$\sim$\par
+\begin{lstlisting}[caption={跨页表格示例},label={code-longtable},language={LaTeX}]
+\begin{center}
+\begin{longtable}{|l|l|l|}
+\caption{长表格示例} \label{example:longtable} \\
+
+\hline \multicolumn{1}{|c|}{\textbf{Time (s)}} & \multicolumn{1}{c|}{\textbf{Triple chosen}} & \multicolumn{1}{c|}{\textbf{Other feasible triples}} \\ \hline 
+\endfirsthead
+
+\multicolumn{3}{l}%
+{{\bfseries \tablename\ \thetable{} --接\,上\,页}} \\
+\hline \multicolumn{1}{|c|}{\textbf{Time (s)}} &
+\multicolumn{1}{c|}{\textbf{Triple chosen}} &
+\multicolumn{1}{c|}{\textbf{Other feasible triples}} \\ \hline
+\endhead
+
+\hline \multicolumn{3}{|r|}{{接\,下\,页}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+
+0 & (1, 11, 13725) & (1, 12, 10980), (1, 13, 8235), (2, 2, 0), (3, 1, 0) \\
+2745 & (1, 12, 10980) & (1, 13, 8235), (2, 2, 0), (2, 3, 0), (3, 1, 0) \\
+5490 & (1, 12, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+…… & …… & …… \\
+159210 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+161955 & (1, 13, 16470) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+164700 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
+\end{longtable}
+\end{center}
+\end{lstlisting}
+\section{数学公式和定理定义等}
+数学公式可以说是体现\LaTeX{}强大之处的地方。blablabla\par
+注：具体参考一下\url{http://latex.yo2.cn/articles/latex_math_modle.html}以及介绍一下如何使用mathtype编写数学公式后导出latex代码应该就可以了。
+\section{使用~listing~显示代码}
 原先~ctexbook~文档类和~listings~宏包配合使用时，代码在换页时会出现莫名其妙的错误，后来经高人指点，顺利解决了。
 感兴趣的话，可以看看\href{http://bbs.ctex.org/viewthread.php?tid=53451}{这里}。
 这里给使用~listings~宏包插入源代码的例子，这里是一段C代码。
