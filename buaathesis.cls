@@ -8,13 +8,13 @@
 \newif\ifbuaa@master\buaa@mastertrue
 \newif\ifbuaa@engineer\buaa@engineerfalse
 \newif\ifbuaa@doctor\buaa@doctorfalse
-\newif\ifbuaa@nocolor\buaa@nocolorfalse
+\newif\ifbuaa@color\buaa@colorfalse
 
 \DeclareOption{bachelor}{\buaa@bachelortrue}
 \DeclareOption{master}{\buaa@mastertrue}
 \DeclareOption{engineer}{\buaa@engineertrue}
 \DeclareOption{doctor}{\buaa@doctortrue}
-\DeclareOption{nocolor}{\buaa@nocolortrue}
+\DeclareOption{color}{\buaa@colortrue}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -338,25 +338,20 @@
         {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.1\baselineskip}]
 \fi
 %-------------------交叉引用和参考文献整理---------------------
-\RequirePackage[xetex,unicode,
-                bookmarksnumbered,
-                bookmarksopen]{hyperref}
-    \ifbuaa@nocolor
-        \hypersetup{colorlinks=false}
-    \else
-        \hypersetup{colorlinks=true}
-    \fi
-    \hypersetup{
-        linkcolor=blue,
-        citecolor=blue,
-        urlcolor=blue,
-        filecolor=black
-    }
-    \hypersetup{%
-        pdftitle={BUAA thesis},
-        pdfauthor={BHOSC},
-        pdfsubject={北航-\buaa@appdegree 论文},
-        pdfcreator={LaTeXed~By~BHOSC}}
+\RequirePackage[xetex,unicode]{hyperref}
+\ifbuaa@color
+    \hypersetup{colorlinks}
+\else
+    \hypersetup{hidelinks}
+\fi
+\hypersetup{
+    bookmarksnumbered,
+    bookmarksopen,
+    pdftitle={BUAA thesis},
+    pdfauthor={BHOSC},
+    pdfsubject={北航-\buaa@appdegree 论文},
+    pdfcreator={LaTeXed~By~BHOSC}
+}
 
 \RequirePackage[sort&compress]{natbib}
     \bibpunct{[}{]}{,}{n}{}{}
@@ -438,20 +433,46 @@
 \RequirePackage{setspace}          %用此包来设置行距
 
 %-----------------代码环境定义和设置---------------
-\RequirePackage{xcolor}
+% 设置会用到的颜色
+\RequirePackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+% Listing 的设置请参考 http://en.wikibooks.org/wiki/LaTeX/Packages/Listings
 \RequirePackage{listings}
-%此宏包的设置请参考 http://bbs.ctex.org/forum.php?mod=viewthread&tid=53451
-\ifbuaa@nocolor
+\lstset{
+    basicstyle=\zihao{5},
+    numbers=left,
+    stepnumber=2,
+    numbersep=5pt,
+    backgroundcolor=\color{white},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    frame=single,
+    rulecolor=\color{black},
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=false,
+    title=\lstname,
+    escapeinside={\%*}{*)},
+    morekeywords={*,...}
+}
+\ifbuaa@color
     \lstset{
-        commentstyle=\color{black!100},%黑色的注释
-        rulesepcolor=\color{black!100},%代码块边框为黑色
-        keywordstyle=\color{black!100}\bfseries, %代码关键字的颜色为黑色，粗体
+        numberstyle=\color{gray},
+        keywordstyle=\color{blue},
+        commentstyle=\color{dkgreen},
+        stringstyle=\color{mauve},
     }
 \else
     \lstset{
-        commentstyle=\color{red!50!green!50!blue!50},%浅灰色的注释
-        rulesepcolor=\color{red!20!green!20!blue!20},%代码块边框为淡青色
-        keywordstyle=\color{blue!90}\bfseries, %代码关键字的颜色为蓝色，粗体
+        numberstyle=\color{black},
+        keywordstyle=\color{black},
+        commentstyle=\color{black},
+        stringstyle=\color{black},
     }
 \fi
 
