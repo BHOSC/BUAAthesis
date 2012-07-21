@@ -8,13 +8,11 @@
 \newif\ifbuaa@master\buaa@mastertrue
 \newif\ifbuaa@engineer\buaa@engineerfalse
 \newif\ifbuaa@doctor\buaa@doctorfalse
-\newif\ifbuaa@nocolor\buaa@nocolorfalse
 
 \DeclareOption{bachelor}{\buaa@bachelortrue}
 \DeclareOption{master}{\buaa@mastertrue}
 \DeclareOption{engineer}{\buaa@engineertrue}
 \DeclareOption{doctor}{\buaa@doctortrue}
-\DeclareOption{nocolor}{\buaa@nocolortrue}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -314,25 +312,15 @@
         {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.1\baselineskip}]
 \fi
 %-------------------交叉引用和参考文献整理---------------------
-\RequirePackage[xetex,unicode,
-                bookmarksnumbered,
-                bookmarksopen]{hyperref}
-    \ifbuaa@nocolor
-        \hypersetup{colorlinks=false}
-    \else
-        \hypersetup{colorlinks=true}
-    \fi
-    \hypersetup{
-        linkcolor=blue,
-        citecolor=blue,
-        urlcolor=blue,
-        filecolor=black
-    }
-    \hypersetup{%
-        pdftitle={BUAA thesis},
-        pdfauthor={BHOSC},
-        pdfsubject={北航-\buaa@appdegree 论文},
-        pdfcreator={LaTeXed~By~BHOSC}}
+\RequirePackage[xetex,unicode,hidelinks]{hyperref}
+\hypersetup{
+    bookmarksnumbered,
+    bookmarksopen,
+    pdftitle={BUAA thesis},
+    pdfauthor={BHOSC},
+    pdfsubject={北航-\buaa@appdegree 论文},
+    pdfcreator={LaTeXed~By~BHOSC}
+}
 
 \RequirePackage[sort&compress]{natbib}
     \bibpunct{[}{]}{,}{n}{}{}
@@ -417,19 +405,11 @@
 \RequirePackage{xcolor}
 \RequirePackage{listings}
 %此宏包的设置请参考 http://bbs.ctex.org/forum.php?mod=viewthread&tid=53451
-\ifbuaa@nocolor
-    \lstset{
-        commentstyle=\color{black!100},%黑色的注释
-        rulesepcolor=\color{black!100},%代码块边框为黑色
-        keywordstyle=\color{black!100}\bfseries, %代码关键字的颜色为黑色，粗体
-    }
-\else
-    \lstset{
-        commentstyle=\color{red!50!green!50!blue!50},%浅灰色的注释
-        rulesepcolor=\color{red!20!green!20!blue!20},%代码块边框为淡青色
-        keywordstyle=\color{blue!90}\bfseries, %代码关键字的颜色为蓝色，粗体
-    }
-\fi
+\lstset{
+    commentstyle=\color{black!100},%黑色的注释
+    rulesepcolor=\color{black!100},%代码块边框为黑色
+    keywordstyle=\color{black!100}\bfseries, %代码关键字的颜色为黑色，粗体
+}
 
 \lstdefinelanguage{LaTeX}{
     morekeywords={%
