@@ -8,11 +8,13 @@
 \newif\ifbuaa@master\buaa@mastertrue
 \newif\ifbuaa@engineer\buaa@engineerfalse
 \newif\ifbuaa@doctor\buaa@doctorfalse
+\newif\ifbuaa@color\buaa@colorfalse
 
 \DeclareOption{bachelor}{\buaa@bachelortrue}
 \DeclareOption{master}{\buaa@mastertrue}
 \DeclareOption{engineer}{\buaa@engineertrue}
 \DeclareOption{doctor}{\buaa@doctortrue}
+\DeclareOption{color}{\buaa@colortrue}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -312,7 +314,12 @@
         {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.1\baselineskip}]
 \fi
 %-------------------交叉引用和参考文献整理---------------------
-\RequirePackage[xetex,unicode,hidelinks]{hyperref}
+\RequirePackage[xetex,unicode]{hyperref}
+\ifbuaa@color
+    \hypersetup{colorlinks}
+\else
+    \hypersetup{hidelinks}
+\fi
 \hypersetup{
     bookmarksnumbered,
     bookmarksopen,
@@ -402,14 +409,47 @@
 \RequirePackage{setspace}          %用此包来设置行距
 
 %-----------------代码环境定义和设置---------------
-\RequirePackage{xcolor}
+% Listing 的设置请参考 http://en.wikibooks.org/wiki/LaTeX/Packages/Listings
+\RequirePackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
 \RequirePackage{listings}
-%此宏包的设置请参考 http://bbs.ctex.org/forum.php?mod=viewthread&tid=53451
 \lstset{
-    commentstyle=\color{black!100},%黑色的注释
-    rulesepcolor=\color{black!100},%代码块边框为黑色
-    keywordstyle=\color{black!100}\bfseries, %代码关键字的颜色为黑色，粗体
+    basicstyle=\zihao{5},
+    numbers=left,
+    stepnumber=2,
+    numbersep=5pt,
+    backgroundcolor=\color{white},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    frame=single,
+    rulecolor=\color{black},
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=false,
+    title=\lstname,
+    escapeinside={\%*}{*)},
+    morekeywords={*,...}
 }
+\ifbuaa@color
+    \lstset{
+        numberstyle=\color{gray},
+        keywordstyle=\color{blue},
+        commentstyle=\color{dkgreen},
+        stringstyle=\color{mauve},
+    }
+\else
+    \lstset{
+        numberstyle=\color{black},
+        keywordstyle=\color{black},
+        commentstyle=\color{black},
+        stringstyle=\color{black},
+    }
+\fi
 
 \lstdefinelanguage{LaTeX}{
     morekeywords={%
