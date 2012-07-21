@@ -409,12 +409,13 @@
 \RequirePackage{setspace}          %用此包来设置行距
 
 %-----------------代码环境定义和设置---------------
-% Listing 的设置请参考 http://en.wikibooks.org/wiki/LaTeX/Packages/Listings
+% 设置会用到的颜色
 \RequirePackage{color}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 
+% Listing 的设置请参考 http://en.wikibooks.org/wiki/LaTeX/Packages/Listings
 \RequirePackage{listings}
 \lstset{
     basicstyle=\zihao{5},
