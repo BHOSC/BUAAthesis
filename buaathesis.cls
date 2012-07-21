@@ -283,28 +283,52 @@
 {\endoldtabular}
 
 %---------------------------文章中标题的格式设置--------------------------%
-\usepackage{titlesec,titletoc}
+\CTEXsetup[
+    format={\centering\zihao{3}\heiti},
+    nameformat={},
+    aftername={\quad},
+    titleformat={},
+    beforeskip={-.5\baselineskip},
+    afterskip={\baselineskip},
+]{chapter}
+\CTEXsetup[
+    aftername={\quad},
+    beforeskip={.5\baselineskip},
+    afterskip={.5\baselineskip},
+]{section}
+\CTEXsetup[
+    format={\zihao{-4}\heiti},
+    aftername={\quad},
+    beforeskip={.5\baselineskip},
+    afterskip={.5\baselineskip},
+]{subsection}
 \ifbuaa@bachelor
-    \titleformat{\chapter}[block]{\centering\zihao{3}\heiti}{第\,\thechapter\,章}{1em}{}
-    \titleformat{\section}[block]{\zihao{-4}\heiti}{\thesection}{1em}{}
-    \titleformat{\subsection}[block]{\zihao{-4}\heiti}{\thesubsection}{1em}{}
+    \CTEXsetup[
+        name={,},
+        number={\arabic{chapter}},
+    ]{chapter}
+    \CTEXsetup[
+        format={\zihao{-4}\heiti},
+    ]{section}
 \else
-    \titleformat{\chapter}[block]{\centering\zihao{3}\heiti}{第\,\thechapter\,章}{1em}{}
-    \titleformat{\section}[block]{\zihao{4}\heiti}{\thesection}{1em}{}
-    \titleformat{\subsection}[block]{\zihao{-4}\heiti}{\thesubsection}{1em}{}
+    \CTEXsetup[
+        name={第,章},
+        number={\chinese{chapter}},
+    ]{chapter}
+    \CTEXsetup[
+        format={\zihao{4}\heiti},
+    ]{section}
 \fi
-\titlespacing*{\chapter}{0pt}{0pt}{.5\baselineskip} % 标题间距
-\titlespacing*{\section}{0pt}{.5\baselineskip}{.5\baselineskip}
-\titlespacing*{\subsection}{0pt}{.5\baselineskip}{.5\baselineskip}
 
 %------------------------目录中标题格式进行设置---------------------------%
+\RequirePackage{titletoc}
 \ifbuaa@bachelor
     \titlecontents{chapter}[0pt]{\heiti\zihao{-4}}{\thecontentslabel\ }{}
         {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}
     \titlecontents{section}[2em]{\vspace{0.1\baselineskip}\songti\zihao{-4}}{\thecontentslabel\ }{}
-        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.1\baselineskip}]
+        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}
     \titlecontents{subsection}[4em]{\vspace{0.1\baselineskip}\songti\zihao{-4}}{\thecontentslabel\ }{}
-        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.1\baselineskip}]
+        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}
 \else
     \titlecontents{chapter}[0pt]{\heiti\zihao{4}}{\thecontentslabel\ }{}
         {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}
