@@ -407,13 +407,50 @@
 \setlength{\abovecaptionskip}{2pt plus1pt minus1pt} % 图形中的图与标题之间的距离
 \setlength{\belowcaptionskip}{3pt plus1pt minus2pt} % 表格中的表与标题之间的距离
 
+%-------------------数学公式及定理环境的设置---------------------
+\RequirePackage{amsmath,amssymb,amsfonts,mathrsfs,bm}
+\RequirePackage{txfonts}
+\setsansfont{Arial}
+\setmonofont{Courier New}
+% 这一堆字体我也不清楚是不是都有的，先这么放着好了
+\RequirePackage[amsmath,thmmarks,hyperref]{ntheorem}
+\theoremsymbol{\ensuremath{\square}}
+\newtheorem*{proof}{证明}
+\theoremstyle{plain}
+\theoremsymbol{}
+\theoremseparator{：}
+\newtheorem{assumption}{假设}[chapter]
+\newtheorem{definition}{定义}[chapter]
+\newtheorem{proposition}{命题}[chapter]
+\newtheorem{lemma}{引理}[chapter]
+\newtheorem{theorem}{定理}[chapter]
+\newtheorem{axiom}{公理}[chapter]
+\newtheorem{corollary}{推论}[chapter]
+\newtheorem{exercise}{练习}[chapter]
+\newtheorem{example}{例}[chapter]
+\newtheorem{remark}{注释}[chapter]
+\newtheorem{problem}{问题}[chapter]
+\newtheorem{conjecture}{猜想}[chapter]
+% 摘自武汉理工大学论文模板，具体待验证
+
+
 %-----------------定义item及间距---------------
-\RequirePackage{enumitem}
-\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
-\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
-\setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+%\RequirePackage{enumitem}
+%\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+%\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+%\setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
 %注：使用上面的代码并未能改变item之间的间距，原因未知
 %更多关于间距的设置请见http://blog.sina.com.cn/s/blog_5e16f1770100gdhm.html
+
+\RequirePackage[neverdecrease]{paralist}
+\setdefaultenum{1、}{(1)}{i.}{A.}% 设置列表模式
+\setdefaultleftmargin{4ex}{}{}{}{}{}
+\let\itemize\compactitem
+\let\enditemize\endcompactitem
+\let\enumerate\compactenum
+\let\endenumerate\endcompactenum
+\let\description\compactdesc
+\let\enddescription\endcompactdesc
 
 %==================若干标题的汉化================%
 \renewcommand{\contentsname}{目\qquad 录}
@@ -927,3 +964,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %---      以下是写用户手册时需要用到的一新命令     ---
 %---      可根据需要放到发行的模板中               ---
+%\newcommand{\buaacommand}[1]{\texttt{\bf\textbackslash #1}}
+%\newcommand{\buaaoption}[1]{\texttt{#1}}

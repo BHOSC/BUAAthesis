@@ -3,11 +3,13 @@
 \section{字体设置}
 本模板使用了CTEX封装的\texttt{ctexbook}类，作为毕设论文，一般不需要过多使用字体。因此，全文默认字体为~{\bf 宋体}~和{\bf Times New Roman}字体。此外还可以使用\texttt{\textbackslash heiti}命令来使用~{\heiti 黑体}~字体。\par
 对于英文，则有\textbackslash textbf\{•\}\quad\textbackslash textit\{•\}\quad\textbackslash textsf\{•\}\quad\textbackslash texttt\{•\}\quad\textbackslash textsl\{•\}命令来进行相应的控制。\par
-{\textbackslash textbf\{•\}\qquad\textbf{0123456789abcdefgABCDEFG}}\par
-{\textbackslash textit\{•\}\qquad\textit{0123456789abcdefgABCDEFG}}\par
-{\textbackslash textsf\{•\}\qquad\textsf{0123456789abcdefgABCDEFG}}\par
-{\textbackslash texttt\{•\}\qquad\texttt{0123456789abcdefgABCDEFG}}\par
-{\textbackslash textsl\{•\}\qquad\textsl{0123456789abcdefgABCDEFG}}\par
+\begin{description}
+    \item[\textbackslash textbf\{•\}] \textbf{0123456789abcdefgABCDEFG}
+    \item[\textbackslash textit\{•\}] \textit{0123456789abcdefgABCDEFG}
+    \item[\textbackslash textsf\{•\}] \textsf{0123456789abcdefgABCDEFG}
+    \item[\textbackslash texttt\{•\}] \texttt{0123456789abcdefgABCDEFG}
+    \item[\textbackslash textsl\{•\}] \textsl{0123456789abcdefgABCDEFG}
+\end{description}
 在论文中，有一些地方需要进行强调说明时，可以使用~{\bf 加粗}~来进行强调，比如\{\textbackslash bf加粗\}，即可以得到~“{\bf 加粗}”~的效果；\par
 还可以有~\underline{下划线}，使用命令为\textbackslash underline\{需要加下划线的内容\}即可；\par
 也还可以通过对文字使用\textcolor{blue}{颜}\textcolor{red}{色}来强调说明。使用\textcolor[rgb]{0.5,0.95,0.96}{有颜色的文字}可以通过命令\texttt{\textbackslash textcolor}\{red\}\{红色的字\}，或者\texttt{\textbackslash textcolor[rgb]}\{0.5,0.98,0.7\}\{使用RGB混合颜色\}来\textcolor[rgb]{0.5,0.98,0.7}{使用RGB混合颜色}进行强调。
@@ -15,16 +17,16 @@
 论文要求正文字号为小四号，除非有特别的要求，全文不需要对字号进行另外的设置。需要进行字号设置时，可以用\texttt{\textbackslash zihao\{-4\}}，以及\texttt{\textbackslash zihao\{4\}}来表示小四号字体和四号字体，同理可以从小五号\texttt{\textbackslash zihao\{-5\}}字体到初号\texttt{\textbackslash zihao\{0\}}字体。\par
 \section{间距间隔控制}
 对于间距的控制，\LaTeX{}中的间距比Office要强大得多了！Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，可使用的间隔控制命令有如表\ref{table-space}所示若干，虽然很多都用不到。\par
-\begin{table}[ht]
+\begin{table}
 \begin{center}
-\caption{\LaTeX{}中的一些常用间隔间距控制命令\label{table-space}}
+\caption{\LaTeX{}中的一些常用间隔间距控制命令}\label{table-space}
 \begin{tabular}{l|l}
 \hline
 命令&效果\slash 说明\\\hline\hline
 间隔\texttt{\textbackslash quad}间隔 & 间隔\quad 间隔\\\hline
 间隔\texttt{\textbackslash qquad}间隔 & 间隔\qquad 间隔\\\hline
 间隔$\sim$间隔 & 间隔~间隔\\\hline
-间隔\textbackslash  间隔 & 间隔\ 间隔\\\hline
+间隔\verb*|\ |间隔 & 间隔\ 间隔\\\hline
 间隔\texttt{\textbackslash ,}间隔 & 间隔\, 间隔\\\hline\hline
 \texttt{\textbackslash hfill} & 水平填充\\\hline
 \texttt{\textbackslash vfill} & 垂直填充\\\hline
@@ -257,6 +259,45 @@
 \section{数学公式和定理定义等}
 数学公式可以说是体现\LaTeX{}强大之处的地方。blablabla\par
 注：具体参考一下\url{http://latex.yo2.cn/articles/latex_math_modle.html}以及介绍一下如何使用mathtype编写数学公式后导出latex代码应该就可以了。
+\section{条目及环境}
+条目环境分为itemize，enumerate，description三种。itemize用于简单的列表条目，enumerate
+用于带序号的列表条目，description用于带描述的列表条目。\par
+以下用代码\ref{code-item}来说明。
+\begin{lstlisting}[label={code-item},caption={条目环境},language={LaTeX}]
+\begin{enumerate}
+    \item 这里是第一条：
+        \begin{itemize}
+            \item 这里是第一点。
+            \item 这里是第二点。    
+        \end{itemize}
+    \item 这里是第二条：
+        \begin{description}
+            \item[ 观点三 ] 这里是第三点。
+            \item[ 观点四 ] 这里是第四点。
+        \end{description}
+\end{enumerate}
+\end{lstlisting}
+具体的效果如下所示。\par
+\begin{enumerate}
+    \item 这里是第一条：
+        \begin{itemize}
+            \item 这里是第一点。
+            \item 这里是第二点。
+        \end{itemize}
+    \item 这里是第二条：
+        \begin{description}
+            \item[观点三] 这里是第三点。
+            \item[观点四] 这里是第四点。
+        \end{description}
+\end{enumerate}
+
+左右对齐时，只需要把需要进行对齐的内容分别放到 flushleft或flushright环境中即可。
+\begin{example}
+这是一个举例。
+\end{example}
+\begin{proof}
+这是一个证明。
+\end{proof}
 \section{使用~listing~显示代码}
 原先~ctexbook~文档类和~listings~宏包配合使用时，代码在换页时会出现莫名其妙的错误，后来经高人指点，顺利解决了。
 感兴趣的话，可以看看\href{http://bbs.ctex.org/viewthread.php?tid=53451}{这里}。
