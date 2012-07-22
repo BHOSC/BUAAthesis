@@ -268,19 +268,26 @@
 \fi}
 %这个clearemptydoublepage我也不知道怎么设置，这一段是从网上找的，基本能用。
 
-% 表格内为5号字，故重定义表格环境
-% 暂不支持longtable
+% 重定义table/tabular/tabularx环境，使表格内为5号字
+% TODO(huxuan): 支持 longtable
 \let\oldtable\table
 \let\endoldtable\endtable
-\renewenvironment{table}[1][ht]
+\renewenvironment{table}[1][h!]
 {\oldtable[#1]\zihao{5}}
 {\endoldtable}
 
 \let\oldtabular\tabular
 \let\endoldtabular\endtabular
-\renewenvironment{tabular}[1][ht]
+\renewenvironment{tabular}[1][h!]
 {\oldtabular[#1]\zihao{5}}
 {\endoldtabular}
+
+\RequirePackage{tabularx}
+\let\oldtabularx\tabularx
+\let\endoldtabularx\endtabularx
+\renewenvironment{tabularx}[2]
+{\oldtabularx{#1}{#2}\zihao{5}}
+{\endoldtabularx}
 
 %---------------------------文章中标题的格式设置--------------------------%
 \CTEXsetup[
