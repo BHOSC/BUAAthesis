@@ -1,8 +1,10 @@
 % !Mode:: "TeX:UTF-8"
 \chapter{\label{chapter-yufa}\LaTeX{}基础语法}
 \section{字体设置}
-本模板使用了CTEX封装的\texttt{ctexbook}类，作为毕设论文，一般不需要过多使用字体。因此，全文默认字体为~{\bf 宋体}~和{\bf Times New Roman}字体。此外还可以使用\texttt{\textbackslash heiti}命令来使用~{\heiti 黑体}~字体。\par
-对于英文，则有\textbackslash textbf\{•\}\quad\textbackslash textit\{•\}\quad\textbackslash textsf\{•\}\quad\textbackslash texttt\{•\}\quad\textbackslash textsl\{•\}命令来进行相应的控制。\par
+本模板使用了CTEX封装的\texttt{ctexbook}类，作为毕设论文，一般不需要过多使用字体。因此，全文默认字体为~{\bf 宋体}~和{\bf Times New Roman}字体。此外还可以使用\texttt{\textbackslash heiti}命令来使用~{\heiti 黑体}~字体。
+
+对于英文，则有\textbackslash textbf\{•\}\quad\textbackslash textit\{•\}\quad\textbackslash textsf\{•\}\quad\textbackslash texttt\{•\}\quad\textbackslash textsl\{•\}命令来进行相应的控制。
+
 \begin{description}
     \item[\textbackslash textbf\{•\}] \textbf{0123456789abcdefgABCDEFG}
     \item[\textbackslash textit\{•\}] \textit{0123456789abcdefgABCDEFG}
@@ -10,13 +12,18 @@
     \item[\textbackslash texttt\{•\}] \texttt{0123456789abcdefgABCDEFG}
     \item[\textbackslash textsl\{•\}] \textsl{0123456789abcdefgABCDEFG}
 \end{description}
-在论文中，有一些地方需要进行强调说明时，可以使用~{\bf 加粗}~来进行强调，比如\{\textbackslash bf加粗\}，即可以得到~“{\bf 加粗}”~的效果；\par
-还可以有~\underline{下划线}，使用命令为\textbackslash underline\{需要加下划线的内容\}即可；\par
+在论文中，有一些地方需要进行强调说明时，可以使用~{\bf 加粗}~来进行强调，比如\{\textbackslash bf加粗\}，即可以得到~“{\bf 加粗}”~的效果；
+
+还可以有~\underline{下划线}，使用命令为\textbackslash underline\{需要加下划线的内容\}即可；
+
 也还可以通过对文字使用\textcolor{blue}{颜}\textcolor{red}{色}来强调说明。使用\textcolor[rgb]{0.5,0.95,0.96}{有颜色的文字}可以通过命令\texttt{\textbackslash textcolor}\{red\}\{红色的字\}，或者\texttt{\textbackslash textcolor[rgb]}\{0.5,0.98,0.7\}\{使用RGB混合颜色\}来\textcolor[rgb]{0.5,0.98,0.7}{使用RGB混合颜色}进行强调。
+
 \section{字号设置}
-论文要求正文字号为小四号，除非有特别的要求，全文不需要对字号进行另外的设置。需要进行字号设置时，可以用\texttt{\textbackslash zihao\{-4\}}，以及\texttt{\textbackslash zihao\{4\}}来表示小四号字体和四号字体，同理可以从小五号\texttt{\textbackslash zihao\{-5\}}字体到初号\texttt{\textbackslash zihao\{0\}}字体。\par
+论文要求正文字号为小四号，除非有特别的要求，全文不需要对字号进行另外的设置。需要进行字号设置时，可以用\texttt{\textbackslash zihao\{-4\}}，以及\texttt{\textbackslash zihao\{4\}}来表示小四号字体和四号字体，同理可以从小五号\texttt{\textbackslash zihao\{-5\}}字体到初号\texttt{\textbackslash zihao\{0\}}字体。
+
 \section{间距间隔控制}
-对于间距的控制，\LaTeX{}中的间距比Office要强大得多了！Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，可使用的间隔控制命令有如表\ref{table-space}所示若干，虽然很多都用不到。\par
+对于间距的控制，\LaTeX{}中的间距比Office要强大得多了！Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，可使用的间隔控制命令有如表\ref{table-space}所示若干，虽然很多都用不到。
+
 \begin{table}
 \begin{center}
 \caption{\LaTeX{}中的一些常用间隔间距控制命令}\label{table-space}
@@ -35,15 +42,22 @@
 \end{tabular}
 \end{center}
 \end{table}
-\LaTeX{}支持的单位有：\texttt{in}---英寸(inch)，\texttt{mm}---毫米，\texttt{cm}---厘米，\texttt{pt}---Points(大约1\slash 72~inch)，以及相对距离：\texttt{em}---当前字体的字符“\textbf{M}”的宽度，\texttt{ex}---当前字体的字符“\textbf{x}”的宽度，长度可以为负值，如~-1.5em~。\par
+
+\LaTeX{}支持的单位有：\texttt{in}---英寸(inch)，\texttt{mm}---毫米，\texttt{cm}---厘米，\texttt{pt}---Points(大约1\slash 72~inch)，以及相对距离：\texttt{em}---当前字体的字符“\textbf{M}”的宽度，\texttt{ex}---当前字体的字符“\textbf{x}”的宽度，长度可以为负值，如~-1.5em~。
+
 需要换行的地方请用“\textbackslash\textbackslash ”来控制，每段段末请加“\texttt{\textbackslash par}”来表示一个段落的结束。换行的段落结束的区别在于换行后不会有缩进，而段落结束的话，下一段会自动缩进两个汉字距离。
+
 \section{章节标题以及条目的设置}
-新的一章将在新的页面开始，使用\texttt{\textbackslash chapter}\{\LaTeX{}基础语法\}命令时，即可以得到~\hyperref[chapter-yufa]{第5章~\LaTeX{}基础语法}~这样的章名称。\par
+新的一章将在新的页面开始，使用\texttt{\textbackslash chapter}\{\LaTeX{}基础语法\}命令时，即可以得到~\hyperref[chapter-yufa]{第5章~\LaTeX{}基础语法}~这样的章名称。
+
 同样的，还有命令\textbackslash section\{•\}、\textbackslash subsection\{•\}来定义节、条的标题。对于章节前面的“第1章”、“1.1”等标号，则不需要用户来编辑，\LaTeX{}会根据规则来进行编排。
+
 \section{图形和多图排列}
 \label{sec:fig}
-在编写论文过程中，需要引用图形甚至多个图形时，可以使用\texttt{figure}环境，以代码\ref{code-fig}来说明如何使用此环境。\par
+在编写论文过程中，需要引用图形甚至多个图形时，可以使用\texttt{figure}环境，以代码\ref{code-fig}来说明如何使用此环境。
+
 需要注意的是，figure为浮动环境，即\LaTeX{}在排版浮动环境时，会根据一定的美观规则来排版，并不是将将代码放在某处，图片就会出现在某处，如代码\ref{code-fig}中的\texttt{[htbp]}为浮动环境选项，\texttt{h}表示为here，\texttt{t}为top，\texttt{b}为bottom，\texttt{p}为page，优先顺序依次递减，\LaTeX{}先判断here（当前位置）是否可以放置此环境（代码\ref{code-fig}中为图片），否则依次判断top、bottom、page来放置此环境中的内容。
+
 \begin{lstlisting}[label={code-fig},caption={使用figure环境},language={LaTeX}]
  如图 \ref{fig-buaamark}所示为北航校徽。
 \begin{figure}[htbp]
@@ -53,14 +67,18 @@
 \end{center}
 \end{figure}
 \end{lstlisting}
-代码中\textbackslash includegraphics后的[width=90bp]为对图片大小进行控制的代码，可以替换成为height,scale等。\textbackslash caption为图的标题，\textbackslash label为图的引用标号，在“如图”后引用即可得到“\ref{figbuaamark}”的效果。具体生成的效果如第\pageref{figbuaamark}页所示。\par
-如图\ref{figbuaamark}所示为北航校徽。\par
+
+代码中\textbackslash includegraphics后的[width=90bp]为对图片大小进行控制的代码，可以替换成为height,scale等。\textbackslash caption为图的标题，\textbackslash label为图的引用标号，在“如图”后引用即可得到“\ref{figbuaamark}”的效果。具体生成的效果如第\pageref{figbuaamark}页所示。
+
+如图\ref{figbuaamark}所示为北航校徽。
+
 \begin{figure}[htb]
 \begin{center}
 \includegraphics[width=90bp]{figure/buaamark.eps}
 \caption{校徽\label{figbuaamark}}
 \end{center}
 \end{figure}
+
 而对于需要两个或三个图形并排或者矩形排列的时候，则示例代码可以如\ref{code-subfigs}所示。
 
 \begin{lstlisting}[caption={图形的排列},label={code-subfigs},language={LaTeX}]
@@ -98,8 +116,11 @@
 \label{maxfig}
 \end{figure}
 \end{lstlisting}
-而具体的效果如下所示。\par
-图\ref{subfig1}为子图排列的形式，两个子图有各自的图题，并有一个共同的图题。\par
+
+而具体的效果如下所示。
+
+图\ref{subfig1}为子图排列的形式，两个子图有各自的图题，并有一个共同的图题。\
+
 \begin{figure}[htb]
 \begin{center}
     \subfigure[并排小图a]{\label{fig:minia}\includegraphics[width=.2\textwidth]{figure/buaamark.eps}}\hspace{7em}
@@ -108,7 +129,9 @@
     \label{subfig1}
 \end{center}
 \end{figure}
-图\ref{minifiga}和图\ref{minifigb}为两个并排的图形，各自均有图题。\par
+
+图\ref{minifiga}和图\ref{minifigb}为两个并排的图形，各自均有图题。
+
 \begin{figure}[htb]
 \begin{minipage}{0.5\textwidth}
     \centering
@@ -123,7 +146,9 @@
     \label{minifigb}
 \end{minipage}
 \end{figure}
-图\ref{maxfig}所示为2x2排列的图形，使用\texttt{tabular}的表格环境嵌套在\texttt{figure}环境中来达到此效果。\par
+
+图\ref{maxfig}所示为2x2排列的图形，使用\texttt{tabular}的表格环境嵌套在\texttt{figure}环境中来达到此效果。
+
 \begin{figure}[htb]
 \centering
     \begin{tabular}{cc}
@@ -133,10 +158,14 @@
 \caption{矩形的subfig排列}
 \label{maxfig}
 \end{figure}
+
 到此，图形的排列基本就OK了。一般只会用到图\ref{figbuaamark}这样的图形环境就可以了，后面的太复杂，一般情况下不推荐使用。如果对图形的编排的兴趣，可以google一下《\LaTeX{}插图指南》一书。
+
 \section{表格和长表格}
-表格也是论文中经常需要用到的一个元素，它也可以作为一个浮动环境（当然也可以不浮动）由\LaTeX{}自己来按照一定规则来决定如何放置。\par
-常用的表格浮动环境以代码\ref{code-table}作为示例。\par
+表格也是论文中经常需要用到的一个元素，它也可以作为一个浮动环境（当然也可以不浮动）由\LaTeX{}自己来按照一定规则来决定如何放置。
+
+常用的表格浮动环境以代码\ref{code-table}作为示例。
+
 \begin{lstlisting}[caption={表格浮动环境},label={code-table},language={LaTeX}]
 \begin{table}[h]
 \begin{center}
@@ -155,10 +184,13 @@
 \end{center}
 \end{table}
 \end{lstlisting}
-经过\LaTeX{}编译排版出来的结果如表\ref{tab-test3}所示。\par
-\texttt{table}环境即为浮动环境，其后带htbp等参数，其具体意义在\ref{sec:fig}节描述过了。\texttt{tabular}即为表格环境，后面的\texttt{\{c||c|c|c\}}的意思为，表格分为四列，第一列居中{\bf c}\textit{(center)}对齐，其他对齐方式为左对齐{\bf l}\textit{(left)}，右对齐{\bf r}\textit{(right)}。然后竖直画两条竖线，第二列和第三列第四列也为居中对齐，并且用一竖线分隔。表格中需要加横线时使用\texttt{\textbackslash hline}来添加，横线或竖线可添加多条。\par
-表格中每一项使用“\& ”分隔，每一行使用\texttt{\textbackslash\textbackslash}来进行换行。\par
-\begin{table}[ht]
+
+经过\LaTeX{}编译排版出来的结果如表\ref{tab-test3}所示。
+
+\texttt{table}环境即为浮动环境，其后带htbp等参数，其具体意义在\ref{sec:fig}节描述过了。\texttt{tabular}即为表格环境，后面的\texttt{\{c||c|c|c\}}的意思为，表格分为四列，第一列居中{\bf c}\textit{(center)}对齐，其他对齐方式为左对齐{\bf l}\textit{(left)}，右对齐{\bf r}\textit{(right)}。然后竖直画两条竖线，第二列和第三列第四列也为居中对齐，并且用一竖线分隔。表格中需要加横线时使用\texttt{\textbackslash hline}来添加，横线或竖线可添加多条。
+
+表格中每一项使用“\& ”分隔，每一行使用\texttt{\textbackslash\textbackslash}来进行换行。
+\begin{table}
 \begin{center}
 \caption{浮动表格示例\label{tab-test3}}
 \begin{tabular}{c||c|c|c}
@@ -174,10 +206,10 @@
 \end{tabular}
 \end{center}
 \end{table}
-
 当需要排版的表格长度超过一页，那么在本模板中推荐使用 \textsf{longtable}
 宏包，模板对 \textsf{longtable} 进行了相应的设置，所以用起来可能简单一些。
-表~\ref{example-longtable} 就是\textsf{longtable}的简单示例。\par
+表~\ref{example-longtable} 就是\textsf{longtable}的简单示例。
+
 \begin{center}
 \begin{longtable}{|l|l|l|}
 \caption{长表格示例} \label{example-longtable} \\
@@ -223,6 +255,7 @@
 164700 & (1, 13, 13725) & (2, 2, 2745), (2, 3, 0), (3, 1, 0) \\
 \end{longtable}
 \end{center}
+
 \texttt{longtable}通过\texttt{\textbackslash endfirsthead~~\textbackslash endhead~~\textbackslash endfoot~~\textbackslash endlastfoot}来对分页进行相应的控制。具体可以参照表\ref{example-longtable}及其源代码\ref{code-longtable}来进行对比分析。\par
 代码中的\texttt{\textbackslash multicolumn}为合并单元格的命令，具体用法为\texttt{\textbackslash multicolumn \{num$-$cols\}\{alignment\}\{contents\}}。对于复杂表格中，\texttt{\textbackslash cline\{i$-$j\}}表示从第\texttt{i}列开始，画一条横线，直到第\texttt{j}列为止。具体不清楚用法的话请google吧$\sim$\par
 \begin{lstlisting}[caption={跨页表格示例},label={code-longtable},language={LaTeX}]
@@ -257,11 +290,14 @@
 \end{center}
 \end{lstlisting}
 \section{数学公式和定理定义等}
-数学公式可以说是体现\LaTeX{}强大之处的地方。blablabla\par
+数学公式可以说是体现\LaTeX{}强大之处的地方。blablabla
+
 注：具体参考一下\url{http://latex.yo2.cn/articles/latex_math_modle.html}以及介绍一下如何使用mathtype编写数学公式后导出latex代码应该就可以了。
+
 \section{条目及环境}
 条目环境分为itemize，enumerate，description三种。itemize用于简单的列表条目，enumerate
-用于带序号的列表条目，description用于带描述的列表条目。\par
+用于带序号的列表条目，description用于带描述的列表条目。
+
 以下用代码\ref{code-item}来说明。
 \begin{lstlisting}[label={code-item},caption={条目环境},language={LaTeX}]
 \begin{enumerate}
@@ -277,7 +313,8 @@
         \end{description}
 \end{enumerate}
 \end{lstlisting}
-具体的效果如下所示。\par
+
+具体的效果如下所示。
 \begin{enumerate}
     \item 这里是第一条：
         \begin{itemize}
@@ -298,6 +335,7 @@
 \begin{proof}
 这是一个证明。
 \end{proof}
+
 \section{使用~listing~显示代码}
 原先~ctexbook~文档类和~listings~宏包配合使用时，代码在换页时会出现莫名其妙的错误，后来经高人指点，顺利解决了。
 感兴趣的话，可以看看\href{http://bbs.ctex.org/viewthread.php?tid=53451}{这里}。

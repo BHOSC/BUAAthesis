@@ -410,9 +410,6 @@
 %-------------------数学公式及定理环境的设置---------------------
 \RequirePackage{amsmath,amssymb,amsfonts,mathrsfs,bm}
 \RequirePackage{txfonts}
-\setsansfont{Arial}
-\setmonofont{Courier New}
-% 这一堆字体我也不清楚是不是都有的，先这么放着好了
 \RequirePackage[amsmath,thmmarks,hyperref]{ntheorem}
 \theoremsymbol{\ensuremath{\square}}
 \newtheorem*{proof}{证明}
@@ -961,8 +958,6 @@
     \setlength{\topsep}{0cm} % 标签与上文的间距
    }}{\end{list}}
 %% 关于列表环境的定义和使用，可以参考http://blog.sina.com.cn/s/blog_5e16f1770100h0jt.html
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%---      以下是写用户手册时需要用到的一新命令     ---
-%---      可根据需要放到发行的模板中               ---
-%\newcommand{\buaacommand}[1]{\texttt{\bf\textbackslash #1}}
-%\newcommand{\buaaoption}[1]{\texttt{#1}}
+
+%---------------------- end of buaathesis.cls ------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
