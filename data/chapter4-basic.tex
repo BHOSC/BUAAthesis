@@ -1,6 +1,8 @@
 % !Mode:: "TeX:UTF-8"
-\chapter{\label{chapter-basic}\LaTeX{}基础语法}
+\chapter{\LaTeX{}基础语法}
+\label{chapter-basic}
 \section{字体设置}
+
 本模板使用了CTEX封装的\texttt{ctexbook}类，作为毕设论文，一般不需要
 过多使用字体。因此，全文默认字体为~{\bf 宋体}~和{\bf Times New Roman}字体。
 此外还可以使用\texttt{\textbackslash heiti}命令来使用~{\heiti 黑体}~字体。
@@ -56,7 +58,7 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
 以及相对距离：\texttt{em}---当前字体的字符“\textbf{M}”的宽度，
 \texttt{ex}---当前字体的字符“\textbf{x}”的宽度，长度可以为负值，如~-1.5em~。
 
-换行有两种方式，分别为命令“\verb|\\|”以及命令\verb|\newline |，
+换行有两种方式，分别为命令“\verb|\\ |”以及命令\verb|\newline |，
 这两个命令将使“光标”切换到下一行，但并不具有缩进（即\LaTeX{}并不认为
 这是新的一个段落，当然可以使用\verb|\qquad |来强制缩进两个字符间距）。
 
@@ -205,12 +207,6 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
 \end{enumerate}
 
 左右对齐时，只需要把需要进行对齐的内容分别放到 flushleft或flushright环境中即可。
-\begin{example}
-这是一个举例。
-\end{example}
-\begin{proof}
-这是一个证明。
-\end{proof}
 
 \section{使用~listing~显示代码}
 原先~ctexbook~文档类和~listings~宏包配合使用时，代码在换页时会
@@ -326,8 +322,6 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
 \begin{minipage}[b]{0.5\textwidth}
 \centering
 \begin{tabular}{c||c|c} \hline
-\caption{右侧的表格}
-\label{table-fig}
 Day & Data &other\\ \hline\hline
 Monday & 1 &1.5\\
 Tuesday & 2 &2.5\\
@@ -335,6 +329,8 @@ Wednesday & 3 &3.5\\
 Thursday & 4 &4.5\\
 Friday & 5 &5.5\\ \hline
 \end{tabular}
+\caption{右侧的表格}
+\label{table-fig}
 \end{minipage}
 \end{figure}
 \begin{lstlisting}[label={code-figtab},caption={图形和表格并排显示},language={LaTeX}]
@@ -456,3 +452,161 @@ Friday & 5 &5.5\\ \hline
 \end{longtable}
 \end{center}
 \end{lstlisting}
+
+\subsection{定理定义环境}
+给大家演示一下各种和证明有关的环境\footnote{本节内容来自武汉理工大学论文模板。}：
+
+\begin{assumption}
+待月西厢下，迎风户半开；隔墙花影动，疑是玉人来。
+\begin{eqnarray}
+  \label{eq:eqnxmp}
+  c & = & a^2 - b^2\\
+    & = & (a+b)(a-b)
+\end{eqnarray}
+\end{assumption}
+
+千辛万苦，历尽艰难，得有今日。然相从数千里，未曾哀戚。今将渡江，方图百年欢笑，如
+何反起悲伤？（引自《杜十娘怒沉百宝箱》）
+
+\begin{definition}
+子曰：「道千乘之国，敬事而信，节用而爱人，使民以时。」
+\end{definition}
+
+千古第一定义！问世间、情为何物，只教生死相许？天南地北双飞客，老翅几回寒暑。欢乐趣，离别苦，就中更有痴儿女。
+君应有语，渺万里层云，千山暮雪，只影向谁去？
+
+横汾路，寂寞当年箫鼓，荒烟依旧平楚。招魂楚些何嗟及，山鬼暗谛风雨。天也妒，未信与，莺儿燕子俱黄土。
+千秋万古，为留待骚人，狂歌痛饮，来访雁丘处。
+
+\begin{proposition}
+ 曾子曰：「吾日三省吾身 --- 为人谋而不忠乎？与朋友交而不信乎？传不习乎？」
+\end{proposition}
+
+多么凄美的命题啊！其日牛马嘶，新妇入青庐，奄奄黄昏后，寂寂人定初，我命绝今日，
+魂去尸长留，揽裙脱丝履，举身赴清池，府吏闻此事，心知长别离，徘徊庭树下，自挂东南
+枝。
+
+\begin{remark}
+天不言自高，水不言自流。
+\begin{gather*}
+\begin{split} 
+\varphi(x,z)
+&=z-\gamma_{10}x-\gamma_{mn}x^mz^n\\
+&=z-Mr^{-1}x-Mr^{-(m+n)}x^mz^n
+\end{split}\\[6pt]
+\begin{align} \zeta^0&=(\xi^0)^2,\\
+\zeta^1 &=\xi^0\xi^1,\\
+\zeta^2 &=(\xi^1)^2,
+\end{align}
+\end{gather*}
+\end{remark}
+
+天尊地卑，乾坤定矣。卑高以陈，贵贱位矣。 动静有常，刚柔断矣。方以类聚，物以群分，
+吉凶生矣。在天成象，在地成形，变化见矣。鼓之以雷霆，润之以风雨，日月运行，一寒一
+暑，乾道成男，坤道成女。乾知大始，坤作成物。乾以易知，坤以简能。易则易知，简则易
+从。易知则有亲，易从则有功。有亲则可久，有功则可大。可久则贤人之德，可大则贤人之
+业。易简，而天下矣之理矣；天下之理得，而成位乎其中矣。
+
+\begin{axiom}
+两点间直线段距离最短。  
+\begin{align}
+x&\equiv y+1\pmod{m^2}\\
+x&\equiv y+1\mod{m^2}\\
+x&\equiv y+1\pod{m^2}
+\end{align}
+\end{axiom}
+
+《彖曰》：大哉乾元，万物资始，乃统天。云行雨施，品物流形。大明始终，六位时成，时
+乘六龙以御天。乾道变化，各正性命，保合大和，乃利贞。首出庶物，万国咸宁。
+
+《象曰》：天行健，君子以自强不息。潜龙勿用，阳在下也。见龙再田，德施普也。终日乾
+乾，反复道也。或跃在渊，进无咎也。飞龙在天，大人造也。亢龙有悔，盈不可久也。用九，
+天德不可为首也。 　　
+
+\begin{lemma}
+《猫和老鼠》是我最爱看的动画片。
+\begin{multline*}%\tag*{[a]} % 这个不出现在索引中
+\int_a^b\biggl\{\int_a^b[f(x)^2g(y)^2+f(y)^2g(x)^2]
+ -2f(x)g(x)f(y)g(y)\,dx\biggr\}\,dy \\
+ =\int_a^b\biggl\{g(y)^2\int_a^bf^2+f(y)^2
+  \int_a^b g^2-2f(y)g(y)\int_a^b fg\biggr\}\,dy
+\end{multline*}
+\end{lemma}
+
+行行重行行，与君生别离。相去万余里，各在天一涯。道路阻且长，会面安可知。胡马依北
+风，越鸟巢南枝。相去日已远，衣带日已缓。浮云蔽白日，游子不顾返。思君令人老，岁月
+忽已晚。  弃捐勿复道，努力加餐饭。
+
+\begin{theorem}\label{the:theorem1}
+犯我强汉者，虽远必诛\hfill --- 陈汤（汉）
+\end{theorem}
+\begin{subequations}
+\begin{align}
+y & = 1 \\
+y & = 0
+\end{align}
+\end{subequations}
+道可道，非常道。名可名，非常名。无名天地之始；有名万物之母。故常无，欲以观其妙；
+常有，欲以观其徼。此两者，同出而异名，同谓之玄。玄之又玄，众妙之门。上善若水。水
+善利万物而不争，处众人之所恶，故几于道。曲则全，枉则直，洼则盈，敝则新，少则多，
+多则惑。人法地，地法天，天法道，道法自然。知人者智，自知者明。胜人者有力，自胜
+者强。知足者富。强行者有志。不失其所者久。死而不亡者寿。
+
+\begin{proof}
+燕赵古称多感慨悲歌之士。董生举进士，连不得志于有司，怀抱利器，郁郁适兹土，吾
+知其必有合也。董生勉乎哉？
+
+夫以子之不遇时，苟慕义强仁者，皆爱惜焉，矧燕、赵之士出乎其性者哉！然吾尝闻
+风俗与化移易，吾恶知其今不异于古所云邪？聊以吾子之行卜之也。董生勉乎哉？
+
+吾因子有所感矣。为我吊望诸君之墓，而观于其市，复有昔时屠狗者乎？为我谢
+曰：“明天子在上，可以出而仕矣！” \hfill --- 韩愈《送董邵南序》
+\end{proof}
+
+\begin{corollary}
+  四川话配音的《猫和老鼠》是世界上最好看最好听最有趣的动画片。
+\begin{alignat}{3}
+V_i & =v_i - q_i v_j, & \qquad X_i & = x_i - q_i x_j,
+ & \qquad U_i & = u_i,
+ \qquad \text{for $i\ne j$;}\label{eq:B}\\
+V_j & = v_j, & \qquad X_j & = x_j,
+  & \qquad U_j & u_j + \sum_{i\ne j} q_i u_i.
+\end{alignat}
+\end{corollary}
+
+迢迢牵牛星，皎皎河汉女。
+纤纤擢素手，札札弄机杼。
+终日不成章，泣涕零如雨。
+河汉清且浅，相去复几许。
+盈盈一水间，脉脉不得语。
+
+\begin{example}
+  大家来看这个例子。
+\begin{equation}
+\label{ktc}
+\left\{\begin{array}{l}
+\nabla f({\mbox{\boldmath $x$}}^*)-\sum\limits_{j=1}^p\lambda_j\nabla g_j({\mbox{\boldmath $x$}}^*)=0\\[0.3cm]
+\lambda_jg_j({\mbox{\boldmath $x$}}^*)=0,\quad j=1,2,\cdots,p\\[0.2cm]
+\lambda_j\ge 0,\quad j=1,2,\cdots,p.
+\end{array}\right.
+\end{equation}
+\end{example}
+
+\begin{exercise}
+  清列出 Andrew S. Tanenbaum 和 W. Richard Stevens 的所有著作。
+\end{exercise}
+
+\begin{conjecture} \textit{Poincare Conjecture} If in a closed three-dimensional
+  space, any closed curves can shrink to a point continuously, this space can be
+  deformed to a sphere.
+\end{conjecture}
+
+\begin{problem}
+ 回答还是不回答，是个问题。 
+\end{problem}
+
+如何引用定理~\ref{the:theorem1} 呢？加上 \verb|label| 使用 \verb|ref| 即可。妾发
+初覆额，折花门前剧。郎骑竹马来，绕床弄青梅。同居长干里，两小无嫌猜。 十四为君妇，
+羞颜未尝开。低头向暗壁，千唤不一回。十五始展眉，愿同尘与灰。常存抱柱信，岂上望夫
+台。 十六君远行，瞿塘滟滪堆。五月不可触，猿声天上哀。门前迟行迹，一一生绿苔。苔深
+不能扫，落叶秋风早。八月蝴蝶来，双飞西园草。感此伤妾心，坐愁红颜老。
