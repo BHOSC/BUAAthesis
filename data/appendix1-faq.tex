@@ -1,2 +1,15 @@
 % !Mode:: "TeX:UTF-8"
 \chapter{常见问题}
+\begin{enumerate}
+\item  如何使用visio输出eps图形？
+\begin{itemize}
+	\item WindowsXP用户安装Generic PostScript Printer打印机，Windows7用户安装MS Publisher Color Print打印机。
+	\item 启动Visio，打开相应的vsd图。
+	\item 打开"文件"菜单下的"打印\dots "菜单项，在打印对话框中选择打印机为"Generic PostScriptPrint"或"MS Publisher Color Print"。
+	\item 点击属性按键，打开属性对话框，再点击高级按键，打开高级选项对话框，纸张规格选择为"Letter"。
+	\item 在"PostScript选项"的"PostScript输出选项"里选择"内嵌的PostScript(EPS)"，然后确定。
+	\item 回到打印对话框，在"打印到文件"对话框中输入文件名，扩展名须为.ps(如abc.ps)。
+	\item 用GSview打开abc.ps，打开"File"菜单里的"PS to EPS"菜单项，按默认的选项(自动计算边框)，并在"另存为"对话框中输入最终的eps文件名(如abc.eps)即可。
+\end{itemize}
+
+\end{enumerate}
