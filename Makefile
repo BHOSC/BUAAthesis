@@ -3,9 +3,7 @@ bachelor:
 master:
 	xelatex sample-master.tex
 clean:
-	-rm *.aux *.lof *.log *.lot *.out *.toc *.bbl *.blg
-	-rm data/*.aux
-	-rm data/bachelor/*.aux
-	-rm data/master/*.aux
+	find . -name '*.aux' -print0 | xargs -0 rm -rf
+	rm -rf *.lof *.log *.lot *.out *.toc *.bbl *.blg *.thm
 depclean: clean
-	-rm *.pdf
+	rm -rf *.pdf
