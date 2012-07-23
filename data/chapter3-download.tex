@@ -1,0 +1,76 @@
+% !Mode:: "TeX:UTF-8"
+\chapter{下载}
+
+\section{发行版本}
+
+发行版本是本模板编写者会不定期更新打包的版本，适合大部分用户使用，
+优点是相对较为稳定，下载和使用都更方便便捷，
+缺点是可能不包含一些最新的更新，不过应该足够满足常规毕业设计论文撰写需求。
+由于本模板仍在开发之中，我们将适时更新本说明文档及相关项目介绍和使用方法，
+敬请关注后续进展。
+
+\section{开发版本}
+
+开发版本是通过Git直接clone本模板托管在Github版本库中的最新代码，
+适合有版本管理工具使用经验和对LaTeX使用较为熟练的用户。
+优点是包含最新的模板代码，
+缺点是稳定性无法保证，可能有一些小问题，
+当然我们很欢迎您通过所有可能的方式将问题反馈给我们。
+
+\subsection{下载方法}
+首先你需要打开准备存放毕业设计论文的目录，
+通过命令\ref{git_clone}即可获取最新的模板代码，
+需要注意的是这将在当前目录下新建一个名为BUAAthesis的文件夹。
+\begin{lstlisting}[language=bash,label=git_clone,caption={git clone}]
+    git clone git://github.com/BHOSC/BUAAthesis.git
+\end{lstlisting}
+
+\subsection{更新方法}
+通过命令\ref{git_pull}即可实现模板代码的更新，
+需要注意的是此处可能会出现冲突，相关处理方法将在后续说明。
+\begin{lstlisting}[language=bash,label=git_pull,caption={git pull}]
+    git pull origin master
+\end{lstlisting}
+
+\section{目录结构}
+
+本模板项目完整的文件目录结构如下所示：
+
+\dirtree{%
+    .1 BUAAthesis/\DTcomment{根目录}.
+    .2 buaathesis.cls\DTcomment{模板文件}.
+    .2 buaathesis.bst\DTcomment{参考文献样式}.
+    .2 sample-bachelor.tex\DTcomment{本科生示例文件}.
+    .2 sample-master.tex\DTcomment{研究生示例文件}.
+    .2 data/\DTcomment{数据文件夹}.
+    .3 abstract.tex\DTcomment{中英文摘要}.
+    .3 appendix1-faq.tex\DTcomment{附录1，常见问题}.
+    .3 appendix2-contactus.tex\DTcomment{附录2，联系我们}.
+    .3 bibs.bib\DTcomment{参考文献文件}.
+    .3 chapter1-intro.tex.
+    .3 chapter2-config.tex.
+    .3 chapter3-download.tex.
+    .3 chapter4-baisc.tex.
+    .3 chapter5-usage.tex.
+    .3 chapter6-implement.tex.
+    .3 com\_info.tex\DTcomment{通用自定义信息}.
+    .3 reference.tex\DTcomment{参考文献}.
+    .3 bachelor/\DTcomment{本科生专属文件}.
+    .4 assign.tex\DTcomment{任务书}.
+    .4 bachelor\_info.tex\DTcomment{本科生专属信息}.
+    .4 thanks.tex\DTcomment{致谢页}.
+    .3 master/\DTcomment{研究生专属文件}.
+    .4 back1-achievement.tex\DTcomment{附页1，取得成绩}.
+    .4 back2-thanks.tex\DTcomment{附页2，致谢}.
+    .4 back3-aboutauthor.tex\DTcomment{附页3，关于作者}.
+    .4 denotation.tex\DTcomment{主要符号对照表}.
+    .4 master\_info.tex\DTcomment{研究生专属信息}.
+    .2 figure/\DTcomment{图片存放路径}.
+    .3 buaamark.eps\DTcomment{北航Logo，用于页眉}.
+    .3 buaaname.eps\DTcomment{北航校名，用于首页}.
+    .3 fgbt.jpg\DTcomment{北航未来花园Logo，用于测试}.
+    .2 Makefile\DTcomment{Linux下辅助脚本}.
+    .2 msmake.bat\DTcomment{Windows下辅助脚本}.
+    .2 README.md\DTcomment{Github项目说明}.
+    .2 .gitignore\DTcomment{Git版本管理配置文件}.
+}
