@@ -473,6 +473,12 @@
 
 \RequirePackage{setspace}          %用此包来设置行距
 
+% 展示文件目录
+\RequirePackage{dirtree}
+\ifbuaa@color
+    \renewcommand*\DTstylecomment{\ttfamily\color{dkgreen}}
+    \renewcommand*\DTstyle{\ttfamily\color{red}}
+\fi
 %-----------------代码环境定义和设置---------------
 % 设置会用到的颜色
 \RequirePackage{color}
