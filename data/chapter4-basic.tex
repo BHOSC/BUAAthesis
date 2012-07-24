@@ -1,9 +1,15 @@
 % !Mode:: "TeX:UTF-8"
-\chapter{\label{chapter-basic}\LaTeX{}基础语法}
+\chapter{\LaTeX{}基础语法}
+\label{chapter-basic}
 \section{字体设置}
-本模板使用了CTEX封装的\texttt{ctexbook}类，作为毕设论文，一般不需要过多使用字体。因此，全文默认字体为~{\bf 宋体}~和{\bf Times New Roman}字体。此外还可以使用\texttt{\textbackslash heiti}命令来使用~{\heiti 黑体}~字体。
 
-对于英文，则有\textbackslash textbf\{•\}\quad\textbackslash textit\{•\}\quad\textbackslash textsf\{•\}\quad\textbackslash texttt\{•\}\quad\textbackslash textsl\{•\}命令来进行相应的控制。
+本模板使用了CTEX封装的\texttt{ctexbook}类，作为毕设论文，一般不需要
+过多使用字体。因此，全文默认字体为~{\bf 宋体}~和{\bf Times New Roman}字体。
+此外还可以使用\texttt{\textbackslash heiti}命令来使用~{\heiti 黑体}~字体。
+
+对于英文，则有\textbackslash textbf\{•\}\quad\textbackslash textit\{•\}
+\quad\textbackslash textsf\{•\}\quad\textbackslash texttt\{•\}
+\quad\textbackslash textsl\{•\}命令来进行相应的控制。
 
 \begin{description}
     \item[\textbackslash textbf\{•\}] \textbf{0123456789abcdefgABCDEFG}
@@ -12,17 +18,21 @@
     \item[\textbackslash texttt\{•\}] \texttt{0123456789abcdefgABCDEFG}
     \item[\textbackslash textsl\{•\}] \textsl{0123456789abcdefgABCDEFG}
 \end{description}
-在论文中，有一些地方需要进行强调说明时，可以使用~{\bf 加粗}~来进行强调，比如\{\textbackslash bf加粗\}，即可以得到~“{\bf 加粗}”~的效果；
-
-还可以有~\underline{下划线}，使用命令为\textbackslash underline\{需要加下划线的内容\}即可；
-
-也还可以通过对文字使用\textcolor{blue}{颜}\textcolor{red}{色}来强调说明。使用\textcolor[rgb]{0.5,0.95,0.96}{有颜色的文字}可以通过命令\texttt{\textbackslash textcolor}\{red\}\{红色的字\}，或者\texttt{\textbackslash textcolor[rgb]}\{0.5,0.98,0.7\}\{使用RGB混合颜色\}来\textcolor[rgb]{0.5,0.98,0.7}{使用RGB混合颜色}进行强调。
+在论文中，有一些地方需要进行强调说明时，可以使用~{\bf 加粗}~来进行强调，
+比如\{\textbackslash bf~加粗\}，即可以得到~“{\bf 加粗}”~的效果；
+还可以有~\underline{下划线}，使用命令为\textbackslash underline\{需要加下划线的内容\}即可。
 
 \section{字号设置}
-论文要求正文字号为小四号，除非有特别的要求，全文不需要对字号进行另外的设置。需要进行字号设置时，可以用\texttt{\textbackslash zihao\{-4\}}，以及\texttt{\textbackslash zihao\{4\}}来表示小四号字体和四号字体，同理可以从小五号\texttt{\textbackslash zihao\{-5\}}字体到初号\texttt{\textbackslash zihao\{0\}}字体。
+论文要求正文字号为小四号，除非有特别的要求，全文不需要对字号进行另外的设置。
+需要进行字号设置时，可以用\texttt{\textbackslash zihao\{-4\}}，
+以及\texttt{\textbackslash zihao\{4\}}来表示小四号字体和四号字体，
+同理可以从小五号\texttt{\textbackslash zihao\{-5\}}字体到
+初号\texttt{\textbackslash zihao\{0\}}字体。
 
 \section{间距间隔控制}
-对于间距的控制，\LaTeX{}中的间距比Office要强大得多了！Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，可使用的间隔控制命令有如表\ref{table-space}所示若干，虽然很多都用不到。
+对于间距的控制，\LaTeX{}中的间距比Office要强大得多了！
+Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
+可使用的间隔控制命令有如表\ref{table-space}所示若干，虽然很多都用不到。
 
 \begin{table}
 \begin{center}
@@ -43,20 +53,39 @@
 \end{center}
 \end{table}
 
-\LaTeX{}支持的单位有：\texttt{in}---英寸(inch)，\texttt{mm}---毫米，\texttt{cm}---厘米，\texttt{pt}---Points(大约1\slash 72~inch)，以及相对距离：\texttt{em}---当前字体的字符“\textbf{M}”的宽度，\texttt{ex}---当前字体的字符“\textbf{x}”的宽度，长度可以为负值，如~-1.5em~。
+\LaTeX{}支持的单位有：\texttt{in}---英寸(inch)，\texttt{mm}---毫米，
+\texttt{cm}---厘米，\texttt{pt}---Points(大约1\slash 72~inch)，
+以及相对距离：\texttt{em}---当前字体的字符“\textbf{M}”的宽度，
+\texttt{ex}---当前字体的字符“\textbf{x}”的宽度，长度可以为负值，如~-1.5em~。
 
-需要换行的地方请用“\textbackslash\textbackslash ”来控制，每段段末请加“\texttt{\textbackslash par}”来表示一个段落的结束。换行的段落结束的区别在于换行后不会有缩进，而段落结束的话，下一段会自动缩进两个汉字距离。
+换行有两种方式，分别为命令“\verb|\\ |”以及命令\verb|\newline |，
+这两个命令将使“光标”切换到下一行，但并不具有缩进（即\LaTeX{}并不认为
+这是新的一个段落，当然可以使用\verb|\qquad |来强制缩进两个字符间距）。
+
+而需要另起新的段落时，可以在段落加上\verb|\par |来实现，也可以
+通过一个（或多个\footnote{\LaTeX{}会忽略掉.tex文件中的空白距离
+和多余的空行。}）空行来达到此目的。具体使用哪种方式，请论文作者自行选择。
 
 \section{章节标题以及条目的设置}
-新的一章将在新的页面开始，使用\texttt{\textbackslash chapter}\{\LaTeX{}基础语法\}命令时，即可以得到~\hyperref[chapter-basic]{第5章~\LaTeX{}基础语法}~这样的章名称。
+新的一章将在新的页面开始，使用\texttt{\textbackslash chapter}\{\LaTeX{}基础语法\}
+命令时，即可以得到~\hyperref[chapter-basic]{第5章~\LaTeX{}基础语法}~这样的章名称。
 
-同样的，还有命令\textbackslash section\{•\}、\textbackslash subsection\{•\}来定义节、条的标题。对于章节前面的“第1章”、“1.1”等标号，则不需要用户来编辑，\LaTeX{}会根据规则来进行编排。
+同样的，还有命令\textbackslash section\{•\}、\textbackslash subsection\{•\}
+来定义节、条的标题。对于章节前面的“第1章”、“1.1”等标号，则不需要用户来编辑，
+\LaTeX{}会根据规则来进行编排。
 
-\section{图形和多图排列}
+\section{图形}
 \label{sec:fig}
-在编写论文过程中，需要引用图形甚至多个图形时，可以使用\texttt{figure}环境，以代码\ref{code-fig}来说明如何使用此环境。
+在编写论文过程中，需要引用图形甚至多个图形时，可以使用\texttt{figure}环境，
+以代码\ref{code-fig}来说明如何使用此环境。
 
-需要注意的是，figure为浮动环境，即\LaTeX{}在排版浮动环境时，会根据一定的美观规则来排版，并不是将将代码放在某处，图片就会出现在某处，如代码\ref{code-fig}中的\texttt{[htbp]}为浮动环境选项，\texttt{h}表示为here，\texttt{t}为top，\texttt{b}为bottom，\texttt{p}为page，优先顺序依次递减，\LaTeX{}先判断here（当前位置）是否可以放置此环境（代码\ref{code-fig}中为图片），否则依次判断top、bottom、page来放置此环境中的内容。
+需要注意的是，figure为浮动环境，即\LaTeX{}在排版浮动环境时，
+会根据一定的美观规则来排版，并不是将将代码放在某处，图片就会出现在某处，
+如代码\ref{code-fig}中的\texttt{[htbp]}为浮动环境选项，
+\texttt{h}表示为here，\texttt{t}为top，\texttt{b}为bottom，
+\texttt{p}为page，优先顺序依次递减，\LaTeX{}先判断here（当前
+位置）是否可以放置此环境（代码\ref{code-fig}中为图片），否则
+依次判断top、bottom、page来放置此环境中的内容。
 
 \begin{lstlisting}[label={code-fig},caption={使用figure环境},language={LaTeX}]
  如图 \ref{fig-buaamark}所示为北航校徽。
@@ -68,7 +97,11 @@
 \end{figure}
 \end{lstlisting}
 
-代码中\textbackslash includegraphics后的[width=90bp]为对图片大小进行控制的代码，可以替换成为height,scale等。\textbackslash caption为图的标题，\textbackslash label为图的引用标号，在“如图”后引用即可得到“\ref{figbuaamark}”的效果。具体生成的效果如第\pageref{figbuaamark}页所示。
+代码中\textbackslash includegraphics后的[width=90bp]为对图片
+大小进行控制的代码，可以替换成为height,scale等。
+\textbackslash caption为图的标题，\textbackslash label为图的
+引用标号，在“如图”后引用即可得到“\ref{figbuaamark}”的效果。
+具体生成的效果如第\pageref{figbuaamark}页所示。
 
 如图\ref{figbuaamark}所示为北航校徽。
 
@@ -79,8 +112,122 @@
 \end{center}
 \end{figure}
 
-而对于需要两个或三个图形并排或者矩形排列的时候，则示例代码可以如\ref{code-subfigs}所示。
+\section{表格}
+表格也是论文中经常需要用到的一个元素，它也可以作为一个浮动环境
+（当然也可以不浮动）由\LaTeX{}自己来按照一定规则来决定如何放置。
 
+常用的表格浮动环境以代码\ref{code-table}作为示例。
+
+\begin{lstlisting}[caption={表格浮动环境},label={code-table},language={LaTeX}]
+\begin{table}[h]
+\begin{center}
+\caption{浮动表格示例\label{tab:test3}}
+\begin{tabular}{c||c|c|c}
+\hline
+序号&测试内容1&测试内容2&测试内容3\\
+\hline \hline
+1&一&二&三\\
+\hline
+2&四&五&六\\
+\hline
+3&七&八&九\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\end{lstlisting}
+
+经过\LaTeX{}编译排版出来的结果如表\ref{tab-test3}所示。
+
+\texttt{table}环境即为浮动环境，其后带htbp等参数，其具体
+意义在\ref{sec:fig}节描述过了。\texttt{tabular}即为表格环境，
+后面的\texttt{\{c||c|c|c\}}的意思为，表格分为四列，第一列
+居中{\bf c}\textit{(center)}对齐，其他对齐方式为左
+对齐{\bf l}\textit{(left)}，右对齐{\bf r}\textit{(right)}。
+然后竖直画两条竖线，第二列和第三列第四列也为居中对齐，并且用一竖线
+分隔。表格中需要加横线时使用\texttt{\textbackslash hline}来
+添加，横线或竖线可添加多条。
+
+表格中每一项使用“\& ”分隔，每一行使用\texttt{\textbackslash\textbackslash}来进行换行。
+\begin{table}
+\begin{center}
+\caption{浮动表格示例\label{tab-test3}}
+\begin{tabular}{c||c|c|c}
+\hline
+序号&测试内容1&测试内容2&测试内容3\\
+\hline \hline
+1&一&二&三\\
+\hline
+2&四&五&六\\
+\hline
+3&七&八&九\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\section{数学公式和定理定义等}
+数学公式可以说是体现\LaTeX{}强大之处的地方。blablabla
+
+注：具体参考一下\url{http://latex.yo2.cn/articles/latex_math_modle.html}
+以及介绍一下如何使用mathtype编写数学公式后导出latex代码应该就可以了。
+
+\section{条目及环境}
+条目环境分为itemize，enumerate，description三种。itemize用于简单的列表条目，enumerate
+用于带序号的列表条目，description用于带描述的列表条目。
+
+以下用代码\ref{code-item}来说明。
+\begin{lstlisting}[label={code-item},caption={条目环境},language={LaTeX}]
+\begin{enumerate}
+    \item 这里是第一条：
+        \begin{itemize}
+            \item 这里是第一点。
+            \item 这里是第二点。
+        \end{itemize}
+    \item 这里是第二条：
+        \begin{description}
+            \item[ 观点三 ] 这里是第三点。
+            \item[ 观点四 ] 这里是第四点。
+        \end{description}
+\end{enumerate}
+\end{lstlisting}
+
+具体的效果如下所示。
+\begin{enumerate}
+    \item 这里是第一条：
+        \begin{itemize}
+            \item 这里是第一点。
+            \item 这里是第二点。
+        \end{itemize}
+    \item 这里是第二条：
+        \begin{description}
+            \item[观点三] 这里是第三点。
+            \item[观点四] 这里是第四点。
+        \end{description}
+\end{enumerate}
+
+左右对齐时，只需要把需要进行对齐的内容分别放到 flushleft或flushright环境中即可。
+
+\section{使用~listing~显示代码}
+原先~ctexbook~文档类和~listings~宏包配合使用时，代码在换页时会
+出现莫名其妙的错误，后来经高人指点，顺利解决了。
+感兴趣的话，可以看看\href{http://bbs.ctex.org/viewthread.php?tid=53451}{这里}。
+这里给使用~listings~宏包插入源代码的例子，这里是一段C代码。
+另外，listings宏包真可谓博大精深，可以实现各种复杂、漂亮的效果，想要进一步学习的同学，可以参考
+\href{http://mirror.ctan.org/macros/latex/contrib/listings/listings.pdf}
+{listings宏包手册\footnote{此节完全参考武汉理工大学论文模板}}。
+
+\section{更深入一些的操作}
+
+\subsection{字体字号的强调}
+可以通过对文字使用\textcolor{blue}{颜}\textcolor{red}{色}来强调说明。
+使用\textcolor[rgb]{0.5,0.95,0.96}{有颜色的文字}可以通过
+命令\texttt{\textbackslash textcolor}\{red\}\{红色的字\}，
+或者\texttt{\textbackslash textcolor[rgb]}\{0.5,0.98,0.7\}\{使用RGB混合颜色\}
+来\textcolor[rgb]{0.5,0.98,0.7}{使用RGB混合颜色}进行强调。
+
+\subsection{两个或多个图形的排列}
+而对于需要两个或三个图形并排或者矩形排列的时候，则示例代码可以如\ref{code-subfigs}所示。
 \begin{lstlisting}[caption={图形的排列},label={code-subfigs},language={LaTeX}]
 \begin{figure}[htb]
 \begin{center}
@@ -117,9 +264,7 @@
 \end{figure}
 \end{lstlisting}
 
-而具体的效果如下所示。
-
-图\ref{subfig1}为子图排列的形式，两个子图有各自的图题，并有一个共同的图题。\
+而具体的效果如下所示。图\ref{subfig1}为子图排列的形式，两个子图有各自的图题，并有一个共同的图题。
 
 \begin{figure}[htb]
 \begin{center}
@@ -158,54 +303,61 @@
 \caption{矩形的subfig排列}
 \label{maxfig}
 \end{figure}
+到此，图形的排列基本就OK了。一般只会用到图\ref{figbuaamark}这样的图形
+环境就可以了，后面的太复杂，一般情况下不推荐使用。如果对图形的编排的兴趣，
+可以google一下《\LaTeX{}插图指南》一书。
 
-到此，图形的排列基本就OK了。一般只会用到图\ref{figbuaamark}这样的图形环境就可以了，后面的太复杂，一般情况下不推荐使用。如果对图形的编排的兴趣，可以google一下《\LaTeX{}插图指南》一书。
-
-\section{表格和长表格}
-表格也是论文中经常需要用到的一个元素，它也可以作为一个浮动环境（当然也可以不浮动）由\LaTeX{}自己来按照一定规则来决定如何放置。
-
-常用的表格浮动环境以代码\ref{code-table}作为示例。
-
-\begin{lstlisting}[caption={表格浮动环境},label={code-table},language={LaTeX}]
-\begin{table}[h]
-\begin{center}
-\caption{浮动表格示例\label{tab:test3}}
-\begin{tabular}{c||c|c|c}
-\hline
-序号&测试内容1&测试内容2&测试内容3\\
-\hline \hline
-1&一&二&三\\
-\hline
-2&四&五&六\\
-\hline
-3&七&八&九\\
-\hline
+\subsection{图形和表格的并排显示}
+如果需要图形和表格并排显示（一般情况下是不会有这种情况的，也十分不推荐
+图形和表格并排显示），则可以通过的代码\ref{code-figtab}来对图形和
+表格进行处理来达到并排显示的效果。图\ref{fig-table}和
+表\ref{table-fig}就是两个排一起的啦...\par
+\begin{figure}[htb]
+\begin{minipage}[b]{0.5\textwidth}
+\centering
+\includegraphics[width=0.6\textwidth]{figure/fgbt.jpg}
+\caption{左侧的图片}
+\label{fig-table}
+\end{minipage}
+\begin{minipage}[b]{0.5\textwidth}
+\centering
+\begin{tabular}{c||c|c} \hline
+Day & Data &other\\ \hline\hline
+Monday & 1 &1.5\\
+Tuesday & 2 &2.5\\
+Wednesday & 3 &3.5\\
+Thursday & 4 &4.5\\
+Friday & 5 &5.5\\ \hline
 \end{tabular}
-\end{center}
-\end{table}
+\caption{右侧的表格}
+\label{table-fig}
+\end{minipage}
+\end{figure}
+\begin{lstlisting}[label={code-figtab},caption={图形和表格并排显示},language={LaTeX}]
+\begin{figure}[htb]
+\begin{minipage}[b]{0.5\textwidth}
+\centering
+\includegraphics[width=0.6\textwidth]{graphics/fgbt.jpg}
+\caption{FGBT-left}
+\label{fig:by:table}
+\end{minipage}%
+\begin{minipage}[b]{0.5\textwidth}
+\centering
+\begin{tabular}{c||c|c} \hline
+Day & Data &other\\ \hline\hline
+Monday & 1 &1.5\\
+Tuesday & 2 &2.5\\
+Wednesday & 3 &3.5\\
+Thursday & 4 &4.5\\
+Friday & 5 &5.5\\ \hline
+\end{tabular}
+\caption{TABLE-right}
+\label{table:by:fig}
+\end{minipage}
+\end{figure}
 \end{lstlisting}
 
-经过\LaTeX{}编译排版出来的结果如表\ref{tab-test3}所示。
-
-\texttt{table}环境即为浮动环境，其后带htbp等参数，其具体意义在\ref{sec:fig}节描述过了。\texttt{tabular}即为表格环境，后面的\texttt{\{c||c|c|c\}}的意思为，表格分为四列，第一列居中{\bf c}\textit{(center)}对齐，其他对齐方式为左对齐{\bf l}\textit{(left)}，右对齐{\bf r}\textit{(right)}。然后竖直画两条竖线，第二列和第三列第四列也为居中对齐，并且用一竖线分隔。表格中需要加横线时使用\texttt{\textbackslash hline}来添加，横线或竖线可添加多条。
-
-表格中每一项使用“\& ”分隔，每一行使用\texttt{\textbackslash\textbackslash}来进行换行。
-\begin{table}
-\begin{center}
-\caption{浮动表格示例\label{tab-test3}}
-\begin{tabular}{c||c|c|c}
-\hline
-序号&测试内容1&测试内容2&测试内容3\\
-\hline \hline
-1&一&二&三\\
-\hline
-2&四&五&六\\
-\hline
-3&七&八&九\\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
+\subsection{长表格的示例}
 当需要排版的表格长度超过一页，那么在本模板中推荐使用 \textsf{longtable}
 宏包，模板对 \textsf{longtable} 进行了相应的设置，所以用起来可能简单一些。
 表~\ref{example-longtable} 就是\textsf{longtable}的简单示例。
@@ -256,8 +408,19 @@
 \end{longtable}
 \end{center}
 
-\texttt{longtable}通过\texttt{\textbackslash endfirsthead~~\textbackslash endhead~~\textbackslash endfoot~~\textbackslash endlastfoot}来对分页进行相应的控制。具体可以参照表\ref{example-longtable}及其源代码\ref{code-longtable}来进行对比分析。\par
-代码中的\texttt{\textbackslash multicolumn}为合并单元格的命令，具体用法为\texttt{\textbackslash multicolumn \{num$-$cols\}\{alignment\}\{contents\}}。对于复杂表格中，\texttt{\textbackslash cline\{i$-$j\}}表示从第\texttt{i}列开始，画一条横线，直到第\texttt{j}列为止。具体不清楚用法的话请google吧$\sim$\par
+\texttt{longtable}通过\texttt{\textbackslash endfirsthead~~
+\textbackslash endhead~~\textbackslash endfoot~~
+\textbackslash endlastfoot}来对分页进行相应的控制。
+具体可以参照表\ref{example-longtable}及其源代码\ref{code-longtable}
+来进行对比分析。
+
+代码中的\texttt{\textbackslash multicolumn}为合并单元格
+的命令，具体用法为\texttt{\textbackslash multicolumn \{num$-$cols\}
+\{alignment\}\{contents\}}。对于复杂表格中，
+\texttt{\textbackslash cline\{i$-$j\}}表示
+从第\texttt{i}列开始，画一条横线，直到第\texttt{j}列为止。
+具体不清楚用法的话请google吧$\sim$
+
 \begin{lstlisting}[caption={跨页表格示例},label={code-longtable},language={LaTeX}]
 \begin{center}
 \begin{longtable}{|l|l|l|}
@@ -289,56 +452,161 @@
 \end{longtable}
 \end{center}
 \end{lstlisting}
-\section{数学公式和定理定义等}
-数学公式可以说是体现\LaTeX{}强大之处的地方。blablabla
 
-注：具体参考一下\url{http://latex.yo2.cn/articles/latex_math_modle.html}以及介绍一下如何使用mathtype编写数学公式后导出latex代码应该就可以了。
+\subsection{定理定义环境}
+给大家演示一下各种和证明有关的环境\footnote{本节内容来自武汉理工大学论文模板。}：
 
-\section{条目及环境}
-条目环境分为itemize，enumerate，description三种。itemize用于简单的列表条目，enumerate
-用于带序号的列表条目，description用于带描述的列表条目。
+\begin{assumption}
+待月西厢下，迎风户半开；隔墙花影动，疑是玉人来。
+\begin{eqnarray}
+  \label{eq:eqnxmp}
+  c & = & a^2 - b^2\\
+    & = & (a+b)(a-b)
+\end{eqnarray}
+\end{assumption}
 
-以下用代码\ref{code-item}来说明。
-\begin{lstlisting}[label={code-item},caption={条目环境},language={LaTeX}]
-\begin{enumerate}
-    \item 这里是第一条：
-        \begin{itemize}
-            \item 这里是第一点。
-            \item 这里是第二点。    
-        \end{itemize}
-    \item 这里是第二条：
-        \begin{description}
-            \item[ 观点三 ] 这里是第三点。
-            \item[ 观点四 ] 这里是第四点。
-        \end{description}
-\end{enumerate}
-\end{lstlisting}
+千辛万苦，历尽艰难，得有今日。然相从数千里，未曾哀戚。今将渡江，方图百年欢笑，如
+何反起悲伤？（引自《杜十娘怒沉百宝箱》）
 
-具体的效果如下所示。
-\begin{enumerate}
-    \item 这里是第一条：
-        \begin{itemize}
-            \item 这里是第一点。
-            \item 这里是第二点。
-        \end{itemize}
-    \item 这里是第二条：
-        \begin{description}
-            \item[观点三] 这里是第三点。
-            \item[观点四] 这里是第四点。
-        \end{description}
-\end{enumerate}
+\begin{definition}
+子曰：「道千乘之国，敬事而信，节用而爱人，使民以时。」
+\end{definition}
 
-左右对齐时，只需要把需要进行对齐的内容分别放到 flushleft或flushright环境中即可。
-\begin{example}
-这是一个举例。
-\end{example}
+千古第一定义！问世间、情为何物，只教生死相许？天南地北双飞客，老翅几回寒暑。欢乐趣，离别苦，就中更有痴儿女。
+君应有语，渺万里层云，千山暮雪，只影向谁去？
+
+横汾路，寂寞当年箫鼓，荒烟依旧平楚。招魂楚些何嗟及，山鬼暗谛风雨。天也妒，未信与，莺儿燕子俱黄土。
+千秋万古，为留待骚人，狂歌痛饮，来访雁丘处。
+
+\begin{proposition}
+ 曾子曰：「吾日三省吾身 --- 为人谋而不忠乎？与朋友交而不信乎？传不习乎？」
+\end{proposition}
+
+多么凄美的命题啊！其日牛马嘶，新妇入青庐，奄奄黄昏后，寂寂人定初，我命绝今日，
+魂去尸长留，揽裙脱丝履，举身赴清池，府吏闻此事，心知长别离，徘徊庭树下，自挂东南
+枝。
+
+\begin{remark}
+天不言自高，水不言自流。
+\begin{gather*}
+\begin{split} 
+\varphi(x,z)
+&=z-\gamma_{10}x-\gamma_{mn}x^mz^n\\
+&=z-Mr^{-1}x-Mr^{-(m+n)}x^mz^n
+\end{split}\\[6pt]
+\begin{align} \zeta^0&=(\xi^0)^2,\\
+\zeta^1 &=\xi^0\xi^1,\\
+\zeta^2 &=(\xi^1)^2,
+\end{align}
+\end{gather*}
+\end{remark}
+
+天尊地卑，乾坤定矣。卑高以陈，贵贱位矣。 动静有常，刚柔断矣。方以类聚，物以群分，
+吉凶生矣。在天成象，在地成形，变化见矣。鼓之以雷霆，润之以风雨，日月运行，一寒一
+暑，乾道成男，坤道成女。乾知大始，坤作成物。乾以易知，坤以简能。易则易知，简则易
+从。易知则有亲，易从则有功。有亲则可久，有功则可大。可久则贤人之德，可大则贤人之
+业。易简，而天下矣之理矣；天下之理得，而成位乎其中矣。
+
+\begin{axiom}
+两点间直线段距离最短。  
+\begin{align}
+x&\equiv y+1\pmod{m^2}\\
+x&\equiv y+1\mod{m^2}\\
+x&\equiv y+1\pod{m^2}
+\end{align}
+\end{axiom}
+
+《彖曰》：大哉乾元，万物资始，乃统天。云行雨施，品物流形。大明始终，六位时成，时
+乘六龙以御天。乾道变化，各正性命，保合大和，乃利贞。首出庶物，万国咸宁。
+
+《象曰》：天行健，君子以自强不息。潜龙勿用，阳在下也。见龙再田，德施普也。终日乾
+乾，反复道也。或跃在渊，进无咎也。飞龙在天，大人造也。亢龙有悔，盈不可久也。用九，
+天德不可为首也。 　　
+
+\begin{lemma}
+《猫和老鼠》是我最爱看的动画片。
+\begin{multline*}%\tag*{[a]} % 这个不出现在索引中
+\int_a^b\biggl\{\int_a^b[f(x)^2g(y)^2+f(y)^2g(x)^2]
+ -2f(x)g(x)f(y)g(y)\,dx\biggr\}\,dy \\
+ =\int_a^b\biggl\{g(y)^2\int_a^bf^2+f(y)^2
+  \int_a^b g^2-2f(y)g(y)\int_a^b fg\biggr\}\,dy
+\end{multline*}
+\end{lemma}
+
+行行重行行，与君生别离。相去万余里，各在天一涯。道路阻且长，会面安可知。胡马依北
+风，越鸟巢南枝。相去日已远，衣带日已缓。浮云蔽白日，游子不顾返。思君令人老，岁月
+忽已晚。  弃捐勿复道，努力加餐饭。
+
+\begin{theorem}\label{the:theorem1}
+犯我强汉者，虽远必诛\hfill --- 陈汤（汉）
+\end{theorem}
+\begin{subequations}
+\begin{align}
+y & = 1 \\
+y & = 0
+\end{align}
+\end{subequations}
+道可道，非常道。名可名，非常名。无名天地之始；有名万物之母。故常无，欲以观其妙；
+常有，欲以观其徼。此两者，同出而异名，同谓之玄。玄之又玄，众妙之门。上善若水。水
+善利万物而不争，处众人之所恶，故几于道。曲则全，枉则直，洼则盈，敝则新，少则多，
+多则惑。人法地，地法天，天法道，道法自然。知人者智，自知者明。胜人者有力，自胜
+者强。知足者富。强行者有志。不失其所者久。死而不亡者寿。
+
 \begin{proof}
-这是一个证明。
+燕赵古称多感慨悲歌之士。董生举进士，连不得志于有司，怀抱利器，郁郁适兹土，吾
+知其必有合也。董生勉乎哉？
+
+夫以子之不遇时，苟慕义强仁者，皆爱惜焉，矧燕、赵之士出乎其性者哉！然吾尝闻
+风俗与化移易，吾恶知其今不异于古所云邪？聊以吾子之行卜之也。董生勉乎哉？
+
+吾因子有所感矣。为我吊望诸君之墓，而观于其市，复有昔时屠狗者乎？为我谢
+曰：“明天子在上，可以出而仕矣！” \hfill --- 韩愈《送董邵南序》
 \end{proof}
 
-\section{使用~listing~显示代码}
-原先~ctexbook~文档类和~listings~宏包配合使用时，代码在换页时会出现莫名其妙的错误，后来经高人指点，顺利解决了。
-感兴趣的话，可以看看\href{http://bbs.ctex.org/viewthread.php?tid=53451}{这里}。
-这里给使用~listings~宏包插入源代码的例子，这里是一段C代码。
-另外，listings宏包真可谓博大精深，可以实现各种复杂、漂亮的效果，想要进一步学习的同学，可以参考
-\href{http://mirror.ctan.org/macros/latex/contrib/listings/listings.pdf}{listings宏包手册\footnote{此节完全参考武汉理工大学论文模板}}。
+\begin{corollary}
+  四川话配音的《猫和老鼠》是世界上最好看最好听最有趣的动画片。
+\begin{alignat}{3}
+V_i & =v_i - q_i v_j, & \qquad X_i & = x_i - q_i x_j,
+ & \qquad U_i & = u_i,
+ \qquad \text{for $i\ne j$;}\label{eq:B}\\
+V_j & = v_j, & \qquad X_j & = x_j,
+  & \qquad U_j & u_j + \sum_{i\ne j} q_i u_i.
+\end{alignat}
+\end{corollary}
+
+迢迢牵牛星，皎皎河汉女。
+纤纤擢素手，札札弄机杼。
+终日不成章，泣涕零如雨。
+河汉清且浅，相去复几许。
+盈盈一水间，脉脉不得语。
+
+\begin{example}
+  大家来看这个例子。
+\begin{equation}
+\label{ktc}
+\left\{\begin{array}{l}
+\nabla f({\mbox{\boldmath $x$}}^*)-\sum\limits_{j=1}^p\lambda_j\nabla g_j({\mbox{\boldmath $x$}}^*)=0\\[0.3cm]
+\lambda_jg_j({\mbox{\boldmath $x$}}^*)=0,\quad j=1,2,\cdots,p\\[0.2cm]
+\lambda_j\ge 0,\quad j=1,2,\cdots,p.
+\end{array}\right.
+\end{equation}
+\end{example}
+
+\begin{exercise}
+  清列出 Andrew S. Tanenbaum 和 W. Richard Stevens 的所有著作。
+\end{exercise}
+
+\begin{conjecture} \textit{Poincare Conjecture} If in a closed three-dimensional
+  space, any closed curves can shrink to a point continuously, this space can be
+  deformed to a sphere.
+\end{conjecture}
+
+\begin{problem}
+ 回答还是不回答，是个问题。 
+\end{problem}
+
+如何引用定理~\ref{the:theorem1} 呢？加上 \verb|label| 使用 \verb|ref| 即可。妾发
+初覆额，折花门前剧。郎骑竹马来，绕床弄青梅。同居长干里，两小无嫌猜。 十四为君妇，
+羞颜未尝开。低头向暗壁，千唤不一回。十五始展眉，愿同尘与灰。常存抱柱信，岂上望夫
+台。 十六君远行，瞿塘滟滪堆。五月不可触，猿声天上哀。门前迟行迹，一一生绿苔。苔深
+不能扫，落叶秋风早。八月蝴蝶来，双飞西园草。感此伤妾心，坐愁红颜老。
