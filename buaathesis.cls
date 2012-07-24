@@ -400,12 +400,22 @@
 %---------------------间距的一些设置--------------------
 \renewcommand{\baselinestretch}{1.5}
 \setlength{\parindent}{2em}
-%\setlength{\parskip}{3pt plus1pt minus1pt}          %段落间距离，是否需要？
-%\setlength{\itemsep}{3pt plus1pt minus2pt}          % 连续items之间的距离.
-\setlength{\itemsep}{0pt}
 \setlength{\floatsep}{10pt plus 3pt minus 2pt}      % 图形之间或图形与正文之间的距离
 \setlength{\abovecaptionskip}{2pt plus1pt minus1pt} % 图形中的图与标题之间的距离
 \setlength{\belowcaptionskip}{3pt plus1pt minus2pt} % 表格中的表与标题之间的距离
+
+%-----------------定义item样式和间距---------------
+\RequirePackage{enumitem}
+\setlist{noitemsep}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate,1]{label=\arabic*、}
+\setlist[enumerate,2]{label=（\arabic*）}
+\setlist{
+    topsep=0pt,
+    itemsep=0pt,
+    partopsep=0pt,
+    parsep=\parskip,
+}
 
 %-------------------数学公式及定理环境的设置---------------------
 \RequirePackage{amsmath,amssymb,amsfonts,mathrsfs,bm}
@@ -429,25 +439,6 @@
 \newtheorem{problem}{问题}[chapter]
 \newtheorem{conjecture}{猜想}[chapter]
 % 摘自武汉理工大学论文模板，具体待验证
-
-
-%-----------------定义item及间距---------------
-%\RequirePackage{enumitem}
-%\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
-%\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
-%\setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
-%注：使用上面的代码并未能改变item之间的间距，原因未知
-%更多关于间距的设置请见http://blog.sina.com.cn/s/blog_5e16f1770100gdhm.html
-
-\RequirePackage[neverdecrease]{paralist}
-\setdefaultenum{1、}{(1)}{i.}{A.}% 设置列表模式
-\setdefaultleftmargin{4ex}{}{}{}{}{}
-\let\itemize\compactitem
-\let\enditemize\endcompactitem
-\let\enumerate\compactenum
-\let\endenumerate\endcompactenum
-\let\description\compactdesc
-\let\enddescription\endcompactdesc
 
 %==================若干标题的汉化================%
 \renewcommand{\contentsname}{目\qquad 录}
