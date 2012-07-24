@@ -407,7 +407,7 @@
 %-----------------定义item样式和间距---------------
 \RequirePackage{enumitem}
 \setlist{noitemsep}
-\setlist[1]{labelindent=\parindent}
+\setlist[1,2]{labelindent=\parindent}
 \setlist[enumerate,1]{label=\arabic*、}
 \setlist[enumerate,2]{label=（\arabic*）}
 \setlist{
