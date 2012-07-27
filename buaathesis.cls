@@ -480,22 +480,26 @@
 % Listing 的设置请参考 http://en.wikibooks.org/wiki/LaTeX/Packages/Listings
 \RequirePackage{listings}
 \lstset{
-    basicstyle=\zihao{5},
-    numbers=left,
-    stepnumber=2,
-    numbersep=5pt,
     backgroundcolor=\color{white},
+    basicstyle=\zihao{5}\ttfamily,
+    columns=flexible,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    frame=single,
+    numbers=left,
+    numbersep=5pt,
     showspaces=false,
     showstringspaces=false,
     showtabs=false,
-    frame=single,
+    stepnumber=1,
     rulecolor=\color{black},
     tabsize=2,
-    captionpos=b,
-    breaklines=true,
-    breakatwhitespace=false,
+    texcl=true,
     title=\lstname,
     escapeinside={\%*}{*)},
+    extendedchars=false,
+    mathescape=true,
     morekeywords={*,...}
 }
 \ifbuaa@color
@@ -522,33 +526,6 @@
     clearpage,cleardoublepage,appendix,item,upcite,url},
     otherkeywords={},
     sensitive=true
-}
-
-\lstset{tabsize=4, %
-  frame=shadowbox, %把代码用带有阴影的框圈起来
-  showstringspaces=false,%不显示代码字符串中间的空格标记
-  stringstyle=\ttfamily, % 代码字符串的特殊格式
-  keepspaces=true, %
-  breakindent=22pt, %
-  numbers=left,%左侧显示行号
-  stepnumber=1,%
-  numberstyle=\tiny, %行号字体用小号
-  basicstyle=\footnotesize, %
-  showspaces=false, %
-  flexiblecolumns=true, %
-  breaklines=true, %对过长的代码自动换行
-  breakautoindent=true,%
-  breakindent=4em, %
-  escapebegin=\begin{CJK*}{GBK}{kai},escapeend=\end{CJK*},
-  aboveskip=1em, %代码块边框
-  fontadjust,
-  captionpos=t,
-  framextopmargin=2pt,framexbottommargin=2pt,abovecaptionskip=-3pt,belowcaptionskip=3pt,
-  xleftmargin=4em,xrightmargin=4em, % 设定listing左右的空白
-  texcl=true,
-  % 设定中文冲突，断行，列模式，数学环境输入，listing数字的样式
-  extendedchars=false,columns=flexible,mathescape=true
-  % numbersep=-1em
 }
 \renewcommand{\lstlistingname}{代码} %% 重命名Listings标题头
 
