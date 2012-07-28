@@ -1,53 +1,41 @@
 % !Mode:: "TeX:UTF-8"
 \chapter{\LaTeX{}基础语法}
 \label{chapter-basic}
+本章只注重对于论文时所可能需要用到的相关示例片段。其他的一些较为深入的\LaTeX{}语法或用法等
+非本章所能提供，有需要的用户请搜索相关的入门文档，如《一份不太简短的\LaTeX2e{}介绍》、
+《大家来学\LaTeX{}》等。推荐用户将此章的源代码与pdf的效果对比来决定如何使用。
+
 \section{字体字号设置}
 \label{sec-font}
 \subsection{字体设置}
 \label{subsec-font}
-本模板使用了CTEX封装的\texttt{ctexbook}类，作为毕设论文，一般不需要
-过多使用字体。因此，全文默认字体为~{\bf 宋体}~和{\bf Times New Roman}字体。
-默认情况下不需要对字体进行特别的设置，论文中有需要特别强调的地方，可以按表\ref{tab-fonts}
-中的相应命令进行设置即可。
+本模板使用了CTEX封装的ctexbook类，因此ctex宏包所支持的命令本模板均支持。
+具体有兴趣的可以查看ctex的宏包说明，若无特殊的需要，可以只参阅本文档中的相关内容即可。
 
-\begin{table}[ht]
-\begin{center}
-\caption{字体的使用}\label{tab-fonts}
-\begin{tabular}{c|c|c}
-\hline
-字体 & 使用命令范例 & 编译效果\\\hline\hline
-宋体 & \verb|{\songti|宋体使用范例\} & {\songti 宋体使用范例}\\\hline
-黑体 & \verb|{\heiti|黑体使用范例\} & {\heiti 黑体使用范例}\\\hline
-加粗字体 & \verb|{\bf|加粗字体Example\} & {\bf 加粗字体Example}\\\hline
-加下划线 & \verb|\underline{|加下划线Example\} & \underline{加下划线Example}\\\hline\hline
-Roman &\verb|\textrm{|Roman字体范例\} & \textrm{Roman字体范例}\\\hline
-Typewriter & \verb|\texttt{|Typewriter字体范例\} & \texttt{Typewriter字体范例}\\\hline
-Slanted & \verb|\textsl{|Slanted字体范例\} &\textsl{Slanted字体范例}\\\hline
-Bold face & \verb|\textbf{|Bold face字体范例\} & \textbf{Bold face字体范例}\\\hline
-Emphasized & \verb|\emph{|Emphasized字体范例\} & \emph{Emphasized字体范例}\\\hline
-Document font & \verb|\textnormal{|Document font字体范例\} & \textnormal{Document font字体范例}\\\hline
-\end{tabular}
-\end{center}
-\end{table}
+作为毕设论文，一般不需要过多使用字体。因此，全文默认字体为~{\bf 宋体}~和{\bf Times New Roman}字体。
+默认情况下不需要对字体进行特别的设置，论文中有需要特别强调的地方，可以通过如下的示例进行更换。
+
+{\heiti 床前明月光，疑是地上霜。举头望明月，低头思故乡。}
+
+{\bf 床前明月光，疑是地上霜。举头望明月，低头思故乡。}
+
+\underline{床前明月光，疑是地上霜。举头望明月，低头思故乡。}
+
+To be, or not to be, that's a question.
+
+\textbf{To be, or not to be, that's a question.}
+
+\texttt{To be, or not to be, that's a question.}
+
+\textsf{To be, or not to be, that's a question.}
+
+\textit{To be, or not to be, that's a question.}
 
 \subsection{字号设置}
 \label{subsec-fontsize}
 论文要求正文字号为小四号，除非有特别的要求，{\heiti 全文不需要}对字号进行另外的设置。
-需要进行字号设置时，可以参照表\ref{tab-fontsize}进行相应的设置。可以从小五号到初号进行设置。
-
-\begin{table}[ht]
-\begin{center}
-\caption{字号的设置}\label{tab-fontsize}
-\begin{tabular}{c|c|c|c}
-\hline
-使用范例 & 编译效果 &使用范例 & 编译效果\\\hline\hline
-\verb|{\zihao{-5}|小五号\} & {\zihao{-5}小五号} & \verb|{\zihao{5}|五号字\} & {\zihao{5}五号字}\\\hline
-\verb|{\zihao{-4}|小四号\} & {\zihao{-4}小四号} & \verb|{\zihao{4}|四号字\} & {\zihao{4}四号字}\\\hline
-\dots & \dots & \dots & \dots \\\hline
-\verb|{\zihao{-0}|小初号\} & {\zihao{-0}小初号} & \verb|{\zihao{0}|初号字\} & {\zihao{0}初号字}\\\hline
-\end{tabular}
-\end{center}
-\end{table}
+需要进行字号设置时，可以通过使用\verb|\zihao{-3}|来更换字号为~小三号~，
+字号中可以从\verb|\zihao{-5}|到\verb|\zihao{0}|进行设置。
 
 \subsection{间距间隔控制}
 \label{subsec-space}
@@ -79,11 +67,11 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
 以及相对距离：\texttt{em}---当前字体的字符“\textbf{M}”的宽度，
 \texttt{ex}---当前字体的字符“\textbf{x}”的宽度，长度可以为负值，如~-1.5em~。
 
-换行有两种方式，分别为命令“\verb|\\ |”以及命令\verb|\newline |，
+换行有两种方式，分别为命令“\verb|\\|”以及命令\verb|\newline|，
 这两个命令将使“光标”切换到下一行，但并不具有缩进（即\LaTeX{}并不认为
-这是新的一个段落，当然可以使用\verb|\qquad |来强制缩进两个字符间距）。
+这是新的一个段落，当然可以使用\verb|\qquad|来强制缩进两个字符间距）。
 
-而需要另起新的段落时，可以在段落加上\verb|\par |来实现，也可以
+而需要另起新的段落时，可以在段落加上\verb|\par|来实现，也可以
 通过一个（或多个\footnote{\LaTeX{}会忽略掉.tex文件中的空白距离
 和多余的空行。}）空行来达到此目的。具体使用哪种方式，请论文作者自行选择。
 
@@ -99,38 +87,27 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
 \section{图形}
 \label{sec-figure}
 在编写论文过程中，需要引用图形甚至多个图形时，可以使用\texttt{figure}环境，
-以代码\ref{code-fig}来说明如何使用此环境。
+具体如何使用此环境来插入图片，可以见插入图\ref{sample-figbuaamark}的具体代码。
 
 需要注意的是，figure为浮动环境，即\LaTeX{}在排版浮动环境时，
 会根据一定的美观规则来排版，并不是将将代码放在某处，图片就会出现在某处，
-如代码\ref{code-fig}中的\texttt{[htbp]}为浮动环境选项，
+插入图片的代码中的\texttt{[htbp]}为浮动环境选项，
 \texttt{h}表示为here，\texttt{t}为top，\texttt{b}为bottom，
 \texttt{p}为page，优先顺序依次递减，\LaTeX{}先判断here（当前
-位置）是否可以放置此环境（代码\ref{code-fig}中为图片），否则
-依次判断top、bottom、page来放置此环境中的内容。
-
-\begin{lstlisting}[label={code-fig},caption={使用figure环境},language={LaTeX}]
- 如图 \ref{fig-buaamark}所示为北航校徽。
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[width=90bp]{figure/buaamark.eps}
-\caption{校徽\label{fig-buaamark}}
-\end{center}
-\end{figure}
-\end{lstlisting}
+位置）是否可以放置此环境，否则依次判断top、bottom、page来放置此环境中的内容。
 
 代码中\textbackslash includegraphics后的[width=90bp]为对图片
 大小进行控制的代码，可以替换成为height,scale等。
-\textbackslash caption为图的标题，\textbackslash label为图的
-引用标号，在“如图”后引用即可得到“\ref{figbuaamark}”的效果。
-具体生成的效果如第\pageref{figbuaamark}页所示。
+\textbackslash caption为图的标题，\textbackslash label为图的引用标号，
+在“如图”后引用即可得到“\ref{sample-figbuaamark}”的效果。
+具体生成的效果如第\pageref{sample-figbuaamark}页所示。
 
 如图\ref{figbuaamark}所示为北航校徽。
 
 \begin{figure}[htb]
 \begin{center}
 \includegraphics[width=90bp]{figure/buaamark.eps}
-\caption{校徽\label{figbuaamark}}
+\caption{校徽\label{sample-figbuaamark}}
 \end{center}
 \end{figure}
 
@@ -138,29 +115,6 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
 \label{sec-table}
 表格也是论文中经常需要用到的一个元素，它也可以作为一个浮动环境
 （当然也可以不浮动）由\LaTeX{}自己来按照一定规则来决定如何放置。
-
-常用的表格浮动环境以代码\ref{code-table}作为示例。
-
-\begin{lstlisting}[caption={表格浮动环境},label={code-table},language={LaTeX}]
-\begin{table}[h]
-\begin{center}
-\caption{浮动表格示例\label{tab:test3}}
-\begin{tabular}{c||c|c|c}
-\hline
-序号&测试内容1&测试内容2&测试内容3\\
-\hline \hline
-1&一&二&三\\
-\hline
-2&四&五&六\\
-\hline
-3&七&八&九\\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
-\end{lstlisting}
-
-经过\LaTeX{}编译排版出来的结果如表\ref{tab-test3}所示。
 
 \texttt{table}环境即为浮动环境，其后带htbp等参数，其具体
 意义在\ref{sec:fig}节描述过了。\texttt{tabular}即为表格环境，
@@ -171,7 +125,8 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
 分隔。表格中需要加横线时使用\texttt{\textbackslash hline}来
 添加，横线或竖线可添加多条。
 
-表格中每一项使用“\& ”分隔，每一行使用\texttt{\textbackslash\textbackslash}来进行换行。
+表格中每一项使用“\& ”分隔，每一行使用\verb|\\|来进行换行，
+需要加横线时在换行后加\verb|\hline|。示例表格片段如表\ref{tab-test3}所示。
 \begin{table}
 \begin{center}
 \caption{浮动表格示例\label{tab-test3}}
@@ -179,12 +134,9 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
 \hline
 序号&测试内容1&测试内容2&测试内容3\\
 \hline \hline
-1&一&二&三\\
-\hline
-2&四&五&六\\
-\hline
-3&七&八&九\\
-\hline
+1 & 一 & 二 & 三\\\hline
+2 & 四 & 五 & 六\\\hline
+3 & 七 & 八 & 九\\\hline
 \end{tabular}
 \end{center}
 \end{table}
@@ -194,47 +146,27 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
 数学公式可以说是体现\LaTeX{}强大之处的地方。公式越多，用\LaTeX{}排版出来的论文
 效果就越漂亮。
 
-数学公式可分为行间公式和独立\footnote{貌似这个称呼不太准确}公式。{\heiti 行间公式}为放置在
+数学公式可分为内嵌行公式和独立行公式。{\heiti 内嵌行公式}为放置在
 论文段落中间，这种情况一般是将所要编排的公式放置在\verb|\(|和\verb|\)|\footnote{此处
 的"("为半角标(英文键盘)时的小括号。}，或者是放置在\verb|$ $|中间，如\verb|$2+2=4$|，
 或者是放置在\verb|\begin{math}|和\verb|\end{math}|之间。
 
-而独立公式，即将公式独立于段落放置一行或多行。此种方式又分为编号和非编号公式。
+而独立行公式，即将公式独立于段落放置一行或多行。此种方式又分为编号和非编号公式。
 {\heiti 无编号}的独立公式可以使用\verb|\[|和\verb|\]|中间，或者放置在\verb|\begin{displaymath}|
-和\verb|\end{displaymath}|中间。而{\heiti 具有编号}的独立公式，
+和\verb|\end{displaymath}|中间。而{\heiti 具有编号}的独立行公式，
 则将公式放置于\verb|\begin{equation}|和\verb|\end{equation}|中间即可。
 
-还有需要注意的一点，\LaTeX{}会认为公式中无空白距离及其他文字出现。如果在公式中需要空白距离时，
-可以使用\verb|\quad|、\verb|\qquad|等空白距离命令；需要在公式中使用文本时，
-需要将文本放置在\verb|\textrm{...}|中。
-
-其他的一些更深入的数学公式排版知识请查找相应的\LaTeX{}的入门文档或自行搜索。
+其他的一些更深入的数学公式排版知识请查找相应的\LaTeX{}的入门文档比如
+《一份不太简短的\LaTeX2e{}介绍》、《大家来学\LaTeX{}》等或自行搜索。
 当然，也有一些工具，可以将繁杂的\LaTeX{}数学代码的书写进行简化。
 比较常用的可以使用mathtype将公式导出\LaTeX{}代码。具体请见
 附录\ref{chapter-faq}中的问题\ref{mathtype2latex}。
 
 \section{条目及环境}
 \label{sec-item}
-条目环境分为itemize，enumerate，description三种。itemize用于简单的列表条目，enumerate
-用于带序号的列表条目，description用于带描述的列表条目。
+条目环境分为itemize，enumerate，description三种。itemize用于简单的列表条目，enumerate用于带序号的列表条目，description用于带描述的列表条目。
 
-以下用代码\ref{code-item}来说明。
-\begin{lstlisting}[label={code-item},caption={条目环境},language={LaTeX}]
-\begin{enumerate}
-    \item 这里是第一条：
-        \begin{itemize}
-            \item 这里是第一点。
-            \item 这里是第二点。
-        \end{itemize}
-    \item 这里是第二条：
-        \begin{description}
-            \item[ 观点三 ] 这里是第三点。
-            \item[ 观点四 ] 这里是第四点。
-        \end{description}
-\end{enumerate}
-\end{lstlisting}
-
-具体的效果如下所示。
+示例片段如下所示。
 \begin{enumerate}
     \item 这里是第一条：
         \begin{itemize}
@@ -248,17 +180,21 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
         \end{description}
 \end{enumerate}
 
-左右对齐时，只需要把需要进行对齐的内容分别放到 flushleft或flushright环境中即可。
+\section{使用~listings~显示代码}
+\label{sec-listings}
+本模板使用\texttt{listings}宏包进行代码的整理和展示。
+另外，listings宏包真可谓博大精深，可以实现各种复杂、漂亮的效果，
+想要进一步学习的同学，可以参考
+\href{http://mirror.ctan.org/macros/latex/contrib/listings/listings.pdf}{listings宏包手册}。代码\ref{sample-code}即为使用listings宏包插入源代码的例子。
 
-\section{使用~listing~显示代码}
-\label{sec-listing}
-原先~ctexbook~文档类和~listings~宏包配合使用时，代码在换页时会
-出现莫名其妙的错误，后来经高人指点，顺利解决了。
-感兴趣的话，可以看看\href{http://bbs.ctex.org/viewthread.php?tid=53451}{这里}。
-这里给使用~listings~宏包插入源代码的例子，这里是一段C代码。
-另外，listings宏包真可谓博大精深，可以实现各种复杂、漂亮的效果，想要进一步学习的同学，可以参考
-\href{http://mirror.ctan.org/macros/latex/contrib/listings/listings.pdf}
-{listings宏包手册\footnote{此节完全参考武汉理工大学论文模板}}。
+\begin{lstlisting}[language={C}, caption={一段C源代码},label={sample-code}]
+#include <stdio.h>
+
+void main() 
+	{
+		printf("Hello, world!");
+	}
+\end{lstlisting}
 
 \section{更深入一些的操作}
 \label{sec-more}
