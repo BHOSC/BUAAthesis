@@ -1,42 +1,63 @@
 % !Mode:: "TeX:UTF-8"
 \chapter{\LaTeX{}基础语法}
 \label{chapter-basic}
-\section{字体设置}
-
+\section{字体字号设置}
+\label{sec-font}
+\subsection{字体设置}
+\label{subsec-font}
 本模板使用了CTEX封装的\texttt{ctexbook}类，作为毕设论文，一般不需要
 过多使用字体。因此，全文默认字体为~{\bf 宋体}~和{\bf Times New Roman}字体。
-此外还可以使用\texttt{\textbackslash heiti}命令来使用~{\heiti 黑体}~字体。
+默认情况下不需要对字体进行特别的设置，论文中有需要特别强调的地方，可以按表\ref{tab-fonts}
+中的相应命令进行设置即可。
 
-对于英文，则有\textbackslash textbf\{•\}\quad\textbackslash textit\{•\}
-\quad\textbackslash textsf\{•\}\quad\textbackslash texttt\{•\}
-\quad\textbackslash textsl\{•\}命令来进行相应的控制。
+\begin{table}[ht]
+\begin{center}
+\caption{字体的使用}\label{tab-fonts}
+\begin{tabular}{c|c|c}
+\hline
+字体 & 使用命令范例 & 编译效果\\\hline\hline
+宋体 & \verb|{\songti|宋体使用范例\} & {\songti 宋体使用范例}\\\hline
+黑体 & \verb|{\heiti|黑体使用范例\} & {\heiti 黑体使用范例}\\\hline
+加粗字体 & \verb|{\bf|加粗字体Example\} & {\bf 加粗字体Example}\\\hline
+加下划线 & \verb|\underline{|加下划线Example\} & \underline{加下划线Example}\\\hline\hline
+Roman &\verb|\textrm{|Roman字体范例\} & \textrm{Roman字体范例}\\\hline
+Typewriter & \verb|\texttt{|Typewriter字体范例\} & \texttt{Typewriter字体范例}\\\hline
+Slanted & \verb|\textsl{|Slanted字体范例\} &\textsl{Slanted字体范例}\\\hline
+Bold face & \verb|\textbf{|Bold face字体范例\} & \textbf{Bold face字体范例}\\\hline
+Emphasized & \verb|\emph{|Emphasized字体范例\} & \emph{Emphasized字体范例}\\\hline
+Document font & \verb|\textnormal{|Document font字体范例\} & \textnormal{Document font字体范例}\\\hline
+\end{tabular}
+\end{center}
+\end{table}
 
-\begin{description}
-    \item[\textbackslash textbf\{•\}] \textbf{0123456789abcdefgABCDEFG}
-    \item[\textbackslash textit\{•\}] \textit{0123456789abcdefgABCDEFG}
-    \item[\textbackslash textsf\{•\}] \textsf{0123456789abcdefgABCDEFG}
-    \item[\textbackslash texttt\{•\}] \texttt{0123456789abcdefgABCDEFG}
-    \item[\textbackslash textsl\{•\}] \textsl{0123456789abcdefgABCDEFG}
-\end{description}
-在论文中，有一些地方需要进行强调说明时，可以使用~{\bf 加粗}~来进行强调，
-比如\{\textbackslash bf~加粗\}，即可以得到~“{\bf 加粗}”~的效果；
-还可以有~\underline{下划线}，使用命令为\textbackslash underline\{需要加下划线的内容\}即可。
+\subsection{字号设置}
+\label{subsec-fontsize}
+论文要求正文字号为小四号，除非有特别的要求，{\heiti 全文不需要}对字号进行另外的设置。
+需要进行字号设置时，可以参照表\ref{tab-fontsize}进行相应的设置。可以从小五号到初号进行设置。
 
-\section{字号设置}
-论文要求正文字号为小四号，除非有特别的要求，全文不需要对字号进行另外的设置。
-需要进行字号设置时，可以用\texttt{\textbackslash zihao\{-4\}}，
-以及\texttt{\textbackslash zihao\{4\}}来表示小四号字体和四号字体，
-同理可以从小五号\texttt{\textbackslash zihao\{-5\}}字体到
-初号\texttt{\textbackslash zihao\{0\}}字体。
+\begin{table}[ht]
+\begin{center}
+\caption{字号的设置}\label{tab-fontsize}
+\begin{tabular}{c|c|c|c}
+\hline
+使用范例 & 编译效果 &使用范例 & 编译效果\\\hline\hline
+\verb|{\zihao{-5}|小五号\} & {\zihao{-5}小五号} & \verb|{\zihao{5}|五号字\} & {\zihao{5}五号字}\\\hline
+\verb|{\zihao{-4}|小四号\} & {\zihao{-4}小四号} & \verb|{\zihao{4}|四号字\} & {\zihao{4}四号字}\\\hline
+\dots & \dots & \dots & \dots \\\hline
+\verb|{\zihao{-0}|小初号\} & {\zihao{-0}小初号} & \verb|{\zihao{0}|初号字\} & {\zihao{0}初号字}\\\hline
+\end{tabular}
+\end{center}
+\end{table}
 
-\section{间距间隔控制}
+\subsection{间距间隔控制}
+\label{subsec-space}
 对于间距的控制，\LaTeX{}中的间距比Office要强大得多了！
 Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
-可使用的间隔控制命令有如表\ref{table-space}所示若干，虽然很多都用不到。
+可使用的间隔控制命令有如表\ref{tab-space}所示若干，虽然很多都用不到。
 
 \begin{table}
 \begin{center}
-\caption{\LaTeX{}中的一些常用间隔间距控制命令}\label{table-space}
+\caption{\LaTeX{}中的一些常用间隔间距控制命令}\label{tab-space}
 \begin{tabular}{l|l}
 \hline
 命令&效果\slash 说明\\\hline\hline
@@ -67,6 +88,7 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
 和多余的空行。}）空行来达到此目的。具体使用哪种方式，请论文作者自行选择。
 
 \section{章节标题以及条目的设置}
+\label{sec-chaptitle}
 新的一章将在新的页面开始，使用\texttt{\textbackslash chapter}\{\LaTeX{}基础语法\}
 命令时，即可以得到~\hyperref[chapter-basic]{第5章~\LaTeX{}基础语法}~这样的章名称。
 
@@ -75,7 +97,7 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
 \LaTeX{}会根据规则来进行编排。
 
 \section{图形}
-\label{sec:fig}
+\label{sec-figure}
 在编写论文过程中，需要引用图形甚至多个图形时，可以使用\texttt{figure}环境，
 以代码\ref{code-fig}来说明如何使用此环境。
 
@@ -113,6 +135,7 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
 \end{figure}
 
 \section{表格}
+\label{sec-table}
 表格也是论文中经常需要用到的一个元素，它也可以作为一个浮动环境
 （当然也可以不浮动）由\LaTeX{}自己来按照一定规则来决定如何放置。
 
@@ -167,12 +190,31 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
 \end{table}
 
 \section{数学公式和定理定义等}
-数学公式可以说是体现\LaTeX{}强大之处的地方。blablabla
+\label{sec-math}
+数学公式可以说是体现\LaTeX{}强大之处的地方。公式越多，用\LaTeX{}排版出来的论文
+效果就越漂亮。
 
-注：具体参考一下\url{http://latex.yo2.cn/articles/latex_math_modle.html}
-以及介绍一下如何使用mathtype编写数学公式后导出latex代码应该就可以了。
+数学公式可分为行间公式和独立\footnote{貌似这个称呼不太准确}公式。{\heiti 行间公式}为放置在
+论文段落中间，这种情况一般是将所要编排的公式放置在\verb|\(|和\verb|\)|\footnote{此处
+的"("为半角标(英文键盘)时的小括号。}，或者是放置在\verb|$ $|中间，如\verb|$2+2=4$|，
+或者是放置在\verb|\begin{math}|和\verb|\end{math}|之间。
+
+而独立公式，即将公式独立于段落放置一行或多行。此种方式又分为编号和非编号公式。
+{\heiti 无编号}的独立公式可以使用\verb|\[|和\verb|\]|中间，或者放置在\verb|\begin{displaymath}|
+和\verb|\end{displaymath}|中间。而{\heiti 具有编号}的独立公式，
+则将公式放置于\verb|\begin{equation}|和\verb|\end{equation}|中间即可。
+
+还有需要注意的一点，\LaTeX{}会认为公式中无空白距离及其他文字出现。如果在公式中需要空白距离时，
+可以使用\verb|\quad|、\verb|\qquad|等空白距离命令；需要在公式中使用文本时，
+需要将文本放置在\verb|\textrm{...}|中。
+
+其他的一些更深入的数学公式排版知识请查找相应的\LaTeX{}的入门文档或自行搜索。
+当然，也有一些工具，可以将繁杂的\LaTeX{}数学代码的书写进行简化。
+比较常用的可以使用mathtype将公式导出\LaTeX{}代码。具体请见
+附录\ref{chapter-faq}中的问题\ref{mathtype2latex}。
 
 \section{条目及环境}
+\label{sec-item}
 条目环境分为itemize，enumerate，description三种。itemize用于简单的列表条目，enumerate
 用于带序号的列表条目，description用于带描述的列表条目。
 
@@ -209,6 +251,7 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
 左右对齐时，只需要把需要进行对齐的内容分别放到 flushleft或flushright环境中即可。
 
 \section{使用~listing~显示代码}
+\label{sec-listing}
 原先~ctexbook~文档类和~listings~宏包配合使用时，代码在换页时会
 出现莫名其妙的错误，后来经高人指点，顺利解决了。
 感兴趣的话，可以看看\href{http://bbs.ctex.org/viewthread.php?tid=53451}{这里}。
@@ -218,8 +261,9 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
 {listings宏包手册\footnote{此节完全参考武汉理工大学论文模板}}。
 
 \section{更深入一些的操作}
-
+\label{sec-more}
 \subsection{字体字号的强调}
+\label{subsec-morefont}
 可以通过对文字使用\textcolor{blue}{颜}\textcolor{red}{色}来强调说明。
 使用\textcolor[rgb]{0.5,0.95,0.96}{有颜色的文字}可以通过
 命令\texttt{\textbackslash textcolor}\{red\}\{红色的字\}，
@@ -227,6 +271,7 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
 来\textcolor[rgb]{0.5,0.98,0.7}{使用RGB混合颜色}进行强调。
 
 \subsection{两个或多个图形的排列}
+\label{subsec-morefig}
 而对于需要两个或三个图形并排或者矩形排列的时候，则示例代码可以如\ref{code-subfigs}所示。
 \begin{lstlisting}[caption={图形的排列},label={code-subfigs},language={LaTeX}]
 \begin{figure}[htb]
@@ -308,6 +353,7 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
 可以google一下《\LaTeX{}插图指南》一书。
 
 \subsection{图形和表格的并排显示}
+\label{subsec-morefigtab}
 如果需要图形和表格并排显示（一般情况下是不会有这种情况的，也十分不推荐
 图形和表格并排显示），则可以通过的代码\ref{code-figtab}来对图形和
 表格进行处理来达到并排显示的效果。图\ref{fig-table}和
@@ -358,6 +404,7 @@ Friday & 5 &5.5\\ \hline
 \end{lstlisting}
 
 \subsection{长表格的示例}
+\label{subsec-moretab}
 当需要排版的表格长度超过一页，那么在本模板中推荐使用 \textsf{longtable}
 宏包，模板对 \textsf{longtable} 进行了相应的设置，所以用起来可能简单一些。
 表~\ref{example-longtable} 就是\textsf{longtable}的简单示例。
@@ -454,6 +501,7 @@ Friday & 5 &5.5\\ \hline
 \end{lstlisting}
 
 \subsection{定理定义环境}
+\label{subsec-morethm}
 给大家演示一下各种和证明有关的环境\footnote{本节内容来自武汉理工大学论文模板。}：
 
 \begin{assumption}
