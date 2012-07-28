@@ -7,6 +7,7 @@
 
 \section{字体字号设置}
 \label{sec-font}
+
 \subsection{字体设置}
 \label{subsec-font}
 本模板使用了CTEX封装的ctexbook类，因此ctex宏包所支持的命令本模板均支持。
@@ -19,17 +20,11 @@
 
 {\bf 床前明月光，疑是地上霜。举头望明月，低头思故乡。}
 
-\underline{床前明月光，疑是地上霜。举头望明月，低头思故乡。}
-
 To be, or not to be, that's a question.
 
 \textbf{To be, or not to be, that's a question.}
 
 \texttt{To be, or not to be, that's a question.}
-
-\textsf{To be, or not to be, that's a question.}
-
-\textit{To be, or not to be, that's a question.}
 
 \subsection{字号设置}
 \label{subsec-fontsize}
@@ -89,22 +84,13 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
 在编写论文过程中，需要引用图形甚至多个图形时，可以使用\texttt{figure}环境，
 具体如何使用此环境来插入图片，可以见插入图\ref{sample-figbuaamark}的具体代码。
 
-需要注意的是，figure为浮动环境，即\LaTeX{}在排版浮动环境时，
-会根据一定的美观规则来排版，并不是将将代码放在某处，图片就会出现在某处，
-插入图片的代码中的\texttt{[htbp]}为浮动环境选项，
-\texttt{h}表示为here，\texttt{t}为top，\texttt{b}为bottom，
-\texttt{p}为page，优先顺序依次递减，\LaTeX{}先判断here（当前
-位置）是否可以放置此环境，否则依次判断top、bottom、page来放置此环境中的内容。
-
 代码中\textbackslash includegraphics后的[width=90bp]为对图片
 大小进行控制的代码，可以替换成为height,scale等。
-\textbackslash caption为图的标题，\textbackslash label为图的引用标号，
+\verb|\caption|为图的标题，\verb|\label|为图的引用标号，
 在“如图”后引用即可得到“\ref{sample-figbuaamark}”的效果。
-具体生成的效果如第\pageref{sample-figbuaamark}页所示。
+具体生成的效果如第\pageref{sample-figbuaamark}页图\ref{sample-figbuaamark}所示。
 
-如图\ref{figbuaamark}所示为北航校徽。
-
-\begin{figure}[htb]
+\begin{figure}
 \begin{center}
 \includegraphics[width=90bp]{figure/buaamark.eps}
 \caption{校徽\label{sample-figbuaamark}}
@@ -116,13 +102,11 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
 表格也是论文中经常需要用到的一个元素，它也可以作为一个浮动环境
 （当然也可以不浮动）由\LaTeX{}自己来按照一定规则来决定如何放置。
 
-\texttt{table}环境即为浮动环境，其后带htbp等参数，其具体
-意义在\ref{sec:fig}节描述过了。\texttt{tabular}即为表格环境，
-后面的\texttt{\{c||c|c|c\}}的意思为，表格分为四列，第一列
-居中{\bf c}\textit{(center)}对齐，其他对齐方式为左
+\texttt{tabular}即为表格环境，后面的\texttt{\{c||c|c|c\}}的意思为，
+表格分为四列，第一列居中{\bf c}\textit{(center)}对齐，其他对齐方式为左
 对齐{\bf l}\textit{(left)}，右对齐{\bf r}\textit{(right)}。
 然后竖直画两条竖线，第二列和第三列第四列也为居中对齐，并且用一竖线
-分隔。表格中需要加横线时使用\texttt{\textbackslash hline}来
+分隔。表格中需要加横线时使用\verb|\hline|来
 添加，横线或竖线可添加多条。
 
 表格中每一项使用“\& ”分隔，每一行使用\verb|\\|来进行换行，
@@ -143,9 +127,6 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
 
 \section{数学公式和定理定义等}
 \label{sec-math}
-数学公式可以说是体现\LaTeX{}强大之处的地方。公式越多，用\LaTeX{}排版出来的论文
-效果就越漂亮。
-
 数学公式可分为内嵌行公式和独立行公式。{\heiti 内嵌行公式}为放置在
 论文段落中间，这种情况一般是将所要编排的公式放置在\verb|\(|和\verb|\)|\footnote{此处
 的"("为半角标(英文键盘)时的小括号。}，或者是放置在\verb|$ $|中间，如\verb|$2+2=4$|，
@@ -182,10 +163,10 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
 
 \section{使用~listings~显示代码}
 \label{sec-listings}
-本模板使用\texttt{listings}宏包进行代码的整理和展示。
-另外，listings宏包真可谓博大精深，可以实现各种复杂、漂亮的效果，
-想要进一步学习的同学，可以参考
-\href{http://mirror.ctan.org/macros/latex/contrib/listings/listings.pdf}{listings宏包手册}。代码\ref{sample-code}即为使用listings宏包插入源代码的例子。
+本模板使用\texttt{listings}\footnote{有兴趣的同学可以参考
+\href{http://mirror.ctan.org/macros/latex/contrib/listings/listings.pdf}
+{listings宏包手册}}宏包进行代码的整理和展示。
+代码\ref{sample-code}即为使用listings宏包插入源代码的例子。
 
 \begin{lstlisting}[language={C}, caption={一段C源代码},label={sample-code}]
 #include <stdio.h>
