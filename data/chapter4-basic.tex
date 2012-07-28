@@ -8,7 +8,7 @@
 \section{字体字号设置}
 \label{sec-font}
 
-\subsection{字体设置}
+\subsection{字体设置以及换行}
 \label{subsec-font}
 本模板使用了CTEX封装的ctexbook类，因此ctex宏包所支持的命令本模板均支持。
 具体有兴趣的可以查看ctex的宏包说明，若无特殊的需要，可以只参阅本文档中的相关内容即可。
@@ -25,42 +25,6 @@ To be, or not to be, that's a question.
 \textbf{To be, or not to be, that's a question.}
 
 \texttt{To be, or not to be, that's a question.}
-
-\subsection{字号设置}
-\label{subsec-fontsize}
-论文要求正文字号为小四号，除非有特别的要求，{\heiti 全文不需要}对字号进行另外的设置。
-需要进行字号设置时，可以通过使用\verb|\zihao{-3}|来更换字号为~小三号~，
-字号中可以从\verb|\zihao{-5}|到\verb|\zihao{0}|进行设置。
-
-\subsection{间距间隔控制}
-\label{subsec-space}
-对于间距的控制，\LaTeX{}中的间距比Office要强大得多了！
-Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
-可使用的间隔控制命令有如表\ref{tab-space}所示若干，虽然很多都用不到。
-
-\begin{table}
-\begin{center}
-\caption{\LaTeX{}中的一些常用间隔间距控制命令}\label{tab-space}
-\begin{tabular}{l|l}
-\hline
-命令&效果\slash 说明\\\hline\hline
-间隔\texttt{\textbackslash quad}间隔 & 间隔\quad 间隔\\\hline
-间隔\texttt{\textbackslash qquad}间隔 & 间隔\qquad 间隔\\\hline
-间隔$\sim$间隔 & 间隔~间隔\\\hline
-间隔\verb*|\ |间隔 & 间隔\ 间隔\\\hline
-间隔\texttt{\textbackslash ,}间隔 & 间隔\, 间隔\\\hline\hline
-\texttt{\textbackslash hfill} & 水平填充\\\hline
-\texttt{\textbackslash vfill} & 垂直填充\\\hline
-\texttt{\textbackslash hspace\{5cm\}} & 水平空白5cm的距离\\\hline
-\texttt{\textbackslash vspace\{5cm\}} & 垂直空白5cm的距离\\\hline
-\end{tabular}
-\end{center}
-\end{table}
-
-\LaTeX{}支持的单位有：\texttt{in}---英寸(inch)，\texttt{mm}---毫米，
-\texttt{cm}---厘米，\texttt{pt}---Points(大约1\slash 72~inch)，
-以及相对距离：\texttt{em}---当前字体的字符“\textbf{M}”的宽度，
-\texttt{ex}---当前字体的字符“\textbf{x}”的宽度，长度可以为负值，如~-1.5em~。
 
 换行有两种方式，分别为命令“\verb|\\|”以及命令\verb|\newline|，
 这两个命令将使“光标”切换到下一行，但并不具有缩进（即\LaTeX{}并不认为
@@ -128,14 +92,17 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
 \section{数学公式和定理定义等}
 \label{sec-math}
 数学公式可分为内嵌行公式和独立行公式。{\heiti 内嵌行公式}为放置在
-论文段落中间，这种情况一般是将所要编排的公式放置在\verb|\(|和\verb|\)|\footnote{此处
-的"("为半角标(英文键盘)时的小括号。}，或者是放置在\verb|$ $|中间，如\verb|$2+2=4$|，
-或者是放置在\verb|\begin{math}|和\verb|\end{math}|之间。
+论文段落中间，通过使用\verb|$ $|来使用。如\verb|$2+2=4$|则得到$2+2=4$。
+{\heiti 独立行公式}为单独一行，通过使用\verb|\[  \]|来使用。
+如\verb|\[3+3=6\]|即得到\[3+3=6\]的公式。
 
-而独立行公式，即将公式独立于段落放置一行或多行。此种方式又分为编号和非编号公式。
-{\heiti 无编号}的独立公式可以使用\verb|\[|和\verb|\]|中间，或者放置在\verb|\begin{displaymath}|
-和\verb|\end{displaymath}|中间。而{\heiti 具有编号}的独立行公式，
+对于论文而言，需要{\heiti 具有编号}的独立行公式，
 则将公式放置于\verb|\begin{equation}|和\verb|\end{equation}|中间即可。
+\begin{equation}
+\label{sample-equ}
+E=mc^2
+\end{equation}
+公式\ref{sample-equ}则是具有编号的独立行公式。
 
 其他的一些更深入的数学公式排版知识请查找相应的\LaTeX{}的入门文档比如
 《一份不太简短的\LaTeX2e{}介绍》、《大家来学\LaTeX{}》等或自行搜索。
