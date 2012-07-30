@@ -92,11 +92,11 @@ Mac\TeX{}是基于\TeX{}Live为Mac系统设计的套件。
     \item[官方网站]
         \url{http://www.xm1math.net/texmaker/}
     \item[下载地址]
-        http://www.xm1math.net/texmaker/download.html
+        \url{http://www.xm1math.net/texmaker/download.html}
     \item[相关说明]
     \begin{itemize}
         \item 安装同一般软件的安装
-        \item 配置Xe\LaTeX{}的编译，选择菜单栏“选项”->“配置\TeX{}Maker“，
+        \item 配置Xe\LaTeX{}的编译，选择菜单栏“选项”->“配置\TeX{}Maker”，
         \item[] 在“\LaTeX{}”一栏填写
             \texttt{xelatex -interaction=nonstopmode\%.tex}
     \end{itemize}
@@ -107,10 +107,10 @@ Mac\TeX{}是基于\TeX{}Live为Mac系统设计的套件。
 \LaTeX{}的文件是通过编译生成的，对于本模板和毕业设计论文而言，
 需要经过以下步骤（以sample-bachelor.tex为例）：
 \begin{lstlisting}[language=bash,caption={编译步骤}]
-    latex sample-bachelor.tex
+    xelatex sample-bachelor.tex
     bibtex sample-bachelor.aux
-    latex sample-bachelor.tex
-    latex sample-bachelor.tex
+    xelatex sample-bachelor.tex
+    xelatex sample-bachelor.tex
 \end{lstlisting}
 当然，我们在模板里也提供了编译的执行脚本。
 

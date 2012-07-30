@@ -3,7 +3,7 @@
 \section{基本范例}
 \begin{table}
 \begin{center}
-    \begin{tabular}{|c|c|}
+    \begin{tabular}{c||c}
     \hline
     本科生论文基本结构 & 研究生论文基本结构\\\hline\hline
     封面 & 封面（中、英文）\\
@@ -16,7 +16,7 @@
     附录 & 附录\\
     ~~ & 攻读硕士/博士期间取得的研究\slash 学术成果\\
     ~~ & 致谢\\
-    ~~ & 作者简介\\
+    ~~ & 作者简介(仅博士生)\\
     \hline
     \end{tabular}
 \end{center}
@@ -103,25 +103,27 @@
 % 附页
 \include{file/master/back1-achievement}
 \include{file/master/back2-thanks}
+
+% 作者简介，仅博士生需要此项。
 \include{file/master/back3-aboutauthor}
 \end{document}
 \end{lstlisting}
     
 \section{模板选项}
 \subsection{学位选项}
-    \begin{description}
-        \item{bachelor} 学士学位；
-        \item{master} 学术硕士学位（默认）；
-        \item{engineer} 专业硕士学位；
-        \item{doctor} 博士学位。
-    \end{description}
+    \begin{itemize}
+        \item bachelor---学士学位；
+        \item master---学术硕士学位（默认）；
+        \item engineer---专业硕士学位；
+        \item doctor---博士学位。
+    \end{itemize}
 
 \subsection{其他选项}
-    \begin{description}
-        \item{oneside\slash twoside} 单面\slash 双面（默认）打印；
-        \item{openany\slash openright} 新的章节在任何页面开始\slash 新的章节从奇数页开始（默认）；
-        \item{nocolor} 所有链接文字、关键字均为黑色并使用框线表示（锚点为红色方框，超链接为淡蓝色方框，打印时方框将不会被打印），默认关闭。
-    \end{description}
+    \begin{itemize}
+        \item oneside\slash twoside---单面\slash 双面（默认）打印；
+        \item openany\slash openright---新的章节在任何页面开始\slash 新的章节从奇数页开始（默认）；
+        \item color---将论文中的链接文字用颜色标识。
+    \end{itemize}
 
 \section{封面及正文前的一些设置}
 \subsection{封面}
@@ -145,11 +147,13 @@
 \subsection{参考文献}
 参考文献使用\texttt{BiBTeX}工具，参考文献的数据库为\texttt{bibs.bib}，可以使用记事本等文本编辑器进行编辑。具体如何进行编辑也可参照示例模板给出的范例来编写。在Winedt软件中有具体的增加参考文献的选项；在\url{book.google.com}中搜索到的书籍，在页面的最下方也有\texttt{BiBTeX}的导出选项。
 
-\texttt{.bib}参考文献数据库文件中，每个类别后的第一个为标号，在示例的\texttt{bibs.bib}中第一个书箱的标号为\textbf{lamport1994latex}，在引用此文献时，使用\textbf{\textbackslash upcite\{lamport1994latex\}}即可得到此文献\upcite{lamport1994latex}的引用\footnote{此处即为引用了此文献，得到相应的上角标。}。
+\texttt{.bib}参考文献数据库文件中，每个类别后的第一个为标号，在示例的\texttt{bibs.bib}中第一个书箱的标号为\textbf{kottwitz2011latex}，在引用此文献时，使用\textbf{\textbackslash upcite\{kottwitz2011latex}}即可得到此文献\upcite{kottwitz2011latex}的引用\footnote{左侧“文献”的右上方即得到了此文献的引用。}。
 
 \section{正文之后的内容}
 \subsection{附录}
 附录和正文中的章节编写方式一样。无特殊之处。
 \subsection{攻读硕士\slash 博士期间所取得的研究\slash 学术成果（研究生）}
 \subsection{致谢}
-\subsection{作者简介（研究生）}
+\subsection{作者简介（博士研究生）}
+博士学位论文应该提供作者简介，主要包括：姓名、性别、出生年月日、民族、出生地；
+简要学历、工作经历（职务）；以及攻读学位期间获得的其它奖励（除攻读学位期间取得的研究成果之外）。
