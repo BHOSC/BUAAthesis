@@ -10,11 +10,9 @@
 
 \subsection{字体设置以及换行}
 \label{subsec-font}
-本模板使用了CTEX封装的ctexbook类，因此ctex宏包所支持的命令本模板均支持。
-具体有兴趣的可以查看ctex的宏包说明，若无特殊的需要，可以只参阅本文档中的相关内容即可。
-
-作为毕设论文，一般不需要过多使用字体。因此，全文默认字体为~{\bf 宋体}~和{\bf Times New Roman}字体。
-默认情况下不需要对字体进行特别的设置，论文中有需要特别强调的地方，可以通过如下的示例进行更换。
+作为毕设论文，一般不需要过多使用字体。因此，全文默认字体为~{\bf 宋体}~
+和{\bf Times New Roman}字体。默认情况下不需要对字体进行特别的设置，
+论文中有需要特别强调的地方，可以通过如下的示例进行更换。
 
 {\heiti 床前明月光，疑是地上霜。举头望明月，低头思故乡。}
 
@@ -24,20 +22,23 @@
 
 \texttt{To be, or not to be, that's a question.}
 
-换行有两种方式，分别为命令“\verb|\\|”以及命令\verb|\newline|，
-这两个命令将使“光标”切换到下一行，但并不具有缩进（即\LaTeX{}并不认为
-这是新的一个段落，当然可以使用\verb|\qquad|来强制缩进两个字符间距）。
-
 而需要另起新的段落时，可以在段落加上\verb|\par|来实现，也可以
 通过一个（或多个\footnote{\LaTeX{}会忽略掉.tex文件中的空白距离
 和多余的空行。}）空行来达到此目的。具体使用哪种方式，请论文作者自行选择。
 
+{\heiti 注意：}在图形、表格浮动环境后的文字为换行，并非“新的段落”。
+
+由于\LaTeX{}中的命令需要用到一些特殊符号，因此一些特殊的符号的录入与正常的录入不同。
+比较常见的有“\%\quad\$\quad\&\quad\{\quad\}
+\quad\#\quad\_\quad\^{}\quad\textbackslash”等，
+其他的一些不常见的符号请自行搜索，或参考tex自带的symbol.pdf。
+
 \section{章节标题以及条目的设置}
 \label{sec-chaptitle}
-新的一章将在新的页面开始，使用\texttt{\textbackslash chapter}\{\LaTeX{}基础语法\}
-命令时，即可以得到~\hyperref[chapter-basic]{第5章~\LaTeX{}基础语法}~这样的章名称。
+新的一章将在新的页面开始，使用\verb|\chapter{•}|命令时，
+即可以得到~\hyperref[chapter-basic]{第5章~\LaTeX{}基础语法}~这样的章名称。
 
-同样的，还有命令\textbackslash section\{•\}、\textbackslash subsection\{•\}
+同样的，还有命令\verb|\section{•}|、\verb|\subsection{•}|
 来定义节、条的标题。对于章节前面的“第1章”、“1.1”等标号，则不需要用户来编辑，
 \LaTeX{}会根据规则来进行编排。
 
@@ -46,16 +47,17 @@
 在编写论文过程中，需要引用图形甚至多个图形时，可以使用\texttt{figure}环境，
 具体如何使用此环境来插入图片，可以见插入图\ref{sample-figbuaamark}的具体代码。
 
-代码中\textbackslash includegraphics后的[width=90bp]为对图片
+代码中\verb|\includegraphics|后的\verb|[width=90bp]|为对图片
 大小进行控制的代码，可以替换成为height,scale等。
-\verb|\caption|为图的标题，\verb|\label|为图的引用标号，
+\verb|\caption{}|为图的标题，\verb|\label{}|为图的引用标号，
 在“如图”后引用即可得到“\ref{sample-figbuaamark}”的效果。
 具体生成的效果如第\pageref{sample-figbuaamark}页图\ref{sample-figbuaamark}所示。
 
 \begin{figure}
 \begin{center}
 \includegraphics[width=90bp]{figure/buaamark.eps}
-\caption{校徽\label{sample-figbuaamark}}
+\caption{校徽}
+\label{sample-figbuaamark}
 \end{center}
 \end{figure}
 
@@ -64,9 +66,9 @@
 表格也是论文中经常需要用到的一个元素，它也可以作为一个浮动环境
 （当然也可以不浮动）由\LaTeX{}自己来按照一定规则来决定如何放置。
 
-\texttt{tabular}即为表格环境，后面的\texttt{\{c||c|c|c\}}的意思为，
-表格分为四列，第一列居中{\bf c}\textit{(center)}对齐，其他对齐方式为左
-对齐{\bf l}\textit{(left)}，右对齐{\bf r}\textit{(right)}。
+\texttt{tabular}即为表格环境，后面的\verb|{c||c|c|c}|的意思为，
+表格分为四列，第一列居中{\bf c}\texttt{(center)}对齐，其他对齐方式为左
+对齐{\bf l}\texttt{(left)}，右对齐{\bf r}\texttt{(right)}。
 然后竖直画两条竖线，第二列和第三列第四列也为居中对齐，并且用一竖线
 分隔。表格中需要加横线时使用\verb|\hline|来
 添加，横线或竖线可添加多条。
@@ -141,67 +143,13 @@ void main()
 
 \section{更深入一些的操作}
 \label{sec-more}
-\subsection{字体字号的强调}
-\label{subsec-morefont}
-可以通过对文字使用\textcolor{blue}{颜}\textcolor{red}{色}来强调说明。
-使用\textcolor[rgb]{0.5,0.95,0.96}{有颜色的文字}可以通过
-命令\texttt{\textbackslash textcolor}\{red\}\{红色的字\}，
-或者\texttt{\textbackslash textcolor[rgb]}\{0.5,0.98,0.7\}\{使用RGB混合颜色\}
-来\textcolor[rgb]{0.5,0.98,0.7}{使用RGB混合颜色}进行强调。
 
 \subsection{两个或多个图形的排列}
 \label{subsec-morefig}
-而对于需要两个或三个图形并排或者矩形排列的时候，则示例代码可以如\ref{code-subfigs}所示。
-\begin{lstlisting}[caption={图形的排列},label={code-subfigs},language={LaTeX}]
-\begin{figure}[htb]
-\begin{center}
-    \subfigure[ 并排小图 a]{\label{fig:minia}\includegraphics[width=.2\textwidth]{figure/buaamark.eps}}\hspace{7em}
-    \subfigure[ 并排小图 b]{\label{fig:minib}\includegraphics[width=.2\textwidth]{figure/buaamark.eps}}
-    \caption{ 多个图形并排的示例 }
-    \label{subfig1}
-\end{center}
-\end{figure}
+而对于需要两个或三个图形并排或者矩形排列的时候，则可以通过
+如下图\ref{minifiga}和\ref{minifigb}的示例代码自行进行替换调整。
 
-\begin{figure}[htb]
-\begin{minipage}{0.5\textwidth}
-    \centering
-    \includegraphics[width=0.35\textwidth]{figure/buaamark.eps}
-    \caption{ 小图A}
-    \label{minifiga}
-\end{minipage}
-\begin{minipage}{0.5\textwidth}
-    \centering
-    \includegraphics[width=0.35\textwidth]{figure/buaamark.eps}
-    \caption{ 小图B}
-    \label{minifigb}
-\end{minipage}
-\end{figure}
-
-\begin{figure}[htb]
-\centering
-    \begin{tabular}{cc}
-    \subfigure[ 子图 A]{\label{suba}\includegraphics[width=.18\textwidth]{figure/buaamark.eps}}\hspace{7em} & \subfigure[ 子图 B]{\label{subB}\includegraphics[width=.18\textwidth]{figure/buaamark.eps}}\\
-    \subfigure[ 子图 C]{\label{subc}\includegraphics[width=.18\textwidth]{figure/buaamark.eps}}\hspace{7em} & \subfigure[ 子图 D]{\label{subd}\includegraphics[width=.18\textwidth]{figure/buaamark.eps}}\\
-    \end{tabular}
-\caption{ 矩形的 subfig 排列}
-\label{maxfig}
-\end{figure}
-\end{lstlisting}
-
-而具体的效果如下所示。图\ref{subfig1}为子图排列的形式，两个子图有各自的图题，并有一个共同的图题。
-
-\begin{figure}[htb]
-\begin{center}
-    \subfigure[并排小图a]{\label{fig:minia}\includegraphics[width=.2\textwidth]{figure/buaamark.eps}}\hspace{7em}
-    \subfigure[并排小图b]{\label{fig:minib}\includegraphics[width=.2\textwidth]{figure/buaamark.eps}}
-    \caption{多个图形并排的示例}
-    \label{subfig1}
-\end{center}
-\end{figure}
-
-图\ref{minifiga}和图\ref{minifigb}为两个并排的图形，各自均有图题。
-
-\begin{figure}[htb]
+\begin{figure}
 \begin{minipage}{0.5\textwidth}
     \centering
     \includegraphics[width=0.35\textwidth]{figure/buaamark.eps}
@@ -216,9 +164,21 @@ void main()
 \end{minipage}
 \end{figure}
 
-图\ref{maxfig}所示为2x2排列的图形，使用\texttt{tabular}的表格环境嵌套在\texttt{figure}环境中来达到此效果。
+图\ref{subfig1}为子图排列的形式，两个子图有各自的图题，并有一个共同的图题。
 
-\begin{figure}[htb]
+\begin{figure}
+\begin{center}
+    \subfigure[并排小图a]{\label{fig:minia}\includegraphics[width=.2\textwidth]{figure/buaamark.eps}}\hspace{7em}
+    \subfigure[并排小图b]{\label{fig:minib}\includegraphics[width=.2\textwidth]{figure/buaamark.eps}}
+    \caption{多个图形并排的示例}
+    \label{subfig1}
+\end{center}
+\end{figure}
+
+若需要将四个或多个图形用矩阵的方式排列时，则可由图\ref{maxfig}所展示的范例的
+代码进行相应的调整和修改，来达到作者所需要的效果。
+
+\begin{figure}
 \centering
     \begin{tabular}{cc}
     \subfigure[子图A]{\label{suba}\includegraphics[width=.18\textwidth]{figure/buaamark.eps}}\hspace{7em} & \subfigure[子图B]{\label{subB}\includegraphics[width=.18\textwidth]{figure/buaamark.eps}}\\
@@ -227,6 +187,7 @@ void main()
 \caption{矩形的subfig排列}
 \label{maxfig}
 \end{figure}
+
 到此，图形的排列基本就OK了。一般只会用到图\ref{figbuaamark}这样的图形
 环境就可以了，后面的太复杂，一般情况下不推荐使用。如果对图形的编排的兴趣，
 可以google一下《\LaTeX{}插图指南》一书。
