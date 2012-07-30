@@ -195,7 +195,7 @@
         \ifbuaa@bachelor
             \degree{学士学位}{Bachelor}{学士}
         \else
-            \degree{学士硕士学位}{Master}{硕士}
+            \degree{学术硕士学位}{Master}{硕士}
         \fi
     \fi
 \fi

@@ -1,154 +1,80 @@
 % !Mode:: "TeX:UTF-8"
 \chapter{\LaTeX{}基础语法}
 \label{chapter-basic}
-\section{字体设置}
+本章只注重对于论文时所可能需要用到的相关示例片段。其他的一些较为深入的\LaTeX{}语法或用法等
+非本章所能提供，有需要的用户请搜索相关的入门文档，如《一份不太简短的\LaTeX2e{}介绍》、
+《大家来学\LaTeX{}》等。推荐用户将此章的源代码与pdf的效果对比来决定如何使用。
 
-本模板使用了CTEX封装的\texttt{ctexbook}类，作为毕设论文，一般不需要
-过多使用字体。因此，全文默认字体为~{\bf 宋体}~和{\bf Times New Roman}字体。
-此外还可以使用\texttt{\textbackslash heiti}命令来使用~{\heiti 黑体}~字体。
+\section{字体字号设置}
+\label{sec-font}
 
-对于英文，则有\textbackslash textbf\{•\}\quad\textbackslash textit\{•\}
-\quad\textbackslash textsf\{•\}\quad\textbackslash texttt\{•\}
-\quad\textbackslash textsl\{•\}命令来进行相应的控制。
+\subsection{字体设置以及换行}
+\label{subsec-font}
+作为毕设论文，一般不需要过多使用字体。因此，全文默认字体为~{\bf 宋体}~
+和{\bf Times New Roman}字体。默认情况下不需要对字体进行特别的设置，
+论文中有需要特别强调的地方，可以通过如下的示例进行更换。
 
-\begin{description}
-    \item[\textbackslash textbf\{•\}] \textbf{0123456789abcdefgABCDEFG}
-    \item[\textbackslash textit\{•\}] \textit{0123456789abcdefgABCDEFG}
-    \item[\textbackslash textsf\{•\}] \textsf{0123456789abcdefgABCDEFG}
-    \item[\textbackslash texttt\{•\}] \texttt{0123456789abcdefgABCDEFG}
-    \item[\textbackslash textsl\{•\}] \textsl{0123456789abcdefgABCDEFG}
-\end{description}
-在论文中，有一些地方需要进行强调说明时，可以使用~{\bf 加粗}~来进行强调，
-比如\{\textbackslash bf~加粗\}，即可以得到~“{\bf 加粗}”~的效果；
-还可以有~\underline{下划线}，使用命令为\textbackslash underline\{需要加下划线的内容\}即可。
+{\heiti 床前明月光，疑是地上霜。举头望明月，低头思故乡。}
 
-\section{字号设置}
-论文要求正文字号为小四号，除非有特别的要求，全文不需要对字号进行另外的设置。
-需要进行字号设置时，可以用\texttt{\textbackslash zihao\{-4\}}，
-以及\texttt{\textbackslash zihao\{4\}}来表示小四号字体和四号字体，
-同理可以从小五号\texttt{\textbackslash zihao\{-5\}}字体到
-初号\texttt{\textbackslash zihao\{0\}}字体。
+{\bf 床前明月光，疑是地上霜。举头望明月，低头思故乡。}
 
-\section{间距间隔控制}
-对于间距的控制，\LaTeX{}中的间距比Office要强大得多了！
-Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
-可使用的间隔控制命令有如表\ref{table-space}所示若干，虽然很多都用不到。
+\textbf{To be, or not to be, that's a question.}
 
-\begin{table}
-\begin{center}
-\caption{\LaTeX{}中的一些常用间隔间距控制命令}\label{table-space}
-\begin{tabular}{l|l}
-\hline
-命令&效果\slash 说明\\\hline\hline
-间隔\texttt{\textbackslash quad}间隔 & 间隔\quad 间隔\\\hline
-间隔\texttt{\textbackslash qquad}间隔 & 间隔\qquad 间隔\\\hline
-间隔$\sim$间隔 & 间隔~间隔\\\hline
-间隔\verb*|\ |间隔 & 间隔\ 间隔\\\hline
-间隔\texttt{\textbackslash ,}间隔 & 间隔\, 间隔\\\hline\hline
-\texttt{\textbackslash hfill} & 水平填充\\\hline
-\texttt{\textbackslash vfill} & 垂直填充\\\hline
-\texttt{\textbackslash hspace\{5cm\}} & 水平空白5cm的距离\\\hline
-\texttt{\textbackslash vspace\{5cm\}} & 垂直空白5cm的距离\\\hline
-\end{tabular}
-\end{center}
-\end{table}
+\texttt{To be, or not to be, that's a question.}
 
-\LaTeX{}支持的单位有：\texttt{in}---英寸(inch)，\texttt{mm}---毫米，
-\texttt{cm}---厘米，\texttt{pt}---Points(大约1\slash 72~inch)，
-以及相对距离：\texttt{em}---当前字体的字符“\textbf{M}”的宽度，
-\texttt{ex}---当前字体的字符“\textbf{x}”的宽度，长度可以为负值，如~-1.5em~。
-
-换行有两种方式，分别为命令“\verb|\\ |”以及命令\verb|\newline |，
-这两个命令将使“光标”切换到下一行，但并不具有缩进（即\LaTeX{}并不认为
-这是新的一个段落，当然可以使用\verb|\qquad |来强制缩进两个字符间距）。
-
-而需要另起新的段落时，可以在段落加上\verb|\par |来实现，也可以
+而需要另起新的段落时，可以在段落加上\verb|\par|来实现，也可以
 通过一个（或多个\footnote{\LaTeX{}会忽略掉.tex文件中的空白距离
 和多余的空行。}）空行来达到此目的。具体使用哪种方式，请论文作者自行选择。
 
-\section{章节标题以及条目的设置}
-新的一章将在新的页面开始，使用\texttt{\textbackslash chapter}\{\LaTeX{}基础语法\}
-命令时，即可以得到~\hyperref[chapter-basic]{第5章~\LaTeX{}基础语法}~这样的章名称。
+{\heiti 注意：}在图形、表格浮动环境后的文字为换行，并非“新的段落”。
 
-同样的，还有命令\textbackslash section\{•\}、\textbackslash subsection\{•\}
+由于\LaTeX{}中的命令需要用到一些特殊符号，因此一些特殊的符号的录入与正常的录入不同。
+比较常见的有“\%\quad\$\quad\&\quad\{\quad\}
+\quad\#\quad\_\quad\^{}\quad\textbackslash”等，
+其他的一些不常见的符号请自行搜索，或参考tex自带的symbol.pdf。
+
+\section{章节标题以及条目的设置}
+\label{sec-chaptitle}
+新的一章将在新的页面开始，使用\verb|\chapter{•}|命令时，
+即可以得到~\hyperref[chapter-basic]{第5章~\LaTeX{}基础语法}~这样的章名称。
+
+同样的，还有命令\verb|\section{•}|、\verb|\subsection{•}|
 来定义节、条的标题。对于章节前面的“第1章”、“1.1”等标号，则不需要用户来编辑，
 \LaTeX{}会根据规则来进行编排。
 
 \section{图形}
-\label{sec:fig}
+\label{sec-figure}
 在编写论文过程中，需要引用图形甚至多个图形时，可以使用\texttt{figure}环境，
-以代码\ref{code-fig}来说明如何使用此环境。
+具体如何使用此环境来插入图片，可以见插入图\ref{sample-figbuaamark}的具体代码。
 
-需要注意的是，figure为浮动环境，即\LaTeX{}在排版浮动环境时，
-会根据一定的美观规则来排版，并不是将将代码放在某处，图片就会出现在某处，
-如代码\ref{code-fig}中的\texttt{[htbp]}为浮动环境选项，
-\texttt{h}表示为here，\texttt{t}为top，\texttt{b}为bottom，
-\texttt{p}为page，优先顺序依次递减，\LaTeX{}先判断here（当前
-位置）是否可以放置此环境（代码\ref{code-fig}中为图片），否则
-依次判断top、bottom、page来放置此环境中的内容。
-
-\begin{lstlisting}[label={code-fig},caption={使用figure环境},language={LaTeX}]
- 如图 \ref{fig-buaamark}所示为北航校徽。
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[width=90bp]{figure/buaamark.eps}
-\caption{校徽\label{fig-buaamark}}
-\end{center}
-\end{figure}
-\end{lstlisting}
-
-代码中\textbackslash includegraphics后的[width=90bp]为对图片
+代码中\verb|\includegraphics|后的\verb|[width=90bp]|为对图片
 大小进行控制的代码，可以替换成为height,scale等。
-\textbackslash caption为图的标题，\textbackslash label为图的
-引用标号，在“如图”后引用即可得到“\ref{figbuaamark}”的效果。
-具体生成的效果如第\pageref{figbuaamark}页所示。
+\verb|\caption{}|为图的标题，\verb|\label{}|为图的引用标号，
+在“如图”后引用即可得到“\ref{sample-figbuaamark}”的效果。
+具体生成的效果如第\pageref{sample-figbuaamark}页图\ref{sample-figbuaamark}所示。
 
-如图\ref{figbuaamark}所示为北航校徽。
-
-\begin{figure}[htb]
+\begin{figure}
 \begin{center}
 \includegraphics[width=90bp]{figure/buaamark.eps}
-\caption{校徽\label{figbuaamark}}
+\caption{校徽}
+\label{sample-figbuaamark}
 \end{center}
 \end{figure}
 
 \section{表格}
+\label{sec-table}
 表格也是论文中经常需要用到的一个元素，它也可以作为一个浮动环境
 （当然也可以不浮动）由\LaTeX{}自己来按照一定规则来决定如何放置。
 
-常用的表格浮动环境以代码\ref{code-table}作为示例。
-
-\begin{lstlisting}[caption={表格浮动环境},label={code-table},language={LaTeX}]
-\begin{table}[h]
-\begin{center}
-\caption{浮动表格示例\label{tab:test3}}
-\begin{tabular}{c||c|c|c}
-\hline
-序号&测试内容1&测试内容2&测试内容3\\
-\hline \hline
-1&一&二&三\\
-\hline
-2&四&五&六\\
-\hline
-3&七&八&九\\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
-\end{lstlisting}
-
-经过\LaTeX{}编译排版出来的结果如表\ref{tab-test3}所示。
-
-\texttt{table}环境即为浮动环境，其后带htbp等参数，其具体
-意义在\ref{sec:fig}节描述过了。\texttt{tabular}即为表格环境，
-后面的\texttt{\{c||c|c|c\}}的意思为，表格分为四列，第一列
-居中{\bf c}\textit{(center)}对齐，其他对齐方式为左
-对齐{\bf l}\textit{(left)}，右对齐{\bf r}\textit{(right)}。
+\texttt{tabular}即为表格环境，后面的\verb|{c||c|c|c}|的意思为，
+表格分为四列，第一列居中{\bf c}\texttt{(center)}对齐，其他对齐方式为左
+对齐{\bf l}\texttt{(left)}，右对齐{\bf r}\texttt{(right)}。
 然后竖直画两条竖线，第二列和第三列第四列也为居中对齐，并且用一竖线
-分隔。表格中需要加横线时使用\texttt{\textbackslash hline}来
+分隔。表格中需要加横线时使用\verb|\hline|来
 添加，横线或竖线可添加多条。
 
-表格中每一项使用“\& ”分隔，每一行使用\texttt{\textbackslash\textbackslash}来进行换行。
+表格中每一项使用“\& ”分隔，每一行使用\verb|\\|来进行换行，
+需要加横线时在换行后加\verb|\hline|。示例表格片段如表\ref{tab-test3}所示。
 \begin{table}
 \begin{center}
 \caption{浮动表格示例\label{tab-test3}}
@@ -156,43 +82,36 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
 \hline
 序号&测试内容1&测试内容2&测试内容3\\
 \hline \hline
-1&一&二&三\\
-\hline
-2&四&五&六\\
-\hline
-3&七&八&九\\
-\hline
+1 & 一 & 二 & 三\\\hline
+2 & 四 & 五 & 六\\\hline
+3 & 七 & 八 & 九\\\hline
 \end{tabular}
 \end{center}
 \end{table}
 
 \section{数学公式和定理定义等}
-数学公式可以说是体现\LaTeX{}强大之处的地方。blablabla
+\label{sec-math}
+数学公式可分为内嵌行公式和独立行公式。内嵌行公式为放置在
+论文段落中间，通过使用\verb|$ $|来使用。如\verb|$2+2=4$|则得到$2+2=4$。
+独立行公式为单独一行，通过使用\verb|\[  \]|来使用。
+如\verb|\[3+3=6\]|即得到\[3+3=6\]的公式。
 
-注：具体参考一下\url{http://latex.yo2.cn/articles/latex_math_modle.html}
-以及介绍一下如何使用mathtype编写数学公式后导出latex代码应该就可以了。
+对于论文而言，需要{\heiti 具有编号}的独立行公式，
+则将公式放置于\verb|\begin{equation}|和\verb|\end{equation}|中间即可。
+\begin{equation}
+\label{sample-equ}
+E=mc^2
+\end{equation}
+公式\ref{sample-equ}则是具有编号的独立行公式。
+
+其他的一些更深入的数学公式排版知识请查找相应的\LaTeX{}的入门文档比如
+《一份不太简短的\LaTeX2e{}介绍》、《大家来学\LaTeX{}》等或自行搜索。
 
 \section{条目及环境}
-条目环境分为itemize，enumerate，description三种。itemize用于简单的列表条目，enumerate
-用于带序号的列表条目，description用于带描述的列表条目。
+\label{sec-item}
+条目环境分为itemize，enumerate，description三种。itemize用于简单的列表条目，enumerate用于带序号的列表条目，description用于带描述的列表条目。
 
-以下用代码\ref{code-item}来说明。
-\begin{lstlisting}[label={code-item},caption={条目环境},language={LaTeX}]
-\begin{enumerate}
-    \item 这里是第一条：
-        \begin{itemize}
-            \item 这里是第一点。
-            \item 这里是第二点。
-        \end{itemize}
-    \item 这里是第二条：
-        \begin{description}
-            \item[ 观点三 ] 这里是第三点。
-            \item[ 观点四 ] 这里是第四点。
-        \end{description}
-\end{enumerate}
-\end{lstlisting}
-
-具体的效果如下所示。
+示例片段如下所示。
 \begin{enumerate}
     \item 这里是第一条：
         \begin{itemize}
@@ -206,78 +125,31 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
         \end{description}
 \end{enumerate}
 
-左右对齐时，只需要把需要进行对齐的内容分别放到 flushleft或flushright环境中即可。
-
-\section{使用~listing~显示代码}
-原先~ctexbook~文档类和~listings~宏包配合使用时，代码在换页时会
-出现莫名其妙的错误，后来经高人指点，顺利解决了。
-感兴趣的话，可以看看\href{http://bbs.ctex.org/viewthread.php?tid=53451}{这里}。
-这里给使用~listings~宏包插入源代码的例子，这里是一段C代码。
-另外，listings宏包真可谓博大精深，可以实现各种复杂、漂亮的效果，想要进一步学习的同学，可以参考
+\section{使用~listings~显示代码}
+\label{sec-listings}
+本模板使用\texttt{listings}\footnote{有兴趣的同学可以参考
 \href{http://mirror.ctan.org/macros/latex/contrib/listings/listings.pdf}
-{listings宏包手册\footnote{此节完全参考武汉理工大学论文模板}}。
+{listings宏包手册}}宏包进行代码的整理和展示。
+代码\ref{sample-code}即为使用listings宏包插入源代码的例子。
 
-\section{更深入一些的操作}
+\begin{lstlisting}[language={C}, caption={一段C源代码},label={sample-code}]
+#include <stdio.h>
 
-\subsection{字体字号的强调}
-可以通过对文字使用\textcolor{blue}{颜}\textcolor{red}{色}来强调说明。
-使用\textcolor[rgb]{0.5,0.95,0.96}{有颜色的文字}可以通过
-命令\texttt{\textbackslash textcolor}\{red\}\{红色的字\}，
-或者\texttt{\textbackslash textcolor[rgb]}\{0.5,0.98,0.7\}\{使用RGB混合颜色\}
-来\textcolor[rgb]{0.5,0.98,0.7}{使用RGB混合颜色}进行强调。
-
-\subsection{两个或多个图形的排列}
-而对于需要两个或三个图形并排或者矩形排列的时候，则示例代码可以如\ref{code-subfigs}所示。
-\begin{lstlisting}[caption={图形的排列},label={code-subfigs},language={LaTeX}]
-\begin{figure}[htb]
-\begin{center}
-    \subfigure[ 并排小图 a]{\label{fig:minia}\includegraphics[width=.2\textwidth]{figure/buaamark.eps}}\hspace{7em}
-    \subfigure[ 并排小图 b]{\label{fig:minib}\includegraphics[width=.2\textwidth]{figure/buaamark.eps}}
-    \caption{ 多个图形并排的示例 }
-    \label{subfig1}
-\end{center}
-\end{figure}
-
-\begin{figure}[htb]
-\begin{minipage}{0.5\textwidth}
-    \centering
-    \includegraphics[width=0.35\textwidth]{figure/buaamark.eps}
-    \caption{ 小图A}
-    \label{minifiga}
-\end{minipage}
-\begin{minipage}{0.5\textwidth}
-    \centering
-    \includegraphics[width=0.35\textwidth]{figure/buaamark.eps}
-    \caption{ 小图B}
-    \label{minifigb}
-\end{minipage}
-\end{figure}
-
-\begin{figure}[htb]
-\centering
-    \begin{tabular}{cc}
-    \subfigure[ 子图 A]{\label{suba}\includegraphics[width=.18\textwidth]{figure/buaamark.eps}}\hspace{7em} & \subfigure[ 子图 B]{\label{subB}\includegraphics[width=.18\textwidth]{figure/buaamark.eps}}\\
-    \subfigure[ 子图 C]{\label{subc}\includegraphics[width=.18\textwidth]{figure/buaamark.eps}}\hspace{7em} & \subfigure[ 子图 D]{\label{subd}\includegraphics[width=.18\textwidth]{figure/buaamark.eps}}\\
-    \end{tabular}
-\caption{ 矩形的 subfig 排列}
-\label{maxfig}
-\end{figure}
+void main() 
+	{
+		printf("Hello, world!");
+	}
 \end{lstlisting}
 
-而具体的效果如下所示。图\ref{subfig1}为子图排列的形式，两个子图有各自的图题，并有一个共同的图题。
+\section{更深入一些的操作}
+\label{sec-more}
 
-\begin{figure}[htb]
-\begin{center}
-    \subfigure[并排小图a]{\label{fig:minia}\includegraphics[width=.2\textwidth]{figure/buaamark.eps}}\hspace{7em}
-    \subfigure[并排小图b]{\label{fig:minib}\includegraphics[width=.2\textwidth]{figure/buaamark.eps}}
-    \caption{多个图形并排的示例}
-    \label{subfig1}
-\end{center}
-\end{figure}
+\subsection{两个或多个图形的排列}
+\label{subsec-morefig}
+而对于需要两个或三个图形并排或者矩形排列的时候，则可以通过
+如下图\ref{minifiga}和\ref{minifigb}的示例代码自行进行替换调整。
 
-图\ref{minifiga}和图\ref{minifigb}为两个并排的图形，各自均有图题。
-
-\begin{figure}[htb]
+\begin{figure}
 \begin{minipage}{0.5\textwidth}
     \centering
     \includegraphics[width=0.35\textwidth]{figure/buaamark.eps}
@@ -292,9 +164,21 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
 \end{minipage}
 \end{figure}
 
-图\ref{maxfig}所示为2x2排列的图形，使用\texttt{tabular}的表格环境嵌套在\texttt{figure}环境中来达到此效果。
+图\ref{subfig1}为子图排列的形式，两个子图有各自的图题，并有一个共同的图题。
 
-\begin{figure}[htb]
+\begin{figure}
+\begin{center}
+    \subfigure[并排小图a]{\label{fig:minia}\includegraphics[width=.2\textwidth]{figure/buaamark.eps}}\hspace{7em}
+    \subfigure[并排小图b]{\label{fig:minib}\includegraphics[width=.2\textwidth]{figure/buaamark.eps}}
+    \caption{多个图形并排的示例}
+    \label{subfig1}
+\end{center}
+\end{figure}
+
+若需要将四个或多个图形用矩阵的方式排列时，则可由图\ref{maxfig}所展示的范例的
+代码进行相应的调整和修改，来达到作者所需要的效果。
+
+\begin{figure}
 \centering
     \begin{tabular}{cc}
     \subfigure[子图A]{\label{suba}\includegraphics[width=.18\textwidth]{figure/buaamark.eps}}\hspace{7em} & \subfigure[子图B]{\label{subB}\includegraphics[width=.18\textwidth]{figure/buaamark.eps}}\\
@@ -303,11 +187,13 @@ Office除了空格回车外，差不多就没有了。而对于\LaTeX{}来说，
 \caption{矩形的subfig排列}
 \label{maxfig}
 \end{figure}
+
 到此，图形的排列基本就OK了。一般只会用到图\ref{figbuaamark}这样的图形
 环境就可以了，后面的太复杂，一般情况下不推荐使用。如果对图形的编排的兴趣，
 可以google一下《\LaTeX{}插图指南》一书。
 
 \subsection{图形和表格的并排显示}
+\label{subsec-morefigtab}
 如果需要图形和表格并排显示（一般情况下是不会有这种情况的，也十分不推荐
 图形和表格并排显示），则可以通过的代码\ref{code-figtab}来对图形和
 表格进行处理来达到并排显示的效果。图\ref{fig-table}和
@@ -358,6 +244,7 @@ Friday & 5 &5.5\\ \hline
 \end{lstlisting}
 
 \subsection{长表格的示例}
+\label{subsec-moretab}
 当需要排版的表格长度超过一页，那么在本模板中推荐使用 \textsf{longtable}
 宏包，模板对 \textsf{longtable} 进行了相应的设置，所以用起来可能简单一些。
 表~\ref{example-longtable} 就是\textsf{longtable}的简单示例。
@@ -454,6 +341,7 @@ Friday & 5 &5.5\\ \hline
 \end{lstlisting}
 
 \subsection{定理定义环境}
+\label{subsec-morethm}
 给大家演示一下各种和证明有关的环境\footnote{本节内容来自武汉理工大学论文模板。}：
 
 \begin{assumption}
