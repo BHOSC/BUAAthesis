@@ -23,7 +23,11 @@
 \end{table}
 \qquad 本科生论文结构推荐按如下的代码形式来组织整个论文。具体各个参数及部分请见第xx节。
 
-\begin{lstlisting}[language={LaTeX}]
+\begin{lstlisting}[
+    language={[LaTeX]TeX},
+    caption={本科生论文结构},
+    label={code-bachelor-structure},
+]
 % !Mode:: "TeX:UTF-8"
 \documentclass[bachelor,openany,oneside,adobefonts]{buaathesis}
 \begin{document}
@@ -34,7 +38,7 @@
 % 任务书信息
 \include{file/bachelor/assign}
 
-% 封面 & 任务书 & 声明
+% 封面 \& 任务书 \& 声明
 \maketitle
 % 摘要
 \include{file/abstract}
@@ -61,7 +65,11 @@
 \end{lstlisting}
 \qquad 研究生则推荐使用如下的代码形式来组织论文。
 
-\begin{lstlisting}[language={LaTeX}]
+\begin{lstlisting}[
+    language={[LaTeX]TeX},
+    caption={研究生论文结构},
+    label={code-master-structure},
+]
 % !Mode:: "TeX:UTF-8"
 \documentclass[master,openright,adobefonts]{buaathesis}
 \begin{document}
@@ -70,11 +78,11 @@
 \include{file/userinfo} % 公共信息部分
 \include{file/master/userinfo} % 研究生信息部分
 
-% 中英封面 & 题名页 ＆ 独创声明和使用授权
+% 中英封面 \& 题名页 \& 独创声明和使用授权
 \maketitle
 % 摘要
 \include{file/abstract}
-% 目录 & 插图目录 & 表格目录
+% 目录 \& 插图目录 \& 表格目录
 \tableofcontents
 \listoffigures
 \listoftables
@@ -85,7 +93,7 @@
 \mainmatter
 
 % 正文
-\include{file/chapter1}	
+\include{file/chapter1}
 \include{file/chapter2}
 \include{file/chapter3}
 
