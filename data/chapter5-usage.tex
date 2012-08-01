@@ -21,102 +21,21 @@
     \end{tabular}
 \end{center}
 \end{table}
-\qquad 本科生论文结构推荐按如下的代码形式来组织整个论文。具体各个参数及部分请见第xx节。
 
-\begin{lstlisting}[
+本科生论文结构推荐按如下的代码形式来组织整个论文。
+\lstinputlisting[
     language={[LaTeX]TeX},
     caption={本科生论文结构},
     label={code-bachelor-structure},
-]
-% !Mode:: "TeX:UTF-8"
-\documentclass[bachelor,openany,oneside,adobefonts]{buaathesis}
-\begin{document}
+]{sample-bachelor.tex}
 
-% 用户信息
-\include{file/userinfo} % 公共信息部分
-\include{file/bachelor/userinfo} % 本科生信息部分
-% 任务书信息
-\include{file/bachelor/assign}
-
-% 封面 \& 任务书 \& 声明
-\maketitle
-% 摘要
-\include{file/abstract}
-% 目录
-\tableofcontents
-% 正文页码样式
-\mainmatter
-
-% 正文
-\include{file/chapter1}
-\include{file/chapter2}
-\include{file/chapter3}
-
-% 致谢
-\include{file/bachelor/thanks}
-% 参考文献
-\include{file/reference}
-
-% 附录
-\appendix
-\include{file/appendix1}
-\include{file/appendix2}
-\end{document}
-\end{lstlisting}
-\qquad 研究生则推荐使用如下的代码形式来组织论文。
-
-\begin{lstlisting}[
+研究生则推荐使用如下的代码形式来组织论文。
+\lstinputlisting[
     language={[LaTeX]TeX},
     caption={研究生论文结构},
     label={code-master-structure},
-]
-% !Mode:: "TeX:UTF-8"
-\documentclass[master,openright,adobefonts]{buaathesis}
-\begin{document}
+]{sample-master.tex}
 
-% 用户信息
-\include{file/userinfo} % 公共信息部分
-\include{file/master/userinfo} % 研究生信息部分
-
-% 中英封面 \& 题名页 \& 独创声明和使用授权
-\maketitle
-% 摘要
-\include{file/abstract}
-% 目录 \& 插图目录 \& 表格目录
-\tableofcontents
-\listoffigures
-\listoftables
-% 符号表
-\include{file/master/denotation}
-
-% 正文页码样式
-\mainmatter
-
-% 正文
-\include{file/chapter1}
-\include{file/chapter2}
-\include{file/chapter3}
-
-% 参考文献
-\include{file/reference}
-
-% 附录
-\appendix
-\include{file/appendix1}
-\include{file/appendix2}
-
-% 附页标题样式
-\backmatter
-
-% 附页
-\include{file/master/back1-achievement}
-\include{file/master/back2-thanks}
-
-% 作者简介，仅博士生需要此项。
-\include{file/master/back3-aboutauthor}
-\end{document}
-\end{lstlisting}
-    
 \section{模板选项}
 \subsection{学位选项}
     \begin{itemize}
