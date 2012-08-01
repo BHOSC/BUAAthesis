@@ -370,7 +370,7 @@
 \RequirePackage{graphicx}
 \DeclareGraphicsExtensions{.eps,.ps,.jpg,.bmp}
 \graphicspath{figure/}
-\RequirePackage{pifont}%这个包主要是在“秘级”后加一个五角星
+\RequirePackage{pifont} % “秘级”后的五角星
 
 \RequirePackage{caption}
 \RequirePackage{subfigure}
@@ -396,6 +396,13 @@
     \renewcommand{\thetable}{\arabic{table}}
     \renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
 \fi
+
+% 图片表格标题命令，主要用于混排
+\newcommand\figcaption{\def\@captype{figure}\caption}
+\newcommand\tabcaption{\def\@captype{table}\caption}
+
+% 表格中的行合并
+\RequirePackage{multirow}
 
 %---------------------间距的一些设置--------------------
 \renewcommand{\baselinestretch}{1.5}
@@ -500,7 +507,8 @@
     escapeinside={\%*}{*)},
     extendedchars=false,
     mathescape=true,
-    morekeywords={*,...}
+    xleftmargin=3em,
+    xrightmargin=3em,
 }
 \ifbuaa@color
     \lstset{
@@ -517,16 +525,6 @@
         stringstyle=\color{black},
     }
 \fi
-
-\lstdefinelanguage{LaTeX}{
-    morekeywords={%
-    documentclass,begin,end,maketitle,tableofcontent,include,%
-    usepackage,par,chapter,section,subsection,%
-    hspace,vspace,quad,qquad,frontmatter,mainmatter,backmatter,%
-    clearpage,cleardoublepage,appendix,item,upcite,url},
-    otherkeywords={},
-    sensitive=true
-}
 \renewcommand{\lstlistingname}{代码} %% 重命名Listings标题头
 
 %++++++++++++++++++设置首页+++++++++++++++++++

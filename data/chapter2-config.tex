@@ -105,12 +105,16 @@ Mac\TeX{}是基于\TeX{}Live为Mac系统设计的套件。
 \section{关于编译}
 
 \LaTeX{}的文件是通过编译生成的，对于本模板和毕业设计论文而言，
-需要经过以下步骤（以sample-bachelor.tex为例）：
-\begin{lstlisting}[language=bash,caption={编译步骤}]
-    xelatex sample-bachelor.tex
-    bibtex sample-bachelor.aux
-    xelatex sample-bachelor.tex
-    xelatex sample-bachelor.tex
+需要经过代码\ref{code-compile}所示步骤（以sample-bachelor.tex为例）：
+\begin{lstlisting}[
+    language={bash},
+    caption={编译步骤},
+    label={code-compile},
+]
+xelatex sample-bachelor.tex
+bibtex  sample-bachelor.aux
+xelatex sample-bachelor.tex
+xelatex sample-bachelor.tex
 \end{lstlisting}
 当然，我们在模板里也提供了编译的执行脚本。
 
@@ -120,10 +124,15 @@ Mac\TeX{}是基于\TeX{}Live为Mac系统设计的套件。
 如{\verb D:\BUAAthesis\ }，然后运行{\verb msmake }即可。
 
 \subsection{Makefile [ Windows(cygwin) / Linux / MacOS ]}
-需要要你的命令行环境支持Make，cd到BUAAthesis相应目录，目前支持以下功能:
-\begin{lstlisting}[language=bash,caption={make 命令}]
-    make bachelor # 编译本科生的\LaTeX{}（文件默认项，亦可直接输入make）
-    make master # 编译研究生的\LaTeX{}文件
-    make clean # 删除编译过程中生成的文件（除了pdf）
-    make depclean # 删除编译过程中生成的文件（包括pdf）
+需要要你的命令行环境支持Make，cd到BUAAthesis相应目录，
+目前支持如代码\ref{code-make}所示的功能:
+\begin{lstlisting}[
+    language={bash},
+    caption={make 命令},
+    label={code-make},
+]
+make bachelor # 编译本科生的\LaTeX{}（文件默认项，亦可直接输入make）
+make master # 编译研究生的\LaTeX{}文件
+make clean # 删除编译过程中生成的文件（除了pdf）
+make depclean # 删除编译过程中生成的文件（包括pdf）
 \end{lstlisting}
