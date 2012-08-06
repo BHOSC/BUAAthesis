@@ -286,7 +286,7 @@
 \let\oldtabularx\tabularx
 \let\endoldtabularx\endtabularx
 \renewenvironment{tabularx}[2]
-{\oldtabularx{#1}{#2}\zihao{5}}
+{\zihao{5}\oldtabularx{#1}{#2}}
 {\endoldtabularx}
 
 %---------------------------文章中标题的格式设置--------------------------%
