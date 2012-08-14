@@ -4,40 +4,43 @@
 :: Created: 2012 - 07 - 12
 :: E-mail:  mrpeng000@gmail.com
 ::======================================
-::Ê¹ÓÃËµÃ÷
+::ä½¿ç”¨è¯´æ˜
 ::
-::  1¡¢Éú³ÉÎÄµµ
-::  thesis [full]
-::    ÔÚµ±Ç°Ä¿Â¼ÏÂ±àÒëÂÛÎÄ£¬½«Ö´ĞĞxelatexÃüÁî£¬ÈôÎŞÏàÓ¦µÄcls/bstÎÄ¼ş£¬½«Ö±½Ó±¨´í
-::     - full ÎªÊ×´Î±àÒë»òÍêÈ«Çå¿ÕÊ±µÄÑ¡Ïî£¬½«Ö´ĞĞxelatex->bibtex->xelatex->xelatexÃüÁî
-::  2¡¢ÇåÀíÎÄ¼ş
+::  1ã€ç”Ÿæˆæ–‡æ¡£
+::  bachelor|master [full]
+::    åœ¨å½“å‰ç›®å½•ä¸‹ç¼–è¯‘è®ºæ–‡ï¼Œå°†æ‰§è¡Œxelatexå‘½ä»¤ï¼Œè‹¥æ— ç›¸åº”çš„cls/bstæ–‡ä»¶ï¼Œå°†ç›´æ¥æŠ¥é”™
+::     - full ä¸ºé¦–æ¬¡ç¼–è¯‘æˆ–å®Œå…¨æ¸…ç©ºæ—¶çš„é€‰é¡¹ï¼Œå°†æ‰§è¡Œxelatex->bibtex->xelatex->xelatexå‘½ä»¤
+::  2ã€æ¸…ç†æ–‡ä»¶
 ::  clean [more]
-::    ÔÚµ±Ç°Ä¿Â¼ÏÂÇåÀí±àÒë¹ı³ÌÖĞ²úÉúµÄÁÙÊ±ÎÄ¼ş
-::     - more ½«Çå³ı±àÒë¹ı³ÌÖĞ²úÉúµÄÎÄ¼ş£¬°üÀ¨pdf¡¢aux¡¢bblµÈÎÄ¼ş
+::    åœ¨å½“å‰ç›®å½•ä¸‹æ¸…ç†ç¼–è¯‘è¿‡ç¨‹ä¸­äº§ç”Ÿçš„ä¸´æ—¶æ–‡ä»¶
+::     - more å°†æ¸…é™¤ç¼–è¯‘è¿‡ç¨‹ä¸­äº§ç”Ÿçš„æ–‡ä»¶ï¼ŒåŒ…æ‹¬pdfã€auxã€bblç­‰æ–‡ä»¶
 ::
 ::======================================
 
 @echo off
-set mythesis=sample-master
-::ÔÚ´Ë´¦¸ü¸ÄĞèÒª±àÒëµÄÎÄ¼şÃû
+::set mythesis=sample-bachelor
+::åœ¨æ­¤å¤„æ›´æ”¹éœ€è¦ç¼–è¯‘çš„æ–‡ä»¶å
 :init
-if /i {%1}=={thesis} goto thesis
+if /i {%1}=={bachelor} goto thesis
+if /i {%1}=={master} goto thesis
 if /i {%1}=={clean} goto clean
 if /i {%1}=={help} goto help
 if /i {%1}=={} goto help
 goto help
 
 ::======================================
-::±àÒëÎÒµÄÂÛÎÄ
+::ç¼–è¯‘æˆ‘çš„è®ºæ–‡
 ::======================================
 :thesis
-echo ÕıÔÚ±àÒëÎÄ¼ş
+echo æ­£åœ¨ç¼–è¯‘æ–‡ä»¶
 if not exist buaathesis.cls goto clserr
 if not exist buaathesis.bst goto bsterr
+if /i {%1}=={bachelor} set mythesis=sample-bachelor
+if /i {%1}=={master} set mythesis=sample-master
 call xelatex %mythesis%
 if {%2}=={full} (goto full)
 if errorlevel 1 goto myerr1
-echo ³É¹¦Éú³ÉÂÛÎÄ
+echo æˆåŠŸç”Ÿæˆè®ºæ–‡
 call %mythesis%.pdf
 goto end
 :full
@@ -46,15 +49,15 @@ if errorlevel 1 goto biberr
 call xelatex %mythesis%
 call xelatex %mythesis%
 if errorlevel 1 goto myerr1
-echo ³É¹¦Éú³ÉÂÛÎÄ
+echo æˆåŠŸç”Ÿæˆè®ºæ–‡
 call %mythesis%.pdf
 goto end
 
 ::======================================
-::Çå³ıÎÄ¼şÒÔ¼°Çå³ı¸ü¶àÎÄ¼ş
+::æ¸…é™¤æ–‡ä»¶ä»¥åŠæ¸…é™¤æ›´å¤šæ–‡ä»¶
 ::======================================
 :clean
-echo É¾³ı±àÒëÁÙÊ±ÎÄ¼ş
+echo åˆ é™¤ç¼–è¯‘ä¸´æ—¶æ–‡ä»¶
 del /f /q /s *.log *.glo *.idx *.ilg *.lof *.ind *.out *.thm *.toc *.lot *.loe *.out.bak *.blg *.synctex.gz
 del /f /s *.dvi *.ps
 if {%2}=={more} (goto cleanmore)
@@ -68,37 +71,38 @@ del /f /q /s *aux *.bbl *.pdf
 goto end
 
 ::======================================
-::°ïÖúĞÅÏ¢
+::å¸®åŠ©ä¿¡æ¯
 ::======================================
 :help
-echo            ÊäÈëmsmake+ÏÂÃæµÄÃüÁî£¬Ñ¡Ôñ½øÈëÏàÓ¦²Ù×÷
-echo                ÈçÊäÈëÃüÁî¡°msmake clean more¡±
-echo     msmake²ÎÊı   ËµÃ÷
-echo     thesis       Éú³ÉÎÒµÄÂÛÎÄ
-echo	    clean        Çå³ıÉú³ÉµÄ¶àÓàÎÄ¼ş
-echo	    help         ÏÔÊ¾±¾°ïÖúĞÅÏ¢
-echo     thesis full  ÎªÊ×´Î»òÔËĞĞ"clean more"ÃüÁîºóÊ¹ÓÃ
-echo	    clean more   ½«Çå³ıËùÓĞµ±Ç°Ä¿Â¼ÏÂµÄÎŞ¹ØÎÄ¼ş
-::ÈÌ²»×¡ÍÂ²Û£¬ÎªÁËÏÔÊ¾¶ÔÆë£¬¾ÓÈ»ÅÅµÃÕâÃ´ÂÒ£¡
+echo            è¾“å…¥msmake+ä¸‹é¢çš„å‘½ä»¤ï¼Œé€‰æ‹©è¿›å…¥ç›¸åº”æ“ä½œ
+echo                å¦‚è¾“å…¥å‘½ä»¤â€œmsmake bachelorâ€
+echo        msmakeå‚æ•°             è¯´æ˜
+echo     bachelor/master       ç”Ÿæˆæˆ‘çš„è®ºæ–‡
+echo	    clean                 æ¸…é™¤ç”Ÿæˆçš„å¤šä½™æ–‡ä»¶
+echo	    help                  æ˜¾ç¤ºæœ¬å¸®åŠ©ä¿¡æ¯
+echo     bachelor/master full  ä¸ºé¦–æ¬¡æˆ–è¿è¡Œ"clean more"å‘½ä»¤åä½¿ç”¨
+echo	    clean more            å°†æ¸…é™¤æ‰€æœ‰å½“å‰ç›®å½•ä¸‹çš„æ— å…³æ–‡ä»¶
+echo æ³¨æ„ï¼šæ‰€éœ€ç¼–è¯‘çš„æ–‡ä»¶åå¿…é¡»æ˜¯sample-bachelor.texæˆ–sample-master.tex
+::å¿ä¸ä½åæ§½ï¼Œä¸ºäº†æ˜¾ç¤ºå¯¹é½ï¼Œå±…ç„¶æ’å¾—è¿™ä¹ˆä¹±ï¼
 goto end
 
 ::======================================
-::ÔËĞĞ´íÎóĞÅÏ¢
+::è¿è¡Œé”™è¯¯ä¿¡æ¯
 ::======================================
 :myerr1
-echo °¦Ñ½£¬Éú³ÉÂÛÎÄÊ§°ÜÁËÄØ
+echo å”‰å‘€ï¼Œç”Ÿæˆè®ºæ–‡å¤±è´¥äº†å‘¢
 goto end
 :biberr
-echo Ã²ËÆÄ¾ÓĞ²Î¿¼ÎÄÏ×Êı¾İ¿â°É
+echo è²Œä¼¼æœ¨æœ‰å‚è€ƒæ–‡çŒ®æ•°æ®åº“å§
 goto end
 :clserr
-echo ¾ÓÈ»Á¬clsÄ£°å¶¼Ä¾ÓĞ£¡ÄÖÄÄÑù£¡
+echo å±…ç„¶è¿clsæ¨¡æ¿éƒ½æœ¨æœ‰ï¼é—¹å“ªæ ·ï¼
 goto end
 :bsterr
-echo ¾ÓÈ»Á¬bstµÄ²Î¿¼ÎÄÏ×ÑùÊ½¶¼Ä¾ÓĞ£¡ÄÖÄÄÑù£¡
+echo å±…ç„¶è¿bstçš„å‚è€ƒæ–‡çŒ®æ ·å¼éƒ½æœ¨æœ‰ï¼é—¹å“ªæ ·ï¼
 goto end
 
 ::======================================
-::½áÊø·û£¬ÎŞÈÎºÎ¾ßÌåÒâÒå
+::ç»“æŸç¬¦ï¼Œæ— ä»»ä½•å…·ä½“æ„ä¹‰
 ::======================================
 :end
