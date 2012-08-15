@@ -111,9 +111,9 @@ itemize是最简单的，enumerate是带序号的，description是带描述的�
 也可以使用height或者两个一起使用，设置其中一个即可实现等比例缩放。
 \begin{figure}[h!]
     \centering
+    \includegraphics[width=90bp]{figure/buaamark.eps}
     \caption{校徽}
     \label{fig-sample}
-    \includegraphics[width=90bp]{figure/buaamark.eps}
 \end{figure}
 
 \section{表格}
@@ -150,7 +150,7 @@ itemize是最简单的，enumerate是带序号的，description是带描述的�
 \section{数学公式}
 \label{sec-math}
 数学公式分为内嵌行公式和独立行公式。内嵌行公式是与正文段落混合排布的公式，
-\verb|$ $|表示内嵌行公式的环境，如$1+1=4$。独立行公式是独占一行的公式，
+\verb|$ $|表示内嵌行公式的环境，如$sin^2+cos^2=1$。独立行公式是独占一行的公式，
 推荐使用equation环境来自动实现独立行公式的编号，示例见公式\ref{equ-sample}。
 \begin{equation}
     \label{equ-sample}
@@ -160,6 +160,7 @@ itemize是最简单的，enumerate是带序号的，description是带描述的�
 一般的数学公式只需掌握几个简单的命令，复杂的数学公式可能会用到更多的命令，
 更深入的数学公式相关内容请参见文档。
 % TODO(huxuan): Add recommended document relatex to formula
+% 数学符号可以翻阅symbols.pdf，或者使用工具http://detexify.kirelabs.org/classify.html
 
 \section{使用listings显示代码}
 \label{sec-listings}
