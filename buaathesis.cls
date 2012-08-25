@@ -1,8 +1,19 @@
 % !Mode:: "TeX:UTF-8"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin of file 'buaathesis.cls'
 
 \NeedsTeXFormat{LaTeX2e}[2007/10/19]
-\ProvidesClass{buaathesis}[2012/07/06 0.8 The LaTeX template for thesis of BeiHang University]
+\ProvidesClass{buaathesis}
+              [2012/07/06 v0.8
+The LaTeX template for thesis of BeiHang University]
 \typeout{Document Class `buaathesis' v0.8 by BHOSC (2012/07)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Begin of class options
+
+%% 本模板自身包含五个选项
+%% 前四个为对应学位类型，决定不同样式
+%% 第五个为颜色选项，用于电子版的情况
 
 \newif\ifbuaa@bachelor\buaa@bachelorfalse
 \newif\ifbuaa@master\buaa@mastertrue
@@ -16,74 +27,79 @@
 \DeclareOption{doctor}{\buaa@doctortrue}
 \DeclareOption{color}{\buaa@colortrue}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%声明五个选项，用来判断用户是应该选择哪种样式
-%其中，master选项为默认为true，在往后的编写判断语句时
-%须先将其放在后面进行判断，此处就注意！
-%如若需要其他的参数亦可参照如上格式写代码即可。
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%% 其余选项传递给ctexbook
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessOptions\relax
+
+%% 引用ctexbook及基本设置
 \LoadClass[cs4size,a4paper,fancyhdr]{ctexbook}[2007/10/19]
+
+%% End of class options
+%%%%%%%%%%%%%%%%%%%%%%%
+
 \bibliographystyle{buaathesis}%参考文献格式
 
-%===============需要用户输入的信息==================
+%%%%%%%%%%%%%%%%%%%%%
+%% Begin of user info
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Begin of common user info
+
+%%% 学校名称
 \def\buaa@university{北京航空航天大学}
-\def\buaa@universityeng{BeiHang Univerisity}
-%或者是：Beijing University of Areonautics and Astronautics
+\def\buaa@universityeng{Beihang Univerisity}
 \newcommand{\university}[2]{%
     \def\buaa@university{#1}
     \def\buaa@universityeng{#2}
-}%学校名称
+}
 
+%%% 学院
 \def\buaa@school{}
 \def\buaa@schooleng{}
 \newcommand{\school}[2]{%
     \def\buaa@school{#1}
     \def\buaa@schooleng{#2}
-}%学院
+}
 
-\def\buaa@thesisauthor{}
-\def\buaa@thesisauthoreng{}
-\newcommand{\thesisauthor}[2]{%
-    \def\buaa@thesisauthor{#1}
-    \def\buaa@thesisauthoreng{#2}
-}%作者
-
-\def\buaa@thesistitle{}
-\def\buaa@thesistitleeng{}
-\newcommand{\thesistitle}[2]{%
-    \def\buaa@thesistitle{#1}
-    \def\buaa@thesistitleeng{#2}
-}%论文标题
-
+%%% 专业
 \def\buaa@major{}
 \def\buaa@majoreng{}
 \newcommand{\major}[2]{%
     \def\buaa@major{#1}
     \def\buaa@majoreng{#2}
-}%专业
+}
 
+%%% 论文标题
+\def\buaa@thesistitle{}
+\def\buaa@thesistitleeng{}
+\newcommand{\thesistitle}[2]{%
+    \def\buaa@thesistitle{#1}
+    \def\buaa@thesistitleeng{#2}
+}
+
+%%% 作者
+\def\buaa@thesisauthor{}
+\def\buaa@thesisauthoreng{}
+\newcommand{\thesisauthor}[2]{%
+    \def\buaa@thesisauthor{#1}
+    \def\buaa@thesisauthoreng{#2}
+}
+
+%%% 指导老师
 \def\buaa@teacher{}
 \def\buaa@teachereng{}
 \newcommand{\teacher}[2]{%
     \def\buaa@teacher{#1}
     \def\buaa@teachereng{#2}
-}%指导老师
+}
 
+%%% 分类号
 \def\buaa@category{}
 \newcommand{\category}[1]{%
     \def\buaa@category{#1}
-}%中国分类号
+}
 
-\def\buaa@mibao{}
-\newcommand{\mibao}[1]{%
-    \def\buaa@mibao{#1}
-}%保密等级
-
+%%% 论文开始时间
 \def\buaa@thesisbeginyear{}
 \def\buaa@thesisbeginmonth{}
 \def\buaa@thesisbeginday{}
@@ -91,8 +107,9 @@
     \def\buaa@thesisbeginyear{#1}
     \def\buaa@thesisbeginmonth{#2}
     \def\buaa@thesisbeginday{#3}
-}%论文开始时间
+}
 
+%%% 论文结束时间
 \def\buaa@thesisendyear{}
 \def\buaa@thesisendmonth{}
 \def\buaa@thesisendday{}
@@ -100,8 +117,9 @@
     \def\buaa@thesisendyear{#1}
     \def\buaa@thesisendmonth{#2}
     \def\buaa@thesisendday{#3}
-}%论文结束时间
+}
 
+%%% 答辩时间
 \def\buaa@defenseyear{}
 \def\buaa@defensemonth{}
 \def\buaa@defenseday{}
@@ -109,85 +127,29 @@
     \def\buaa@defenseyear{#1}
     \def\buaa@defensemonth{#2}
     \def\buaa@defenseday{#3}
-}%答辩时间
+}
 
+%%% 中文摘要关键字
 \def\buaa@ckeyword{}
 \newcommand{\ckeyword}[1]{%
     \def\buaa@ckeyword{#1}}
+
+%%% 英文摘要关键字
 \def\buaa@ekeyword{}
 \newcommand{\ekeyword}[1]{%
     \def\buaa@ekeyword{#1}}
-%中英文摘要关键词
 
-%+++++++++++++++本科生的信息+++++++++++++++++++
-\def\buaa@class{}
-\newcommand{\class}[1]{%
-    \def\buaa@class{#1}
-}%班级
-
-\def\buaa@unicode{}
-\newcommand{\unicode}[1]{%
-    \def\buaa@unicode{#1}
-}%单位代码
-
-\def\buaa@studentID{}
-\newcommand{\studentID}[1]{%
-    \def\buaa@studentID{#1}
-}%学号
-
-\def\buaa@thesisdateyear{}
-\def\buaa@thesisdatemonth{}
-\newcommand{\thesisdate}[2]{%
-    \def\buaa@thesisdateyear{#1}
-    \def\buaa@thesisdatemonth{#2}
-}%论文时间，用于论文首页
-
-%+++++++++++++++研究生的信息++++++++++++++++++++
-\def\buaa@direction{}
-\newcommand{\direction}[1]{
-    \def\buaa@direction{#1}
-}%研究方向
-
-\def\buaa@teacherdegree{}
-\def\buaa@teacherdegreeeng{}
-\newcommand{\teacherdegree}[2]{%
-    \def\buaa@teacherdegree{#1}
-    \def\buaa@teacherdegreeeng{#2}
-}%教师职称
-
-\def\buaa@thesisID{}
-\newcommand{\thesisID}[1]{%
-    \def\buaa@thesisID{#1}
-}%论文编号
-
-\def\buaa@commityear{}
-\def\buaa@commitmonth{}
-\def\buaa@commitday{}
-\newcommand{\commit}[3]{%
-    \def\buaa@commityear{#1}
-    \def\buaa@commitmonth{#2}
-    \def\buaa@commitday{#3}
-}%论文提交时间
-
-\def\buaa@awardyear{}
-\def\buaa@awardmonth{}
-\def\buaa@awardday{}
-\newcommand{\award}[3]{%
-    \def\buaa@awardyear{#1}
-    \def\buaa@awardmonth{#2}
-    \def\buaa@awardday{#3}
-}%授予学位时间
-
-\def\buaa@appdegree{}%首页
-\def\buaa@appdegreeeng{}%英文首页
-\def\buaa@applydegree{}%页眉页脚
+%%% 学位
+\def\buaa@appdegree{} % 中文首页
+\def\buaa@appdegreeeng{} % 英文首页
+\def\buaa@applydegree{} % 页眉页脚
 \newcommand{\degree}[3]{%
     \def\buaa@appdegree{#1}
     \def\buaa@appdegreeeng{#2}
     \def\buaa@applydegree{#3}
 }
 \ifbuaa@doctor
-    \degree{博士学位}{Doctor of Philosophy}{博士}
+    \degree{博士学位}{Doctor}{博士}
 \else
     \ifbuaa@engineer
         \degree{专业硕士学位}{Master}{硕士}
@@ -199,7 +161,96 @@
         \fi
     \fi
 \fi
-%=============用户录入的信息到此完毕================
+
+%%% End of common user info
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Begin of bachelor user info
+
+%%% 班级
+\def\buaa@class{}
+\newcommand{\class}[1]{%
+    \def\buaa@class{#1}
+}
+
+%%% 单位代码
+\def\buaa@unicode{1006}
+\newcommand{\unicode}[1]{%
+    \def\buaa@unicode{#1}
+}
+
+%%% 学号
+\def\buaa@studentID{}
+\newcommand{\studentID}[1]{%
+    \def\buaa@studentID{#1}
+}
+
+%%% 论文时间
+\def\buaa@thesisdateyear{}
+\def\buaa@thesisdatemonth{}
+\newcommand{\thesisdate}[2]{%
+    \def\buaa@thesisdateyear{#1}
+    \def\buaa@thesisdatemonth{#2}
+}
+
+%%% End of bachelor user info
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Begin of master user info
+
+%%% 保密等级
+\def\buaa@mibao{}
+\newcommand{\mibao}[1]{%
+    \def\buaa@mibao{#1}
+}
+
+%%% 研究方向
+\def\buaa@direction{}
+\newcommand{\direction}[1]{
+    \def\buaa@direction{#1}
+}
+
+%%% 导师职称
+\def\buaa@teacherdegree{}
+\def\buaa@teacherdegreeeng{}
+\newcommand{\teacherdegree}[2]{%
+    \def\buaa@teacherdegree{#1}
+    \def\buaa@teacherdegreeeng{#2}
+}
+
+%%% 论文编号
+\def\buaa@thesisID{}
+\newcommand{\thesisID}[1]{%
+    \def\buaa@thesisID{#1}
+}
+
+%%% 论文提交时间
+\def\buaa@commityear{}
+\def\buaa@commitmonth{}
+\def\buaa@commitday{}
+\newcommand{\commit}[3]{%
+    \def\buaa@commityear{#1}
+    \def\buaa@commitmonth{#2}
+    \def\buaa@commitday{#3}
+}
+
+%%% 授予学位时间
+\def\buaa@awardyear{}
+\def\buaa@awardmonth{}
+\def\buaa@awardday{}
+\newcommand{\award}[3]{%
+    \def\buaa@awardyear{#1}
+    \def\buaa@awardmonth{#2}
+    \def\buaa@awardday{#3}
+}
+
+%%% End of master user info
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% End of user info
+%%%%%%%%%%%%%%%%%%%
 
 %---------------------字体字号的一些设置-------------------
 %   设置主要字体为Times New Roman和宋体
@@ -931,5 +982,5 @@
    }}{\end{list}}
 %% 关于列表环境的定义和使用，可以参考http://blog.sina.com.cn/s/blog_5e16f1770100h0jt.html
 
-%---------------------- end of buaathesis.cls ------------------------
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% End of file 'buaathesis.cls'
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
