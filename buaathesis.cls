@@ -74,12 +74,96 @@ The LaTeX template for thesis of BUAA]
 %%%%%%%%%%%%%%% global settings %%%%%%%%%%%%%%% END
 %%%%%%%%%%%%%%% page level settings %%%%%%%%%%%%%%% BEGIN
 %%%%%%%%%%%%%%%%%%%% header & footer %%%%%%%%%%%%%%%%%%%% BEGIN
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\ifbuaa@bachelor
+    \fancyhead[C]{
+        \includegraphics[width=37bp]{figure/buaamark.eps}\hfill
+        \raisebox{2ex}{\heiti\zihao{4}\buaa@university 毕业设计(论文)}\hfill
+        \raisebox{2ex}{\songti\zihao{5}第\quad\thepage\quad 页}
+    }
+\else
+    \fancyhead[CO]{\zihao{-5}\songti\buaa@university\buaa@applydegree 学位论文\vspace{1.5mm}}
+    \fancyhead[CE]{\zihao{-5}\songti\leftmark\vspace{1.5mm}}
+    \fancyfoot[C]{\zihao{5}\thepage}
+\fi
+
+\renewcommand{\headrulewidth}{0.5bp} % 页眉线宽度
+
+\fancypagestyle{plain}{
+    \pagestyle{fancy}
+}
 %%%%%%%%%%%%%%%%%%%% header & footer %%%%%%%%%%%%%%%%%%%% END
 %%%%%%%%%%%%%%%%%%%% title %%%%%%%%%%%%%%%%%%%% BEGIN
+%%%% 汉化
+\renewcommand{\contentsname}{目\qquad 录}
+\renewcommand\listfigurename{插\ 图\ 目\ 录}
+\renewcommand\listtablename{表\ 格\ 目\ 录}
+\renewcommand\bibname{参\ 考\ 文\ 献}
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+%%%% 格式
+\CTEXsetup[
+    format={\centering\zihao{3}\heiti},
+    nameformat={},
+    aftername={\quad},
+    titleformat={},
+    beforeskip={-.5\baselineskip},
+    afterskip={\baselineskip},
+]{chapter}
+\CTEXsetup[
+    aftername={\quad},
+    beforeskip={.5\baselineskip},
+    afterskip={.5\baselineskip},
+]{section}
+\CTEXsetup[
+    format={\zihao{-4}\heiti},
+    aftername={\quad},
+    beforeskip={.5\baselineskip},
+    afterskip={.5\baselineskip},
+]{subsection}
+\ifbuaa@bachelor
+    \CTEXsetup[
+        name={,},
+        number={\arabic{chapter}},
+    ]{chapter}
+    \CTEXsetup[
+        format={\zihao{-4}\heiti},
+    ]{section}
+\else
+    \CTEXsetup[
+        name={第,章},
+        number={\chinese{chapter}},
+    ]{chapter}
+    \CTEXsetup[
+        format={\zihao{4}\heiti},
+    ]{section}
+\fi
 %%%%%%%%%%%%%%%%%%%% title %%%%%%%%%%%%%%%%%%%% END
 %%%%%%%%%%%%%%%%%%%% cross reference %%%%%%%%%%%%%%%%%%%% BEGIN
+\RequirePackage[xetex,unicode]{hyperref}
+\ifbuaa@color
+    \hypersetup{colorlinks}
+\else
+    \hypersetup{hidelinks}
+\fi
+\hypersetup{
+    bookmarksnumbered,
+    bookmarksopen,
+    pdftitle={BUAA thesis},
+    pdfauthor={BHOSC},
+    pdfsubject={北航-\buaa@appdegree 论文},
+    pdfcreator={LaTeXed~By~BHOSC}
+}
 %%%%%%%%%%%%%%%%%%%% cross reference %%%%%%%%%%%%%%%%%%%% END
 %%%%%%%%%%%%%%%%%%%% reference %%%%%%%%%%%%%%%%%%%% BEGIN
+\bibliographystyle{buaathesis} % 参考文献格式
+\RequirePackage[sort&compress]{natbib}
+    \bibpunct{[}{]}{,}{n}{}{}
+\RequirePackage{hypernat}
+    \newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
 %%%%%%%%%%%%%%%%%%%% reference %%%%%%%%%%%%%%%%%%%% END
 %%%%%%%%%%%%%%% page level settings %%%%%%%%%%%%%%% END
 %%%%%%%%%%%%%%% element level settings %%%%%%%%%%%%%%% BEGIN
@@ -127,7 +211,6 @@ The LaTeX template for thesis of BUAA]
 %%%%%%%%%%%%%%% custom pages for master %%%%%%%%%%%%%%% END
 %%%%%%%%%% custom pages %%%%%%%%%% END
 
-\bibliographystyle{buaathesis}%参考文献格式
 
 %%%%%%%%%% user info %%%%%%%%%% BEGIN
 %%%%%%%%%%%%%%% common user info %%%%%%%%%%%%%%% BEGIN
@@ -304,29 +387,6 @@ The LaTeX template for thesis of BUAA]
 %%%%%%%%%%%%%%% master user info %%%%%%%%%%%%%%% END
 %%%%%%%%%% user info %%%%%%%%%% END
 
-\RequirePackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhead{}
-\fancyfoot{}
-    \ifbuaa@bachelor
-        %\newsavebox{\markbuaa}
-        %\sbox{\markbuaa}{\includegraphics[width=45bp]{figure/buaamark.eps}}
-        %<LaTeX插图指南>第十五章讲了为什么要这样做。但不顶用啊！！！
-        \fancyhead[C]{%
-        \includegraphics[width=37bp]{figure/buaamark.eps}\hfill
-        \raisebox{2ex}{\heiti\zihao{4}\buaa@university 毕业设计(论文)}\hfill
-        \raisebox{2ex}{\songti\zihao{5}第\quad\thepage\quad 页}
-        }
-    \else
-        \fancyhead[CO]{\zihao{-5}\songti\buaa@university\buaa@applydegree 学位论文\vspace{1.5mm}}
-        \fancyhead[CE]{\zihao{-5}\songti\leftmark\vspace{1.5mm}}
-        \fancyfoot[C]{\zihao{5}\thepage}
-    \fi
-\renewcommand{\headrulewidth}{0.5bp} %页眉线宽度
-
-\fancypagestyle{plain}{
-    \pagestyle{fancy}
-}
 
 \newcommand{\clearemptydoublepage}{%
 \clearpage
@@ -363,44 +423,6 @@ The LaTeX template for thesis of BUAA]
 {\zihao{5}\oldtabularx{#1}{#2}}
 {\endoldtabularx}
 
-%---------------------------文章中标题的格式设置--------------------------%
-\CTEXsetup[
-    format={\centering\zihao{3}\heiti},
-    nameformat={},
-    aftername={\quad},
-    titleformat={},
-    beforeskip={-.5\baselineskip},
-    afterskip={\baselineskip},
-]{chapter}
-\CTEXsetup[
-    aftername={\quad},
-    beforeskip={.5\baselineskip},
-    afterskip={.5\baselineskip},
-]{section}
-\CTEXsetup[
-    format={\zihao{-4}\heiti},
-    aftername={\quad},
-    beforeskip={.5\baselineskip},
-    afterskip={.5\baselineskip},
-]{subsection}
-\ifbuaa@bachelor
-    \CTEXsetup[
-        name={,},
-        number={\arabic{chapter}},
-    ]{chapter}
-    \CTEXsetup[
-        format={\zihao{-4}\heiti},
-    ]{section}
-\else
-    \CTEXsetup[
-        name={第,章},
-        number={\chinese{chapter}},
-    ]{chapter}
-    \CTEXsetup[
-        format={\zihao{4}\heiti},
-    ]{section}
-\fi
-
 %------------------------目录中标题格式进行设置---------------------------%
 \RequirePackage{titletoc}
 \ifbuaa@bachelor
@@ -418,28 +440,6 @@ The LaTeX template for thesis of BUAA]
     \titlecontents{subsection}[4em]{\vspace{0.1\baselineskip}\heiti\zihao{5}}{\thecontentslabel\ }{}
         {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.1\baselineskip}]
 \fi
-%-------------------交叉引用和参考文献整理---------------------
-\RequirePackage[xetex,unicode]{hyperref}
-\ifbuaa@color
-    \hypersetup{colorlinks}
-\else
-    \hypersetup{hidelinks}
-\fi
-\hypersetup{
-    bookmarksnumbered,
-    bookmarksopen,
-    pdftitle={BUAA thesis},
-    pdfauthor={BHOSC},
-    pdfsubject={北航-\buaa@appdegree 论文},
-    pdfcreator={LaTeXed~By~BHOSC}
-}
-
-\RequirePackage[sort&compress]{natbib}
-    \bibpunct{[}{]}{,}{n}{}{}
-\RequirePackage{hypernat}
-    \newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
-%上面四行代码是06版中的，我也不懂，但使用上没有问题。
-
 %------------------------图形表格的一些设置------------------------
 \RequirePackage{graphicx}
 \DeclareGraphicsExtensions{.eps,.ps,.jpg,.bmp}
@@ -513,14 +513,6 @@ The LaTeX template for thesis of BUAA]
 \newtheorem{problem}{问题}[chapter]
 \newtheorem{conjecture}{猜想}[chapter]
 % 摘自武汉理工大学论文模板，具体待验证
-
-%==================若干标题的汉化================%
-\renewcommand{\contentsname}{目\qquad 录}
-\renewcommand\listfigurename{插\ 图\ 目\ 录}
-\renewcommand\listtablename{表\ 格\ 目\ 录}
-\renewcommand\bibname{参\ 考\ 文\ 献}
-\renewcommand{\figurename}{图}
-\renewcommand{\tablename}{表}
 
 %------------------其他一些设置---------------
 \RequirePackage{ulem}               %比较容易加入下划线\uline{}
