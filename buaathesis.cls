@@ -99,9 +99,7 @@ The LaTeX template for thesis of BUAA]
 \bibliographystyle{buaathesis}%参考文献格式
 
 %%%%%%%%%% user info %%%%%%%%%% BEGIN
-
 %%%%%%%%%%%%%%% common user info %%%%%%%%%%%%%%% BEGIN
-
 %%% 学校名称
 \def\buaa@university{北京航空航天大学}
 \def\buaa@universityeng{Beihang Univerisity}
@@ -109,7 +107,6 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@university{#1}
     \def\buaa@universityeng{#2}
 }
-
 %%% 学院
 \def\buaa@school{}
 \def\buaa@schooleng{}
@@ -117,7 +114,6 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@school{#1}
     \def\buaa@schooleng{#2}
 }
-
 %%% 专业
 \def\buaa@major{}
 \def\buaa@majoreng{}
@@ -125,7 +121,6 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@major{#1}
     \def\buaa@majoreng{#2}
 }
-
 %%% 论文标题
 \def\buaa@thesistitle{}
 \def\buaa@thesistitleeng{}
@@ -133,7 +128,6 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@thesistitle{#1}
     \def\buaa@thesistitleeng{#2}
 }
-
 %%% 作者
 \def\buaa@thesisauthor{}
 \def\buaa@thesisauthoreng{}
@@ -141,7 +135,6 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@thesisauthor{#1}
     \def\buaa@thesisauthoreng{#2}
 }
-
 %%% 指导老师
 \def\buaa@teacher{}
 \def\buaa@teachereng{}
@@ -149,13 +142,11 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@teacher{#1}
     \def\buaa@teachereng{#2}
 }
-
 %%% 分类号
 \def\buaa@category{}
 \newcommand{\category}[1]{%
     \def\buaa@category{#1}
 }
-
 %%% 论文开始时间
 \def\buaa@thesisbeginyear{}
 \def\buaa@thesisbeginmonth{}
@@ -165,7 +156,6 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@thesisbeginmonth{#2}
     \def\buaa@thesisbeginday{#3}
 }
-
 %%% 论文结束时间
 \def\buaa@thesisendyear{}
 \def\buaa@thesisendmonth{}
@@ -175,7 +165,6 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@thesisendmonth{#2}
     \def\buaa@thesisendday{#3}
 }
-
 %%% 答辩时间
 \def\buaa@defenseyear{}
 \def\buaa@defensemonth{}
@@ -185,17 +174,14 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@defensemonth{#2}
     \def\buaa@defenseday{#3}
 }
-
 %%% 中文摘要关键字
 \def\buaa@ckeyword{}
 \newcommand{\ckeyword}[1]{%
     \def\buaa@ckeyword{#1}}
-
 %%% 英文摘要关键字
 \def\buaa@ekeyword{}
 \newcommand{\ekeyword}[1]{%
     \def\buaa@ekeyword{#1}}
-
 %%% 学位
 \def\buaa@appdegree{} % 中文首页
 \def\buaa@appdegreeeng{} % 英文首页
@@ -218,29 +204,23 @@ The LaTeX template for thesis of BUAA]
         \fi
     \fi
 \fi
-
 %%%%%%%%%%%%%%% common user info %%%%%%%%%%%%%%% END
-
 %%%%%%%%%%%%%%% bachelor user info %%%%%%%%%%%%%%% BEGIN
-
 %%% 班级
 \def\buaa@class{}
 \newcommand{\class}[1]{%
     \def\buaa@class{#1}
 }
-
 %%% 单位代码
 \def\buaa@unicode{1006}
 \newcommand{\unicode}[1]{%
     \def\buaa@unicode{#1}
 }
-
 %%% 学号
 \def\buaa@studentID{}
 \newcommand{\studentID}[1]{%
     \def\buaa@studentID{#1}
 }
-
 %%% 论文时间
 \def\buaa@thesisdateyear{}
 \def\buaa@thesisdatemonth{}
@@ -248,23 +228,18 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@thesisdateyear{#1}
     \def\buaa@thesisdatemonth{#2}
 }
-
 %%%%%%%%%%%%%%% bachelor user info %%%%%%%%%%%%%%% END
-
 %%%%%%%%%%%%%%% master user info %%%%%%%%%%%%%%% BEGIN
-
 %%% 保密等级
 \def\buaa@mibao{}
 \newcommand{\mibao}[1]{%
     \def\buaa@mibao{#1}
 }
-
 %%% 研究方向
 \def\buaa@direction{}
 \newcommand{\direction}[1]{
     \def\buaa@direction{#1}
 }
-
 %%% 导师职称
 \def\buaa@teacherdegree{}
 \def\buaa@teacherdegreeeng{}
@@ -272,13 +247,11 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@teacherdegree{#1}
     \def\buaa@teacherdegreeeng{#2}
 }
-
 %%% 论文编号
 \def\buaa@thesisID{}
 \newcommand{\thesisID}[1]{%
     \def\buaa@thesisID{#1}
 }
-
 %%% 论文提交时间
 \def\buaa@commityear{}
 \def\buaa@commitmonth{}
@@ -288,7 +261,6 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@commitmonth{#2}
     \def\buaa@commitday{#3}
 }
-
 %%% 授予学位时间
 \def\buaa@awardyear{}
 \def\buaa@awardmonth{}
@@ -298,9 +270,7 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@awardmonth{#2}
     \def\buaa@awardday{#3}
 }
-
 %%%%%%%%%%%%%%% master user info %%%%%%%%%%%%%%% END
-
 %%%%%%%%%% user info %%%%%%%%%% END
 
 %---------------------字体字号的一些设置-------------------
