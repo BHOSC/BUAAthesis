@@ -142,7 +142,7 @@ The LaTeX template for thesis of BUAA]
     ]{section}
 \fi
 %%%%%%%%%%%%%%%%%%%% title %%%%%%%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%%%%%%% index %%%%%%%%%%%%%%%%%%%% BEGIN
+%%%%%%%%%%%%%%%%%%%% contents %%%%%%%%%%%%%%%%%%%% BEGIN
 \RequirePackage{titletoc}
 \ifbuaa@bachelor
     \titlecontents{chapter}[0pt]{\heiti\zihao{-4}}{\thecontentslabel\ }{}
@@ -159,7 +159,7 @@ The LaTeX template for thesis of BUAA]
     \titlecontents{subsection}[4em]{\vspace{0.1\baselineskip}\heiti\zihao{5}}{\thecontentslabel\ }{}
         {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.1\baselineskip}]
 \fi
-%%%%%%%%%%%%%%%%%%%% index %%%%%%%%%%%%%%%%%%%% END
+%%%%%%%%%%%%%%%%%%%% contents %%%%%%%%%%%%%%%%%%%% END
 %%%%%%%%%%%%%%%%%%%% cross reference %%%%%%%%%%%%%%%%%%%% BEGIN
 \RequirePackage[xetex,unicode]{hyperref}
 \ifbuaa@color
@@ -208,6 +208,8 @@ The LaTeX template for thesis of BUAA]
 
 %%%%%%%%%% custom pages %%%%%%%%%% BEGIN
 %%%%%%%%%%%%%%% custom pages for common %%%%%%%%%%%%%%% BEGIN
+%%%%%%%%%%%%%%%%%%%% index %%%%%%%%%%%%%%%%%%%% BEGIN
+%%%%%%%%%%%%%%%%%%%% index %%%%%%%%%%%%%%%%%%%% END
 %%%%%%%%%%%%%%%%%%%% abstract %%%%%%%%%%%%%%%%%%%% BEGIN
 %%%%%%%%%%%%%%%%%%%% abstract %%%%%%%%%%%%%%%%%%%% END
 %%%%%%%%%%%%%%% custom pages for common %%%%%%%%%%%%%%% END
