@@ -1,6 +1,5 @@
 % !Mode:: "TeX:UTF-8"
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Begin of file 'buaathesis.cls'
+%%%%% 'buaathesis.cls' %%%%% BEGIN
 
 \NeedsTeXFormat{LaTeX2e}[2007/10/19]
 \ProvidesClass{buaathesis}
@@ -8,8 +7,7 @@
 The LaTeX template for thesis of BeiHang University]
 \typeout{Document Class `buaathesis' v0.8 by BHOSC (2012/07)}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Begin of class options
+%%%%%%%%%% class options %%%%%%%%%% BEGIN
 
 %% 本模板自身包含五个选项
 %% 前四个为对应学位类型，决定不同样式
@@ -34,16 +32,13 @@ The LaTeX template for thesis of BeiHang University]
 %% 引用ctexbook及基本设置
 \LoadClass[cs4size,a4paper,fancyhdr]{ctexbook}[2007/10/19]
 
-%% End of class options
-%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% class options %%%%%%%%%% END
 
 \bibliographystyle{buaathesis}%参考文献格式
 
-%%%%%%%%%%%%%%%%%%%%%
-%% Begin of user info
+%%%%%%%%%% user info %%%%%%%%%% BEGIN
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Begin of common user info
+%%%%%%%%%%%%%%% common user info %%%%%%%%%%%%%%% BEGIN
 
 %%% 学校名称
 \def\buaa@university{北京航空航天大学}
@@ -162,11 +157,9 @@ The LaTeX template for thesis of BeiHang University]
     \fi
 \fi
 
-%%% End of common user info
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% common user info %%%%%%%%%%%%%%% END
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Begin of bachelor user info
+%%%%%%%%%%%%%%% bachelor user info %%%%%%%%%%%%%%% BEGIN
 
 %%% 班级
 \def\buaa@class{}
@@ -194,11 +187,9 @@ The LaTeX template for thesis of BeiHang University]
     \def\buaa@thesisdatemonth{#2}
 }
 
-%%% End of bachelor user info
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% bachelor user info %%%%%%%%%%%%%%% END
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Begin of master user info
+%%%%%%%%%%%%%%% master user info %%%%%%%%%%%%%%% BEGIN
 
 %%% 保密等级
 \def\buaa@mibao{}
@@ -246,11 +237,9 @@ The LaTeX template for thesis of BeiHang University]
     \def\buaa@awardday{#3}
 }
 
-%%% End of master user info
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% master user info %%%%%%%%%%%%%%% END
 
-%% End of user info
-%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% user info %%%%%%%%%% END
 
 %---------------------字体字号的一些设置-------------------
 %   设置主要字体为Times New Roman和宋体
@@ -982,5 +971,4 @@ The LaTeX template for thesis of BeiHang University]
    }}{\end{list}}
 %% 关于列表环境的定义和使用，可以参考http://blog.sina.com.cn/s/blog_5e16f1770100h0jt.html
 
-%% End of file 'buaathesis.cls'
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% 'buaathesis.cls' %%%%% END
