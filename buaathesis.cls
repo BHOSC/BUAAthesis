@@ -1,16 +1,16 @@
 % !Mode:: "TeX:UTF-8"
 %%%%% 'buaathesis.cls' %%%%% BEGIN
+%%%%%%%%%% class clarification %%%%%%%%%% BEGIN
 \NeedsTeXFormat{LaTeX2e}[2007/10/19]
 \ProvidesClass{buaathesis}
               [2012/07/06 v0.8
 The LaTeX template for thesis of BUAA]
 \typeout{Document Class `buaathesis' v0.8 by BHOSC (2012/07)}
-
+%%%%%%%%%% class clarification %%%%%%%%%% END
 %%%%%%%%%% class options %%%%%%%%%% BEGIN
 %% 本模板自身包含五个选项
 %% 前四个为对应学位类型，决定不同样式
 %% 第五个为颜色选项，用于电子版的情况
-
 \newif\ifbuaa@bachelor\buaa@bachelorfalse
 \newif\ifbuaa@master\buaa@mastertrue
 \newif\ifbuaa@engineer\buaa@engineerfalse
@@ -21,11 +21,9 @@ The LaTeX template for thesis of BUAA]
 \DeclareOption{engineer}{\buaa@engineertrue}
 \DeclareOption{doctor}{\buaa@doctortrue}
 \DeclareOption{color}{\buaa@colortrue}
-
 %% 其余选项传递给ctexbook
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessOptions\relax
-
 %% 引用ctexbook及基本设置
 \LoadClass[cs4size,a4paper,fancyhdr]{ctexbook}[2007/10/19]
 %%%%%%%%%% class options %%%%%%%%%% END
