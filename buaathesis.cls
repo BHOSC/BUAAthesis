@@ -1,14 +1,12 @@
 % !Mode:: "TeX:UTF-8"
 %%%%% 'buaathesis.cls' %%%%% BEGIN
-
 \NeedsTeXFormat{LaTeX2e}[2007/10/19]
 \ProvidesClass{buaathesis}
               [2012/07/06 v0.8
-The LaTeX template for thesis of BeiHang University]
+The LaTeX template for thesis of BUAA]
 \typeout{Document Class `buaathesis' v0.8 by BHOSC (2012/07)}
 
 %%%%%%%%%% class options %%%%%%%%%% BEGIN
-
 %% 本模板自身包含五个选项
 %% 前四个为对应学位类型，决定不同样式
 %% 第五个为颜色选项，用于电子版的情况
@@ -18,7 +16,6 @@ The LaTeX template for thesis of BeiHang University]
 \newif\ifbuaa@engineer\buaa@engineerfalse
 \newif\ifbuaa@doctor\buaa@doctorfalse
 \newif\ifbuaa@color\buaa@colorfalse
-
 \DeclareOption{bachelor}{\buaa@bachelortrue}
 \DeclareOption{master}{\buaa@mastertrue}
 \DeclareOption{engineer}{\buaa@engineertrue}
@@ -31,7 +28,6 @@ The LaTeX template for thesis of BeiHang University]
 
 %% 引用ctexbook及基本设置
 \LoadClass[cs4size,a4paper,fancyhdr]{ctexbook}[2007/10/19]
-
 %%%%%%%%%% class options %%%%%%%%%% END
 
 %%%%%%%%%% custom settings %%%%%%%%%% BEGIN
