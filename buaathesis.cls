@@ -154,7 +154,7 @@ The LaTeX template for thesis of BUAA]
     bookmarksopen,
     pdftitle={BUAA thesis},
     pdfauthor={BHOSC},
-    pdfsubject={北航-\buaa@appdegree 论文},
+    pdfsubject={北航毕业设计论文},
     pdfcreator={LaTeXed~By~BHOSC}
 }
 %%%%%%%%%%%%%%%%%%%% cross reference %%%%%%%%%%%%%%%%%%%% END
