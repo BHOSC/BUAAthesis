@@ -31,12 +31,45 @@ The LaTeX template for thesis of BUAA]
 %%%%%%%%%% custom settings %%%%%%%%%% BEGIN
 %%%%%%%%%%%%%%% global settings %%%%%%%%%%%%%%% BEGIN
 %%%%%%%%%%%%%%%%%%%% font %%%%%%%%%%%%%%%%%%%% BEGIN
+%%%% 主要字体为Times New Roman和宋体
+%%%% 模板某些标题需要华文行楷和32号字
+\setmainfont{Times New Roman}
+\setCJKmainfont{宋体}
+\setCJKfamilyfont{hwxingkai}{STXingkai}
+\newcommand{\hwxingkai}{\CJKfamily{hwxingkai}}
+\newcommand{\xiaochuhao}{\fontsize{32pt}{\baselineskip}\selectfont}
 %%%%%%%%%%%%%%%%%%%% font %%%%%%%%%%%%%%%%%%%% END
 %%%%%%%%%%%%%%%%%%%% color %%%%%%%%%%%%%%%%%%%% BEGIN
+\RequirePackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
 %%%%%%%%%%%%%%%%%%%% color %%%%%%%%%%%%%%%%%%%% END
 %%%%%%%%%%%%%%%%%%%% page margin %%%%%%%%%%%%%%%%%%%% BEGIN
+\RequirePackage{geometry}
+\newgeometry{
+    top=30mm, bottom=25mm, left=30mm, right=20mm,
+    headsep=5mm,
+}
+\savegeometry{bachelorgeometry}
+\newgeometry{
+    top=25mm, bottom=25mm, left=30mm, right=20mm,
+    headsep=5mm, headheight=10mm, footskip=10mm,
+}
+\savegeometry{mastergeometry}
+
+\ifbuaa@bachelor
+    \loadgeometry{bachelorgeometry}
+\else
+    \loadgeometry{mastergeometry}
+\fi
 %%%%%%%%%%%%%%%%%%%% page margin %%%%%%%%%%%%%%%%%%%% END
 %%%%%%%%%%%%%%%%%%%% space %%%%%%%%%%%%%%%%%%%% BEGIN
+\renewcommand{\baselinestretch}{1.5}
+\setlength{\parindent}{2em}
+\setlength{\floatsep}{10pt plus 3pt minus 2pt}      % 图形之间或图形与正文之间的距离
+\setlength{\abovecaptionskip}{2pt plus 1pt minus 1pt} % 图形中的图与标题之间的距离
+\setlength{\belowcaptionskip}{3pt plus 1pt minus 2pt} % 表格中的表与标题之间的距离
 %%%%%%%%%%%%%%%%%%%% space %%%%%%%%%%%%%%%%%%%% END
 %%%%%%%%%%%%%%% global settings %%%%%%%%%%%%%%% END
 %%%%%%%%%%%%%%% page level settings %%%%%%%%%%%%%%% BEGIN
@@ -271,35 +304,6 @@ The LaTeX template for thesis of BUAA]
 %%%%%%%%%%%%%%% master user info %%%%%%%%%%%%%%% END
 %%%%%%%%%% user info %%%%%%%%%% END
 
-%---------------------字体字号的一些设置-------------------
-%   设置主要字体为Times New Roman和宋体
-%   研究生论文的首页需要华文行楷和32号字
-%----------------------------------------------------------
-\setmainfont{Times New Roman}
-\setCJKmainfont{宋体}
-\setCJKfamilyfont{hwxingkai}{STXingkai}
-\newcommand{\hwxingkai}{\CJKfamily{hwxingkai}}
-\newcommand{\xiaochuhao}{\fontsize{32pt}{\baselineskip}\selectfont}
-
-%--------------------页面、页眉页脚的设置（具体间距还有待修正）-----------------------
-\RequirePackage{geometry}
-\newgeometry{top=30mm,bottom=25mm,left=30mm,right=20mm,headsep=5mm}
-%%学位论文的上边距：30mm；下边距：25mm；左边距：30mm；右边距：20mm；
-\savegeometry{bachelorgeometry}
-\newgeometry{
-    top=25mm,bottom=25mm,left=30mm,right=20mm,
-    headsep=5mm,headheight=10mm,footskip=10mm}
-%学位论文的上边距：25mm；下边距：25mm；左边距：30mm；右边距：20mm；
-%页眉都用小五号宋体字，页眉的上边距为15mm；页脚的下边距为15mm。
-%按照上面的设置，个人觉得基本符合要求。
-\savegeometry{mastergeometry}
-
-\ifbuaa@bachelor
-    \loadgeometry{bachelorgeometry}
-\else
-    \loadgeometry{mastergeometry}
-\fi
-
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhead{}
@@ -474,13 +478,6 @@ The LaTeX template for thesis of BUAA]
 % 表格中的行合并
 \RequirePackage{multirow}
 
-%---------------------间距的一些设置--------------------
-\renewcommand{\baselinestretch}{1.5}
-\setlength{\parindent}{2em}
-\setlength{\floatsep}{10pt plus 3pt minus 2pt}      % 图形之间或图形与正文之间的距离
-\setlength{\abovecaptionskip}{2pt plus1pt minus1pt} % 图形中的图与标题之间的距离
-\setlength{\belowcaptionskip}{3pt plus1pt minus2pt} % 表格中的表与标题之间的距离
-
 %-----------------定义item样式和间距---------------
 \RequirePackage{enumitem}
 \setlist{noitemsep}
@@ -548,12 +545,6 @@ The LaTeX template for thesis of BUAA]
     \renewcommand*\DTstyle{\ttfamily\color{red}}
 \fi
 %-----------------代码环境定义和设置---------------
-% 设置会用到的颜色
-\RequirePackage{color}
-\definecolor{dkgreen}{rgb}{0,0.6,0}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
-\definecolor{mauve}{rgb}{0.58,0,0.82}
-
 % Listing 的设置请参考 http://en.wikibooks.org/wiki/LaTeX/Packages/Listings
 \RequirePackage{listings}
 \lstset{
