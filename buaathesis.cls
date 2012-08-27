@@ -142,6 +142,24 @@ The LaTeX template for thesis of BUAA]
     ]{section}
 \fi
 %%%%%%%%%%%%%%%%%%%% title %%%%%%%%%%%%%%%%%%%% END
+%%%%%%%%%%%%%%%%%%%% index %%%%%%%%%%%%%%%%%%%% BEGIN
+\RequirePackage{titletoc}
+\ifbuaa@bachelor
+    \titlecontents{chapter}[0pt]{\heiti\zihao{-4}}{\thecontentslabel\ }{}
+        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}
+    \titlecontents{section}[2em]{\vspace{0.1\baselineskip}\songti\zihao{-4}}{\thecontentslabel\ }{}
+        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}
+    \titlecontents{subsection}[4em]{\vspace{0.1\baselineskip}\songti\zihao{-4}}{\thecontentslabel\ }{}
+        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}
+\else
+    \titlecontents{chapter}[0pt]{\heiti\zihao{4}}{\thecontentslabel\ }{}
+        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}
+    \titlecontents{section}[2em]{\vspace{0.15\baselineskip}\songti\zihao{-4}}{\thecontentslabel\ }{}
+        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.15\baselineskip}]
+    \titlecontents{subsection}[4em]{\vspace{0.1\baselineskip}\heiti\zihao{5}}{\thecontentslabel\ }{}
+        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.1\baselineskip}]
+\fi
+%%%%%%%%%%%%%%%%%%%% index %%%%%%%%%%%%%%%%%%%% END
 %%%%%%%%%%%%%%%%%%%% cross reference %%%%%%%%%%%%%%%%%%%% BEGIN
 \RequirePackage[xetex,unicode]{hyperref}
 \ifbuaa@color
@@ -190,8 +208,6 @@ The LaTeX template for thesis of BUAA]
 
 %%%%%%%%%% custom pages %%%%%%%%%% BEGIN
 %%%%%%%%%%%%%%% custom pages for common %%%%%%%%%%%%%%% BEGIN
-%%%%%%%%%%%%%%%%%%%% index %%%%%%%%%%%%%%%%%%%% BEGIN
-%%%%%%%%%%%%%%%%%%%% index %%%%%%%%%%%%%%%%%%%% END
 %%%%%%%%%%%%%%%%%%%% abstract %%%%%%%%%%%%%%%%%%%% BEGIN
 %%%%%%%%%%%%%%%%%%%% abstract %%%%%%%%%%%%%%%%%%%% END
 %%%%%%%%%%%%%%% custom pages for common %%%%%%%%%%%%%%% END
@@ -423,23 +439,6 @@ The LaTeX template for thesis of BUAA]
 {\zihao{5}\oldtabularx{#1}{#2}}
 {\endoldtabularx}
 
-%------------------------目录中标题格式进行设置---------------------------%
-\RequirePackage{titletoc}
-\ifbuaa@bachelor
-    \titlecontents{chapter}[0pt]{\heiti\zihao{-4}}{\thecontentslabel\ }{}
-        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}
-    \titlecontents{section}[2em]{\vspace{0.1\baselineskip}\songti\zihao{-4}}{\thecontentslabel\ }{}
-        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}
-    \titlecontents{subsection}[4em]{\vspace{0.1\baselineskip}\songti\zihao{-4}}{\thecontentslabel\ }{}
-        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}
-\else
-    \titlecontents{chapter}[0pt]{\heiti\zihao{4}}{\thecontentslabel\ }{}
-        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}
-    \titlecontents{section}[2em]{\vspace{0.15\baselineskip}\songti\zihao{-4}}{\thecontentslabel\ }{}
-        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.15\baselineskip}]
-    \titlecontents{subsection}[4em]{\vspace{0.1\baselineskip}\heiti\zihao{5}}{\thecontentslabel\ }{}
-        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.1\baselineskip}]
-\fi
 %------------------------图形表格的一些设置------------------------
 \RequirePackage{graphicx}
 \DeclareGraphicsExtensions{.eps,.ps,.jpg,.bmp}
