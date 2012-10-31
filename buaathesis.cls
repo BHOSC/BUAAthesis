@@ -1,16 +1,21 @@
 % !Mode:: "TeX:UTF-8"
-%%%%% 'buaathesis.cls' %%%%% BEGIN
-%%%%%%%%%% class clarification %%%%%%%%%% BEGIN
+%%%%% 'buaathesis.cls' BEGIN
+
+%%%%%%%%%% class clarification %%%%%%%%%%
+% 模板声明
+
 \NeedsTeXFormat{LaTeX2e}[2007/10/19]
 \ProvidesClass{buaathesis}
               [2012/07/06 v0.8
 The LaTeX template for thesis of BUAA]
 \typeout{Document Class `buaathesis' v0.8 by BHOSC (2012/07)}
-%%%%%%%%%% class clarification %%%%%%%%%% END
-%%%%%%%%%% class options %%%%%%%%%% BEGIN
-%% 本模板自身包含五个选项
-%% 前四个为对应学位类型，决定不同样式
-%% 第五个为颜色选项，用于电子版的情况
+
+%%%%%%%%%% class options %%%%%%%%%%
+% 模板选项
+
+% 本模板自身包含五个选项
+% 前四个为对应学位类型，决定不同样式
+% 第五个为颜色选项，用于电子版的情况
 \newif\ifbuaa@bachelor\buaa@bachelorfalse
 \newif\ifbuaa@master\buaa@mastertrue
 \newif\ifbuaa@engineer\buaa@engineerfalse
@@ -21,31 +26,35 @@ The LaTeX template for thesis of BUAA]
 \DeclareOption{engineer}{\buaa@engineertrue}
 \DeclareOption{doctor}{\buaa@doctortrue}
 \DeclareOption{color}{\buaa@colortrue}
-%% 其余选项传递给ctexbook
+% 其余选项传递给ctexbook
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessOptions\relax
-%% 引用ctexbook及基本设置
+% 引用ctexbook及基本设置
 \LoadClass[cs4size,a4paper,fancyhdr]{ctexbook}[2007/10/19]
-%%%%%%%%%% class options %%%%%%%%%% END
 
-%%%%%%%%%% custom settings %%%%%%%%%% BEGIN
-%%%%%%%%%%%%%%% global settings %%%%%%%%%%%%%%% BEGIN
-%%%%%%%%%%%%%%%%%%%% font %%%%%%%%%%%%%%%%%%%% BEGIN
-%%%% 主要字体为Times New Roman和宋体
-%%%% 模板某些标题需要华文行楷和32号字
+%%%%%%%%%% font %%%%%%%%%%
+% 字体设置
+
+% 主要字体为Times New Roman和宋体
+% 模板某些标题需要华文行楷和32号字
 \setmainfont{Times New Roman}
 \setCJKmainfont{宋体}
 \setCJKfamilyfont{hwxingkai}{STXingkai}
 \newcommand{\hwxingkai}{\CJKfamily{hwxingkai}}
 \newcommand{\xiaochuhao}{\fontsize{32pt}{\baselineskip}\selectfont}
-%%%%%%%%%%%%%%%%%%%% font %%%%%%%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%%%%%%% color %%%%%%%%%%%%%%%%%%%% BEGIN
+
+%%%%%%%%%% color %%%%%%%%%%
+% 颜色设置
+
+% 只用于电子版
 \RequirePackage{color}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
-%%%%%%%%%%%%%%%%%%%% color %%%%%%%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%%%%%%% page margin %%%%%%%%%%%%%%%%%%%% BEGIN
+
+%%%%%%%%%% page margin %%%%%%%%%%
+% 页面边距
+
 \RequirePackage{geometry}
 \newgeometry{
     top=30mm, bottom=25mm, left=30mm, right=20mm,
@@ -63,17 +72,19 @@ The LaTeX template for thesis of BUAA]
 \else
     \loadgeometry{mastergeometry}
 \fi
-%%%%%%%%%%%%%%%%%%%% page margin %%%%%%%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%%%%%%% space %%%%%%%%%%%%%%%%%%%% BEGIN
+
+%%%%%%%%%% space %%%%%%%%%%
+% 其他间距
+
 \renewcommand{\baselinestretch}{1.5}
 \setlength{\parindent}{2em}
 \setlength{\floatsep}{10pt plus 3pt minus 2pt}      % 图形之间或图形与正文之间的距离
 \setlength{\abovecaptionskip}{2pt plus 1pt minus 1pt} % 图形中的图与标题之间的距离
 \setlength{\belowcaptionskip}{3pt plus 1pt minus 2pt} % 表格中的表与标题之间的距离
-%%%%%%%%%%%%%%%%%%%% space %%%%%%%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%% global settings %%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%% page level settings %%%%%%%%%%%%%%% BEGIN
-%%%%%%%%%%%%%%%%%%%% header & footer %%%%%%%%%%%%%%%%%%%% BEGIN
+
+%%%%%%%%%% header & footer %%%%%%%%%%
+% 页眉页脚
+
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhead{}
@@ -95,16 +106,18 @@ The LaTeX template for thesis of BUAA]
 \fancypagestyle{plain}{
     \pagestyle{fancy}
 }
-%%%%%%%%%%%%%%%%%%%% header & footer %%%%%%%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%%%%%%% title %%%%%%%%%%%%%%%%%%%% BEGIN
-%%%% 汉化
+
+%%%%%%%%%% title %%%%%%%%%%
+% 标题
+
+% 汉化
 \renewcommand{\contentsname}{目\qquad 录}
 \renewcommand\listfigurename{插\ 图\ 目\ 录}
 \renewcommand\listtablename{表\ 格\ 目\ 录}
 \renewcommand\bibname{参\ 考\ 文\ 献}
 \renewcommand{\figurename}{图}
 \renewcommand{\tablename}{表}
-%%%% 格式
+% 格式
 \CTEXsetup[
     format={\centering\zihao{3}\heiti},
     nameformat={},
@@ -141,8 +154,10 @@ The LaTeX template for thesis of BUAA]
         format={\zihao{4}\heiti},
     ]{section}
 \fi
-%%%%%%%%%%%%%%%%%%%% title %%%%%%%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%%%%%%% contents %%%%%%%%%%%%%%%%%%%% BEGIN
+
+%%%%%%%%%% contents %%%%%%%%%%
+% 目录
+
 \RequirePackage{titletoc}
 \ifbuaa@bachelor
     \titlecontents{chapter}[0pt]{\heiti\zihao{-4}}{\thecontentslabel\ }{}
@@ -159,8 +174,10 @@ The LaTeX template for thesis of BUAA]
     \titlecontents{subsection}[4em]{\vspace{0.1\baselineskip}\heiti\zihao{5}}{\thecontentslabel\ }{}
         {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.1\baselineskip}]
 \fi
-%%%%%%%%%%%%%%%%%%%% contents %%%%%%%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%%%%%%% cross reference %%%%%%%%%%%%%%%%%%%% BEGIN
+
+%%%%%%%%%% cross reference %%%%%%%%%%
+% 交叉引用
+
 \RequirePackage[xetex,unicode]{hyperref}
 \ifbuaa@color
     \hypersetup{colorlinks}
@@ -175,17 +192,19 @@ The LaTeX template for thesis of BUAA]
     pdfsubject={北航毕业设计论文},
     pdfcreator={LaTeXed~By~BHOSC}
 }
-%%%%%%%%%%%%%%%%%%%% cross reference %%%%%%%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%%%%%%% reference %%%%%%%%%%%%%%%%%%%% BEGIN
+
+%%%%%%%%%% reference %%%%%%%%%%
+% 参考文献
+
 \bibliographystyle{buaathesis} % 参考文献格式
 \RequirePackage[sort&compress]{natbib}
     \bibpunct{[}{]}{,}{n}{}{}
 \RequirePackage{hypernat}
     \newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
-%%%%%%%%%%%%%%%%%%%% reference %%%%%%%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%% page level settings %%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%% element level settings %%%%%%%%%%%%%%% BEGIN
-%%%%%%%%%%%%%%%%%%%% table %%%%%%%%%%%%%%%%%%%% BEGIN
+
+%%%%%%%%%% table %%%%%%%%%%
+% 表格
+
 % 长表格
 \RequirePackage{longtable}
 
@@ -212,15 +231,19 @@ The LaTeX template for thesis of BUAA]
 \renewenvironment{tabularx}[2]
 {\zihao{5}\oldtabularx{#1}{#2}}
 {\endoldtabularx}
-%%%%%%%%%%%%%%%%%%%% table %%%%%%%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%%%%%%% picture %%%%%%%%%%%%%%%%%%%% BEGIN
+
+%%%%%%%%%% picture %%%%%%%%%%
+% 图片
+
 \RequirePackage{graphicx}
 \DeclareGraphicsExtensions{.eps,.ps,.jpg,.bmp}
 \graphicspath{figure/}
 \RequirePackage{pifont} % “秘级”后的五角星
 \RequirePackage{subfigure}
-%%%%%%%%%%%%%%%%%%%% picture %%%%%%%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%%%%%%% list %%%%%%%%%%%%%%%%%%%% BEGIN
+
+%%%%%%%%%% list %%%%%%%%%%
+% 列表
+
 \RequirePackage{enumitem}
 \setlist{noitemsep}
 \setlist[1,2]{labelindent=\parindent}
@@ -232,8 +255,10 @@ The LaTeX template for thesis of BUAA]
     partopsep=0pt,
     parsep=\parskip,
 }
-%%%%%%%%%%%%%%%%%%%% list %%%%%%%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%%%%%%% code %%%%%%%%%%%%%%%%%%%% BEGIN
+
+%%%%%%%%%% code %%%%%%%%%%
+% 代码
+
 % Listing 的设置请参考 http://en.wikibooks.org/wiki/LaTeX/Packages/Listings
 \RequirePackage{listings}
 \lstset{
@@ -278,14 +303,18 @@ The LaTeX template for thesis of BUAA]
 
 % 重命名Listings标题头
 \renewcommand{\lstlistingname}{代码}
-%%%%%%%%%%%%%%%%%%%% code %%%%%%%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%%%%%%% formula %%%%%%%%%%%%%%%%%%%% BEGIN
+
+%%%%%%%%%% formula %%%%%%%%%%
+% 公式
+
 \RequirePackage{amsmath,amssymb,amsfonts,mathrsfs,bm}
 \RequirePackage{txfonts}
 \RequirePackage[amsmath,thmmarks,hyperref]{ntheorem}
 \RequirePackage{array}
-%%%%%%%%%%%%%%%%%%%% formula %%%%%%%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%%%%%%% theorem %%%%%%%%%%%%%%%%%%%% BEGIN
+
+%%%%%%%%%% theorem %%%%%%%%%%
+% 定理
+
 \theoremsymbol{\ensuremath{\square}}
 \newtheorem*{proof}{证明}
 \theoremstyle{plain}
@@ -303,15 +332,19 @@ The LaTeX template for thesis of BUAA]
 \newtheorem{remark}{注释}[chapter]
 \newtheorem{problem}{问题}[chapter]
 \newtheorem{conjecture}{猜想}[chapter]
-%%%%%%%%%%%%%%%%%%%% theorem %%%%%%%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%%%%%%% file directory %%%%%%%%%%%%%%%%%%%% BEGIN
+
+%%%%%%%%%% file directory %%%%%%%%%%
+% 文件目录
+
 \RequirePackage{dirtree}
 \ifbuaa@color
     \renewcommand*\DTstylecomment{\ttfamily\color{dkgreen}}
     \renewcommand*\DTstyle{\ttfamily\color{red}}
 \fi
-%%%%%%%%%%%%%%%%%%%% file directory %%%%%%%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%%%%%%% caption %%%%%%%%%%%%%%%%%%%% BEGIN
+
+%%%%%%%%%% caption %%%%%%%%%%
+% 图表标题
+
 \RequirePackage{caption}
 \DeclareCaptionFormat{bachelorfigure}{\songti\zihao{5}{#1\textrm{#2}#3}}
 \DeclareCaptionFormat{bachelortable}{\heiti\bf\zihao{5}{#1\textrm{#2}#3}}
@@ -338,9 +371,10 @@ The LaTeX template for thesis of BUAA]
 % 图片表格标题命令，主要用于混排
 \newcommand\figcaption{\def\@captype{figure}\caption}
 \newcommand\tabcaption{\def\@captype{table}\caption}
-%%%%%%%%%%%%%%%%%%%% caption %%%%%%%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%% element level settings %%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%% other settings %%%%%%%%%%%%%%% BEGIN
+
+%%%%%%%%%% other settings %%%%%%%%%%
+% 杂项
+
 % 下划线
 \RequirePackage{ulem}
 
@@ -368,12 +402,10 @@ The LaTeX template for thesis of BUAA]
         \fi
     \fi
 }
-%%%%%%%%%%%%%%% other settings %%%%%%%%%%%%%%% END
-%%%%%%%%%% custom settings %%%%%%%%%% END
 
-%%%%%%%%%% custom pages %%%%%%%%%% BEGIN
-%%%%%%%%%%%%%%% custom pages for common %%%%%%%%%%%%%%% BEGIN
-%%%%%%%%%%%%%%%%%%%% index %%%%%%%%%%%%%%%%%%%% BEGIN
+%%%%%%%%%% index %%%%%%%%%%
+% 首页
+
 % 本科生首页的右上角和底部的填写内容居中
 % cvrtc : CoVer - Right  - Top    - Center
 % cvcbc : CoVer - Center - Bottom - Center
@@ -474,8 +506,10 @@ The LaTeX template for thesis of BUAA]
         \buaa@universityeng , Beijing, China}
     \end{center}
 }
-%%%%%%%%%%%%%%%%%%%% index %%%%%%%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%%%%%%% abstract %%%%%%%%%%%%%%%%%%%% BEGIN
+
+%%%%%%%%%% abstract %%%%%%%%%%
+% 摘要
+
 % 中文摘要
 \newenvironment{cabstract}{%
     \newpage
@@ -535,10 +569,10 @@ The LaTeX template for thesis of BUAA]
     \fi
     {\bf\zihao{-4} Key words: }\buaa@ekeyword
 }
-%%%%%%%%%%%%%%%%%%%% abstract %%%%%%%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%% custom pages for common %%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%% custom pages for bachelor %%%%%%%%%%%%%%% BEGIN
-%%%%%%%%%%%%%%%%%%%% announce %%%%%%%%%%%%%%%%%%%% BEGIN
+
+%%%%%%%%%% announce %%%%%%%%%%
+% 本科生声明页
+
 \newcommand{\announce}{%
     \clearemptydoublepage
     \vspace*{54bp}
@@ -555,8 +589,10 @@ The LaTeX template for thesis of BUAA]
         时间：& \buaa@thesisdateyear~年~\buaa@thesisdatemonth ~月
     \end{tabular}
 }
-%%%%%%%%%%%%%%%%%%%% announce %%%%%%%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%%%%%%% assign %%%%%%%%%%%%%%%%%%%% BEGIN
+
+%%%%%%%%%% assign %%%%%%%%%%
+% 本科生任务书
+
 % 文字左对齐的下划线
 \newcommand{\ulinel}[2][]{\uline{\makebox[#1\textwidth][l]{#2}}}
 % 文字居中的下划线
@@ -682,10 +718,9 @@ The LaTeX template for thesis of BUAA]
     \linespread{1.5}
 }
 
-%%%%%%%%%%%%%%%%%%%% assign %%%%%%%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%% custom pages for bachelor %%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%% custom pages for master %%%%%%%%%%%%%%% BEGIN
-%%%%%%%%%%%%%%%%%%%% nominate %%%%%%%%%%%%%%%%%%%% BEGIN
+%%%%%%%%%% nominate %%%%%%%%%%
+% 研究生提名页
+
 \newcommand{\timingye}{%
     \clearemptydoublepage
     \thispagestyle{empty}
@@ -715,8 +750,10 @@ The LaTeX template for thesis of BUAA]
         \end{tabular}}
     \end{spacing}
 }
-%%%%%%%%%%%%%%%%%%%% nominate %%%%%%%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%%%%%%% creation and use %%%%%%%%%%%%%%%%%%%% BEGIN
+
+%%%%%%%%%% creation and use %%%%%%%%%%
+% 研究生独创性声明和授权书
+
 \newcommand{\creationanduse}{%
     \clearemptydoublepage
     \thispagestyle{empty}
@@ -745,8 +782,10 @@ The LaTeX template for thesis of BUAA]
     学位论文作者签名：\uline{\hspace{6em}}\hspace{8em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日\\
     指导教师签名：\uline{\hspace{8em}}\hspace{8em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日}
 }
-%%%%%%%%%%%%%%%%%%%% creation and use %%%%%%%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%%%%%%% denotation %%%%%%%%%%%%%%%%%%%% BEGIN
+
+%%%%%%%%%% denotation %%%%%%%%%%
+% 符号对照表
+
 \newenvironment{denotation}
     {
         \chapter*{主要符号对照表} % no tocline
@@ -766,10 +805,10 @@ The LaTeX template for thesis of BUAA]
         }
     }
     {\end{list}}
-%%%%%%%%%%%%%%%%%%%% denotation %%%%%%%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%% custom pages for master %%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%% settings for custom pages %%%%%%%%%%%%%%% BEGIN
+
+%%%%%%%%%% settings for custom pages %%%%%%%%%%
 % 首页重定义
+
 \renewcommand{\maketitle}{%
     \titlech
     \ifbuaa@bachelor
@@ -786,60 +825,58 @@ The LaTeX template for thesis of BUAA]
     \songti
     \zihao{-4}
 }
-%%%%%%%%%%%%%%% settings for custom pages %%%%%%%%%%%%%%% END
-%%%%%%%%%% custom pages %%%%%%%%%% END
 
+%%%%%%%%%% common user info %%%%%%%%%%
+% 用户信息
 
-%%%%%%%%%% user info %%%%%%%%%% BEGIN
-%%%%%%%%%%%%%%% common user info %%%%%%%%%%%%%%% BEGIN
-%%% 学校名称
+% 学校名称
 \def\buaa@university{北京航空航天大学}
 \def\buaa@universityeng{Beihang Univerisity}
 \newcommand{\university}[2]{%
     \def\buaa@university{#1}
     \def\buaa@universityeng{#2}
 }
-%%% 学院
+% 学院
 \def\buaa@school{}
 \def\buaa@schooleng{}
 \newcommand{\school}[2]{%
     \def\buaa@school{#1}
     \def\buaa@schooleng{#2}
 }
-%%% 专业
+% 专业
 \def\buaa@major{}
 \def\buaa@majoreng{}
 \newcommand{\major}[2]{%
     \def\buaa@major{#1}
     \def\buaa@majoreng{#2}
 }
-%%% 论文标题
+% 论文标题
 \def\buaa@thesistitle{}
 \def\buaa@thesistitleeng{}
 \newcommand{\thesistitle}[2]{%
     \def\buaa@thesistitle{#1}
     \def\buaa@thesistitleeng{#2}
 }
-%%% 作者
+% 作者
 \def\buaa@thesisauthor{}
 \def\buaa@thesisauthoreng{}
 \newcommand{\thesisauthor}[2]{%
     \def\buaa@thesisauthor{#1}
     \def\buaa@thesisauthoreng{#2}
 }
-%%% 指导老师
+% 指导老师
 \def\buaa@teacher{}
 \def\buaa@teachereng{}
 \newcommand{\teacher}[2]{%
     \def\buaa@teacher{#1}
     \def\buaa@teachereng{#2}
 }
-%%% 分类号
+% 分类号
 \def\buaa@category{}
 \newcommand{\category}[1]{%
     \def\buaa@category{#1}
 }
-%%% 论文开始时间
+% 论文开始时间
 \def\buaa@thesisbeginyear{}
 \def\buaa@thesisbeginmonth{}
 \def\buaa@thesisbeginday{}
@@ -848,7 +885,7 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@thesisbeginmonth{#2}
     \def\buaa@thesisbeginday{#3}
 }
-%%% 论文结束时间
+% 论文结束时间
 \def\buaa@thesisendyear{}
 \def\buaa@thesisendmonth{}
 \def\buaa@thesisendday{}
@@ -857,7 +894,7 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@thesisendmonth{#2}
     \def\buaa@thesisendday{#3}
 }
-%%% 答辩时间
+% 答辩时间
 \def\buaa@defenseyear{}
 \def\buaa@defensemonth{}
 \def\buaa@defenseday{}
@@ -866,15 +903,15 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@defensemonth{#2}
     \def\buaa@defenseday{#3}
 }
-%%% 中文摘要关键字
+% 中文摘要关键字
 \def\buaa@ckeyword{}
 \newcommand{\ckeyword}[1]{%
     \def\buaa@ckeyword{#1}}
-%%% 英文摘要关键字
+% 英文摘要关键字
 \def\buaa@ekeyword{}
 \newcommand{\ekeyword}[1]{%
     \def\buaa@ekeyword{#1}}
-%%% 学位
+% 学位
 \def\buaa@appdegree{} % 中文首页
 \def\buaa@appdegreeeng{} % 英文首页
 \def\buaa@applydegree{} % 页眉页脚
@@ -896,55 +933,59 @@ The LaTeX template for thesis of BUAA]
         \fi
     \fi
 \fi
-%%%%%%%%%%%%%%% common user info %%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%% bachelor user info %%%%%%%%%%%%%%% BEGIN
-%%% 班级
+
+%%%%%%%%%% bachelor user info %%%%%%%%%%
+% 本科生信息
+
+% 班级
 \def\buaa@class{}
 \newcommand{\class}[1]{%
     \def\buaa@class{#1}
 }
-%%% 单位代码
+% 单位代码
 \def\buaa@unicode{1006}
 \newcommand{\unicode}[1]{%
     \def\buaa@unicode{#1}
 }
-%%% 学号
+% 学号
 \def\buaa@studentID{}
 \newcommand{\studentID}[1]{%
     \def\buaa@studentID{#1}
 }
-%%% 论文时间
+% 论文时间
 \def\buaa@thesisdateyear{}
 \def\buaa@thesisdatemonth{}
 \newcommand{\thesisdate}[2]{%
     \def\buaa@thesisdateyear{#1}
     \def\buaa@thesisdatemonth{#2}
 }
-%%%%%%%%%%%%%%% bachelor user info %%%%%%%%%%%%%%% END
-%%%%%%%%%%%%%%% master user info %%%%%%%%%%%%%%% BEGIN
-%%% 保密等级
+
+%%%%%%%%%% master user info %%%%%%%%%%
+% 研究生信息
+
+% 保密等级
 \def\buaa@mibao{}
 \newcommand{\mibao}[1]{%
     \def\buaa@mibao{#1}
 }
-%%% 研究方向
+% 研究方向
 \def\buaa@direction{}
 \newcommand{\direction}[1]{
     \def\buaa@direction{#1}
 }
-%%% 导师职称
+% 导师职称
 \def\buaa@teacherdegree{}
 \def\buaa@teacherdegreeeng{}
 \newcommand{\teacherdegree}[2]{%
     \def\buaa@teacherdegree{#1}
     \def\buaa@teacherdegreeeng{#2}
 }
-%%% 论文编号
+% 论文编号
 \def\buaa@thesisID{}
 \newcommand{\thesisID}[1]{%
     \def\buaa@thesisID{#1}
 }
-%%% 论文提交时间
+% 论文提交时间
 \def\buaa@commityear{}
 \def\buaa@commitmonth{}
 \def\buaa@commitday{}
@@ -953,7 +994,7 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@commitmonth{#2}
     \def\buaa@commitday{#3}
 }
-%%% 授予学位时间
+% 授予学位时间
 \def\buaa@awardyear{}
 \def\buaa@awardmonth{}
 \def\buaa@awardday{}
@@ -962,6 +1003,5 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@awardmonth{#2}
     \def\buaa@awardday{#3}
 }
-%%%%%%%%%%%%%%% master user info %%%%%%%%%%%%%%% END
-%%%%%%%%%% user info %%%%%%%%%% END
+
 %%%%% 'buaathesis.cls' %%%%% END
