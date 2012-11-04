@@ -430,78 +430,78 @@ The LaTeX template for thesis of BUAA]
                 \end{tabular}
             }
             \vskip 95bp
-			\begin{center}
-				\includegraphics[width=360bp]{figure/buaaname.eps}
-				\vskip 45bp
-				\centerline{\zihao{-0}\heiti 毕业设计(论文)}
-				~~\\
-				\vspace*{\stretch{4}}
-				\begin{minipage}[h]{.8\textwidth}
-					\centering{\heiti\zihao{2}\buaa@thesistitle}
-				\end{minipage}
-				\vskip 20bp
-				\begin{minipage}[h]{.75\textwidth}
-					\centering{\heiti\zihao{3}\buaa@thesissubtitle}
-				\end{minipage}
-				\vspace*{\stretch{3}}
-				~~\\
-				{
-					\zihao{-3}\heiti
-					\begin{tabular}{cc}
-						学~~~院~~~名~~~称~~&\ulinecvcbc{\buaa@school 学院}\\[.4ex]
-						专~~~业~~~名~~~称~~&\ulinecvcbc{\buaa@major 专业}\\[.4ex]
-						学~~~生~~~姓~~~名~~&\ulinecvcbc{\buaa@thesisauthor}\\[.4ex]
-						指~~~导~~~教~~~师~~&\ulinecvcbc{\buaa@teacher}\\
-					\end{tabular}
-				}
-				\vskip 60bp
-				\centerline{\heiti\zihao{-3}\buaa@thesisdateyear ~~年~~\buaa@thesisdatemonth ~~月}
-			\end{center}
+            \begin{center}
+                \includegraphics[width=360bp]{figure/buaaname.eps}
+                \vskip 45bp
+                \centerline{\zihao{-0}\heiti 毕业设计(论文)}
+                ~~\\
+                \vspace*{\stretch{4}}
+                \begin{minipage}[h]{.8\textwidth}
+                    \centering{\heiti\zihao{2}\buaa@thesistitle}
+                \end{minipage}
+                \vskip 20bp
+                \begin{minipage}[h]{.75\textwidth}
+                    \centering{\heiti\zihao{3}\buaa@thesissubtitle}
+                \end{minipage}
+                \vspace*{\stretch{3}}
+                ~~\\
+                {
+                    \zihao{-3}\heiti
+                    \begin{tabular}{cc}
+                        学~~~院~~~名~~~称~~&\ulinecvcbc{\buaa@school 学院}\\[.4ex]
+                        专~~~业~~~名~~~称~~&\ulinecvcbc{\buaa@major 专业}\\[.4ex]
+                        学~~~生~~~姓~~~名~~&\ulinecvcbc{\buaa@thesisauthor}\\[.4ex]
+                        指~~~导~~~教~~~师~~&\ulinecvcbc{\buaa@teacher}\\
+                    \end{tabular}
+                }
+                \vskip 60bp
+                \centerline{\heiti\zihao{-3}\buaa@thesisdateyear ~~年~~\buaa@thesisdatemonth ~~月}
+            \end{center}
         \end{titlepage}
     \else
         \begin{titlepage}
             \begin{center}
-				\begin{spacing}{1.5}
-					{
-						\zihao{5}\heiti
-						\begin{flushleft}
-							中图分类号：\buaa@category \hfill 密级\ding{73}~~\buaa@mibao \\
-							论\,\,文\,\,编\,\,号：\buaa@thesisID\\
-						\end{flushleft}
-					}
-					\vskip 80bp
-					\includegraphics[width=.5\textwidth]{figure/buaaname.eps}
-					\vskip 10bp
-					\centerline{\zihao{0}\hwxingkai\buaa@appdegree 论文}
-					~~\\
-					%\vskip 100bp
-					\vspace*{\stretch{5}}
-					\begin{minipage}[h]{.85\textwidth}
-						\begin{spacing}{1.8}
-							% actually, it should be 1.5, but I think 1.8 will be prefect.
-							\centering{\xiaochuhao\songti\buaa@thesistitle}
-						\end{spacing}
-					\end{minipage}
-					%\vspace{5bp} 
-					% the space between title and subtitle, however, it seems doesn't work.
-					\begin{minipage}[h]{.75\textwidth}
-						\begin{spacing}{1.5}
-							\centering{\heiti\zihao{3}\buaa@thesissubtitle}
-						\end{spacing}
-					\end{minipage}
-					\vspace*{\stretch{4}}
-					~~\\
-					%\vskip 80bp
-					{
-						\heiti\zihao{4}\ziju{0.2}
-						\begin{tabular}[b]{ll}
-							作~~者~~姓~~名~~ & \buaa@thesisauthor \\[.4ex]
-							学~~科~~专~~业~~ & \buaa@major 专业\\[.4ex]
-							指~~导~~教~~师~~ & \buaa@teacher \quad\buaa@teacherdegree\\[.4ex]
-							培~~养~~院~~系~~ & \buaa@school 学院\\
-						\end{tabular}
-					}
-				\end{spacing}
+                \begin{spacing}{1.5}
+                    {
+                        \zihao{5}\heiti
+                        \begin{flushleft}
+                            中图分类号：\buaa@category \hfill 密级\ding{73}~~\buaa@mibao \\
+                            论\,\,文\,\,编\,\,号：\buaa@thesisID\\
+                        \end{flushleft}
+                    }
+                    \vskip 80bp
+                    \includegraphics[width=.5\textwidth]{figure/buaaname.eps}
+                    \vskip 10bp
+                    \centerline{\zihao{0}\hwxingkai\buaa@appdegree 论文}
+                    ~~\\
+                    %\vskip 100bp
+                    \vspace*{\stretch{5}}
+                    \begin{minipage}[h]{.85\textwidth}
+                        \begin{spacing}{1.8}
+                            % actually, it should be 1.5, but I think 1.8 will be prefect.
+                            \centering{\xiaochuhao\songti\buaa@thesistitle}
+                        \end{spacing}
+                    \end{minipage}
+                    %\vspace{5bp}
+                    % the space between title and subtitle, however, it seems doesn't work.
+                    \begin{minipage}[h]{.75\textwidth}
+                        \begin{spacing}{1.5}
+                            \centering{\heiti\zihao{3}\buaa@thesissubtitle}
+                        \end{spacing}
+                    \end{minipage}
+                    \vspace*{\stretch{4}}
+                    ~~\\
+                    %\vskip 80bp
+                    {
+                        \heiti\zihao{4}\ziju{0.2}
+                        \begin{tabular}[b]{ll}
+                            作~~者~~姓~~名~~ & \buaa@thesisauthor \\[.4ex]
+                            学~~科~~专~~业~~ & \buaa@major 专业\\[.4ex]
+                            指~~导~~教~~师~~ & \buaa@teacher \quad\buaa@teacherdegree\\[.4ex]
+                            培~~养~~院~~系~~ & \buaa@school 学院\\
+                        \end{tabular}
+                    }
+                \end{spacing}
             \end{center}
         \end{titlepage}
     \fi
@@ -513,15 +513,15 @@ The LaTeX template for thesis of BUAA]
     \thispagestyle{empty}
     \vspace*{\stretch{1}}
     \begin{center}
-	\begin{minipage}[h]{.8\textwidth}
-		\centering{\zihao{-2}\textbf{\buaa@thesistitleeng}}
-	\end{minipage}
-	\vskip 20bp
-	\begin{minipage}[h]{.75\textwidth}
-		\centering{\zihao{-3}\textbf{\buaa@thesissubtitleeng}}
-	\end{minipage}
-	\vspace*{\stretch{1}}
-	~~\\
+    \begin{minipage}[h]{.8\textwidth}
+        \centering{\zihao{-2}\textbf{\buaa@thesistitleeng}}
+    \end{minipage}
+    \vskip 20bp
+    \begin{minipage}[h]{.75\textwidth}
+        \centering{\zihao{-3}\textbf{\buaa@thesissubtitleeng}}
+    \end{minipage}
+    \vspace*{\stretch{1}}
+    ~~\\
         {\zihao{4}A Dissertation Submitted for the Degree of \buaa@appdegreeeng}\\
         \vskip 110bp
         \begin{center}
@@ -546,17 +546,17 @@ The LaTeX template for thesis of BUAA]
     \newpage
     \vspace*{2bp}
     \ifbuaa@bachelor
-		\begin{center}
-			\begin{minipage}[h]{.75\textwidth}
-				\centering{\zihao{3}\heiti\buaa@thesistitle}
-			\end{minipage}
-			\begin{minipage}[h]{.8\textwidth}
-				\begin{flushright}
-					{\zihao{3}\heiti\buaa@thesissubtitle}
-				\end{flushright}
-				% subtitle should be flush right?
-			\end{minipage}
-		\end{center}
+        \begin{center}
+            \begin{minipage}[h]{.75\textwidth}
+                \centering{\zihao{3}\heiti\buaa@thesistitle}
+            \end{minipage}
+            \begin{minipage}[h]{.8\textwidth}
+                \begin{flushright}
+                    {\zihao{3}\heiti\buaa@thesissubtitle}
+                \end{flushright}
+                % subtitle should be flush right?
+            \end{minipage}
+        \end{center}
         %\vskip 10bp
         \begin{flushright}
             {\begin{tabular}{cl}
@@ -586,17 +586,17 @@ The LaTeX template for thesis of BUAA]
     \newpage
     \vspace*{2bp}
     \ifbuaa@bachelor
-		\begin{center}
-			\begin{minipage}[h]{.75\textwidth}
-				\centering{\bf\zihao{3}\buaa@thesistitleeng}
-			\end{minipage}
-			\begin{minipage}[h]{.8\textwidth}
-				\begin{flushright}
-					{\zihao{3}\heiti\buaa@thesissubtitleeng}
-				\end{flushright}
-			% subtitle should be flushright?
-			\end{minipage}
-		\end{center}
+        \begin{center}
+            \begin{minipage}[h]{.75\textwidth}
+                \centering{\bf\zihao{3}\buaa@thesistitleeng}
+            \end{minipage}
+            \begin{minipage}[h]{.8\textwidth}
+                \begin{flushright}
+                    {\zihao{3}\heiti\buaa@thesissubtitleeng}
+                \end{flushright}
+            % subtitle should be flushright?
+            \end{minipage}
+        \end{center}
         \vskip 10bp
         \begin{flushright}
             {\begin{tabular}{rl}
@@ -720,7 +720,7 @@ The LaTeX template for thesis of BUAA]
         \stepcounter{assign}
         \Roman{assign}、毕业设计（论文）题目： \\[2.5ex]
         \ulinel{\buaa@thesistitle}
-        \ulinel{\buaa@thesisubtitle}
+        \ulinel{\buaa@thesissubtitle}
         \ulinel{}
         \stepcounter{assign}
         \Roman{assign}、毕业设计（论文）使用的原始资料（数据）及设计技术要求： \\[2.5ex]
@@ -909,7 +909,7 @@ The LaTeX template for thesis of BUAA]
 \newcommand{\thesistitle}[4]{%
     \def\buaa@thesistitle{#1}
     \def\buaa@thesissubtitle{#2}
-	\def\buaa@thesistitleeng{#3}
+    \def\buaa@thesistitleeng{#3}
     \def\buaa@thesissubtitleeng{#4}
 }
 % 作者
