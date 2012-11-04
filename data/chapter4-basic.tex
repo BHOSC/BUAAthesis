@@ -176,17 +176,16 @@ itemize是最简单的，enumerate是带序号的，description是带描述的�
     \end{tabular}
 \end{table}
 如果在表格中需要使用脚注(footnote)功能，则需要将浮动表格环境置于一个minipage中，
-否则脚注会被内容所吞掉。比如表\ref{tab-footnote}所示。
-\begin{center}
-	\begin{minipage}{\textwidth}
-		\begin{tabular}{|c|c|c|}
+否则脚注会被内容所吞掉。比如下表所示。但目前能力有限，无法将此表格居中，也无法添加
+表格标题和引用。待改进。
+
+\begin{minipage}[h]{\textwidth}
+	\begin{tabular}{|c|c|c|}
 		\hline
 		aaa\footnote{test} & bbb & ccc \\
 		\hline
 	\end{tabular}
-	\end{minipage}
-\end{center}
-
+\end{minipage}
 
 \subsection{列合并和行合并}
 \label{subsec-tab-col-row}
