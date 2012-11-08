@@ -1,4 +1,4 @@
-ENTRY
+ï»¿ENTRY
   { address
     author
     booktitle
@@ -21,8 +21,8 @@ ENTRY
     type
     volume
     year
-    url %%Îªµç×ÓÎÄÏ×ĞÂÔöµÄÏî
-    etype %%µç×ÓÎÄÏ×µÄÀàĞÍ(DB, DB/OL, CP, M/CD...)
+    url %%ä¸ºç”µå­æ–‡çŒ®æ–°å¢çš„é¡¹
+    etype %%ç”µå­æ–‡çŒ®çš„ç±»å‹(DB, DB/OL, CP, M/CD...)
   }
   {}
   { label }
@@ -526,23 +526,23 @@ FUNCTION {format.incoll.inproc.crossref}
   " \cite{" * crossref * "}" *
 }
 
-%% ×÷Õß. ÎÄÏ×ÌâÃû[J]. ¿¯Ãû, Äê·İ, ¾íºÅ(ÆÚºÅ):Ò³Âë.
+%% ä½œè€…. æ–‡çŒ®é¢˜å[J]. åˆŠå, å¹´ä»½, å·å·(æœŸå·):é¡µç .
 %%
 
 FUNCTION {article}
 { output.bibitem
   format.authors "author" output.check
   new.block
-  format.title %ºóÃæ¼ÓÉÏ[J]
+  format.title %åé¢åŠ ä¸Š[J]
   "\/[J]" *
   "title" output.check
   new.block
   crossref missing$
     {
-	    %Êä³ö¶ººÅ
+	    %è¾“å‡ºé€—å·
 %	    mid.sentence 'output.state :=
 	    journal emphasize "journal" output.check
-		    format.date "year" output.check %ÈÕÆÚÔÚÇ°Í·
+		    format.date "year" output.check %æ—¥æœŸåœ¨å‰å¤´
 		    format.vol.num.pages output
     }
     { format.article.crossref output.nonnull
@@ -554,7 +554,7 @@ FUNCTION {article}
   fin.entry
 }
 
-%% Éú³É ³ö°æµØ:³ö°æÕß, ³ö°æÄê:Ò³ÂëµÄ¸ñÊ½
+%% ç”Ÿæˆ å‡ºç‰ˆåœ°:å‡ºç‰ˆè€…, å‡ºç‰ˆå¹´:é¡µç çš„æ ¼å¼
 FUNCTION {format.add.pub.year.page}
 {
 	""
@@ -594,8 +594,8 @@ FUNCTION {format.add.pub.year.page}
 }
 
 
-%%×¨Öø
-%% ×÷Õß. ÌâÄ¿[M]. ³ö°æµØ:³ö°æÕß, ³ö°æÄê:Ò³Âë.
+%%ä¸“è‘—
+%% ä½œè€…. é¢˜ç›®[M]. å‡ºç‰ˆåœ°:å‡ºç‰ˆè€…, å‡ºç‰ˆå¹´:é¡µç .
 FUNCTION {book}
 { output.bibitem
   author empty$
@@ -608,7 +608,7 @@ FUNCTION {book}
     }
   if$
   new.block
-  %¼ÓÉÏ[M]
+  %åŠ ä¸Š[M]
   format.btitle 
   "\/[M]" *
   "title" output.check
@@ -694,19 +694,19 @@ FUNCTION {incollection}
 }
 
 %%
-%%×÷Õß. ÌâÃû[A]. Ö÷±à. ÂÛÎÄ¼¯Ãû[C]. ³ö°æµØ:³ö°æÕß, ³ö°æÄê:Ò³Âë.
+%%ä½œè€…. é¢˜å[A]. ä¸»ç¼–. è®ºæ–‡é›†å[C]. å‡ºç‰ˆåœ°:å‡ºç‰ˆè€…, å‡ºç‰ˆå¹´:é¡µç .
 FUNCTION {inproceedings}
 { output.bibitem
   format.authors "author" output.check
   new.block
-  %%¼ÓÉÏ[A]
+  %%åŠ ä¸Š[A]
   format.title 
   "\/[A]" *
   "title" output.check
   new.block
   crossref missing$
     { format.in.ed.booktitle 
-	    %¼ÓÉÏ[C]
+	    %åŠ ä¸Š[C]
 	"\/[C]" *
         "booktitle"
       output.check
@@ -844,7 +844,7 @@ FUNCTION {techreport}
 { output.bibitem
   format.authors "author" output.check
   new.block
-  %%¼ÓÉÏ[R]
+  %%åŠ ä¸Š[R]
   format.title "\/[R]" * "title" output.check
   new.block
   format.tr.number output.nonnull
@@ -856,13 +856,13 @@ FUNCTION {techreport}
   fin.entry
 }
 
-%%ĞÂÔöÒ»Àà£ºµç×ÓÎÄÏ×
+%%æ–°å¢ä¸€ç±»ï¼šç”µå­æ–‡çŒ®
 FUNCTION {eliteratrue}
 {
 	output.bibitem
 	format.authors output
 	organization output
-	format.title %ºóÃæ¼ÓÉÏ[EB/xx]
+	format.title %åé¢åŠ ä¸Š[EB/xx]
 	"\/[EB/" *
 	etype empty$
 	{"missing etype filed in eliteratrue, set to OL" warning$ "OL" 't :=}
@@ -872,7 +872,7 @@ FUNCTION {eliteratrue}
 	"title" output.check
 	new.block
 	url
-	%%ÔÚurlÇ°¶ÏĞĞ
+	%%åœ¨urlå‰æ–­è¡Œ
 	"\\" swap$ * 
 	"url" output.check
 	fin.entry
