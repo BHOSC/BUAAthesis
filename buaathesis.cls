@@ -368,6 +368,9 @@ The LaTeX template for thesis of BUAA]
     \renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
 \fi
 
+% Fix subfigure reference bug
+\let\p@subfigure=\thefigure
+
 % 图片表格标题命令，主要用于混排
 \newcommand\figcaption{\def\@captype{figure}\caption}
 \newcommand\tabcaption{\def\@captype{table}\caption}
