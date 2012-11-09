@@ -353,9 +353,9 @@ The LaTeX template for thesis of BUAA]
 \ifbuaa@bachelor
     \captionsetup[figure]{format=bachelorfigure,labelsep=quad}
     \captionsetup[table]{format=bachelortable,labelsep=quad}
-    \renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
-    \renewcommand{\thetable}{\arabic{section}.\arabic{table}}
-    \renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+    \renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+    \renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
+    \renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
 \else
     \RequirePackage{remreset}
     \@removefromreset{table}{chapter}
@@ -367,6 +367,9 @@ The LaTeX template for thesis of BUAA]
     \renewcommand{\thetable}{\arabic{table}}
     \renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
 \fi
+
+% Fix subfigure reference bug
+\let\p@subfigure=\thefigure
 
 % 图片表格标题命令，主要用于混排
 \newcommand\figcaption{\def\@captype{figure}\caption}
