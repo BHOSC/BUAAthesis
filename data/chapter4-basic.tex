@@ -279,7 +279,8 @@ void main()
     \end{minipage}
 \end{figure}
 
-图\ref{fig-sub}为子图排列，两个子图有各自的图题，并有一个共同的图题。
+图\ref{fig-sub}为子图排列，两个子图有各自的图题，
+分别为图\ref{fig-sub-l}和图\ref{fig-sub-r}，并有一个共同的图题。
 \begin{figure}[h!]
     \centering
     \subfigure[并排小图a]{
@@ -295,24 +296,26 @@ void main()
     \label{fig-sub}
 \end{figure}
 
-若要将四个或多个图形以矩阵形式，可以参见图\ref{fig-matrix}的示例代码。
+若要将四个或多个图形以矩阵形式排列，可以参见图\ref{fig-matrix}，
+四个子图分别为图\ref{fig-matrix-a}、图\ref{fig-matrix-b}、
+图\ref{fig-matrix-c}和图\ref{fig-matrix-d}。
 \begin{figure}[h!]
     \centering
     \begin{tabular}{cc}
         \subfigure[矩阵子图A]{
-            \label{fig-tab-a}
+            \label{fig-matrix-a}
             \includegraphics[width=.18\textwidth]{figure/buaamark.eps}
         } \hspace{7em} &
         \subfigure[矩阵子图B]{
-            \label{fig-tab-b}
+            \label{fig-matrix-b}
             \includegraphics[width=.18\textwidth]{figure/buaamark.eps}
         } \\
         \subfigure[矩阵子图C]{
-            \label{fig-tab-c}
+            \label{fig-matrix-c}
             \includegraphics[width=.18\textwidth]{figure/buaamark.eps}
         } \hspace{7em} &
         \subfigure[矩阵子图D]{
-            \label{fig-tab-d}
+            \label{fig-matrix-d}
             \includegraphics[width=.18\textwidth]{figure/buaamark.eps}
         }\\
     \end{tabular}
