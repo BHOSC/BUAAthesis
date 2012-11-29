@@ -519,7 +519,7 @@ The LaTeX template for thesis of BUAA]
     \end{minipage}
     \vskip 20bp
     \begin{minipage}[h]{.75\textwidth}
-        \centering{\zihao{-3}\textbf{\buaa@thesissubtitleeng}}
+        \centering{\zihao{-3}\buaa@thesissubtitleeng}
     \end{minipage}
     \vspace*{\stretch{1}}
     ~~\\
