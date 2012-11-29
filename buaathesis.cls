@@ -33,7 +33,11 @@ The LaTeX template for thesis of BUAA]
 \LoadClass[cs4size,a4paper,fancyhdr]{ctexbook}[2007/10/19]
 
 %%%%%%%%%% font %%%%%%%%%%
-% 字体设置
+% 数学相关和字体设置
+
+\RequirePackage{amsmath,amssymb,amsfonts,mathrsfs,bm}
+\RequirePackage[amsmath,thmmarks,hyperref]{ntheorem}
+\RequirePackage{txfonts}
 
 % 主要字体为Times New Roman和宋体
 % 模板某些标题需要华文行楷和32号字
@@ -232,6 +236,8 @@ The LaTeX template for thesis of BUAA]
 {\zihao{5}\oldtabularx{#1}{#2}}
 {\endoldtabularx}
 
+\RequirePackage{array}
+
 %%%%%%%%%% picture %%%%%%%%%%
 % 图片
 
@@ -303,14 +309,6 @@ The LaTeX template for thesis of BUAA]
 
 % 重命名Listings标题头
 \renewcommand{\lstlistingname}{代码}
-
-%%%%%%%%%% formula %%%%%%%%%%
-% 公式
-
-\RequirePackage{amsmath,amssymb,amsfonts,mathrsfs,bm}
-\RequirePackage{txfonts}
-\RequirePackage[amsmath,thmmarks,hyperref]{ntheorem}
-\RequirePackage{array}
 
 %%%%%%%%%% theorem %%%%%%%%%%
 % 定理
