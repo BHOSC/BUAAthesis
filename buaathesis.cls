@@ -363,7 +363,7 @@ The LaTeX template for thesis of BUAA]
     \captionsetup[table]{format=mastertable,labelsep=quad}
     \renewcommand{\thefigure}{\arabic{figure}}
     \renewcommand{\thetable}{\arabic{table}}
-    \renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
+    \renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
 \fi
 
 % Fix subfigure reference bug
