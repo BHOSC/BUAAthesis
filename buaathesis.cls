@@ -90,22 +90,32 @@ The LaTeX template for thesis of BUAA]
 % 页眉页脚
 
 \RequirePackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhead{}
-\fancyfoot{}
-\ifbuaa@bachelor
-    \fancyhead[C]{
-        \includegraphics[width=37bp]{figure/buaamark.eps}\hfill
-        \raisebox{2ex}{\heiti\zihao{4}\buaa@university 毕业设计(论文)}\hfill
-        \raisebox{2ex}{\songti\zihao{5}第\quad\thepage\quad 页}
-    }
-\else
-    \fancyhead[CO]{\zihao{-5}\songti\buaa@university\buaa@applydegree 学位论文\vspace{1.5mm}}
-    \fancyhead[CE]{\zihao{-5}\songti\leftmark\vspace{1.5mm}}
-    \fancyfoot[C]{\zihao{5}\thepage}
-\fi
+%\pagestyle{fancy}
+\fancypagestyle{frontmatter}{
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\headrulewidth}{0pt}
+    \fancyhf{}
+    \fancyfoot[C]{\thepage}
+}
+\fancypagestyle{mainmatter}{
+    \fancyhead{}
+    \fancyfoot{}
+    \ifbuaa@bachelor
+        \fancyhead[C]{
+            \includegraphics[width=37bp]{figure/buaamark.eps}\hfill
+            \raisebox{2ex}{\heiti\zihao{4}\buaa@university 毕业设计(论文)}\hfill
+            \raisebox{2ex}{\songti\zihao{5}第\quad\thepage\quad 页}
+        }
+    \else
+        \fancyhead[CO]{\zihao{-5}\songti
+            \buaa@university\buaa@applydegree 学位论文\vspace{1.5mm}
+        }
+        \fancyhead[CE]{\zihao{-5}\songti\leftmark\vspace{1.5mm}}
+        \fancyfoot[C]{\zihao{5}\thepage}
+    \fi
 
-\renewcommand{\headrulewidth}{0.5bp} % 页眉线宽度
+    \renewcommand{\headrulewidth}{0.5bp} % 页眉线宽度
+}
 
 \fancypagestyle{plain}{
     \pagestyle{fancy}
@@ -178,6 +188,10 @@ The LaTeX template for thesis of BUAA]
     \titlecontents{subsection}[4em]{\vspace{0.1\baselineskip}\heiti\zihao{5}}{\thecontentslabel\ }{}
         {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.1\baselineskip}]
 \fi
+
+% 取消图片目录中的章节空格
+\newcommand*{\noaddvspace}{\renewcommand*{\addvspace}[1]{}}
+\addtocontents{lof}{\protect\noaddvspace}
 
 %%%%%%%%%% cross reference %%%%%%%%%%
 % 交叉引用
@@ -386,7 +400,11 @@ The LaTeX template for thesis of BUAA]
 \renewcommand{\frontmatter}{
     \cleardoublepage
     \@mainmatterfalse
-    \pagenumbering{Roman}
+    \ifbuaa@bachelor
+        \pagenumbering{Roman}
+    \else
+        \pagenumbering{arabic}
+    \fi
 }
 
 % 保证偶数页结束章节
@@ -471,7 +489,7 @@ The LaTeX template for thesis of BUAA]
                         \end{flushleft}
                     }
                     \vskip 80bp
-                    \includegraphics[width=.5\textwidth]{figure/buaaname.eps}
+                    \includegraphics[width=.5\textwidth]{figure/buaaname.jpg}
                     \vskip 10bp
                     \centerline{\zihao{0}\hwxingkai\buaa@appdegree 论文}
                     ~~\\
@@ -985,7 +1003,7 @@ The LaTeX template for thesis of BUAA]
         \ifbuaa@bachelor
             \degree{学士学位}{Bachelor}{学士}
         \else
-            \degree{学术硕士学位}{Master}{硕士}
+            \degree{硕士学位}{Master}{硕士}
         \fi
     \fi
 \fi
