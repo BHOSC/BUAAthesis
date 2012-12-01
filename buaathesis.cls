@@ -360,11 +360,14 @@ The LaTeX template for thesis of BUAA]
 \RequirePackage{caption}
 \DeclareCaptionFormat{bachelorfigure}{\songti\zihao{5}{#1\textrm{#2}#3}}
 \DeclareCaptionFormat{bachelortable}{\heiti\bf\zihao{5}{#1\textrm{#2}#3}}
+\DeclareCaptionFormat{bachelorlstlisting}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
 \DeclareCaptionFormat{masterfigure}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
 \DeclareCaptionFormat{mastertable}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
+\DeclareCaptionFormat{masterlstlisting}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
 \ifbuaa@bachelor
     \captionsetup[figure]{format=bachelorfigure,labelsep=quad}
     \captionsetup[table]{format=bachelortable,labelsep=quad}
+    \captionsetup[lstlisting]{format=bachelorlstlisting,labelsep=quad}
     \renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
     \renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
     \renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
@@ -375,6 +378,7 @@ The LaTeX template for thesis of BUAA]
     %使图表的标号与章节无关
     \captionsetup[figure]{format=masterfigure,labelsep=quad}
     \captionsetup[table]{format=mastertable,labelsep=quad}
+    \captionsetup[lstlisting]{format=masterlstlisting,labelsep=quad}
     \renewcommand{\thefigure}{\arabic{figure}}
     \renewcommand{\thetable}{\arabic{table}}
     \renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
