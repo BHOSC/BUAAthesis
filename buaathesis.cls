@@ -408,7 +408,7 @@ The LaTeX template for thesis of BUAA]
     \ifbuaa@bachelor
         \pagenumbering{Roman}
     \else
-        \pagenumbering{arabic}
+        \pagenumbering{roman}
     \fi
 }
 
