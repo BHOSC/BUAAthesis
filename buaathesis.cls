@@ -189,6 +189,10 @@ The LaTeX template for thesis of BUAA]
         {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.1\baselineskip}]
 \fi
 
+% 取消图片目录中的章节空格
+\newcommand*{\noaddvspace}{\renewcommand*{\addvspace}[1]{}}
+\addtocontents{lof}{\protect\noaddvspace}
+
 %%%%%%%%%% cross reference %%%%%%%%%%
 % 交叉引用
 
