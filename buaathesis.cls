@@ -404,11 +404,7 @@ The LaTeX template for thesis of BUAA]
 \renewcommand{\frontmatter}{
     \cleardoublepage
     \@mainmatterfalse
-    \ifbuaa@bachelor
-        \pagenumbering{Roman}
-    \else
-        \pagenumbering{arabic}
-    \fi
+    \pagenumbering{Roman}
 }
 
 % 保证偶数页结束章节
