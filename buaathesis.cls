@@ -90,22 +90,32 @@ The LaTeX template for thesis of BUAA]
 % 页眉页脚
 
 \RequirePackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhead{}
-\fancyfoot{}
-\ifbuaa@bachelor
-    \fancyhead[C]{
-        \includegraphics[width=37bp]{figure/buaamark.eps}\hfill
-        \raisebox{2ex}{\heiti\zihao{4}\buaa@university 毕业设计(论文)}\hfill
-        \raisebox{2ex}{\songti\zihao{5}第\quad\thepage\quad 页}
-    }
-\else
-    \fancyhead[CO]{\zihao{-5}\songti\buaa@university\buaa@applydegree 学位论文\vspace{1.5mm}}
-    \fancyhead[CE]{\zihao{-5}\songti\leftmark\vspace{1.5mm}}
-    \fancyfoot[C]{\zihao{5}\thepage}
-\fi
+%\pagestyle{fancy}
+\fancypagestyle{frontmatter}{
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\headrulewidth}{0pt}
+    \fancyhf{}
+    \fancyfoot[C]{\thepage}
+}
+\fancypagestyle{mainmatter}{
+    \fancyhead{}
+    \fancyfoot{}
+    \ifbuaa@bachelor
+        \fancyhead[C]{
+            \includegraphics[width=37bp]{figure/buaamark.eps}\hfill
+            \raisebox{2ex}{\heiti\zihao{4}\buaa@university 毕业设计(论文)}\hfill
+            \raisebox{2ex}{\songti\zihao{5}第\quad\thepage\quad 页}
+        }
+    \else
+        \fancyhead[CO]{\zihao{-5}\songti
+            \buaa@university\buaa@applydegree 学位论文\vspace{1.5mm}
+        }
+        \fancyhead[CE]{\zihao{-5}\songti\leftmark\vspace{1.5mm}}
+        \fancyfoot[C]{\zihao{5}\thepage}
+    \fi
 
-\renewcommand{\headrulewidth}{0.5bp} % 页眉线宽度
+    \renewcommand{\headrulewidth}{0.5bp} % 页眉线宽度
+}
 
 \fancypagestyle{plain}{
     \pagestyle{fancy}
