@@ -189,10 +189,6 @@ The LaTeX template for thesis of BUAA]
         {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.1\baselineskip}]
 \fi
 
-% 图片、表格目录
-\renewcommand\listfigurename{图\quad 目}
-\renewcommand\listtablename{表\quad 目}
-
 % 取消图片、表格目录中的章节空格
 \newcommand*{\noaddvspace}{\renewcommand*{\addvspace}[1]{}}
 \addtocontents{lof}{\protect\noaddvspace}
