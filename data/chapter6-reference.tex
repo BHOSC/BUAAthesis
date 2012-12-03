@@ -1,0 +1,23 @@
+% !Mode:: "TeX:UTF-8"
+\chapter{论文的参考文献}
+\section{BibTeX简介}
+1985年，Oren Patashnik和Lamport开发了\bibtex{}，其详细使用参阅Nicolas Markey的
+《Tame the BeaST: The B to X of BibTeX》。
+
+\bibtex{}把参考文献的数据放在一个.bib文件中，显示格式放在.bst文件中，普通用户一般不需要改动.bst文件，
+只需要维护.bib参考文献数据库即可。
+
+一个.bib文件可以包含多个参考文献条目(entry)，每个条目有类型、关键字，以及题目、作者、年份等字段。
+常用条目类型有article、book、conference、manual等。每种类型都有一些自己的规定字段和可选字段，字段间
+用逗号分隔。数据库中每个条目的关键字(Bibtexkey)要保持唯一，因为引用时需要用到此字段作为此条目的标识。
+
+前文中提到含有交叉引用的文档需要编译两遍(当然也可能没提到)。含有参考文献的文档则更“麻烦”，它需要
+依次执行latex、bibtex、latex、latex四次编译操作。
+\begin{enumerate}
+\item 第一遍latex只把条目的关键字写到中间文件.aux文件中去。
+\item bibtex根据.aux、.bib、.bst生成一个.bbl文件，即参考文献列表，它的内容就是thebibliography环境
+和一些\verb|\bibetm| 命令。
+\item 第二遍latex把交叉引用写到.aux中去。
+\item 第三遍latex则在正文中正确地显示引用。
+\end{enumerate}
+\section{JabRef的使用}
