@@ -32,6 +32,11 @@ The LaTeX template for thesis of BUAA]
 % 引用ctexbook及基本设置
 \LoadClass[cs4size,a4paper,fancyhdr]{ctexbook}[2007/10/19]
 
+%%%%%%%%%% global package %%%%%%%%%%
+% 全局通用宏包
+
+\RequirePackage{ifthen}
+
 %%%%%%%%%% font %%%%%%%%%%
 % 数学相关和字体设置
 
@@ -90,7 +95,6 @@ The LaTeX template for thesis of BUAA]
 % 页眉页脚
 
 \RequirePackage{fancyhdr}
-%\pagestyle{fancy}
 \fancypagestyle{frontmatter}{
     \renewcommand{\headrulewidth}{0pt}
     \renewcommand{\headrulewidth}{0pt}
@@ -107,10 +111,19 @@ The LaTeX template for thesis of BUAA]
             \raisebox{2ex}{\songti\zihao{5}第\quad\thepage\quad 页}
         }
     \else
-        \fancyhead[CO]{\zihao{-5}\songti
-            \buaa@university\buaa@applydegree 学位论文\vspace{1.5mm}
-        }
-        \fancyhead[CE]{\zihao{-5}\songti\leftmark\vspace{1.5mm}}
+        \if@twoside
+            \fancyhead[CO]{\zihao{-5}\songti
+                \buaa@university\buaa@applydegree 学位论文\vspace{1.5mm}
+            }
+            \fancyhead[CE]{\zihao{-5}\songti\leftmark\vspace{1.5mm}}
+        \else
+            \fancyhead[C]{\zihao{-5}\songti
+                \ifthenelse{\isodd{\value{page}}}
+                    {\buaa@university\buaa@applydegree 学位论文}
+                    {\leftmark}
+                \vspace{1.5mm}
+            }
+        \fi
         \fancyfoot[C]{\zihao{5}\thepage}
     \fi
 
