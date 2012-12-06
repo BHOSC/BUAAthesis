@@ -538,6 +538,7 @@ The LaTeX template for thesis of BUAA]
                     }
                 \end{spacing}
             \end{center}
+            \clearemptydoublepage
         \end{titlepage}
     \fi
 }
