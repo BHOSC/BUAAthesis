@@ -813,7 +813,7 @@ The LaTeX template for thesis of BUAA]
     \clearemptydoublepage
     \thispagestyle{empty}
     \begin{flushleft}
-        {\zihao{5}\heiti
+        {\zihao{5}\heiti\bfseries
         中图分类号：\buaa@category\\
         论\,\,文\,\,编\,\,号：\buaa@thesisID\\}
     \end{flushleft}
