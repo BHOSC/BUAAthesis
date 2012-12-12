@@ -451,112 +451,60 @@ FUNCTION {bib.fname.font}
 %%%%%%%%%%%%%%%%%%%%%%%
 
 INTEGERS { nameptr namesleft numnames }
+STRINGS { nameetal }
 
-FUNCTION {format.names}
-{ 's :=
-    #1 'nameptr :=
+% debug code, print cuurent top of the stack but not "pop" it
+FUNCTION {.print.top} {duplicate$ "top is: " swap$ * top$}
+
+% pops tow strings and push the formated name string.  The first string it pops
+% is the "et al" string. The second string it pops is the name string which
+% need to be formated.
+%
+% This is the base function of format.names and format.cnames. You won't need
+% to call this function directly in most cases.
+FUNCTION {.format.names}
+{
+    'nameetal :=
+    's :=
     s num.names$ 'numnames :=
-    numnames 'namesleft :=
+    % debug code
+    %"" top$
+    %"got name: " s * " got etal: " * nameetal * " num of names: " * numnames int.to.str$ * top$
+
+    % push the first person
+    % There will always be at last one person, right?
+    s #1 "{ll}{ f.}" format.name$
+    #2 'nameptr :=
+    numnames #1 - 'namesleft :=
+
     { namesleft #0 > }
-    { s nameptr "{ll}{ f.}{, jj}"
-        format.name$
-        remove.dots
-        't :=
-        nameptr #1 >
-        {
-            nameptr #3
-            #1 + =
-            numnames #3
-            > and
-            { "others" 't :=
-                #1 'namesleft := }
-            'skip$
-            if$
-            namesleft #1 >
-            { ", " * t * }
-            { numnames #2 >
-                { "" * }
-                'skip$
-                if$
-                s nameptr "{ll}" format.name$ duplicate$ "others" =
-                { 't := }
-                { pop$ }
-                if$
-                t "others" =
-                {bib.name.font    %改为大写
-                    ", et al" *
-                }
-                {", " * t * }
-                if$
-            }
-            if$
-        }
-        't
+    {
+        nameptr #4 = numnames #3 > and
+        s nameptr "{ll}" format.name$ "others" = or
+        { "others" 't :=
+            #1 'namesleft := }
+        { s nameptr "{ll}{ f.}" format.name$ 't := }
         if$
+
+        t "others" =
+        { nameetal * 't :=}
+        { ", " * t * 't := }
+        if$
+
+        t
+
         nameptr #1 + 'nameptr :=
         namesleft #1 - 'namesleft :=
     }
     while$
-    %%%%%%%%%%%
-    t "others" =                   %改为大写
-    'skip$                       %改为大写
-    { bib.name.font }            %改为大写
-    if$                            %改为大写
-    %%%%%%%%%%%
+    % debug code
+    % "whole top" top$
+    % .print.top
 }
 
+FUNCTION {format.names} {", et al" .format.names}
 
-FUNCTION {format.cnames}                                     %wk
-{ 's :=
-    #1 'nameptr :=
-    s num.names$ 'numnames :=
-    numnames 'namesleft :=
-    { namesleft #0 > }
-    { s nameptr "{ll}{ f.}{ jj}" format.name$
-        remove.dots
-        't :=
-        nameptr #1 >
-        {
-            nameptr #3
-            #1 + =
-            numnames #3
-            > and
-            { "others" 't :=
-                #1 'namesleft := }
-            'skip$
-            if$
-            namesleft #1 >
-            { ", " * t * }
-            { numnames #2 >
-                { "" * }
-                'skip$
-                if$
-                s nameptr "{ll}" format.name$ duplicate$ "others" =
-                { 't := }
-                { pop$ }
-                if$
-                t "others" =
-                { ",等" *
-                    bib.name.font    %改为大写
-                }
-                {", " * t * }
-                if$
-            }
-            if$
-        }
-        't
-        if$
-        nameptr #1 + 'nameptr :=
-        namesleft #1 - 'namesleft :=
-    }
-    while$
-    %%%%%%%%%%%
-    t "others" =                   %改为大写
-    'skip$                       %改为大写
-    { bib.name.font }            %改为大写
-    if$                            %改为大写
-    %%%%%%%%%%%
-}
+FUNCTION {format.cnames} {",等" .format.names}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %不加大写的名字
@@ -1935,7 +1883,7 @@ FUNCTION {format.cmisc.addr.pub}
 
 FUNCTION {format.addr.pub.org}                              %  If there's an
 { address empty$                                            %  an organization
-    { "[S.l.]:" *publisher * ", for " * organization * }                 %  and a publisher
+    { "[S.l.]:" * publisher * ", for " * organization * }                 %  and a publisher
     { address ": " * publisher * ", for " * organization * }  %  too.
     if$
 }
@@ -1944,7 +1892,7 @@ FUNCTION {format.addr.inst}
 { address empty$
     { institution empty$
         { "[S.l.]" }
-        { "[S.l.]" * institution *　*}
+        { "[S.l.]" * institution *}
         if$
     }
     { institution empty$
@@ -2935,356 +2883,6 @@ MACRO {tcs} {"Theoretical Computer Science"}
 
 READ
 
-%FUNCTION {sortify}
-%{ purify$
-%  "l" change.case$
-%}
-%
-%INTEGERS { len }
-%
-%FUNCTION {chop.word}
-%{ 's :=
-%  'len :=
-%  s #1 len substring$ =
-%    { s len #1 + global.max$ substring$ }
-%    's
-%  if$
-%}
-%
-%FUNCTION {format.lab.names}                                      %wk
-%{ 's :=
-%  s #1 "{vv~}{ll}" format.name$
-%  s num.names$ duplicate$
-%  #2 >
-%    { pop$ " {\em et~al.}" * }
-%    { #2 <
-%        'skip$
-%        { s #2 "{ff }{vv }{ll}{ jj}" format.name$ "others" =
-%            { " {\em et~al.}" * }
-%            { " and " * s #2 "{vv~}{ll}" format.name$ * }           %wk
-%          if$
-%        }
-%      if$
-%    }
-%  if$
-%}
-%
-%FUNCTION {author.key.label}
-%{ author empty$
-%    { key empty$
-%        { cite$ #1 #3 substring$ }
-%        'key
-%      if$
-%    }
-%    { author format.lab.names }
-%  if$
-%}
-%
-%FUNCTION {author.editor.key.label}
-%{ author empty$
-%    { editor empty$
-%        { key empty$
-%            { cite$ #1 #3 substring$ }
-%            'key
-%          if$
-%        }
-%        { editor format.lab.names }
-%      if$
-%    }
-%    { author format.lab.names }
-%  if$
-%}
-%
-%FUNCTION {editor.key.label}
-%{ editor empty$
-%    { key empty$
-%        { cite$ #1 #3 substring$ }
-%        'key
-%      if$
-%    }
-%    { editor format.lab.names }
-%  if$
-%}
-%
-%FUNCTION {calc.label}                                       %wk修改
-%  { type$ "book" =
-%    type$ "cbook" =
-%    type$ "inbook" =
-%    type$ "cinbook" =
-%    type$ "incollection" =                                  %  For sensible
-%    type$ "cincollection" =
-%  or or  or or or                                                  %  treatment of
-%    'author.editor.key.label                                %  Singer in
-%    { type$ "proceedings" =                                 %  BS 1629.
-%        'editor.key.label
-%        'author.key.label
-%      if$
-% type$ "cproceedings" =                                 %  BS 1629.
-%        'editor.key.label
-%        'author.key.label
-%      if$
-%
-%    }
-%  if$
-%  duplicate$
-%  year empty$
-%  {
-%    "\protect\citename{" swap$ * ", }" *
-%    "n.d." * 'label :=                                      %  Chicago,
-%  }                                                         %  page 457.
-%  {
-%    "\protect\citename{" swap$ * ", }" *
-%    year
-%    *
-%    'label :=
-%  }
-%  if$
-%  year field.or.null purify$ *
-%  sortify 'sort.label :=
-%}
-%
-%
-%FUNCTION {sort.format.names}                                %  To produce the
-%{ 's :=                                                     %  order of entries
-%  #1 'nameptr :=                                            %  specified in item
-%  ""                                                        %  (3) on page 187
-%  s num.names$ 'numnames :=                                 %  of Butcher.
-%  numnames 'namesleft :=
-%    { namesleft #0 > nameptr #3 < and }                     %  Only 1st 2 names
-%    { nameptr #1 >                                          %  matter for
-%        {
-%         "   " * }                                         %  sorting.
-%        'skip$
-%      if$                                                   %  Anything that's
-%      nameptr #2 = numnames #2 > and                        %  "et al" goes
-%      { "zzzzz" * }                                         %  after works by 2
-%      {                                                     %  authors.
-%        s nameptr "{vv{ } }{ll{ }}{  f{ }}{  jj{ }}" format.name$ 't :=
-%        nameptr numnames = t "others" = and
-%          { "zzzzz" * }
-%          { t sortify * }
-%        if$
-%      }
-%      if$
-%      nameptr #1 + 'nameptr :=
-%      namesleft #1 - 'namesleft :=
-%    }
-%  while$
-%}
-%
-%FUNCTION {sort.format.title}
-%{ 't :=
-%  "A " #2
-%    "An " #3
-%      "The " #4 t chop.word
-%    chop.word
-%  chop.word
-%  sortify
-%  #1 global.max$ substring$
-%}
-%
-%FUNCTION {author.sort}
-%{ author empty$
-%    { key empty$
-%        { "to sort, need author or key in " cite$ * warning$
-%          ""
-%        }
-%        { key sortify }
-%      if$
-%    }
-%    { author sort.format.names }
-%  if$
-%}
-%
-%FUNCTION {author.editor.sort}
-%{ author empty$
-%    { editor empty$
-%        { key empty$
-%            { "to sort, need author, editor, or key in " cite$ * warning$
-%              ""
-%            }
-%            { key sortify }
-%          if$
-%        }
-%        { editor sort.format.names }
-%      if$
-%    }
-%    { author sort.format.names }
-%  if$
-%}
-%
-%FUNCTION {editor.sort}
-%{ editor empty$
-%    { key empty$
-%        { "to sort, need editor or key in " cite$ * warning$
-%          ""
-%        }
-%        { key sortify }
-%      if$
-%    }
-%    { editor sort.format.names }
-%  if$
-%}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%->
-%INTEGERS { seq.num }
-%
-%FUNCTION {init.seq}
-%{ #0 'seq.num :=}
-%
-%EXECUTE {init.seq}
-%
-%FUNCTION {int.to.fix}
-%{ "000000000" swap$ int.to.str$ *
-%  #-1 #10 substring$
-%}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%<-
-%
-%FUNCTION {presort}
-%{ calc.label
-%  label sortify
-%  "    "
-%  *
-%  seq.num #1 + 'seq.num :=
-%  seq.num  int.to.fix
-%  'sort.label :=
-%  sort.label *
-%  #1 entry.max$ substring$
-%  'sort.key$ :=
-%}
-%
-%
-%%FUNCTION {presort}                                          %  Two sorting
-%%{ calc.label                                                %  passes, from
-%%  label sortify                                             %  apalike.bst.
-%%  "    "
-%%  *
-%%  type$ "book" =
-%%  type$ "inbook" =
-%%  type$ "incollection" =                                    %  For Singer
-%%  or or                                                     %  in BS 1629.
-%%    'author.editor.sort
-%%    { type$ "proceedings" =
-%%        'editor.sort
-%%        'author.sort
-%%      if$
-%%    }
-%%  if$
-%%  #1 entry.max$ substring$
-%%  'sort.label :=
-%%  sort.label
-%%  *
-%%  "    "
-%%  *
-%%  title field.or.null
-%%  sort.format.title
-%%  *
-%%  #1 entry.max$ substring$
-%%  'sort.key$ :=
-%%}
-%
-%ITERATE {presort}
-%
-%SORT
-%
-%STRINGS { last.label next.extra }
-%
-%INTEGERS { last.extra.num }
-%
-%FUNCTION {initialize.extra.label.stuff}
-%{ #0 int.to.chr$ 'last.label :=
-%  "" 'next.extra :=
-%  #0 'last.extra.num :=
-%}
-%
-%FUNCTION {forward.pass}
-%{ last.label label =
-%    { last.extra.num #1 + 'last.extra.num :=
-%      last.extra.num int.to.chr$ 'extra.label :=
-%    }
-%    { "a" chr.to.int$ 'last.extra.num :=
-%      "" 'extra.label :=
-%      label 'last.label :=
-%    }
-%  if$
-%}
-%
-%FUNCTION {reverse.pass}
-%{ next.extra "b" =
-%    { "a" 'extra.label := }
-%    'skip$
-%  if$                                                       %  Code needed here
-%                                                            %  if \citeauthor
-%                                                            %  and \citeyear
-%  label extra.label * 'label :=                             %  were supported.
-%  extra.label 'next.extra :=
-%}
-%
-%EXECUTE {initialize.extra.label.stuff}
-%
-%ITERATE {forward.pass}
-%
-%REVERSE {reverse.pass}
-%
-%FUNCTION {bib.sort.order}
-%{ sort.label
-%  "    "
-%  *
-%  year field.or.null sortify
-%  *
-%  "    "
-%  *
-%  title field.or.null
-%  sort.format.title
-%  *
-%  #1 entry.max$ substring$
-%  'sort.key$ :=
-%}
-%
-%ITERATE {bib.sort.order}
-%
-%SORT
-%
-%FUNCTION {begin.bib}
-%{ preamble$ empty$
-%    'skip$
-%    { preamble$ write$ newline$ }
-%  if$
-%  "\begin{thebibliography}{}" write$ newline$
-%
-%%开始
-%  "\providecommand{\url}[1]{\texttt{#1}}"
-%  write$ newline$
-%  "\expandafter\ifx\csname urlstyle\endcsname\relax"
-%  write$ newline$
-%  "  \providecommand{\doi}[1]{doi: #1}\else"
-%  write$ newline$
-%  "  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi"
-%  write$ newline$
-%%结束
-%
-%}
-%
-%EXECUTE {begin.bib}
-%
-%EXECUTE {init.state.consts}
-%
-%ITERATE {call.type$}
-%
-%FUNCTION {end.bib}
-%{ newline$
-%  "\end{thebibliography}" write$ newline$
-%}
-%
-%EXECUTE {end.bib}
-
-
-
-
-
-
-
-
 FUNCTION {sortify}
 { purify$
     "l" change.case$
@@ -3300,9 +2898,6 @@ FUNCTION {chop.word}
     's
     if$
 }
-
-
-
 
 FUNCTION {format.lab.names}                                      %wk
 { 's :=
