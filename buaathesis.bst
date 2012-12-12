@@ -437,6 +437,10 @@ Function{upcase}
     { "u" change.case$ }
   if$
 }
+
+FUNCTION {capitalize}
+{ "u" change.case$ "t" change.case$ }
+
 FUNCTION {bib.name.font}
 { upcase }
 FUNCTION {bib.fname.font}
@@ -446,9 +450,6 @@ FUNCTION {bib.fname.font}
 %%%%%%%%%%%%%%%%%%%%%%%
 
 INTEGERS { nameptr namesleft numnames }
-
-FUNCTION {capitalize}
-{ "u" change.case$ "t" change.case$ }
 
 FUNCTION {format.names}
 { 's :=
@@ -962,7 +963,7 @@ FUNCTION {format.incollection.title}                                     %  Noth
     { "" }                                                  %  authordate1.bst
     {
     typeoflit empty$
-       {format.title "[M]//" * title output.check}   
+       {format.title "[M]. " * title output.check}   
        {format.title "" * title output.check}
     if$
     }
@@ -970,7 +971,7 @@ if$
 
 TypeofLit empty$
        {""}   
-       { "[" TypeofLit * "]//" * * }
+       { "[" TypeofLit * "]. " * * }
 if$
                                                      %  authordate3.bst.
 }
@@ -981,7 +982,7 @@ FUNCTION {format.cincollection.title}                                     %  Not
     { "" }                                                  %  authordate1.bst
     {
     typeoflit empty$
-       {format.title "[M]//" * title output.check}   
+       {format.title "[M]. " * title output.check}   
        {format.title "" * title output.check}
     if$
     }
@@ -989,7 +990,7 @@ if$
 
 TypeofLit empty$
        {""}   
-       { "[" TypeofLit * "]//" * * }
+       { "[" TypeofLit * "]. " * * }
 if$
                                                      %  authordate3.bst.
 }
@@ -999,7 +1000,7 @@ FUNCTION {format.inproceedings.title}                                     %  Not
     { "" }                                                  %  authordate1.bst
     {
     typeoflit empty$
-       {format.title "[C]//" * title output.check}   
+       {format.title "[A]" * title output.check}   
        {format.title "" * title output.check}
     if$
     }
@@ -1007,7 +1008,7 @@ if$
 
 TypeofLit empty$
        {""}   
-       { "[" TypeofLit * "]//" * * }
+       { "[" TypeofLit * "]. " * * }
 if$
                                                      %  authordate3.bst.
 }
@@ -1018,7 +1019,7 @@ FUNCTION {format.cinproceedings.title}                                     %  No
     { "" }                                                  %  authordate1.bst
     {
     typeoflit empty$
-       {format.title "[C]//" * title output.check}   
+       {format.title "[A]" * title output.check}
        {format.title "" * title output.check}
     if$
     }
@@ -1026,7 +1027,7 @@ if$
 
 TypeofLit empty$
        {""}   
-       { "[" TypeofLit * "]//" * * }
+       { "[" TypeofLit * "]. " * * }
 if$
                                                      %  authordate3.bst.
 }
@@ -1063,6 +1064,13 @@ FUNCTION {format.btitle}
    {booktitle}                                      %  in
    if$                                                      %  authordate1.bst
 }                                                           %  or
+
+FUNCTION {format.ptitle}
+{ title empty$
+   { "" }
+   {booktitle "[C]" * add.period$}
+   if$
+}
 
 FUNCTION {format.cbtitle}                  %wk                 %  Nothing needs
 { title empty$                                              %  doing here in
@@ -1641,34 +1649,34 @@ FUNCTION {format.in.ed.booktitle}                           %  Achieves effect  
 { booktitle empty$                                          %  shown in 16.51
     { "" }                                                  %  of Chicago, at
     { editor empty$                                         %  expense of not
-         {"" * booktitle * "" *
-          new.block
-         }
-        {new.block
-    normalauthor empty$                           %用于正常显示
-         {
-    normaleditor empty$                           %用于正常显示
-         {      format.editors  "author and editor" output.check}       %用于正常显示,
-         {      format.editors  "author and normaleditor" output.check} %用于正常显示
-    if$                                           %用于正常显示            
-         }                   %用于正常显示
-         {
-    normaleditor empty$                           %用于正常显示
-         {format.editors  "normalauthor and editor" output.check}                   %用于正常显示
-         {format.editors  "normalauthor and normaleditor" output.check}       %用于正常显示
-    if$                                           %用于正常显示   
-         
-         }       %用于正常显示
-    if$                                           %用于正常显示
-      editor format.key output
-      new.block
-      format.btitle "booktitle" output.check  
-      }
-      if$                                                   %  4.4 of BS 1629.
+        {
+            format.ptitle "booktitle" output.check
+        }
+        {
+            normalauthor empty$                           %用于正常显示
+            {
+                normaleditor empty$                           %用于正常显示
+                {format.editors  "author and editor" output.check}       %用于正常显示,
+                {format.editors  "author and normaleditor" output.check} %用于正常显示
+                if$                                           %用于正常显示            
+            }                   %用于正常显示
+            {
+                normaleditor empty$                           %用于正常显示
+                {format.editors  "normalauthor and editor" output.check}                   %用于正常显示
+                {format.editors  "normalauthor and normaleditor" output.check}       %用于正常显示
+                if$                                           %用于正常显示   
+
+            }       %用于正常显示
+            if$                                           %用于正常显示
+            editor format.key output
+            %new.block
+            format.ptitle "booktitle" output.check
+        }
+        if$                                                   %  4.4 of BS 1629.
     }
-  if$                                                       %  Don't change
+    if$                                                       %  Don't change
 }                                                           %  case.
- 
+
 
 FUNCTION {format.in.ced.booktitle}                           %  Achieves effect         %wk
 { booktitle empty$                                          %  shown in 16.51
@@ -2233,7 +2241,7 @@ if$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FUNCTION {incollection}                                     %wk
-{language empty$   
+{language empty$
 { output.bibitem
   author empty$
     { format.editors "editor" output.check                  %wk    format.editors->format.ceditors
@@ -2242,16 +2250,16 @@ FUNCTION {incollection}                                     %wk
       author format.key output             }
   if$
   new.block
-  format.incollection.title output  
+  format.incollection.title output
   crossref missing$                                         %  Chapter and/or
     {
     format.in.ed.booktitle output                         %  page numbers can
       format.edition output                                 %  come out via this         %wk  edition->cedition
       new.block
       format.addr.pub "publisher" output.check
-      output.year.check 
+      output.year.check
       incollectionlike.series.volume.number.pages output          %  route, too.
-      format.date.modifydate.citedate output 
+      format.date.modifydate.citedate output
     }
     { format.incoll.inproc.crossref output.nonnull
       new.block
@@ -2326,11 +2334,12 @@ FUNCTION {inproceedings}                                    %wk 改自incollecti
   if$
   new.block
   format.inproceedings.title output  
+      new.block
   crossref missing$                                         %  Chapter and/or
     {
     format.in.ed.booktitle output                         %  page numbers can
-      format.edition output                                 %  come out via this         %wk  edition->cedition
       new.block
+      format.edition output                                 %  come out via this         %wk  edition->cedition
       format.inproceedings.addr.pub "publisher" output.check
       output.year.check 
       incollectionlike.series.volume.number.pages output          %  route, too.
