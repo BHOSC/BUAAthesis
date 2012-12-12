@@ -442,7 +442,7 @@ FUNCTION {capitalize}
 { "u" change.case$ "t" change.case$ }
 
 FUNCTION {bib.name.font}
-{ upcase }
+{ skip$ }
 FUNCTION {bib.fname.font}
 { bib.name.font }
 %%%%%%%%%%%%%%%%%%%%
@@ -457,7 +457,7 @@ FUNCTION {format.names}
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > }
-    { s nameptr "{vv~}{ll}{ f{~}}{, jj}"
+    { s nameptr "{ll}{ f.}{, jj}"
     format.name$
     remove.dots
      't :=
@@ -511,7 +511,7 @@ FUNCTION {format.cnames}                                     %wk
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > }
-    { s nameptr "{vv~}{ll}{ f{~}}{ jj}" format.name$ 
+    { s nameptr "{ll}{ f.}{ jj}" format.name$ 
     remove.dots
     't :=
       nameptr #1 >
@@ -567,7 +567,7 @@ FUNCTION {format.normal.names}
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > }
-    { s nameptr "{vv~}{ll}{ f{~}}{, jj}"
+    { s nameptr "{ll}{ f.}"
     format.name$
     remove.dots
      't :=
@@ -613,7 +613,7 @@ FUNCTION {format.normal.cnames}                                    %wk
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > }
-    { s nameptr "{vv~}{ll}{ f{~}}{ jj}" format.name$ 
+    { s nameptr "{ll}{ f.}" format.name$ 
     remove.dots
     't :=
       nameptr #1 >
