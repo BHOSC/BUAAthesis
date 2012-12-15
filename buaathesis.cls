@@ -230,9 +230,9 @@ The LaTeX template for thesis of BUAA]
 
 \bibliographystyle{buaathesis} % 参考文献格式
 \RequirePackage[sort&compress]{natbib}
-    \bibpunct{[}{]}{,}{n}{}{}
+\bibpunct{[}{]}{,}{n}{}{}
 \RequirePackage{hypernat}
-    \newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
+\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
 
 %%%%%%%%%% table %%%%%%%%%%
 % 表格
