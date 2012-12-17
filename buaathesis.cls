@@ -231,6 +231,7 @@ The LaTeX template for thesis of BUAA]
 \bibliographystyle{buaathesis} % 参考文献格式
 \RequirePackage[sort&compress]{natbib}
 \bibpunct{[}{]}{,}{n}{}{}
+\setlength{\bibsep}{0pt}
 \RequirePackage{hypernat}
 \newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
 
