@@ -1,5 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% ====================================================================
+%%% BUAAthesis bibtex style sheet based on Wu Kai's work. We have some code
+%%% cleanups and bug fixs for the old file. Full log is in git.
+%%% ====================================================================
 %%%  Copyright (C) 2006 Wu Kai
 %%%  @BibTeX-style-file{
 %%%     author          = "吴凯",
