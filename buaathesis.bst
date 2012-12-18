@@ -3170,3 +3170,5 @@ FUNCTION {end.bib}
 }
 
 EXECUTE {end.bib}
+
+% vim: shiftwidth=2
