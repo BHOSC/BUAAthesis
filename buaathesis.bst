@@ -179,8 +179,7 @@ FUNCTION {format.url}
 }
 
 FUNCTION {output.modifydate.check}
-{modifydate
-}
+{ modifydate }
 
 FUNCTION {output.citedate.check}
 { year empty$
@@ -196,7 +195,7 @@ FUNCTION {output.citedate.check}
 FUNCTION {output.year.check}
 { year empty$
   { "empty year in " cite$ * warning$ }
-  {miscyear empty$
+  { miscyear empty$
     {year}
     {miscyear}
     if$                     %wk
@@ -205,95 +204,61 @@ FUNCTION {output.year.check}
   extra.label *
 }
 
-FUNCTION {output.cyear.check}                           %wk
-{ year empty$
-  { "empty year in " cite$ * warning$ }
-  {miscyear empty$
-    {year}
-    {miscyear}
-    if$                     %wk
-  }
-  if$
-  extra.label *
+FUNCTION {output.cyear.check}
+{ % currently same as output.year.check
+  output.year.check
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 FUNCTION {output.continue.year.check}                           %wk
 {
   endyear empty$
-  {startyear empty$
-    {year empty$
+  { startyear empty$
+    { year empty$
       { "empty year in " cite$ * warning$ }
-      {"" year * "" * }
+      { year }
       if$
     }
-    {"" startyear * "-" * }
+    { startyear "-" * }
     if$
   }
-  {startyear empty$
-    {year empty$
+  { startyear empty$
+    { year empty$
       { "empty year in " cite$ * warning$ }
-      {"" year * "" * }
+      { year }
       if$
     }
-    {"" startyear * "-" *
-      "" endyear * "" * *
-    }
+    { startyear "-" * endyear * }
     if$
   }
   if$
 }
 
 
-FUNCTION {output.continue.cyear.check}                           %wk
+FUNCTION {output.continue.cyear.check}
 {
-  endyear empty$
-  {startyear empty$
-    {year empty$
-      { "empty year in " cite$ * warning$ }
-      {"" year * "" * }
-      if$
-    }
-    {"" startyear * "-" * }
-    if$
-  }
-  {startyear empty$
-    {year empty$
-      { "empty year in " cite$ * warning$ }
-      {"" year * "" * }
-      if$
-    }
-    {"" startyear * "-" *
-      "" endyear * "" * *
-    }
-    if$
-  }
-  if$
+  output.continue.year.check
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FUNCTION {output.article.year.check}
-{month empty$
+{ month empty$
   {
     year empty$
     { "empty year in " cite$ * warning$ }
-    {year                 %wk
-    }
+    { year }
     if$
   }
   {
     TypeofLit empty$
-    {year empty$
+    { year empty$
       { "empty year in " cite$ * warning$ }
-      {year                 %wk
-      }
-      if$}
-
-    {year empty$
+      { year }
+      if$
+    }
+    { year empty$
       { "empty year in " cite$ * warning$ }
-      {year                 %wk
-        "-"  month * "" * *
-      }
+      { year "-" * month * }
       if$
     }
     if$
@@ -301,35 +266,28 @@ FUNCTION {output.article.year.check}
   if$
 }
 
-FUNCTION {output.carticle.year.check}                           %wk
-{month empty$
-  {
-    year empty$
+FUNCTION {output.carticle.year.check}
+{ month empty$
+  { year empty$
     { "empty year in " cite$ * warning$ }
-    {year                 %wk
-    }
+    { year }
     if$
   }
-  {
-    TypeofLit empty$
-    {year empty$
+  { TypeofLit empty$
+    { year empty$
       { "empty year in " cite$ * warning$ }
-      {year                 %wk
-      }
+      { year }
       if$}
 
-    {year empty$
+    { year empty$
       { "empty year in " cite$ * warning$ }
-      {year                 %wk
-        "-"  month * "" * *
-      }
+      { year "-" * month * }
       if$
     }
     if$
   }
   if$
-}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 FUNCTION {output.bibitem}
 { newline$
@@ -368,19 +326,19 @@ FUNCTION {new.sentence}
 }
 
 FUNCTION {not}
-{   { #0 }
+{ { #0 }
   { #1 }
   if$
 }
 
 FUNCTION {and}
-{   'skip$
+{ 'skip$
   { pop$ #0 }
   if$
 }
 
 FUNCTION {or}
-{   { pop$ #1 }
+{ { pop$ #1 }
   'skip$
   if$
 }
@@ -408,13 +366,12 @@ FUNCTION {boldface}
   if$
 }
 
-%FUNCTION {emphasize}
-%{ duplicate$ empty$
-%    { pop$ "" }
-%    { "{\em " swap$ * "}" * }
-%  if$
-%}
-
+FUNCTION {emphasize}
+{ duplicate$ empty$
+  { pop$ "" }
+  { "{\em " swap$ * "}" * }
+  if$
+}
 
 %%%%%%%%%%%%%%%%%%%
 Function{upcase}
@@ -496,100 +453,18 @@ FUNCTION {format.cnames} {",等" .format.names}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 FUNCTION {format.normal.names}
-{ 's :=
-  #1 'nameptr :=
-  s num.names$ 'numnames :=
-  numnames 'namesleft :=
-  { namesleft #0 > }
-  { s nameptr "{ll}{ f.}"
-    format.name$
-    remove.dots
-    't :=
-    nameptr #1 >
-    {
-      nameptr #3
-      #1 + =
-      numnames #3
-      > and
-      { "others" 't :=
-        #1 'namesleft := }
-      'skip$
-      if$
-      namesleft #1 >
-      { ", " * t * }
-      { numnames #2 >
-        { "" * }
-        'skip$
-        if$
-        s nameptr "{ll}" format.name$ duplicate$ "others" =
-        { 't := }
-        { pop$ }
-        if$
-        t "others" =
-        { ", et al" * }
-        {", " * t * }
-        if$
-      }
-      if$
-    }
-    't
-    if$
-    nameptr #1 + 'nameptr :=
-    namesleft #1 - 'namesleft :=
-  }
-  while$
+{ % names are normal names
+  format.names
 }
 
-
-FUNCTION {format.normal.cnames}                                    %wk
-{ 's :=
-  #1 'nameptr :=
-  s num.names$ 'numnames :=
-  numnames 'namesleft :=
-  { namesleft #0 > }
-  { s nameptr "{ll}{ f.}" format.name$
-    remove.dots
-    't :=
-    nameptr #1 >
-    {
-      nameptr #3
-      #1 + =
-      numnames #3
-      > and
-      { "others" 't :=
-        #1 'namesleft := }
-      'skip$
-      if$
-      namesleft #1 >
-      { ", " * t * }
-      { numnames #2 >
-        { "" * }
-        'skip$
-        if$
-        s nameptr "{ll}" format.name$ duplicate$ "others" =
-        { 't := }
-        { pop$ }
-        if$
-        t "others" =
-        { ",等" * }
-        {", " * t * }
-        if$
-      }
-      if$
-    }
-    't
-    if$
-    nameptr #1 + 'nameptr :=
-    namesleft #1 - 'namesleft :=
-  }
-  while$
-}
+FUNCTION {format.normal.cnames}
+{ format.cnames }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 FUNCTION {format.authors}
 { author empty$
   { "" }
-  {normalauthor empty$
+  { normalauthor empty$
     {author format.names }
     {normalauthor format.normal.names}
     if$
@@ -600,7 +475,7 @@ FUNCTION {format.authors}
 FUNCTION {format.cauthors}                                   %wk
 { author empty$
   { "" }
-  {normalauthor empty$
+  { normalauthor empty$
     {author format.cnames }
     {normalauthor format.normal.cnames}
     if$
@@ -618,29 +493,25 @@ FUNCTION {format.key}
 FUNCTION {format.editors}
 { editor empty$
   { "" }
-  {normaleditor empty$
-    {editor format.names }
-    {normaleditor format.normal.names}
-    if$
-    editor num.names$ #1 >                                %  Use ODWE abbrevs.
-    { "" * }                                      %  to avoid
-    { "" * }                                       %  ambiguity between
-    if$                                                   %  "editor" and
-  }                                                       %  "edition".
-  if$
-}
-
-FUNCTION {format.ceditors}                                 %wk   本函数
-{ editor empty$
-  { "" }
-  {
-    normaleditor empty$
-    {editor * "" * format.cnames }
-    {normaleditor * "" * format.normal.cnames}
+  { normaleditor empty$
+    { editor format.names }
+    { normaleditor format.normal.names}
     if$
   }
   if$
 }
+
+FUNCTION {format.ceditors}
+{ editor empty$
+  { "" }
+  { normaleditor empty$
+    { editor format.cnames }
+    { normaleditor format.normal.cnames}
+    if$
+  }
+  if$
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FUNCTION {format.title}                                     %  Nothing needs
 { title empty$                                              %  doing here in
@@ -649,49 +520,40 @@ FUNCTION {format.title}                                     %  Nothing needs
   if$                                                       %  authordate3.bst.
 }
 
-FUNCTION {format.ctitle}                %wk                 %  Nothing needs
-{ title empty$                                              %  doing here in
-  { "" }                                                  %  authordate1.bst
-  {title}                                               %  or
-  if$                                                       %  authordate3.bst.
-}
+FUNCTION {format.ctitle}
+{ format.title }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-FUNCTION {format.article.title}                                     %  Nothing needs
-{title empty$                                              %  doing here in
-  { "" }                                                  %  authordate1.bst
-  {
-    typeoflit empty$
-    {format.title "[J]" * title output.check}
-    {format.title title output.check}
+FUNCTION {format.article.title}
+{ title empty$
+  { "" }
+  { typeoflit empty$
+    { format.title "[J]" * title output.check }
+    { format.title title output.check }
     if$
   }
   if$
   TypeofLit empty$
-  {""}
+  { "" }
   { "["  TypeofLit * "]" * * }
   if$
-  %  authordate3.bst.
 }
 
 
-FUNCTION {format.carticle.title}                                     %  Nothing needs
-{title empty$                                              %  doing here in
-  { "" }                                                  %  authordate1.bst
-  {
-    typeoflit empty$
-    {format.title "[J]" * title output.check}
-    {format.title title output.check}
+FUNCTION {format.carticle.title}
+{ title empty$
+  { "" }
+  { typeoflit empty$
+    { format.title "[J]" * title output.check }
+    { format.title title output.check }
     if$
   }
   if$
-
   TypeofLit empty$
-  {""}
-  { "[" TypeofLit * "]" * *  }
+  { "" }
+  { "[" TypeofLit * "]" * * }
   if$
-  %  authordate3.bst.
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FUNCTION {format.book.title}                                     %  Nothing needs
