@@ -81,10 +81,11 @@ FUNCTION {init.state.consts}
   #3 'after.block :=
 }
 
-FUNCTION {output.nonnull}
-{ 's :=
+FUNCTION {.output.nonnull}
+{ 't :=
+  's :=
   output.state mid.sentence =
-  { ", " * write$ }
+  { t * write$ }
   { output.state after.block =
     { add.period$ write$
       newline$
@@ -102,27 +103,8 @@ FUNCTION {output.nonnull}
   s
 }
 
-
-FUNCTION {coutput.nonnull}                                   %wk
-{ 's :=
-  output.state mid.sentence =
-  { "，" * write$ }                                       %
-  { output.state after.block =
-    { add.period$ write$
-      newline$
-      "\newblock " write$
-    }
-    { output.state before.all =
-      'write$
-      { add.period$ " " * write$ }
-      if$
-    }
-    if$
-    mid.sentence 'output.state :=
-  }
-  if$
-  s
-}
+FUNCTION {output.nonnull} { ", " .output.nonnull}
+FUNCTION {coutput.nonnull} { "，" .output.nonnull}
 
 FUNCTION {output}
 { duplicate$ empty$
