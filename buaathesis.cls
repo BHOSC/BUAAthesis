@@ -230,9 +230,10 @@ The LaTeX template for thesis of BUAA]
 
 \bibliographystyle{buaathesis} % 参考文献格式
 \RequirePackage[sort&compress]{natbib}
-    \bibpunct{[}{]}{,}{n}{}{}
+\bibpunct{[}{]}{,}{n}{}{}
+\setlength{\bibsep}{0pt}
 \RequirePackage{hypernat}
-    \newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
+\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
 
 %%%%%%%%%% table %%%%%%%%%%
 % 表格
@@ -271,7 +272,7 @@ The LaTeX template for thesis of BUAA]
 
 \RequirePackage{graphicx}
 \DeclareGraphicsExtensions{.eps,.ps,.jpg,.bmp}
-\graphicspath{figure/}
+\graphicspath{{figure/}}
 \RequirePackage{pifont} % “秘级”后的五角星
 \RequirePackage{subfigure}
 
@@ -813,7 +814,7 @@ The LaTeX template for thesis of BUAA]
     \clearemptydoublepage
     \thispagestyle{empty}
     \begin{flushleft}
-        {\zihao{5}\heiti
+        {\zihao{5}\heiti\bfseries
         中图分类号：\buaa@category\\
         论\,\,文\,\,编\,\,号：\buaa@thesisID\\}
     \end{flushleft}
