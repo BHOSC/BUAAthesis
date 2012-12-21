@@ -1,6 +1,8 @@
 % !Mode:: "TeX:UTF-8"
 \chapter{论文的参考文献}
+\label{chapter6-reference}
 \section{BibTeX简介}
+\label{section-bibtex}
 1985年，Oren Patashnik和Lamport开发了BibTeX，其详细使用参阅Nicolas Markey的
 《Tame the BeaST: The B to X of BibTeX》。
 
@@ -23,7 +25,121 @@ BibTeX把参考文献的数据放在一个.bib文件中，显示格式放在.bst
 
 \section{使用JabRef来管理参考文献}
 \subsection{JabRef简介}
-%可参考网页 http://blog.lehu.shu.edu.cn/shuishousong/A220047.html
+大多只有使用\latex{}撰写科技论文的研究人员才能完全领略到JabRef的妙不可言，
+但随着对Word写作平台上BibTeX4Word插件的开发和便利应用，使用Word撰写文章
+且用JabRef推送参考文献同样令人十分愉悦。作为新生代的文献的送和管理
+工具（2005年开发），只有不足8M的JabRef（安装版/免安装版）不仅功能齐全、
+各种操作也考虑周到，实现科技研究人员在跨操作平台和不同写作环境下终身使用
+一个“自己的文献库”不再是一个奢望。
+
+JabRef主页和下载地址：\url{http://jabref.sourceforge.net}。其他更多的介绍可以参考文章\url{http://blog.lehu.shu.edu.cn/shuishousong/A220047.html}。
 \subsection{如何管理参考文献}
+
 \section{参考文献条目要求}
+
 \section{参考文献示例}
+A.1 普通图书
+
+\upcite{gxzzzzqlyt1993}，
+\upcite{jiangyouxu1998}，
+\upcite{tangxujun1999}，
+\upcite{zhaokaihua1995}，
+\upcite{wangang1912}，
+\upcite{zhaoyaodong1998}，
+\upcite{crawfprd1995}，
+\upcite{iflai1977}，
+\upcite{obrien1994}，
+\upcite{rood2001}，
+\upcite{angwen1988}。
+
+A.2 论文集、会议录
+
+\upcite{zglxxh1990}，
+\upcite{ROSENTHALL1963}，
+\upcite{GANZHA2000}。
+
+A.3 科技报告
+
+\upcite{dtha1990}，
+\upcite{who1970}。
+
+A.4 学位论文
+
+\upcite{ZHANGZHIXIANG1998}，
+\upcite{CALMS1965}。
+
+A.5 专利文献
+
+\upcite{LIUJIALIN1993}，
+\upcite{hblz2001}，
+\upcite{KOSEKI2002}。
+
+A.6 专著中析出的文献
+
+\upcite{baishunong1998}，
+\upcite{gjbzjxxflbmyjs1988}，
+\upcite{hanjiren1985}，
+\upcite{BUSECK1980}，
+\upcite{FOURNEY1971}，
+\upcite{feilisheng1981}，
+\upcite{MARTIN1996}。
+
+A.7 期刊中析出的文献
+
+\upcite{libingmu2000}，
+\upcite{taorengji1984}，
+\upcite{yzdztbmz1978}，
+\upcite{MARAIS1992}，
+\upcite{HEWITT1984}。
+
+A.8 报纸中析出的文献
+
+\upcite{Dingwenxiang2000}，
+\upcite{Zhangtianqing2000}。
+
+A.9 电子文献
+
+\upcite{jiangxiangdong1999}，
+\upcite{xiaoniu2001}，
+\upcite{CHRISTINE1998}，
+\upcite{METCALF1995}，
+\upcite{TURCOTTE1992}，
+\upcite{Scitor1983}。
+
+附加测试
+
+B1.连续出版物4.3
+
+\upcite{zgdzxh1936}，
+\upcite{zgtsgxh1957}，
+\upcite{AAAS1883}。
+
+顺序编码制数字的压缩性测试
+
+\upcite{angwen1988,baishunong1998,Dingwenxiang2000,gxzzzzqlyt1993,
+jiangyouxu1998,tangxujun1999,zhaokaihua1995,wangang1912,zhaoyaodong1998}，
+\upcite{crawfprd1995}，
+\upcite{iflai1977}，
+\upcite{obrien1994}，
+\upcite{rood2001}，
+\upcite{angwen1988}。
+
+B2. CAJ-CD B/T 1-2005
+
+中国学术期刊(光盘版)检索与评价数据规范
+
+Data Norm for Retrieval and Evaluation of Chinese Academic Journal(CD) (修订版试行稿)
+
+CAJ-CD
+
+中国学术期刊(光盘版)技术规范CAJ-CD B/T 1-2005
+
+代替CAJ-CD B/T 1-1998
+
+（注意：如下是使用\verb|\cite{}|或\verb|\citet{}|的效果，其区别在于\verb|\cite{}|将只引用某个条目
+的编号，而\verb|\citep{}|则会在\verb|\cite{}|的基础上加上作者信息。）
+
+\citet[12]{zhuyixuan1985},
+\cite{yejianying1946},
+\cite{gwywgzjj1958},\cite{shenkuogwywgzjj1070},\cite{jiyun1800},
+\citet{liujiang2004},\citet{wanjingkun1996},\citet{dai1983}
