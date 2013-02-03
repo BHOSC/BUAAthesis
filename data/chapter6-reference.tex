@@ -1,0 +1,161 @@
+% !Mode:: "TeX:UTF-8"
+\chapter{论文的参考文献}
+\label{chapter-reference}
+
+注意：研究生学位论文参考文献著录及标引按照国家标准《文后参考文献
+著录规则》（GB7714）和中国博硕士学位论文编写与交换格式。
+
+本科毕业论文参考文献的著录均应符合国家有关标准（按GB7714-87《文后
+参考文献著录格式》执行）。
+
+本《北航毕业论文\latex{}模板》中参考文献模板
+借用\href{http://bbs.ctex.org/forum.php}{中文CTEX社区}中由上海财经大学
+的吴凯发布的\href{http://bbs.ctex.org/forum.php?mod=viewthread&tid=33591}
+{ GBT7714-2005.bst version1 Beta版}，其具体的使用方法及代码思想
+等请自行查阅其说明文档。
+
+\section{BibTeX简介}
+\label{section-bibtex}
+1985年，Oren Patashnik和Lamport开发了BibTeX，其详细使用参阅Nicolas Markey的
+《Tame the BeaST: The B to X of BibTeX》。
+
+BibTeX把参考文献的数据放在一个.bib文件中，显示格式放在.bst文件中，
+普通用户一般不需要改动.bst文件，只需要维护.bib参考文献数据库即可。
+
+一个.bib文件可以包含多个参考文献条目(entry)，每个条目有类型、关键字，
+以及题目、作者、年份等字段。常用条目类型有article、book、conference、manual等。
+每种类型都有一些自己的规定字段和可选字段，字段间
+用逗号分隔。数据库中每个条目的关键字(Bibtexkey)要保持唯一，因为
+引用时需要用到此字段作为此条目的标识。
+
+前文中提到含有交叉引用的文档需要编译两遍(当然也可能没提到)。
+含有参考文献的文档则更“麻烦”，它需要
+依次执行latex、bibtex、latex、latex四次编译操作。
+\begin{enumerate}
+\item 第一遍latex只把条目的关键字写到中间文件.aux文件中去。
+\item bibtex根据.aux、.bib、.bst生成一个.bbl文件，即参考文献列表，它的内容就是thebibliography环境
+和一些\verb|\bibetm| 命令。
+\item 第二遍latex把交叉引用写到.aux中去。
+\item 第三遍latex则在正文中正确地显示引用。
+\end{enumerate}
+
+\section{使用JabRef来管理参考文献}
+\subsection{JabRef简介}
+大多只有使用\latex{}撰写科技论文的研究人员才能完全领略到JabRef的妙不可言，
+但随着对Word写作平台上BibTeX4Word插件的开发和便利应用，使用Word撰写文章
+且用JabRef推送参考文献同样令人十分愉悦。作为新生代的文献的送和管理
+工具（2005年开发），只有不足8M的JabRef（安装版/免安装版）不仅功能齐全、
+各种操作也考虑周到，实现科技研究人员在跨操作平台和不同写作环境下终身使用
+一个“自己的文献库”不再是一个奢望。
+
+JabRef主页和下载地址：\url{http://jabref.sourceforge.net}。其他更多的介绍可以参考文章\url{http://blog.lehu.shu.edu.cn/shuishousong/A220047.html}。
+\subsection{如何管理参考文献}
+
+\section{参考文献条目要求}
+
+\section{参考文献示例}
+A.1 普通图书
+
+\upcite{gxzzzzqlyt1993}，
+\upcite{jiangyouxu1998}，
+\upcite{tangxujun1999}，
+\upcite{zhaokaihua1995}，
+\upcite{wangang1912}，
+\upcite{zhaoyaodong1998}，
+\upcite{crawfprd1995}，
+\upcite{iflai1977}，
+\upcite{obrien1994}，
+\upcite{rood2001}，
+\upcite{angwen1988}。
+
+A.2 论文集、会议录
+
+\upcite{zglxxh1990}，
+\upcite{ROSENTHALL1963}，
+\upcite{GANZHA2000}。
+
+A.3 科技报告
+
+\upcite{dtha1990}，
+\upcite{who1970}。
+
+A.4 学位论文
+
+\upcite{ZHANGZHIXIANG1998}，
+\upcite{CALMS1965}。
+
+A.5 专利文献
+
+\upcite{LIUJIALIN1993}，
+\upcite{hblz2001}，
+\upcite{KOSEKI2002}。
+
+A.6 专著中析出的文献
+
+\upcite{baishunong1998}，
+\upcite{gjbzjxxflbmyjs1988}，
+\upcite{hanjiren1985}，
+\upcite{BUSECK1980}，
+\upcite{FOURNEY1971}，
+\upcite{feilisheng1981}，
+\upcite{MARTIN1996}。
+
+A.7 期刊中析出的文献
+
+\upcite{libingmu2000}，
+\upcite{taorengji1984}，
+\upcite{yzdztbmz1978}，
+\upcite{MARAIS1992}，
+\upcite{HEWITT1984}。
+
+A.8 报纸中析出的文献
+
+\upcite{Dingwenxiang2000}，
+\upcite{Zhangtianqing2000}。
+
+A.9 电子文献
+
+\upcite{jiangxiangdong1999}，
+\upcite{xiaoniu2001}，
+\upcite{CHRISTINE1998}，
+\upcite{METCALF1995}，
+\upcite{TURCOTTE1992}，
+\upcite{Scitor1983}。
+
+附加测试
+
+B1.连续出版物4.3
+
+\upcite{zgdzxh1936}，
+\upcite{zgtsgxh1957}，
+\upcite{AAAS1883}。
+
+顺序编码制数字的压缩性测试
+
+\upcite{angwen1988,baishunong1998,Dingwenxiang2000,gxzzzzqlyt1993,
+jiangyouxu1998,tangxujun1999,zhaokaihua1995,wangang1912,zhaoyaodong1998}，
+\upcite{crawfprd1995}，
+\upcite{iflai1977}，
+\upcite{obrien1994}，
+\upcite{rood2001}，
+\upcite{angwen1988}。
+
+B2. CAJ-CD B/T 1-2005
+
+中国学术期刊(光盘版)检索与评价数据规范
+
+Data Norm for Retrieval and Evaluation of Chinese Academic Journal(CD) (修订版试行稿)
+
+CAJ-CD
+
+中国学术期刊(光盘版)技术规范CAJ-CD B/T 1-2005
+
+代替CAJ-CD B/T 1-1998
+
+（注意：如下是使用\verb|\cite{}|或\verb|\citet{}|的效果，其区别在于\verb|\cite{}|将只引用某个条目
+的编号，而\verb|\citet{}|则会在\verb|\cite{}|的基础上加上作者信息。）
+
+\citet[12]{zhuyixuan1985},
+\cite{yejianying1946},
+\cite{gwywgzjj1958},\cite{shenkuogwywgzjj1070},\cite{jiyun1800},
+\citet{liujiang2004},\citet{wanjingkun1996},\citet{dai1983}

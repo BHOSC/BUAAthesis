@@ -13,7 +13,8 @@ C\TeX{}套装是Windows下为中文优化的\LaTeX{}系统套件，主要基于M
         \item[官方页面]
             \url{http://www.ctex.org/CTeXDownload}
         \item[未来花园]
-            稍后我们也会提供未来花园上的下载页面，敬请关注
+            \url{http://buaabt.cn/showtopic-189174.aspx}\footnote{此版本为CTeX 2.9.2.164\_ full版，
+            最新版请到官方网站下载。}
     \end{description}
     \item[安装方法] \hfill
         \begin{itemize}
@@ -41,8 +42,12 @@ C\TeX{}套装是Windows下为中文优化的\LaTeX{}系统套件，主要基于M
             \url{http://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/}
         \item[北交镜像]
             \url{http://mirror.bjtu.edu.cn/CTAN/systems/texlive/Images/}
+        \item[中科大镜像]
+            \url{http://mirror.ustc.edu.cn/CTAN/systems/texlive/Images/}
         \item[未来花园]
-            稍后我们也会提供未来花园上的下载页面，敬请关注
+            \url{http://mirror.buaa.edu.cn/CTAN/systems/texlive/Images/}\footnote{此镜像仅供北航
+            校园网用户访问，校外用户在IPV6的支持下可
+            访问\url{http://mirror.buaa6.edu.cn/CTAN/systems/texlive/Images/}}
     \end{description}
     \item[安装方法] \hfill
     \begin{enumerate}
@@ -73,8 +78,10 @@ Mac\TeX{}是基于\TeX{}Live为Mac系统设计的套件。
             \url{http://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/mac/mactex/}
         \item[北交镜像]
             \url{http://mirror.bjtu.edu.cn/CTAN/systems/mac/mactex/}
+        \item[中科大镜像]
+            \url{http://mirror.ustc.edu.cn/CTAN/systems/mac/mactex/}
         \item[未来花园]
-            稍后我们也会提供未来花园上的下载页面，敬请关注
+            \url{http://mirror.buaa.edu.cn/CTAN/systems/mac/mactex/}
     \end{description}
     \item[安装方法] 同一般软件安装，下一步即可
 \end{description}
@@ -102,10 +109,45 @@ Mac\TeX{}是基于\TeX{}Live为Mac系统设计的套件。
     \end{itemize}
 \end{description}
 
+\section{关于参考文献管理工具}
+\LaTeX{}的参考文献是以Bib\TeX{}进行处理和编译。BibTeX把参考文献的数据放在
+一个.bib文件中，显示格式放在.bst文件中，普通用户一般不需要改动.bst文件，
+只需要维护.bib参考文献数据库即可。关于Bib\TeX{}的更多，可以
+参考\hyperref[chapter-reference]{第六章~~论文的参考文献}中的\hyperref[section-bibtex]{Bib\TeX{}简介}。
+
+本模板推荐使用\href{http://jabref.sourceforge.net}{JabRef}来对参考文献进行管理，结合本模板所使用的
+\texttt{buaathesis.bst}，推荐进行以下配置/设置来满足毕业论文要求中对参考文献的要求。
+
+\begin{description}
+    \item[官方网站]
+        \url{http://jabref.sourceforge.net}
+    \item[下载地址]
+        \url{http://jabref.sourceforge.net}
+    \item[相关说明]
+    \begin{itemize}
+        \item 安装同一般软件的安装
+        \item 配置软件语言为“中文简体”，默认编码为“\textbf{UTF8}”
+        \item 选择JabRef的“首选项”中的“外观”，设置“设置表格字体”为“\textbf{SimSun}”
+    \end{itemize}
+\end{description}
+
+北航图书馆提供的\href{http://edu.noteexpress.net/support/cgi-bin/download_sch.cgi?code=BeiHang}{NoteExpress}亦支持导出Bib\TeX{}格式的参考文献，具体方法请自行搜索。
+
 \section{关于编译}
 
-\LaTeX{}的文件是通过编译生成的，对于本模板和毕业设计论文而言，
-需要经过代码\ref{code-compile}所示步骤（以sample-bachelor.tex为例）：
+\LaTeX{}的文件是通过编译生成的，
+含有交叉引用的文档（即文中使用了\verb|\label{•}|、\verb|\ref{•}|等）需要xelatex编译两遍。
+含有参考文献的文档则更“麻烦”，它需要依次执行xelatex、bibtex、xelatex、xelatex四次编译操作。
+\begin{enumerate}
+\item 第一遍xelatex只把条目的关键字写到中间文件.aux文件中去。
+\item bibtex根据.aux、.bib、.bst生成一个.bbl文件，即参考文献列表，它的内容就是thebibliography环境
+和一些\verb|\bibetm| 命令。
+\item 第二遍xelatex把交叉引用写到.aux中去。
+\item 第三遍xelatex则在正文中正确地显示引用。
+\end{enumerate}
+
+对于本模板和毕业设计论文而言，完整的编译过程则需要经过
+代码\ref{code-compile}所示步骤（以sample-bachelor.tex为例）：
 \begin{lstlisting}[
     language={bash},
     caption={编译步骤},
@@ -121,7 +163,7 @@ xelatex sample-bachelor.tex
 \subsection{批处理 [ Windows only ]}
 
 进入cmd（Win+R，然后输入cmd），cd到BUAAthesis对应目录，
-如{\verb D:\BUAAthesis\ }，然后运行{\verb msmake }即可。
+如{\verb|D:\BUAAthesis\|}，然后运行{\verb|msmake|}即可。
 
 \subsection{Makefile [ Windows(cygwin) / Linux / MacOS ]}
 需要要你的命令行环境支持Make，cd到BUAAthesis相应目录，

@@ -524,7 +524,7 @@ The LaTeX template for thesis of BUAA]
                     % the space between title and subtitle, however, it seems doesn't work.
                     \begin{minipage}[h]{.75\textwidth}
                         \begin{spacing}{1.5}
-                            \centering{\heiti\zihao{3}\buaa@thesissubtitle}
+                            \centering{\heiti\zihao{2}\buaa@thesissubtitle}
                         \end{spacing}
                     \end{minipage}
                     \vspace*{\stretch{4}}
@@ -821,13 +821,17 @@ The LaTeX template for thesis of BUAA]
     \begin{center}
         \vskip 130bp
         {\zihao{-2}\heiti{\ziju{1.3}\buaa@appdegree 论文}}
-        \vskip 120bp
-        \begin{minipage}[h]{.85\textwidth}
+		~~\\
+		\vspace*{\stretch{1}}
+		\begin{minipage}[h]{.8\textwidth}
             \zihao{-1}\heiti\centering{\buaa@thesistitle}
         \end{minipage}
-
-        \vskip 110bp
-
+		\vskip 20bp
+		\begin{minipage}[h]{.85\textwidth}
+            \zihao{-2}\heiti\centering{\buaa@thesissubtitle}
+        \end{minipage}
+		\vspace*{\stretch{1}}
+		~~\\
         \begin{spacing}{2.2}
             {\zihao{-4}\songti
             \begin{tabular}[b]{llll}
