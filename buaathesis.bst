@@ -106,6 +106,9 @@ FUNCTION {.output.nonnull}
 FUNCTION {output.nonnull} { ", " .output.nonnull}
 FUNCTION {coutput.nonnull} { "，" .output.nonnull}
 
+FUNCTION {output.nonnull.dslash} { "// " .output.nonnull}
+FUNCTION {coutput.nonnull.dslash} { "// " .output.nonnull}
+
 FUNCTION {output}
 { duplicate$ empty$
   'pop$
@@ -113,10 +116,24 @@ FUNCTION {output}
   if$
 }
 
-FUNCTION {coutput}                                           %wk
+FUNCTION {output.dslash}
+{ duplicate$ empty$
+  {"wr" warning$ pop$}
+  'output.nonnull.dslash
+  if$
+}
+
+FUNCTION {coutput}
 { duplicate$ empty$
   'pop$
   'coutput.nonnull
+  if$
+}
+
+FUNCTION {coutput.dslash}
+{ duplicate$ empty$
+  'pop$
+  'coutput.nonnull.dslash
   if$
 }
 
@@ -128,11 +145,27 @@ FUNCTION {output.check}
   if$
 }
 
-FUNCTION {coutput.check}                                     %wk
+FUNCTION {output.check.dslash}
+{ "her" warning$ 't :=
+  duplicate$ empty$
+  { pop$ "empty " t * " in " * cite$ * warning$ }
+  'output.nonnull.dslash
+  if$
+}
+
+FUNCTION {coutput.check}
 { 't :=
   duplicate$ empty$
   { pop$ "empty " t * " in " * cite$ * warning$ }
   'coutput.nonnull
+  if$
+}
+
+FUNCTION {coutput.check.dslash}
+{ 't :=
+  duplicate$ empty$
+  { pop$ "empty " t * " in " * cite$ * warning$ }
+  'coutput.nonnull.dslash
   if$
 }
 
@@ -759,15 +792,15 @@ FUNCTION {format.incollection.title}                                     %  Noth
   { "" }                                                  %  authordate1.bst
   {
     typeoflit empty$
-    {format.title "[M]. " * title output.check}
-    {format.title "" * title output.check}
+    {format.title "[M]" * "title" output.check.dslash}
+    {format.title "" * "title" output.check.dslash}
     if$
   }
   if$
 
   TypeofLit empty$
   {""}
-  { "[" TypeofLit * "]. " * * }
+  { "[" TypeofLit * "]" * * }
   if$
   %  authordate3.bst.
 }
@@ -778,16 +811,17 @@ FUNCTION {format.cincollection.title}                                     %  Not
   { "" }                                                  %  authordate1.bst
   {
     typeoflit empty$
-    {format.title "[M]. " * title output.check}
-    {format.title "" * title output.check}
+    {format.title "[M]" * title output.check.dslash}
+    {format.title "" * title output.check.dslash}
     if$
   }
   if$
 
   TypeofLit empty$
   {""}
-  { "[" TypeofLit * "]. " * * }
+  { "[" TypeofLit * "]" * * }
   if$
+
   %  authordate3.bst.
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1448,12 +1482,11 @@ FUNCTION {format.in.ed.booktitle}                           %  Achieves effect  
     {
       format.ptitle "booktitle" output.check
     }
-    {
-      normalauthor empty$                           %用于正常显示
+    { normalauthor empty$                           %用于正常显示
       {
         normaleditor empty$                           %用于正常显示
-        {format.editors  "author and editor" output.check}       %用于正常显示,
-        {format.editors  "author and normaleditor" output.check} %用于正常显示
+        {format.editors  "author and editor" output.check.dslash}       %用于正常显示,
+        {format.editors  "author and normaleditor" output.check.dslash} %用于正常显示
         if$                                           %用于正常显示
       }                   %用于正常显示
       {
@@ -1481,18 +1514,17 @@ FUNCTION {format.in.ced.booktitle}                           %  Achieves effect 
     {"" * booktitle * "" *
       new.block
     }
-    {new.block
-      normalauthor empty$                           %用于正常显示
+    { normalauthor empty$                           %用于正常显示
       {
         normaleditor empty$                           %用于正常显示
-        {format.ceditors  "author and editor" output.check}       %用于正常显示,
-        {format.ceditors  "author and normaleditor" output.check} %用于正常显示
+        {format.ceditors  "author and editor" output.check.dslash}       %用于正常显示,
+        {format.ceditors  "author and normaleditor" output.check.dslash} %用于正常显示
         if$                                           %用于正常显示
       }                   %用于正常显示
       {
         normaleditor empty$                           %用于正常显示
-        {format.ceditors  "normalauthor and editor" output.check}                   %用于正常显示
-        {format.ceditors  "normalauthor and normaleditor" output.check}       %用于正常显示
+        {format.ceditors  "normalauthor and editor" output.check.dslash}                   %用于正常显示
+        {format.ceditors  "normalauthor and normaleditor" output.check.dslash}       %用于正常显示
         if$                                           %用于正常显示
 
       }       %用于正常显示
@@ -2046,7 +2078,7 @@ FUNCTION {incollection}                                     %wk
       author format.key output             }
     if$
     new.block
-    format.incollection.title output
+    format.incollection.title output.dslash
     crossref missing$                                         %  Chapter and/or
     {
       format.in.ed.booktitle output                         %  page numbers can
@@ -2077,7 +2109,7 @@ FUNCTION {incollection}                                     %wk
       author format.key output             }
     if$
     new.block
-    format.cincollection.title output
+    format.cincollection.title output.dslash
     crossref missing$                                         %  Chapter and/or
     { format.in.ced.booktitle output                         %  page numbers can
       format.cedition output                                 %  come out via this         %wk  edition->cedition
