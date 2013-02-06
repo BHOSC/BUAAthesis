@@ -1865,11 +1865,11 @@ FUNCTION {book}
     crossref missing$
     { format.edition output
       new.block
-      format.book.continue.vol.num ouput
+      format.book.continue.vol.num output
       booklike.series.volume.number output
       new.block
       format.addr.pub "publisher" output.check
-      output.continue.year.check  ouput
+      output.continue.year.check  output
       format.date.modifydate.citedate output
       format.pages output
     }
@@ -1903,10 +1903,10 @@ FUNCTION {book}
     {
       format.cedition output                                 %wk   edition->cedition
       new.block
-      format.cbook.continue.vol.num ouput
+      format.cbook.continue.vol.num output
       new.block
       format.caddr.pub "publisher" output.check
-      output.continue.cyear.check  ouput                                     %wk
+      output.continue.cyear.check  output                                     %wk
       cbooklike.series.volume.number.pages output
       format.date.modifydate.citedate output
     }
