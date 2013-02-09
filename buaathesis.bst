@@ -118,7 +118,7 @@ FUNCTION {output}
 
 FUNCTION {output.dslash}
 { duplicate$ empty$
-  {"wr" warning$ pop$}
+  { pop$ }
   'output.nonnull.dslash
   if$
 }
@@ -146,7 +146,7 @@ FUNCTION {output.check}
 }
 
 FUNCTION {output.check.dslash}
-{ "her" warning$ 't :=
+{ 't :=
   duplicate$ empty$
   { pop$ "empty " t * " in " * cite$ * warning$ }
   'output.nonnull.dslash
