@@ -831,12 +831,12 @@ The LaTeX template for thesis of BUAA]
         \begin{spacing}{2.2}
             {\zihao{-4}\songti
             \begin{tabular}[b]{llll}
-                \makebox[6em][s]{作\hfill者\hfill姓\hfill名} & \buaa@thesisauthor& 申请学位级别 & \buaa@appdegree \\
+                \makebox[6em][s]{作\hfill 者\hfill 姓\hfill 名} & \buaa@thesisauthor& 申请学位级别 & \buaa@appdegree \\
                 指导教师姓名 & \buaa@teacher & 职\qquad\qquad 称 & \buaa@teacherdegree \\
-                \makebox[6em][s]{学\hfill科\hfill专\hfill业} & \buaa@major  &
-                \makebox[6em][s]{研\hfill究\hfill方\hfill向} & \buaa@direction \\
-                \makebox[6em][s]{学\hfill习\hfill时\hfill间\hfill自} &\buaa@thesisbeginyear~~年~~\buaa@thesisbeginmonth~~月~~\buaa@thesisbeginday~~日\qquad &
-                \makebox[6em][s]{起\hfill至} & \buaa@thesisendyear~~年~~\buaa@thesisendmonth~~月~~\buaa@thesisendday~~日止\qquad\\
+                \makebox[6em][s]{学\hfill 科\hfill 专\hfill 业} & \buaa@major  &
+                \makebox[6em][s]{研\hfill 究\hfill 方\hfill 向} & \buaa@direction \\
+                \makebox[6em][s]{学\hfill 习\hfill 时\hfill 间\hfill 自} &\buaa@thesisbeginyear~~年~~\buaa@thesisbeginmonth~~月~~\buaa@thesisbeginday~~日\qquad &
+                \makebox[6em][s]{起\hfill 至} & \buaa@thesisendyear~~年~~\buaa@thesisendmonth~~月~~\buaa@thesisendday~~日止\qquad\\
                 论文提交日期 &\buaa@commityear~~年~~\buaa@commitmonth~~月~~\buaa@commitday~~日\qquad & 论文答辩日期& \buaa@defenseyear~~年~~\buaa@defensemonth~~月~~\buaa@defenseday~~日~\qquad\\
                 学位授予单位 & \buaa@university &学位授予日期 &\buaa@awardyear~~年~~\buaa@awardmonth~~月~~\buaa@awardday~~日~\qquad\\
             \end{tabular}}
