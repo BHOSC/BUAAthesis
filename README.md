@@ -48,3 +48,7 @@
 
 本模板并未得到教务处及研究生院的承认和认可，教务处和研究生院也不会发布Word或tex模板，本模板仅为开源爱好者的爱好和开源奉献精神
 而作，但由此所引发的可能的问题，BHOSC对此并不负责。
+
+## 联系我们
+Google Group : https://groups.google.com/d/forum/beihang-open-source-club
+E-mail:mrpeng000@gmail.com    huxuan8218528@gmail.com
