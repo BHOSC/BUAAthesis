@@ -8,12 +8,31 @@
 
 目前仍在开发中，欢迎关注进展，提交bug/issue，甚至贡献代码
 
-## From Joseph
+## 模板使用简介
 
-别的宏观的话我就不多说了，这个项目也算是填补我航在这方面的一个空缺吧。
+### 软件环境
 
-结合我个人的一些体会，将项目拆分成以下几个部分吧，当然也有一些局限，可以及时更新补充。
+####编译环境
 
-各位有兴趣的同学可以试着先看看别的大学的模板，再结合自己的理解进行code吧。
+1、Windows用户：
+使用[CTEX](http://www.ctex.org/HomePage "CTEX")套装；
+或者更为推荐使用[TeXLive](http://www.tug.org/texlive/)2012以上版本+[texmaker](https://code.google.com/p/texmaker/)编辑器。
 
-再说明一点：学校给的只是论文的格式规范，并没有给出范本，所以有些格式的问题需要加上自己的理解。
+2、Linux用户：
+推荐使用[TeXLive](http://www.tug.org/texlive/)2012以上版本。
+
+3、Mac用户：
+推荐使用[MacTex](http://tug.org/mactex/)2012及以上版本。
+
+#### 其他要求：
+
+需要字体：
+
+参考文献管理工具：推荐使用[JabRef](jabref.sourceforge.net/download.php)。
+
+
+### 编译过程及方式
+
+编译方式：xelatex
+完整编译过程：xelatex -> bibtex -> xelatex -> xelatex
+注：当涉及交叉引用的改动时，需要xelatex编译两遍；涉及参考文献的改动时，需要完整编译过程编译；若二者均无涉及时，仅xelatex编译一遍即可。
