@@ -4,9 +4,8 @@
 
 ## 项目说明
 
-这是北航开源俱乐部维护的的北航毕设论文的LaTeX模板
-
-目前仍在开发中，欢迎关注进展，提交bug/issue，甚至贡献代码
+这是北航开源俱乐部开发并维护的的北航毕设论文的LaTeX模板，旨在满足学校教务处和研究生院规定和要求的基础上，提供一个简单易用的
+tex模板，解决各位同学对于论文格式的烦恼，提高论文效率。
 
 ## 模板使用简介
 
@@ -26,7 +25,7 @@
 
 #### 其他要求
 
-字体要求：华文行楷字体；
+字体要求：华文行楷字体、宋体、黑体、隶书、仿宋和Times New Roman，以及其他因为论文需要所使用的字体。
 
 参考文献管理工具：推荐使用[JabRef](jabref.sourceforge.net/download.php)。
 
@@ -38,6 +37,8 @@
 完整编译过程：xelatex -> bibtex -> xelatex -> xelatex
 
 注：当涉及交叉引用的改动时，需要xelatex编译两遍；涉及参考文献的改动时，需要完整编译过程编译；若二者均无涉及时，仅xelatex编译一遍即可。
+
+或者，在windows下可以使用msmake.bat脚本，在linux下使用makefile脚本来进行编译。
 
 ## 免责声明
 
@@ -52,4 +53,5 @@
 ## 联系我们
 Google Group : https://groups.google.com/d/forum/beihang-open-source-club
 
-E-mail:mrpeng000@gmail.com    huxuan8218528@gmail.com
+E-mail:  Joseph    mrpeng000@gmail.com
+         Huxuan    huxuan8218528@gmail.com
