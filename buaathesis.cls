@@ -47,7 +47,10 @@ The LaTeX template for thesis of BUAA]
 % 主要字体为Times New Roman和宋体
 % 模板某些标题需要华文行楷和32号字
 \setmainfont{Times New Roman}
-\setCJKmainfont{宋体}
+% 不需要设置CJKmainfont，ctex 宏包已经很好的处理了
+% 不仅设置了粗体为黑体，斜体为楷体，还兼容了winfonts和adobefonts
+% 直接设置反而会在只有adobefonts的情况下报错
+% \setCJKmainfont{宋体}
 \setCJKfamilyfont{hwxingkai}{STXingkai}
 \newcommand{\hwxingkai}{\CJKfamily{hwxingkai}}
 \newcommand{\xiaochuhao}{\fontsize{32pt}{\baselineskip}\selectfont}
