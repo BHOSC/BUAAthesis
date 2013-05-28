@@ -32,3 +32,4 @@
 *.swp
 *.thm
 *.pdf
+.DS_Store
