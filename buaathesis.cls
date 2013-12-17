@@ -643,8 +643,8 @@ The LaTeX template for thesis of BUAA]
         \vskip 10bp
         \begin{flushright}
             {\begin{tabular}{rl}
-                Author：&\buaa@thesisauthoreng\\
-                Tutor：&\buaa@teachereng\\
+                Author:\ &\buaa@thesisauthoreng\\
+                Tutor:\ &\buaa@teachereng\\
             \end{tabular}}
         \end{flushright}
     \fi
