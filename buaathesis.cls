@@ -90,8 +90,8 @@ The LaTeX template for thesis of BUAA]
 
 \renewcommand{\baselinestretch}{1.5}
 \setlength{\parindent}{2em}
-\setlength{\floatsep}{10pt plus 3pt minus 2pt}      % 图形之间或图形与正文之间的距离
-\setlength{\abovecaptionskip}{2pt plus 1pt minus 1pt} % 图形中的图与标题之间的距离
+\setlength{\floatsep}{3pt plus 3pt minus 2pt}      % 图形之间或图形与正文之间的距离
+\setlength{\abovecaptionskip}{10pt plus 1pt minus 1pt} % 图形中的图与标题之间的距离
 \setlength{\belowcaptionskip}{3pt plus 1pt minus 2pt} % 表格中的表与标题之间的距离
 
 %%%%%%%%%% header & footer %%%%%%%%%%
@@ -197,12 +197,12 @@ The LaTeX template for thesis of BUAA]
     \titlecontents{subsection}[4em]{\vspace{0.1\baselineskip}\songti\zihao{-4}}{\thecontentslabel\ }{}
         {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}
 \else
-    \titlecontents{chapter}[0pt]{\heiti\zihao{4}}{\thecontentslabel\ }{}
-        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}
-    \titlecontents{section}[2em]{\vspace{0.15\baselineskip}\songti\zihao{-4}}{\thecontentslabel\ }{}
-        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.15\baselineskip}]
-    \titlecontents{subsection}[4em]{\vspace{0.1\baselineskip}\heiti\zihao{5}}{\thecontentslabel\ }{}
-        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.1\baselineskip}]
+    \titlecontents{chapter}[0pt]{\vspace{-0.25\baselineskip}\heiti\zihao{4}}{\thecontentslabel\ }{}
+        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}{\zihao{-4}\contentspage}}[\vspace{0.07\baselineskip}]
+    \titlecontents{section}[2em]{\songti\zihao{-4}}{\thecontentslabel\ }{}
+        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}{\zihao{-4}\contentspage}}[\vspace{0.1\baselineskip}]
+    \titlecontents{subsection}[4em]{\vspace{-0.2\baselineskip}\heiti\zihao{5}}{\thecontentslabel\ }{}
+        {\hspace{.5em}\titlerule*[4pt]{$\cdot$}{\zihao{-4}\contentspage}}[\vspace{0.1\baselineskip}]
 \fi
 
 % 取消图片、表格目录中的章节空格
@@ -506,21 +506,21 @@ The LaTeX template for thesis of BUAA]
                     {
                         \zihao{5}\heiti
                         \begin{flushleft}
-                            中图分类号：\buaa@category \hfill 密级\ding{73}~~\buaa@mibao \\
+                            中图分类号：\buaa@category  \\
                             论\,\,文\,\,编\,\,号：\buaa@thesisID\\
                         \end{flushleft}
                     }
                     \vskip 80bp
                     \includegraphics[width=.5\textwidth]{figure/buaaname.jpg}
-                    \vskip 10bp
-                    \centerline{\zihao{0}\hwxingkai\buaa@appdegree 论文}
+                    \vskip 30bp
+                    \centerline{\zihao{0}\ziju{0.2}\hwxingkai\buaa@appdegree 论文}
                     ~~\\
                     %\vskip 100bp
                     \vspace*{\stretch{5}}
                     \begin{minipage}[h]{.85\textwidth}
-                        \begin{spacing}{1.8}
-                            % actually, it should be 1.5, but I think 1.8 will be prefect.
-                            \centering{\xiaochuhao\songti\buaa@thesistitle}
+                        \begin{spacing}{3}
+                            % actually, it should be 1.5, but I think 3 will be prefect.
+                            \centering{\xiaochuhao\songti \buaa@thesistitle}
                         \end{spacing}
                     \end{minipage}
                     %\vspace{5bp}
@@ -537,7 +537,7 @@ The LaTeX template for thesis of BUAA]
                         \heiti\zihao{4}\ziju{0.2}
                         \begin{tabular}[b]{ll}
                             作~~者~~姓~~名~~ & \buaa@thesisauthor \\[.4ex]
-                            学~~科~~专~~业~~ & \buaa@major 专业\\[.4ex]
+                            学~~科~~专~~业~~ & \buaa@major \\[.4ex]
                             指~~导~~教~~师~~ & \buaa@teacher \quad\buaa@teacherdegree\\[.4ex]
                             培~~养~~院~~系~~ & \buaa@school 学院\\
                         \end{tabular}
@@ -555,7 +555,9 @@ The LaTeX template for thesis of BUAA]
     \vspace*{\stretch{1}}
     \begin{center}
     \begin{minipage}[h]{.8\textwidth}
-        \centering{\zihao{-2}\textbf{\buaa@thesistitleeng}}
+    	\begin{spacing}{2}
+        	\centering{\zihao{-2}\textbf{\buaa@thesistitleeng}}
+        \end{spacing}
     \end{minipage}
     \vskip 20bp
     \begin{minipage}[h]{.75\textwidth}
@@ -568,8 +570,8 @@ The LaTeX template for thesis of BUAA]
         \begin{center}
             \zihao{-3}
             \begin{tabular}{rl}
-                \textbf{Candidate：}&\textbf{\buaa@thesisauthoreng}\\[2.5ex]
-                \textbf{Supervisor：}&\textbf{\buaa@teacherdegreeeng ~~\buaa@teachereng}
+                \textbf{Candidate:\ }&\textbf{\buaa@thesisauthoreng}\\[2.5ex]
+                \textbf{Supervisor:\ }&\textbf{\buaa@teacherdegreeeng ~~\buaa@teachereng}
             \end{tabular}
         \end{center}
         \vskip 125bp
@@ -641,8 +643,8 @@ The LaTeX template for thesis of BUAA]
         \vskip 10bp
         \begin{flushright}
             {\begin{tabular}{rl}
-                Author：&\buaa@thesisauthoreng\\
-                Tutor：&\buaa@teachereng\\
+                Author:\ &\buaa@thesisauthoreng\\
+                Tutor:\ &\buaa@teachereng\\
             \end{tabular}}
         \end{flushright}
     \fi
@@ -829,7 +831,7 @@ The LaTeX template for thesis of BUAA]
             \zihao{-1}\heiti\centering{\buaa@thesistitle}
         \end{minipage}
 
-        \vskip 110bp
+        \vskip 130bp
 
         \begin{spacing}{2.2}
             {\zihao{-4}\songti
@@ -927,7 +929,7 @@ The LaTeX template for thesis of BUAA]
 
 % 学校名称
 \def\buaa@university{北京航空航天大学}
-\def\buaa@universityeng{Beihang Univerisity}
+\def\buaa@universityeng{Beihang University}
 \newcommand{\university}[2]{%
     \def\buaa@university{#1}
     \def\buaa@universityeng{#2}
