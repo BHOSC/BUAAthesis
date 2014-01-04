@@ -570,7 +570,7 @@ The LaTeX template for thesis of BUAA]
         \begin{center}
             \zihao{-3}
             \begin{tabular}{rl}
-                \textbf{Candidate:\ }&\textbf{\buaa@thesisauthoreng}\\[2.5ex]
+                \textbf{Candidate:\ }&\textbf{\buaa@thesisauthoreng}\\[0.5ex]
                 \textbf{Supervisor:\ }&\textbf{\buaa@teacherdegreeeng ~~\buaa@teachereng}
             \end{tabular}
         \end{center}
