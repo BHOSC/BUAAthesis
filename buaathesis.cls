@@ -116,13 +116,13 @@ The LaTeX template for thesis of BUAA]
     \else
         \if@twoside
             \fancyhead[CO]{\zihao{-5}\songti
-                \buaa@university\buaa@applydegree 学位论文\vspace{1.5mm}
+                \buaa@university\buaa@headdegree 学位论文\vspace{1.5mm}
             }
             \fancyhead[CE]{\zihao{-5}\songti\leftmark\vspace{1.5mm}}
         \else
             \fancyhead[C]{\zihao{-5}\songti
                 \ifthenelse{\isodd{\value{page}}}
-                    {\buaa@university\buaa@applydegree 学位论文}
+                    {\buaa@university\buaa@headdegree 学位论文}
                     {\leftmark}
                 \vspace{1.5mm}
             }
@@ -513,7 +513,7 @@ The LaTeX template for thesis of BUAA]
                     \vskip 80bp
                     \includegraphics[width=.5\textwidth]{figure/buaaname.jpg}
                     \vskip 30bp
-                    \centerline{\zihao{0}\ziju{0.2}\hwxingkai\buaa@appdegree 论文}
+                    \centerline{\zihao{0}\ziju{0.2}\hwxingkai\buaa@degree 论文}
                     ~~\\
                     %\vskip 100bp
                     \vspace*{\stretch{5}}
@@ -565,7 +565,7 @@ The LaTeX template for thesis of BUAA]
     \end{minipage}
     \vspace*{\stretch{1}}
     ~~\\
-        {\zihao{4}A Dissertation Submitted for the Degree of \buaa@appdegreeeng}\\
+        {\zihao{4}A Dissertation Submitted for the Degree of \buaa@degreeeng}\\
         \vskip 110bp
         \begin{center}
             \zihao{-3}
@@ -825,7 +825,7 @@ The LaTeX template for thesis of BUAA]
     \end{flushleft}
     \begin{center}
         \vskip 130bp
-        {\zihao{-2}\heiti{\ziju{1.3}\buaa@appdegree 论文}}
+        {\zihao{-2}\heiti{\ziju{1.3}\buaa@degree 论文}}
         \vskip 120bp
         \begin{minipage}[h]{.85\textwidth}
             \zihao{-1}\heiti\centering{\buaa@thesistitle}
@@ -1014,24 +1014,26 @@ The LaTeX template for thesis of BUAA]
 \newcommand{\ekeyword}[1]{%
     \def\buaa@ekeyword{#1}}
 % 学位
-\def\buaa@appdegree{} % 中文首页
-\def\buaa@appdegreeeng{} % 英文首页
-\def\buaa@applydegree{} % 页眉页脚
-\newcommand{\degree}[3]{%
-    \def\buaa@appdegree{#1}
-    \def\buaa@appdegreeeng{#2}
-    \def\buaa@applydegree{#3}
+\def\buaa@degree{} % 中文首页和题名页
+\def\buaa@appdegree{} % 题名页“申请学位级别”
+\def\buaa@degreeeng{} % 英文首页
+\def\buaa@headdegree{} % 页眉页脚
+\newcommand{\degree}[4]{%
+    \def\buaa@degree{#1}
+    \def\buaa@appdegree{#2}
+    \def\buaa@degreeeng{#3}
+    \def\buaa@headdegree{#4}
 }
 \ifbuaa@doctor
-    \degree{博士学位}{Doctor}{博士}
+    \degree{博士学位}{博士}{Doctor}{博士}
 \else
     \ifbuaa@engineer
-        \degree{专业硕士学位}{Master}{硕士}
+        \degree{专业硕士学位}{全日制专业硕士}{Master}{硕士}
     \else
         \ifbuaa@bachelor
-            \degree{学士学位}{Bachelor}{学士}
+            \degree{学士学位}{学士}{Bachelor}{学士}
         \else
-            \degree{硕士学位}{Master}{硕士}
+            \degree{硕士学位}{硕士}{Master}{硕士}
         \fi
     \fi
 \fi
