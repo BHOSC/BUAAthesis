@@ -21,11 +21,13 @@ The LaTeX template for thesis of BUAA]
 \newif\ifbuaa@engineer\buaa@engineerfalse
 \newif\ifbuaa@doctor\buaa@doctorfalse
 \newif\ifbuaa@color\buaa@colorfalse
+\newif\ifbuaa@twoteacher\buaa@twoteacherfalse
 \DeclareOption{bachelor}{\buaa@bachelortrue}
 \DeclareOption{master}{\buaa@mastertrue}
 \DeclareOption{engineer}{\buaa@engineertrue}
 \DeclareOption{doctor}{\buaa@doctortrue}
 \DeclareOption{color}{\buaa@colortrue}
+\DeclareOption{twoteacher}{\buaa@twoteachertrue}
 % 其余选项传递给ctexbook
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessOptions\relax
@@ -973,6 +975,13 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@teacher{#1}
     \def\buaa@teachereng{#2}
 }
+% 副指导老师
+\def\buaa@subteacher{}
+\def\buaa@subteachereng{}
+\newcommand{\subteacher}[2]{%
+    \def\buaa@subteacher{#1}
+    \def\buaa@subteachereng{#2}
+}
 % 分类号
 \def\buaa@category{}
 \newcommand{\category}[1]{%
@@ -1083,6 +1092,13 @@ The LaTeX template for thesis of BUAA]
 \newcommand{\teacherdegree}[2]{%
     \def\buaa@teacherdegree{#1}
     \def\buaa@teacherdegreeeng{#2}
+}
+% 副导师职称
+\def\buaa@subteacherdegree{}
+\def\buaa@subteacherdegreeeng{}
+\newcommand{\subteacherdegree}[2]{%
+    \def\buaa@subteacherdegree{#1}
+    \def\buaa@subteacherdegreeeng{#2}
 }
 % 论文编号
 \def\buaa@thesisID{}
