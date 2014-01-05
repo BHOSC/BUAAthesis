@@ -494,7 +494,7 @@ The LaTeX template for thesis of BUAA]
                         学~~~院~~~名~~~称~~&\ulinecvcbc{\buaa@school 学院}\\[.4ex]
                         专~~~业~~~名~~~称~~&\ulinecvcbc{\buaa@major 专业}\\[.4ex]
                         学~~~生~~~姓~~~名~~&\ulinecvcbc{\buaa@thesisauthor}\\[.4ex]
-                        指~~~导~~~教~~~师~~&\ulinecvcbc{\buaa@teacher}\\
+                        指~~~导~~~教~~~师~~&\ulinecvcbc{\buaa@teacher \quad \buaa@subteacher}\\
                     \end{tabular}
                 }
                 \vskip 60bp
@@ -537,12 +537,22 @@ The LaTeX template for thesis of BUAA]
                     %\vskip 80bp
                     {
                         \heiti\zihao{4}\ziju{0.2}
-                        \begin{tabular}[b]{ll}
-                            作~~者~~姓~~名~~ & \buaa@thesisauthor \\[.4ex]
-                            学~~科~~专~~业~~ & \buaa@major \\[.4ex]
-                            指~~导~~教~~师~~ & \buaa@teacher \quad\buaa@teacherdegree\\[.4ex]
-                            培~~养~~院~~系~~ & \buaa@school 学院\\
-                        \end{tabular}
+                        \ifbuaa@twoteacher
+                            \begin{tabular}[b]{ll}
+                                作~~者~~姓~~名~~ & \buaa@thesisauthor\\[.3ex]
+                                学~~科~~专~~业~~ & \buaa@major\\[.3ex]
+                                指~~导~~教~~师~~ & \buaa@teacher\quad\buaa@teacherdegree\\[.3ex]
+                                ~~ & \buaa@subteacher\quad\buaa@subteacherdegree\\[.3ex]
+                                培~~养~~院~~系~~ & \buaa@school 学院\\
+                            \end{tabular}
+                        \else
+                            \begin{tabular}[b]{ll}
+                                作~~者~~姓~~名~~ & \buaa@thesisauthor\\[.4ex]
+                                学~~科~~专~~业~~ & \buaa@major\\[.4ex]
+                                指~~导~~教~~师~~ & \buaa@teacher \quad\buaa@teacherdegree\\[.4ex]
+                                培~~养~~院~~系~~ & \buaa@school 学院\\
+                            \end{tabular}
+                        \fi
                     }
                 \end{spacing}
             \end{center}
@@ -571,10 +581,18 @@ The LaTeX template for thesis of BUAA]
         \vskip 110bp
         \begin{center}
             \zihao{-3}
-            \begin{tabular}{rl}
-                \textbf{Candidate:\ }&\textbf{\buaa@thesisauthoreng}\\[0.5ex]
-                \textbf{Supervisor:\ }&\textbf{\buaa@teacherdegreeeng ~~\buaa@teachereng}
-            \end{tabular}
+            \ifbuaa@twoteacher
+                \begin{tabular}{rl}
+                    \textbf{Candidate:\ }&\textbf{\buaa@thesisauthoreng}\\[0.5ex]
+                    \textbf{Supervisor:\ }&\textbf{\buaa@teacherdegreeeng ~~\buaa@teachereng}\\
+                    ~~ & \textbf{\buaa@subteacherdegreeeng ~~\buaa@subteachereng}\\
+                \end{tabular}
+            \else
+                \begin{tabular}{rl}
+                    \textbf{Candidate:\ }&\textbf{\buaa@thesisauthoreng}\\[0.5ex]
+                    \textbf{Supervisor:\ }&\textbf{\buaa@teacherdegreeeng ~~\buaa@teachereng}\\
+                \end{tabular}
+            \fi
         \end{center}
         \vskip 125bp
         \zihao{3}{
@@ -604,10 +622,19 @@ The LaTeX template for thesis of BUAA]
         \end{center}
         %\vskip 10bp
         \begin{flushright}
-            {\begin{tabular}{cl}
-                \ziju{2}学生：&\buaa@thesisauthor\\
-                指导教师：&\buaa@teacher\\
-            \end{tabular}}
+            \ifbuaa@twoteacher
+                {\begin{tabular}{cl}
+                    学\qquad 生：&\buaa@thesisauthor\\
+                    指导教师：&\buaa@teacher\\
+                    ~~ & \buaa@subteacher\\
+                    % I don't know is this corrent and properly.
+                \end{tabular}}
+            \else
+                {\begin{tabular}{cl}
+                    学\qquad 生：&\buaa@thesisauthor\\
+                    指导教师：&\buaa@teacher\\
+                \end{tabular}}
+            \fi
         \end{flushright}
     \fi
     \centerline{\heiti\zihao{3} 摘~~~~要}
@@ -644,10 +671,18 @@ The LaTeX template for thesis of BUAA]
         \end{center}
         \vskip 10bp
         \begin{flushright}
-            {\begin{tabular}{rl}
-                Author:\ &\buaa@thesisauthoreng\\
-                Tutor:\ &\buaa@teachereng\\
-            \end{tabular}}
+            \ifbuaa@twoteacher
+                {\begin{tabular}{rl}
+                    Author:\ &\buaa@thesisauthoreng\\
+                    Tutor:\ &\buaa@teachereng\\
+                    ~~ & \buaa@subteachereng\\
+                \end{tabular}}
+            \else
+                {\begin{tabular}{rl}
+                    Author:\ &\buaa@thesisauthoreng\\
+                    Tutor:\ &\buaa@teachereng\\
+                \end{tabular}}
+            \fi
         \end{flushright}
     \fi
     \centerline{\bf\zihao{3} Abstract}
@@ -839,7 +874,7 @@ The LaTeX template for thesis of BUAA]
             {\zihao{-4}\songti
             \begin{tabular}[b]{llll}
                 \makebox[6em][s]{作\hfill 者\hfill 姓\hfill 名} & \buaa@thesisauthor& 申请学位级别 & \buaa@appdegree \\
-                指导教师姓名 & \buaa@teacher & 职\qquad\qquad 称 & \buaa@teacherdegree \\
+                指导教师姓名 & \makebox[9em][s]{\buaa@teacher\quad\buaa@subteacher\hfill} & 职\qquad\qquad 称 & \buaa@teacherdegree \\
                 \makebox[6em][s]{学\hfill 科\hfill 专\hfill 业} & \buaa@major  &
                 \makebox[6em][s]{研\hfill 究\hfill 方\hfill 向} & \buaa@direction \\
                 \makebox[6em][s]{学\hfill 习\hfill 时\hfill 间\hfill 自} &\buaa@thesisbeginyear~~年~~\buaa@thesisbeginmonth~~月~~\buaa@thesisbeginday~~日\qquad &
