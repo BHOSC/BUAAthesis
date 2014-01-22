@@ -509,6 +509,7 @@ The LaTeX template for thesis of BUAA]
                         \zihao{5}\heiti
                         \begin{flushleft}
                             中图分类号：\buaa@category  \\
+							%中图分类号：\buaa@category\hfill 密级\ding{73}~~\buaa@mibao \\ % 保密论文时用此行代码替换上行代码即可
                             论\,\,文\,\,编\,\,号：\buaa@thesisID\\
                         \end{flushleft}
                     }
@@ -1059,25 +1060,23 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@ekeyword{#1}}
 % 学位
 \def\buaa@degree{} % 中文首页和题名页
-\def\buaa@appdegree{} % 题名页“申请学位级别”
 \def\buaa@degreeeng{} % 英文首页
 \def\buaa@headdegree{} % 页眉页脚
-\newcommand{\degree}[4]{%
+\newcommand{\degree}[3]{%
     \def\buaa@degree{#1}
-    \def\buaa@appdegree{#2}
-    \def\buaa@degreeeng{#3}
-    \def\buaa@headdegree{#4}
+    \def\buaa@degreeeng{#2}
+    \def\buaa@headdegree{#3}
 }
 \ifbuaa@doctor
-    \degree{博士学位}{博士}{Doctor}{博士}
+    \degree{博士学位}{Doctor}{博士}
 \else
     \ifbuaa@engineer
-        \degree{专业硕士学位}{全日制专业硕士}{Master}{硕士}
+        \degree{专业硕士学位}{Master}{硕士}
     \else
         \ifbuaa@bachelor
-            \degree{学士学位}{学士}{Bachelor}{学士}
+            \degree{学士学位}{Bachelor}{学士}
         \else
-            \degree{硕士学位}{硕士}{Master}{硕士}
+            \degree{硕士学位}{Master}{硕士}
         \fi
     \fi
 \fi
@@ -1134,6 +1133,11 @@ The LaTeX template for thesis of BUAA]
 \newcommand{\subteacherdegree}[2]{%
     \def\buaa@subteacherdegree{#1}
     \def\buaa@subteacherdegreeeng{#2}
+}
+% 申请学位级别(题名页)
+\def\buaa@appdegree{}
+\newcommand{\applydegree}[1]{%
+    \def\buaa@appdegree{#1}
 }
 % 论文编号
 \def\buaa@thesisID{}
