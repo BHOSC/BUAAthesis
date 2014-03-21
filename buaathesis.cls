@@ -1068,7 +1068,7 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@headdegree{#3}
 }
 \ifbuaa@doctor
-    \degree{博士学位}{Doctor}{博士}
+    \degree{博士学位}{Doctor of Philosophy}{博士}
 \else
     \ifbuaa@engineer
         \degree{专业硕士学位}{Master}{硕士}
