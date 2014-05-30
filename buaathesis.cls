@@ -212,6 +212,15 @@ The LaTeX template for thesis of BUAA]
 \addtocontents{lof}{\protect\noaddvspace}
 \addtocontents{lot}{\protect\noaddvspace}
 
+%表目录图目录的格式设置
+%表目录与图目录数字前增加“表”与“图”字，并且使目录行间距与section行间距一致
+
+\titlecontents{figure}[0pt]{\vspace{0.15\baselineskip}\songti\zihao{-4}}{\makebox[3em][l]{图~\thecontentslabel\quad}}{}
+    {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.15\baselineskip}]
+
+\titlecontents{table}[0pt]{\vspace{0.15\baselineskip}\songti\zihao{-4}}{\makebox[3em][l]{表~\thecontentslabel\quad}}{}
+    {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.15\baselineskip}]
+
 %%%%%%%%%% cross reference %%%%%%%%%%
 % 交叉引用
 
