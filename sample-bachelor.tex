@@ -6,6 +6,18 @@
 \include{data/com_info}
 \include{data/bachelor/bachelor_info}
 
+% 写入PDF属性信息
+\makeatletter
+\hypersetup{
+    bookmarksnumbered,
+    bookmarksopen,
+    pdftitle={\buaa@thesistitle},
+    pdfauthor={\buaa@thesisauthor},
+    pdfsubject={北京航空航天大学\buaa@degree 毕业设计(论文)},
+    pdfcreator={LaTeXed~By~BHOSC}
+}
+\makeatother
+
 % 任务书信息
 \include{data/bachelor/assign}
 
