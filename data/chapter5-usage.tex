@@ -54,22 +54,23 @@
 
 \section{封面及正文前的一些设置}
 \subsection{封面}
-本科生论文封面直接使用\texttt{\textbackslash maketitle}命令，将编译生成论文封面和任务书（任务书中的各项需要自己在assign.tex中填写），以及“本人声明”页。只需将\texttt{userinfo.tex}中的信息填写完整即可自行编译生成。
+本科生论文封面直接使用\texttt{\textbackslash maketitle}命令，将编译生成论文封面和任务书（任务书中的各项需要自己在assign.tex中填写），以及“本人声明”页。只需将\texttt{data/bachelor/bachelor\_info.tex}中的信息填写完整即可自行编译生成。
 
-研究生（包括博士研究生）的毕设论文封面使用\texttt{\textbackslash maketitle}将生成中英文封面、题名页、和独创性声明与使用授权书。只需将\texttt{userinfo.tex}中的信息填写完整即可自行编译生成。
+研究生（包括博士研究生）的毕设论文封面使用\texttt{\textbackslash maketitle}将生成中英文封面、题名页、和独创性声明与使用授权书。只需将\texttt{data/master/master\_info.tex}中的信息填写完整即可自行编译生成。
 
 \subsection{中英文摘要}
-本科生和研究生的论文中英文摘要为\texttt{abstract.tex}，请直接按照模板示例进行更改替换即可，关键词以及其他的一些个人论文信息在\texttt{userinfo.tex}中自行定义。
+本科生和研究生的论文中英文摘要为\texttt{abstract.tex}，请直接按照模板示例进行更改替换即可，关键词以及其他的一些个人论文信息在\texttt{data/bachelor/bachelor\_info.tex}或\texttt{data/master/master\_info.tex}中自行定义。
+
 \subsection{目录}
 生成目录为命令\texttt{\textbackslash tableofcontents}，需要xelatex两遍才能正确生成目录。
 
-对于研究生，论文还需要有图表目录以及论文主要符号表。分别使用命令\texttt{\textbackslash listoffigures}\texttt{\textbackslash listoftables}，而主要符号表则在\texttt{file/master/denotation.tex}中，请自行按照模板给出的样式替换即可。
+对于研究生，论文还需要有图表目录以及论文主要符号表。分别使用命令\texttt{\textbackslash listoffigures}和\texttt{\textbackslash listoftables}，而主要符号表则在\texttt{data/master/denotation.tex}中，请自行按照模板给出的样式替换即可。
 
 \section{正文}
 \subsection{章节}
 正文中的各个章节，推荐将其每一章分为单独的\texttt{.tex}文件，然后使用\texttt{\textbackslash include\{chapter.tex\}}将其包含进来即可。
 
-章节中的内容如何编写，请见\hyperref[chapter-basic]{第5章~~\LaTeX{}语法}。
+章节中的内容如何编写，请见\hyperref[chapter-basic]{第\ref{chapter-basic}章~~\LaTeX{}基础知识}。
 
 \subsection{参考文献}
 参考文献使用\texttt{BiBTeX}工具，参考文献的数据库为\texttt{bibs.bib}，可以使用记事本等文本编辑器进行编辑。具体如何进行编辑也可参照示例模板给出的范例来编写。在Winedt软件中有具体的增加参考文献的选项；在\url{book.google.com}中搜索到的书籍，在页面的最下方也有\texttt{BiBTeX}的导出选项。
