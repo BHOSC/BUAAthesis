@@ -11,11 +11,15 @@
 
 % 页眉页脚样式
 \pagestyle{mainmatter}
+
 % 封面、任务书、声明
+\pdfbookmark[0]{Front Matter}{frontmatter}
+\pdfbookmark[1]{论文封面}{titlepage-zh}
 \maketitle
 % 摘要
 \include{data/abstract}
 % 目录
+\pdfbookmark[1]{目 录}{toc}
 \tableofcontents
 % 将表格的行距增大为正常行距
 \renewcommand{\arraystretch}{1.5}
