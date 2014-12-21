@@ -212,6 +212,15 @@ The LaTeX template for thesis of BUAA]
 \addtocontents{lof}{\protect\noaddvspace}
 \addtocontents{lot}{\protect\noaddvspace}
 
+%表目录图目录的格式设置
+%表目录与图目录数字前增加“表”与“图”字，并且使目录行间距与section行间距一致
+
+\titlecontents{figure}[0pt]{\vspace{0.15\baselineskip}\songti\zihao{-4}}{\makebox[3em][l]{图~\thecontentslabel\quad}}{}
+    {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.15\baselineskip}]
+
+\titlecontents{table}[0pt]{\vspace{0.15\baselineskip}\songti\zihao{-4}}{\makebox[3em][l]{表~\thecontentslabel\quad}}{}
+    {\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}[\vspace{0.15\baselineskip}]
+
 %%%%%%%%%% cross reference %%%%%%%%%%
 % 交叉引用
 
@@ -388,9 +397,9 @@ The LaTeX template for thesis of BUAA]
 \DeclareCaptionFormat{bachelorfigure}{\songti\zihao{5}{#1\textrm{#2}#3}}
 \DeclareCaptionFormat{bachelortable}{\heiti\bf\zihao{5}{#1\textrm{#2}#3}}
 \DeclareCaptionFormat{bachelorlstlisting}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
-\DeclareCaptionFormat{masterfigure}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
-\DeclareCaptionFormat{mastertable}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
-\DeclareCaptionFormat{masterlstlisting}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
+\DeclareCaptionFormat{masterfigure}{\bf\songti\zihao{5}{#1\textrm{#2}#3}}
+\DeclareCaptionFormat{mastertable}{\bf\songti\zihao{5}{#1\textrm{#2}#3}}
+\DeclareCaptionFormat{masterlstlisting}{\bf\songti\zihao{5}{#1\textrm{#2}#3}}
 \ifbuaa@bachelor
     \captionsetup[figure]{format=bachelorfigure,labelsep=quad}
     \captionsetup[table]{format=bachelortable,labelsep=quad}
@@ -1075,7 +1084,7 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@headdegree{#3}
 }
 \ifbuaa@doctor
-    \degree{博士学位}{Doctor}{博士}
+    \degree{博士学位}{Doctor of Philosophy}{博士}
 \else
     \ifbuaa@engineer
         \degree{专业硕士学位}{Master}{硕士}
