@@ -254,21 +254,28 @@ The LaTeX template for thesis of BUAA]
 \let\oldtable\table
 \let\endoldtable\endtable
 \renewenvironment{table}[1][h!]
-{\oldtable[#1]\zihao{5}}
-{\endoldtable}
+{\renewcommand{\arraystretch}{1.5}
+\oldtable[#1]\zihao{5}}
+{\renewcommand{\arraystretch}{1}
+\endoldtable}
 
 \let\oldtabular\tabular
 \let\endoldtabular\endtabular
 \renewenvironment{tabular}[1][h!]
-{\oldtabular[#1]\zihao{5}}
-{\endoldtabular}
+{\renewcommand{\arraystretch}{1.5}
+\oldtabular[#1]\zihao{5}}
+{\renewcommand{\arraystretch}{1}
+\endoldtabular}
 
 \RequirePackage{tabularx}
 \let\oldtabularx\tabularx
 \let\endoldtabularx\endtabularx
 \renewenvironment{tabularx}[2]
-{\zihao{5}\oldtabularx{#1}{#2}}
-{\endoldtabularx}
+{\renewcommand{\arraystretch}{1.5}
+\zihao{5}\oldtabularx{#1}{#2}}
+{\renewcommand{\arraystretch}{1}
+\endoldtabularx}
+
 
 \RequirePackage{array}
 
