@@ -263,21 +263,28 @@ The LaTeX template for thesis of BUAA]
 \let\oldtable\table
 \let\endoldtable\endtable
 \renewenvironment{table}[1][h!]
-{\oldtable[#1]\zihao{5}}
-{\endoldtable}
+{\renewcommand{\arraystretch}{1.5}
+\oldtable[#1]\zihao{5}}
+{\renewcommand{\arraystretch}{1}
+\endoldtable}
 
 \let\oldtabular\tabular
 \let\endoldtabular\endtabular
 \renewenvironment{tabular}[1][h!]
-{\oldtabular[#1]\zihao{5}}
-{\endoldtabular}
+{\renewcommand{\arraystretch}{1.5}
+\oldtabular[#1]\zihao{5}}
+{\renewcommand{\arraystretch}{1}
+\endoldtabular}
 
 \RequirePackage{tabularx}
 \let\oldtabularx\tabularx
 \let\endoldtabularx\endtabularx
 \renewenvironment{tabularx}[2]
-{\zihao{5}\oldtabularx{#1}{#2}}
-{\endoldtabularx}
+{\renewcommand{\arraystretch}{1.5}
+\zihao{5}\oldtabularx{#1}{#2}}
+{\renewcommand{\arraystretch}{1}
+\endoldtabularx}
+
 
 \RequirePackage{array}
 
@@ -422,6 +429,24 @@ The LaTeX template for thesis of BUAA]
 
 %%%%%%%%%% other settings %%%%%%%%%%
 % 杂项
+
+% 设置<附录>的图表编号与当前附录章号关联
+\newcommand{\rmrelation}{
+% 图、表、公式编号随 chapter 清零
+\@addtoreset{figure}{chapter}
+\@addtoreset{table}{chapter}
+\@addtoreset{equation}{chapter}
+%图、表、公式编号章节关联
+\renewcommand{\thefigure}{\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@figure}
+\renewcommand{\thetable}{\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@table}
+\renewcommand{\theequation}{\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@equation}
+}
+
+\let\oldappendix\appendix
+\renewcommand{\appendix}{
+\oldappendix\rmrelation
+}
+
 
 % 下划线
 \RequirePackage{ulem}
