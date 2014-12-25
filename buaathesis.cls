@@ -430,6 +430,24 @@ The LaTeX template for thesis of BUAA]
 %%%%%%%%%% other settings %%%%%%%%%%
 % 杂项
 
+% 设置<附录>的图表编号与当前附录章号关联
+\newcommand{\rmrelation}{
+% 图、表、公式编号随 chapter 清零
+\@addtoreset{figure}{chapter}
+\@addtoreset{table}{chapter}
+\@addtoreset{equation}{chapter}
+%图、表、公式编号章节关联
+\renewcommand{\thefigure}{\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@figure}
+\renewcommand{\thetable}{\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@table}
+\renewcommand{\theequation}{\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@equation}
+}
+
+\let\oldappendix\appendix
+\renewcommand{\appendix}{
+\oldappendix\rmrelation
+}
+
+
 % 下划线
 \RequirePackage{ulem}
 
