@@ -12,13 +12,16 @@ C\TeX{}套装是Windows下为中文优化的\LaTeX{}系统套件，主要基于M
     \begin{description}
         \item[官方页面]
             \url{http://www.ctex.org/CTeXDownload}
-        \item[未来花园]
-            稍后我们也会提供未来花园上的下载页面，敬请关注
+        \item[清华镜像]
+            \url{https://mirrors.tuna.tsinghua.edu.cn/ctex/unstable/}
+        \item[中科大镜像]
+            \url{http://mirrors.ustc.edu.cn/ctex/unstable/}
     \end{description}
     \item[安装方法] \hfill
         \begin{itemize}
-            \item[] 与常规软件的安装方法差不多
+            \item[] 与常规软件的安装方法类似
             \item[] 一直下一步稍加一些自定义（如安装路径）即可
+            \item[] {\bf 注意：} 安装程序在某些情况下可能覆盖PATH环境变量，请在安装前注意备份PATH环境变量
         \end{itemize}
 \end{description}
 
@@ -27,7 +30,7 @@ C\TeX{}套装是Windows下为中文优化的\LaTeX{}系统套件，主要基于M
 \TeX{}是自由软件，有很多发行版本，就像Linux的Ubuntu、Fedora等等。
 每个发行版本都是一套工具集合，包括plain\TeX{}，\LaTeX{}，pdf\TeX{}，dvips等。
 其中比较流行的是\TeX{}Live，也包含在CTAN的开源镜像中，
-目前的最新版本是\TeX{}Live 2012。
+目前的最新版本是\TeX{}Live 2016。
 
 推荐通过下载ISO镜像文件的方式安装：
 \begin{description}
@@ -36,13 +39,11 @@ C\TeX{}套装是Windows下为中文优化的\LaTeX{}系统套件，主要基于M
     \item[下载地址] 官方地址会自动跳转寻找"最近"镜像，还有几个较快的教育网镜像
     \begin{description}
         \item[官方地址]
-            \url{http://mirror.ctan.org/systems/texlive/Images/texlive2012.iso}
+            \url{http://mirror.ctan.org/systems/texlive/Images/texlive2016.iso}
         \item[清华镜像]
             \url{http://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/}
-        \item[北交镜像]
-            \url{http://mirror.bjtu.edu.cn/CTAN/systems/texlive/Images/}
-        \item[未来花园]
-            稍后我们也会提供未来花园上的下载页面，敬请关注
+        \item[中科大镜像]
+            \url{https://mirrors.ustc.edu.cn/CTAN/systems/texlive/Images/}
     \end{description}
     \item[安装方法] \hfill
     \begin{enumerate}
@@ -71,13 +72,16 @@ Mac\TeX{}是基于\TeX{}Live为Mac系统设计的套件。
             \url{http://mirror.ctan.org/systems/mac/mactex/MacTeX.pkg}
         \item[清华镜像]
             \url{http://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/mac/mactex/}
-        \item[北交镜像]
-            \url{http://mirror.bjtu.edu.cn/CTAN/systems/mac/mactex/}
-        \item[未来花园]
-            稍后我们也会提供未来花园上的下载页面，敬请关注
+        \item[中科大镜像]
+            \url{https://mirrors.ustc.edu.cn/CTAN/systems/mac/mactex/}
     \end{description}
     \item[安装方法] 同一般软件安装，下一步即可
 \end{description}
+
+\section{兼容性}
+
+本模板依赖v2.0及以上版本的ctex包，\TeX{}Live 2015及以上版本、C\TeX{}2.9.3 可以正常使用。
+对于低版本的\LaTeX{}发行版，需要使用包管理器升级ctex宏包。
 
 \section{关于编辑器}
 

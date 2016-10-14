@@ -32,7 +32,7 @@ The LaTeX template for thesis of BUAA]
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessOptions\relax
 % 引用ctexbook及基本设置
-\LoadClass[cs4size,a4paper,fancyhdr]{ctexbook}[2007/10/19]
+\LoadClass[zihao=-4,a4paper]{ctexbook}[2007/10/19]
 
 %%%%%%%%%% global package %%%%%%%%%%
 % 全局通用宏包
@@ -149,42 +149,50 @@ The LaTeX template for thesis of BUAA]
 \renewcommand\bibname{参\ 考\ 文\ 献}
 \renewcommand{\figurename}{图}
 \renewcommand{\tablename}{表}
+
 % 格式
-\CTEXsetup[
-    format={\centering\zihao{3}\heiti},
-    nameformat={},
-    aftername={\quad},
-    titleformat={},
-    beforeskip={-.5\baselineskip},
-    afterskip={\baselineskip},
-]{chapter}
-\CTEXsetup[
-    aftername={\quad},
-    beforeskip={.5\baselineskip},
-    afterskip={.5\baselineskip},
-]{section}
-\CTEXsetup[
-    format={\zihao{-4}\heiti},
-    aftername={\quad},
-    beforeskip={.5\baselineskip},
-    afterskip={.5\baselineskip},
-]{subsection}
-\ifbuaa@bachelor
-    \CTEXsetup[
-        name={,},
-        number={\arabic{chapter}},
-    ]{chapter}
-    \CTEXsetup[
+\ctexset{
+    chapter={
+        format={\centering\zihao{3}\heiti},
+        nameformat={},
+        aftername={\quad},
+        titleformat={},
+        beforeskip={-.5\baselineskip},
+        afterskip={\baselineskip},
+    },
+    section={
+        aftername={\quad},
+        beforeskip={.5\baselineskip},
+        afterskip={.5\baselineskip},
+    },
+    subsection={
         format={\zihao{-4}\heiti},
-    ]{section}
+        aftername={\quad},
+        beforeskip={.5\baselineskip},
+        afterskip={.5\baselineskip},
+    },
+}
+
+\ifbuaa@bachelor
+    \ctexset{
+        chapter={
+            name={,},
+            number={\arabic{chapter}},
+        },
+        section={
+            format={\zihao{-4}\heiti},
+        },
+    }
 \else
-    \CTEXsetup[
-        name={第,章},
-        number={\chinese{chapter}},
-    ]{chapter}
-    \CTEXsetup[
-        format={\zihao{4}\heiti},
-    ]{section}
+    \ctexset{
+        chapter={
+            name={第,章},
+            number={\chinese{chapter}},
+        },
+        section={
+            format={\zihao{4}\heiti},
+        },
+    }
 \fi
 
 %%%%%%%%%% contents %%%%%%%%%%
@@ -816,7 +824,7 @@ The LaTeX template for thesis of BUAA]
 \def\buaa@bachelor@assign{
     \newpage
     \thispagestyle{empty}
-    \CTEXnoindent
+    \parindent=0pt
     \songti
     {
         \zihao{2}
@@ -880,7 +888,7 @@ The LaTeX template for thesis of BUAA]
         注：任务书应该附在已完成的毕业设计（论文）的首页。
         \end{spacing}
     }
-    \CTEXindent
+    \parindent=2\ccwd
     \linespread{1.5}
 }
 
