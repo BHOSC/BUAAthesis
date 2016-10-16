@@ -137,6 +137,24 @@ itemize是最简单的，enumerate是带序号的，description是带描述的�
         \end{description}
 \end{enumerate}
 
+默认情况下，列表项正文如果较长，列表项的内容将与第一行保持一致的缩进，例如
+
+\begin{enumerate}
+\item 列表项短文本
+\item 列表项长文本列表项长文本列表项长文本列表项长文本列表项长文本列表项长文本
+列表项长文本列表项长文本列表项长文本列表项长文本列表项长文本列表项长文本
+\end{enumerate}
+
+使用\verb|itemize|或\verb|enumerate|环境时，加上\verb|[wide]|选项就可以解决这个问题，
+并且使用\verb|enumerate|环境创建的列表中的项同样会自动编号，
+例如\verb|\begin{enumerate}[wide]|的效果：
+
+\begin{enumerate}[wide]
+\item 列表项短文本
+\item 列表项长文本列表项长文本列表项长文本列表项长文本列表项长文本列表项长文本
+列表项长文本列表项长文本列表项长文本列表项长文本列表项长文本列表项长文本
+\end{enumerate}
+
 \section{图形}
 \label{sec-figure}
 插入图形时可以使用\texttt{figure}环境，示例如图\ref{fig-sample}所示。
