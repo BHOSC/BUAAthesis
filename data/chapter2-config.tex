@@ -83,6 +83,52 @@ Mac\TeX{}是基于\TeX{}Live为Mac系统设计的套件。
 本模板依赖v2.0及以上版本的ctex包，\TeX{}Live 2015及以上版本、C\TeX{}2.9.3 可以正常使用。
 对于低版本的\LaTeX{}发行版，需要使用包管理器升级ctex宏包。
 
+\section{安装字体 [ Linux ]}
+
+北航的毕业设计论文要求使用Times New Roman和华文行楷这两种字体，在Linux系统上，这两种字
+是没有预装在系统里的，因此Linux用户需要手动安装字体才能正常使用本模板。本节将以Ubuntu系统
+为例演示字体的安装。
+
+首先需要获取字体文件，Windows系统默认包含了Times New Roman和华文行楷这两种字体，可以从
+{\verb C:\Windows\Fonts\ }文件夹下将字体文件拷贝出来（显示为{\verb STXingkai }和
+{\verb Times New Roman }），当然，用户也可以从其他途径获取这两个字体文件。然后将字体文件
+拷贝到Ubuntu的{\verb /usr/share/fonts }目录下，为了方便管理，可以在这些外部字体放在一个新
+文件夹中：
+\begin{lstlisting}[
+    language={bash},
+    caption={拷贝字体文件},
+    label={copy-fonts},
+]
+sudo cp <your font files> /usr/share/fonts/msfonts/
+\end{lstlisting}
+然后将字体文件的权限设置为644：
+\begin{lstlisting}[
+    language={bash},
+    caption={设置字体文件权限},
+    label={set-fonts-permission},
+]
+sudo chmod 644 /usr/share/fonts/msfonts/*
+\end{lstlisting}
+接下来，进入到{\verb /usr/share/fonts/msfonts } 目录下，依次运行以下三个命令：
+\begin{lstlisting}[
+    language={bash},
+    caption={安装字体},
+    label={install-fonts},
+]
+sudo mkfontscale
+sudo mkfontdir
+sudo fc-cache -fv
+\end{lstlisting}
+当看到命令行输出
+\begin{lstlisting}[
+    language={bash},
+    caption={正常输出结果},
+    label={install-font-success},
+]
+fc-cache: succeeded
+\end{lstlisting}
+时，就完成了字体的安装。
+
 \section{关于编辑器}
 
 以上介绍了三款\LaTeX{}套装，涵盖了主流的三大平台，除了C\TeX{}自带了WinEdt，
