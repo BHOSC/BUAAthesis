@@ -260,6 +260,9 @@ The LaTeX template for thesis of BUAA]
 %%%%%%%%%% table %%%%%%%%%%
 % 表格
 
+% 设置三线表格的上下边为粗实线
+\RequirePackage{booktabs}
+
 % 长表格
 \RequirePackage{longtable}
 

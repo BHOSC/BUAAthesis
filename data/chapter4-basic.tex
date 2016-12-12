@@ -190,7 +190,7 @@ itemize是最简单的，enumerate是带序号的，description是带描述的�
         第一列 & 第二列   & 第三列 \\ \hline \hline
         左     & 居中对齐 & 右对齐 \\ \hline
         左对   & 居中     & 右对   \\ \hline
-        左对齐 & 对齐     & 右     \\\hline
+        左对齐 & 对齐     & 右     \\ \hline
     \end{tabular}
 \end{table}
 如果在表格中需要使用脚注(footnote)功能，则需要将浮动表格环境置于一个minipage中，
@@ -204,6 +204,27 @@ itemize是最简单的，enumerate是带序号的，description是带描述的�
         \hline
     \end{tabular}
 \end{minipage}
+
+\subsection{三线表格}
+\label{three-line-table}
+
+论文中给出的表格示例为三线表格，在\LaTeX{}中制作三表表格也非常容易。使用\verb|\toprule|、
+\verb|\midrule|、\verb|\bottomrule|这三个命令来绘制横分割线即可。以本科生毕业设计手册中的
+一个表格\ref{tab-three-line-table-example}为例：
+
+\begin{table}
+    \centering
+    \caption{降压损失计算结果}
+    \label{tab-three-line-table-example}
+    \begin{tabular}{lcr}
+        \toprule
+        换热器 & 热边压降损失 & 冷边压降损失 \\
+        \midrule
+        初级   & 2974.37      & 2931.52      \\
+        次级   & 2924.65      & 3789.76      \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 \subsection{列合并和行合并}
 \label{subsec-tab-col-row}
