@@ -859,8 +859,8 @@ The LaTeX template for thesis of BUAA]
         \uline{\buaa@bachelor@assign@work@one\hfill}\\
         \uline{\buaa@bachelor@assign@work@two\hfill}\\
         \uline{\buaa@bachelor@assign@work@three\hfill}\\
-        \uline{\buaa@bachelor@assign@work@four\hfill}\\
-        \uline{\buaa@bachelor@assign@work@five、\buaa@bachelor@assign@work@five、\buaa@bachelor@assign@work@five、\hfill}\\  %% 长文本
+        \uline{\buaa@bachelor@assign@work@four、\buaa@bachelor@assign@work@four、\buaa@bachelor@assign@work@four、
+               \buaa@bachelor@assign@work@four、\buaa@bachelor@assign@work@four、\buaa@bachelor@assign@work@four、\hfill}\\  %% 长文本
         \ulinel{}  %% 空行
         \begin{spacing}{1.9}
         \zihao{4}
@@ -871,7 +871,8 @@ The LaTeX template for thesis of BUAA]
         \uline{\buaa@bachelor@assign@ref@three\hfill}\\
         \uline{\buaa@bachelor@assign@ref@four\hfill}\\
         \uline{\buaa@bachelor@assign@ref@five\hfill}\\
-        \uline{\buaa@bachelor@assign@ref@six、\buaa@bachelor@assign@ref@six、\buaa@bachelor@assign@ref@six、\hfill}\\  %% 长文本
+        \uline{\buaa@bachelor@assign@ref@six、\buaa@bachelor@assign@ref@six、\buaa@bachelor@assign@ref@six、
+               \buaa@bachelor@assign@ref@six、\buaa@bachelor@assign@ref@six、\buaa@bachelor@assign@ref@six、\hfill}\\  %% 长文本
         \ulinel{}  %% 空行
         \ulinec[.28]{\buaa@school}学院\ulinec[.28]{\buaa@major}~专业类~\ulinec[.15]{\buaa@class}班 \\
         学生\ulinec[.3]{\buaa@thesisauthor} \\
