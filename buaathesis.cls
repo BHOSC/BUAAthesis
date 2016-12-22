@@ -752,6 +752,7 @@ The LaTeX template for thesis of BUAA]
 
 \newcommand{\announce}{%
     \clearemptydoublepage
+    \thispagestyle{empty}
     \vspace*{54bp}
     \centerline{\bf\zihao{-2}\songti 本人声明}
     \vskip 27bp
@@ -988,8 +989,8 @@ The LaTeX template for thesis of BUAA]
     \titlech
     \ifbuaa@bachelor
         \buaa@bachelor@assign     %本科生论文任务书
+        \announce                 %本科生声明
         \frontmatter
-        \announce
     \else
         \titleeng                 %研究生英文封面
         \timingye                 %研究生题名页
