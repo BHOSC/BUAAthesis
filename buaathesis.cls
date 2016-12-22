@@ -845,38 +845,32 @@ The LaTeX template for thesis of BUAA]
         \zihao{4}
         \stepcounter{assign}
         \Roman{assign}、毕业设计（论文）题目： \\[2.5ex]
-        \ulinel{\buaa@thesistitle}
-        \ulinel{\buaa@thesissubtitle}
-        \ulinel{}
+        \uline{\buaa@thesistitle\hfill}\\
+        \uline{\buaa@thesissubtitle\hfill}\\
         \stepcounter{assign}
         \Roman{assign}、毕业设计（论文）使用的原始资料（数据）及设计技术要求： \\[2.5ex]
-        \ulinel{\buaa@bachelor@assign@req@one}
-        \ulinel{\buaa@bachelor@assign@req@two}
-        \ulinel{\buaa@bachelor@assign@req@three}
-        \ulinel{\buaa@bachelor@assign@req@four}
-        \ulinel{\buaa@bachelor@assign@req@five}
+        \uline{\buaa@bachelor@assign@req@one\hfill}\\
+        \uline{\buaa@bachelor@assign@req@two\hfill}\\
+        \uline{\buaa@bachelor@assign@req@three、\buaa@bachelor@assign@req@three、\buaa@bachelor@assign@req@three、\hfill}\\  %% 长文本
+        \ulinel{}  %% 空行
         \stepcounter{assign}
         \Roman{assign}、毕业设计（论文）工作内容： \\[2.5ex]
-        \ulinel{\buaa@bachelor@assign@work@one}
-        \ulinel{\buaa@bachelor@assign@work@two}
-        \ulinel{\buaa@bachelor@assign@work@three}
-        \ulinel{\buaa@bachelor@assign@work@four}
-        \ulinel{\buaa@bachelor@assign@work@five}
-        \ulinel{\buaa@bachelor@assign@work@six}
-        \newpage
-        \thispagestyle{empty}
+        \uline{\buaa@bachelor@assign@work@one\hfill}\\
+        \uline{\buaa@bachelor@assign@work@two\hfill}\\
+        \uline{\buaa@bachelor@assign@work@three\hfill}\\
+        \uline{\buaa@bachelor@assign@work@four、\buaa@bachelor@assign@work@four、\buaa@bachelor@assign@work@four、\hfill}\\  %% 长文本
+        \ulinel{}  %% 空行
         \begin{spacing}{1.9}
         \zihao{4}
         \stepcounter{assign}
         \Roman{assign}、主要参考资料： \\[1.5ex]
-        \ulinel{\buaa@bachelor@assign@ref@one}
-        \ulinel{\buaa@bachelor@assign@ref@two}
-        \ulinel{\buaa@bachelor@assign@ref@three}
-        \ulinel{\buaa@bachelor@assign@ref@four}
-        \ulinel{\buaa@bachelor@assign@ref@five}
-        \ulinel{\buaa@bachelor@assign@ref@six}
-        \ulinel{\buaa@bachelor@assign@ref@seven}
-        \ulinel{\buaa@bachelor@assign@ref@eight}
+        \uline{\buaa@bachelor@assign@ref@one\hfill}\\
+        \uline{\buaa@bachelor@assign@ref@two\hfill}\\
+        \uline{\buaa@bachelor@assign@ref@three\hfill}\\
+        \uline{\buaa@bachelor@assign@ref@four\hfill}\\
+        \uline{\buaa@bachelor@assign@ref@five\hfill}\\
+        \uline{\buaa@bachelor@assign@ref@six、\buaa@bachelor@assign@ref@six、\buaa@bachelor@assign@ref@six、\hfill}\\  %% 长文本
+        \ulinel{}  %% 空行
         \ulinec[.28]{\buaa@school}学院\ulinec[.28]{\buaa@major}~专业类~\ulinec[.15]{\buaa@class}班 \\
         学生\ulinec[.3]{\buaa@thesisauthor} \\
         毕业设计(论文)时间：~~\ulinec[.1]{\buaa@thesisbeginyear}年\ulinec[.06]{\buaa@thesisbeginmonth}月\ulinec[.06]{\buaa@thesisbeginday}日至\ulinec[.1]{\buaa@thesisendyear}年\ulinec[.06]{\buaa@thesisendmonth}月\ulinec[.06]{\buaa@thesisendday}日 \\
