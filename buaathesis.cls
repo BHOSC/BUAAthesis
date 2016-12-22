@@ -254,7 +254,9 @@ The LaTeX template for thesis of BUAA]
 \RequirePackage[sort&compress]{natbib}
 \bibpunct{[}{]}{,}{n}{}{}
 \setlength{\bibsep}{0pt}
-\RequirePackage{hypernat}
+% New versions of hyperref and natbib don't need hypernat at all.
+% It's not contained in newer version of CTeX distributions.
+\IfFileExists{hypernat.sty}{\RequirePackage{hypernat}}{}
 \newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}
 
 %%%%%%%%%% table %%%%%%%%%%
