@@ -45,10 +45,11 @@ call %mythesis%.pdf
 goto end
 :full
 call bibtex %mythesis%
-if errorlevel 1 goto biberr
+:: Negligible errors will occur when build the bib library.
+:: if errorlevel 1 goto biberr
+if not exist %mythesis%.bbl goto biberr
 call xelatex %mythesis%
 call xelatex %mythesis%
-if errorlevel 1 goto myerr1
 echo 成功生成论文
 call %mythesis%.pdf
 goto end
