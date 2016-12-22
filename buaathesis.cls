@@ -859,7 +859,8 @@ The LaTeX template for thesis of BUAA]
         \uline{\buaa@bachelor@assign@work@one\hfill}\\
         \uline{\buaa@bachelor@assign@work@two\hfill}\\
         \uline{\buaa@bachelor@assign@work@three\hfill}\\
-        \uline{\buaa@bachelor@assign@work@four、\buaa@bachelor@assign@work@four、\buaa@bachelor@assign@work@four、\hfill}\\  %% 长文本
+        \uline{\buaa@bachelor@assign@work@four\hfill}\\
+        \uline{\buaa@bachelor@assign@work@five、\buaa@bachelor@assign@work@five、\buaa@bachelor@assign@work@five、\hfill}\\  %% 长文本
         \ulinel{}  %% 空行
         \begin{spacing}{1.9}
         \zihao{4}
@@ -988,8 +989,10 @@ The LaTeX template for thesis of BUAA]
 \renewcommand{\maketitle}{%
     \titlech
     \ifbuaa@bachelor
+        \pagestyle{empty}
         \buaa@bachelor@assign     %本科生论文任务书
         \announce                 %本科生声明
+        \pagestyle{fancy}
         \frontmatter
     \else
         \titleeng                 %研究生英文封面
