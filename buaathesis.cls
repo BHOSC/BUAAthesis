@@ -461,6 +461,8 @@ The LaTeX template for thesis of BUAA]
 
 % 下划线
 \RequirePackage{ulem}
+% Redefine \uline command to use it as a macro.
+\useunder{\uline}{\ulined}{}
 
 % 设置行距
 \RequirePackage{setspace}
@@ -772,9 +774,12 @@ The LaTeX template for thesis of BUAA]
 % 本科生任务书
 
 % 文字左对齐的下划线
-\newcommand{\ulinel}[2][]{\uline{\makebox[#1\textwidth][l]{#2}}}
+\newcommand{\ulinel}[1]{{\expandafter \ulined #1\hfill}\\}
 % 文字居中的下划线
 \newcommand{\ulinec}[2][]{\uline{\makebox[#1\textwidth][c]{#2}}}
+% 空行下划线
+\newcommand{\ulineblank}[2][]{\uline{\makebox[#1\textwidth][l]{#2}}}
+
 % 任务书条目序号
 \newcounter{assign}
 % 原始资料及设计要求
@@ -846,34 +851,35 @@ The LaTeX template for thesis of BUAA]
         \zihao{4}
         \stepcounter{assign}
         \Roman{assign}、毕业设计（论文）题目： \\[2.5ex]
-        \uline{\buaa@thesistitle\hfill}\\
-        \uline{\buaa@thesissubtitle\hfill}\\
+        \ulinel{\buaa@thesistitle}
+        \ulinel{\buaa@thesissubtitle}
         \stepcounter{assign}
         \Roman{assign}、毕业设计（论文）使用的原始资料（数据）及设计技术要求： \\[2.5ex]
-        \uline{\buaa@bachelor@assign@req@one\hfill}\\
-        \uline{\buaa@bachelor@assign@req@two\hfill}\\
-        \uline{\buaa@bachelor@assign@req@three、\buaa@bachelor@assign@req@three、\buaa@bachelor@assign@req@three、\hfill}\\  %% 长文本
-        \ulinel{}  %% 空行
+        \ulinel{\buaa@bachelor@assign@req@one}
+        \ulinel{\buaa@bachelor@assign@req@two}
+        \ulinel{\buaa@bachelor@assign@req@three}
+        \ulinel{\buaa@bachelor@assign@req@four}
+        \ulineblank{}  %% 空行
         \stepcounter{assign}
         \Roman{assign}、毕业设计（论文）工作内容： \\[2.5ex]
-        \uline{\buaa@bachelor@assign@work@one\hfill}\\
-        \uline{\buaa@bachelor@assign@work@two\hfill}\\
-        \uline{\buaa@bachelor@assign@work@three\hfill}\\
-        \uline{\buaa@bachelor@assign@work@four、\buaa@bachelor@assign@work@four、\buaa@bachelor@assign@work@four、
-               \buaa@bachelor@assign@work@four、\buaa@bachelor@assign@work@four、\buaa@bachelor@assign@work@four、\hfill}\\  %% 长文本
-        \ulinel{}  %% 空行
+        \ulinel{\buaa@bachelor@assign@work@one}
+        \ulinel{\buaa@bachelor@assign@work@two}
+        \ulinel{\buaa@bachelor@assign@work@three}
+        \ulinel{\buaa@bachelor@assign@work@four}
+        \ulinel{\buaa@bachelor@assign@work@five}
+        \ulineblank{}  %% 空行
         \begin{spacing}{1.9}
         \zihao{4}
         \stepcounter{assign}
         \Roman{assign}、主要参考资料： \\[1.5ex]
-        \uline{\buaa@bachelor@assign@ref@one\hfill}\\
-        \uline{\buaa@bachelor@assign@ref@two\hfill}\\
-        \uline{\buaa@bachelor@assign@ref@three\hfill}\\
-        \uline{\buaa@bachelor@assign@ref@four\hfill}\\
-        \uline{\buaa@bachelor@assign@ref@five\hfill}\\
-        \uline{\buaa@bachelor@assign@ref@six、\buaa@bachelor@assign@ref@six、\buaa@bachelor@assign@ref@six、
-               \buaa@bachelor@assign@ref@six、\buaa@bachelor@assign@ref@six、\buaa@bachelor@assign@ref@six、\hfill}\\  %% 长文本
-        \ulinel{}  %% 空行
+        \ulinel{\buaa@bachelor@assign@ref@one}
+        \ulinel{\buaa@bachelor@assign@ref@two}
+        \ulinel{\buaa@bachelor@assign@ref@three}
+        \ulinel{\buaa@bachelor@assign@ref@four}
+        \ulinel{\buaa@bachelor@assign@ref@five}
+        \ulinel{\buaa@bachelor@assign@ref@six}
+        \ulinel{\buaa@bachelor@assign@ref@seven}
+        \ulineblank{}  %% 空行
         \ulinec[.28]{\buaa@school}学院\ulinec[.28]{\buaa@major}~专业类~\ulinec[.15]{\buaa@class}班 \\
         学生\ulinec[.3]{\buaa@thesisauthor} \\
         毕业设计(论文)时间：~~\ulinec[.1]{\buaa@thesisbeginyear}年\ulinec[.06]{\buaa@thesisbeginmonth}月\ulinec[.06]{\buaa@thesisbeginday}日至\ulinec[.1]{\buaa@thesisendyear}年\ulinec[.06]{\buaa@thesisendmonth}月\ulinec[.06]{\buaa@thesisendday}日 \\
@@ -881,8 +887,8 @@ The LaTeX template for thesis of BUAA]
         成\qquad 绩：\ulinec[.3]{} \\
         指导教师：\ulinec[.3]{} \\
         兼职教师或答疑教师（并指出所负责部分）：\\
-        \ulinel{}
-        \ulinel{}
+        \ulineblank{}
+        \ulineblank{}
         \ulinec[.28]{}系（教研室） 主任（签字）：\ulinec[.28]{} \\
         \vfill
         注：任务书应该附在已完成的毕业设计（论文）的首页。
