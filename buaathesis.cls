@@ -254,7 +254,6 @@ The LaTeX template for thesis of BUAA]
 \RequirePackage[sort&compress]{natbib}
 \bibpunct{[}{]}{,}{n}{}{}
 \setlength{\bibsep}{0pt}
-\RequirePackage{hypernat}
 \newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}
 
 %%%%%%%%%% table %%%%%%%%%%
