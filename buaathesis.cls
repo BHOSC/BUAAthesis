@@ -993,8 +993,10 @@ The LaTeX template for thesis of BUAA]
 \renewcommand{\maketitle}{%
     \titlech
     \ifbuaa@bachelor
+        \pagestyle{empty}
         \buaa@bachelor@assign     %本科生论文任务书
         \announce                 %本科生声明
+        \pagestyle{fancy}
         \frontmatter
     \else
         \titleeng                 %研究生英文封面
