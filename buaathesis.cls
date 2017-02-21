@@ -143,9 +143,9 @@ The LaTeX template for thesis of BUAA]
 % 标题
 
 % 汉化
-\renewcommand{\contentsname}{目\qquad 录}
-\renewcommand\listfigurename{插\ 图\ 目\ 录}
-\renewcommand\listtablename{表\ 格\ 目\ 录}
+\renewcommand{\contentsname}{\heiti\zihao{-2}\bfseries 目\qquad 录}
+\renewcommand\listfigurename{\heiti\zihao{-2}\bfseries 插\ 图\ 目\ 录}
+\renewcommand\listtablename{\heiti\zihao{-2}\bfseries 表\ 格\ 目\ 录}
 \renewcommand\bibname{参\ 考\ 文\ 献}
 \renewcommand{\figurename}{图}
 \renewcommand{\tablename}{表}
