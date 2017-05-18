@@ -8,6 +8,16 @@
 
 目前仍在开发中，欢迎关注进展，提交bug/issue，甚至贡献代码
 
+## 最佳实践
+
+**目前学院的要求是毕设论文必须以Word格式提交，这给实用LaTeX
+模板书写毕设论文的同学带来了诸多不便。为此，我们推荐实用在线工
+具将PDF文档转为Word格式：**
+
+[http://convertonlinefree.com/PDFToWORDEN.aspx](http://convertonlinefree.com/PDFToWORDEN.aspx)
+
+**我们已经尝试过转换一些论文文档，除目录以外其他部分转换效果很好。**
+
 ## 依赖
 
 模板依赖v2.0及以上版本的ctex包，请使用较新版本的LaTeX发行版。
