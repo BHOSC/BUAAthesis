@@ -10,8 +10,8 @@
 
 ## 最佳实践
 
-**目前学院的要求是毕设论文必须以Word格式提交，这给实用LaTeX
-模板书写毕设论文的同学带来了诸多不便。为此，我们推荐实用在线工
+**目前学院的要求是毕设论文必须以Word格式提交，这给使用LaTeX
+模板书写毕设论文的同学带来了诸多不便。为此，我们推荐使用在线工
 具将PDF文档转为Word格式：**
 
 [http://convertonlinefree.com/PDFToWORDEN.aspx](http://convertonlinefree.com/PDFToWORDEN.aspx)
