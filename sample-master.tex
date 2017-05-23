@@ -7,12 +7,16 @@
 \include{data/master/master_info}
 
 % 中英封面、提名页、授权书
+\pdfbookmark[0]{Front Matter}{frontmatter}
+\pdfbookmark[1]{论文封面}{titlepage-zh}
 \maketitle
+
 % 前言页眉页脚样式
 \pagestyle{frontmatter}
 % 摘要
 \include{data/abstract}
 % 目录、插图目录、表格目录
+\pdfbookmark[1]{目 录}{toc}
 \tableofcontents
 \listoffigures
 \listoftables
