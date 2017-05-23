@@ -1219,4 +1219,6 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@awardday{#3}
 }
 
+%用于在table环境中加footnote
+\RequirePackage{tablefootnote}
 %%%%% 'buaathesis.cls' %%%%% END
