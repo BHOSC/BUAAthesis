@@ -14,9 +14,11 @@
 模板书写毕设论文的同学带来了诸多不便。为此，我们推荐使用在线工
 具将PDF文档转为Word格式：**
 
-[http://convertonlinefree.com/PDFToWORDEN.aspx](http://convertonlinefree.com/PDFToWORDEN.aspx)
+[https://cloud.gonitro.com/](https://cloud.gonitro.com/) 需注册，经过尝试本链接效果更好，可以较好处理目录、段落格式和字体等问题。
 
-**我们已经尝试过转换一些论文文档，除目录以外其他部分转换效果很好。**
+[http://convertonlinefree.com/PDFToWORDEN.aspx](http://convertonlinefree.com/PDFToWORDEN.aspx)
+ 
+**以上链接对公式转换效果均不好，推荐使用pandoc转换或使用其他公式插件进行公式插入**
 
 ## 依赖
 
