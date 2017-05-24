@@ -478,14 +478,12 @@ The LaTeX template for thesis of BUAA]
 % 保证偶数页结束章节
 \newcommand{\clearemptydoublepage}{%
     \clearpage
-    \if@twoside
-        \ifodd
-            \c@page
-        \else
-            \hbox{}\thispagestyle{empty}\newpage
-            \if@twocolumn
-                \hbox{}\newpage
-            \fi
+    \ifodd
+        \c@page
+    \else
+        \hbox{}\thispagestyle{empty}\newpage
+        \if@twocolumn
+            \hbox{}\newpage
         \fi
     \fi
 }
@@ -610,6 +608,7 @@ The LaTeX template for thesis of BUAA]
                     }
                 \end{spacing}
             \end{center}
+            \clearemptydoublepage
         \end{titlepage}
     \fi
 }
