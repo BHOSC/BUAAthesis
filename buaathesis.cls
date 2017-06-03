@@ -234,7 +234,7 @@ The LaTeX template for thesis of BUAA]
 
 \RequirePackage[xetex,unicode]{hyperref}
 \ifbuaa@color
-    \hypersetup{colorlinks}
+    \hypersetup{colorlinks, linkcolor=black, citecolor=black}
 \else
     \hypersetup{hidelinks}
 \fi
