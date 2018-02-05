@@ -59,7 +59,8 @@ goto end
 ::======================================
 :clean
 echo É¾³ý±àÒëÁÙÊ±ÎÄ¼þ
-del /f /q /s *.log *.glo *.idx *.ilg *.lof *.ind *.out *.thm *.toc *.lot *.loe *.out.bak *.blg *.synctex.gz
+del /f /q /s *.log *.glo *.ilg *.lof *.ind *.out *.thm *.toc *.lot *.loe *.out.bak *.blg *.synctex.gz
+del /f /q *.idx
 del /f /s *.dvi *.ps
 if {%2}=={more} (goto cleanmore)
 if {%2}=={empty} (goto cleanempty)
