@@ -8,6 +8,14 @@
 
 目前仍在开发中，欢迎关注进展，提交bug/issue，甚至贡献代码
 
+## 预览
+
+项目发布了最新版本的编译好的[PDF样例文档](https://github.com/BHOSC/BUAAthesis/releases/latest)供大家预览：
+
++ 本科：https://github.com/BHOSC/BUAAthesis/releases/download/v0.1/sample-bachelor.pdf
++ 硕士：https://github.com/BHOSC/BUAAthesis/releases/download/v0.1/sample-master.pdf
++ 博士：https://github.com/BHOSC/BUAAthesis/releases/download/v0.1/sample-doctor.pdf
+
 ## 最佳实践
 
 **目前学院的要求是毕设论文必须以Word格式提交，这给使用LaTeX
