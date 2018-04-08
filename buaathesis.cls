@@ -102,7 +102,7 @@ The LaTeX template for thesis of BUAA]
 \RequirePackage{fancyhdr}
 \fancypagestyle{frontmatter}{
     \renewcommand{\headrulewidth}{0pt}
-    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
     \fancyhf{}
     \fancyfoot[C]{\thepage}
 }
