@@ -72,7 +72,7 @@ The LaTeX template for thesis of BUAA]
 \RequirePackage{geometry}
 \newgeometry{
     top=30mm, bottom=25mm, left=30mm, right=20mm,
-    headsep=5mm,
+    headsep=5mm, includefoot
 }
 \savegeometry{bachelorgeometry}
 \newgeometry{
