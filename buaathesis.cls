@@ -820,13 +820,17 @@ The LaTeX template for thesis of BUAA]
 \def\buaa@bachelor@assign@ref@four{}
 \def\buaa@bachelor@assign@ref@five{}
 \def\buaa@bachelor@assign@ref@six{}
-\newcommand{\assignRef}[6]{
+\def\buaa@bachelor@assign@ref@seven{}
+\def\buaa@bachelor@assign@ref@eight{}
+\newcommand{\assignRef}[8]{
     \def\buaa@bachelor@assign@ref@one{#1}
     \def\buaa@bachelor@assign@ref@two{#2}
     \def\buaa@bachelor@assign@ref@three{#3}
     \def\buaa@bachelor@assign@ref@four{#4}
     \def\buaa@bachelor@assign@ref@five{#5}
     \def\buaa@bachelor@assign@ref@six{#6}
+    \def\buaa@bachelor@assign@ref@seven{#7}
+    \def\buaa@bachelor@assign@ref@eight{#8}
 }
 % 任务书
 \def\buaa@bachelor@assign{
@@ -867,8 +871,7 @@ The LaTeX template for thesis of BUAA]
         \ulinel{\buaa@bachelor@assign@work@three}
         \ulinel{\buaa@bachelor@assign@work@four}
         \ulinel{\buaa@bachelor@assign@work@five}
-        % \ulinel{\buaa@bachelor@assign@work@six}
-        % \newpage
+        \newpage
         \thispagestyle{empty}
         \begin{spacing}{1.9}
         \zihao{4}
@@ -880,8 +883,6 @@ The LaTeX template for thesis of BUAA]
         \ulinel{\buaa@bachelor@assign@ref@four}
         \ulinel{\buaa@bachelor@assign@ref@five}
         \ulinel{\buaa@bachelor@assign@ref@six}
-        % \ulinel{\buaa@bachelor@assign@ref@seven}
-        % \ulinel{\buaa@bachelor@assign@ref@eight}
         \ulinec[.28]{\buaa@school}学院\ulinec[.28]{\buaa@major}~专业类~\ulinec[.15]{\buaa@class}班 \\
         学生\ulinec[.3]{\buaa@thesisauthor} \\
         毕业设计(论文)时间：~~\ulinec[.1]{\buaa@thesisbeginyear}年\ulinec[.06]{\buaa@thesisbeginmonth}月\ulinec[.06]{\buaa@thesisbeginday}日至\ulinec[.1]{\buaa@thesisendyear}年\ulinec[.06]{\buaa@thesisendmonth}月\ulinec[.06]{\buaa@thesisendday}日 \\
