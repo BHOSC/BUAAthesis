@@ -7,9 +7,10 @@
 :: 使用说明
 ::
 ::   1、生成文档
-::   msmake [bachelor|master] [full]
+::   msmake [bachelor|master] [fast]
 ::     在当前目录下编译论文，将执行xelatex命令，若无相应的cls/bst文件，将直接报错
-::      - full 为首次编译或完全清空时的选项，将执行xelatex->bibtex->xelatex->xelatex命令
+::      - fast: 首次编译或完全清空时，不需要fast选项，将执行xelatex->bibtex->xelatex->xelatex命令
+::              启用fast选项时仅执行xelatex，以改善编译速度
 ::   2、清理文件
 ::   msmake [clean] [more|empty]
 ::     在当前目录下清理编译过程中产生的临时文件
@@ -38,7 +39,7 @@ if /i {%1}=={bachelor} set mythesis=sample-bachelor
 if /i {%1}=={master} set mythesis=sample-master
 :: 如若主文件名更改，请将上面的"sample-bachelor"或"sample-master"更改。
 call xelatex %mythesis%
-if {%2}=={full} (goto full)
+if not {%2}=={fast} (goto full)
 if errorlevel 1 goto myerr1
 echo 成功生成论文
 call %mythesis%.pdf
