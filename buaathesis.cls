@@ -46,6 +46,15 @@ The LaTeX template for thesis of BUAA]
 \RequirePackage[amsmath,thmmarks,hyperref]{ntheorem}
 \RequirePackage{txfonts}
 
+%%%%%%%%%% texttt %%%%%%%%%%
+% Allow break line at any character in `\texttt` block to prevent width overfull.
+\let\oldtexttt\texttt
+\def\zz#1{%
+ \ifx\zz#1\else
+   #1\linebreak[1]\expandafter\zz
+ \fi}
+\renewcommand{\texttt}[1]{\oldtexttt{\zz#1\zz}}
+
 % 主要字体为Times New Roman和宋体
 % 模板某些标题需要华文行楷和32号字
 \setmainfont{Times New Roman}
