@@ -211,7 +211,7 @@ The LaTeX template for thesis of BUAA]
         {\hspace{.5em}\titlerule*[4pt]{$\cdot$}{\zihao{-4}\contentspage}}[\vspace{0.07\baselineskip}]
     \titlecontents{section}[2em]{\songti\zihao{-4}}{\thecontentslabel\ }{}
         {\hspace{.5em}\titlerule*[4pt]{$\cdot$}{\zihao{-4}\contentspage}}[\vspace{0.1\baselineskip}]
-    \titlecontents{subsection}[4em]{\vspace{-0.2\baselineskip}\heiti\zihao{5}}{\thecontentslabel\ }{}
+    \titlecontents{subsection}[4em]{\vspace{-0.2\baselineskip}\songti\zihao{5}}{\thecontentslabel\ }{}
         {\hspace{.5em}\titlerule*[4pt]{$\cdot$}{\zihao{-4}\contentspage}}[\vspace{0.1\baselineskip}]
 \fi
 
@@ -407,9 +407,9 @@ The LaTeX template for thesis of BUAA]
 \DeclareCaptionFormat{bachelorfigure}{\songti\zihao{5}{#1\textrm{#2}#3}}
 \DeclareCaptionFormat{bachelortable}{\heiti\bf\zihao{5}{#1\textrm{#2}#3}}
 \DeclareCaptionFormat{bachelorlstlisting}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
-\DeclareCaptionFormat{masterfigure}{\bf\songti\zihao{5}{#1\textrm{#2}#3}}
-\DeclareCaptionFormat{mastertable}{\bf\songti\zihao{5}{#1\textrm{#2}#3}}
-\DeclareCaptionFormat{masterlstlisting}{\bf\songti\zihao{5}{#1\textrm{#2}#3}}
+\DeclareCaptionFormat{masterfigure}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
+\DeclareCaptionFormat{mastertable}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
+\DeclareCaptionFormat{masterlstlisting}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
 \ifbuaa@bachelor
     \captionsetup[figure]{format=bachelorfigure,labelsep=quad}
     \captionsetup[table]{format=bachelortable,labelsep=quad}
