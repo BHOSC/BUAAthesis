@@ -46,6 +46,11 @@ The LaTeX template for thesis of BUAA]
 \RequirePackage[amsmath,thmmarks,hyperref]{ntheorem}
 \RequirePackage{txfonts}
 
+%%%%%%%%%% hyphen %%%%%%%%%%
+% For the `\hyp{}` command. Allow the user to insert `hyp{}` manually to
+% adjust the line break when necessary.
+\RequirePackage{hyphenat}
+
 % 主要字体为Times New Roman和宋体
 % 模板某些标题需要华文行楷和32号字
 \setmainfont{Times New Roman}
