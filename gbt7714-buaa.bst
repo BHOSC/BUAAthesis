@@ -1325,7 +1325,7 @@ FUNCTION {monograph}
   new.sentence
   format.edition output
   new.block
-  format.address.publisher output
+  format.publisher output
   format.year "year" output.check
   format.pages bbl.colon output.after
   format.urldate "" output.after
@@ -1353,7 +1353,7 @@ FUNCTION {incollection}
   new.block
   format.edition output
   new.block
-  format.address.publisher output
+  format.publisher output
   format.year "year" output.check
   format.pages bbl.colon output.after
   format.urldate "" output.after
