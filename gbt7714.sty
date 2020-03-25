@@ -1,5 +1,5 @@
 %%
-%% This is file `gbt7714.sty', commit 775608f in the origin repo.
+%% This is file `gbt7714.sty',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:
@@ -8,9 +8,9 @@
 %% -------------------------------------------------------------------
 %% GB/T 7714-2015 BibTeX Style
 %% https://github.com/CTeX-org/gbt7714-bibtex-style
-%% Version: 2019/11/20 v1.1.2
+%% Version: 2020/03/14 v2.0.1
 %% -------------------------------------------------------------------
-%% Copyright (C) 2016-2019 by Zeping Lee <zepinglee AT gmail.com>
+%% Copyright (C) 2016-2020 by Zeping Lee <zepinglee AT gmail.com>
 %% -------------------------------------------------------------------
 %% This file may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3c
@@ -22,59 +22,55 @@
 %% -------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesPackage{gbt7714}
-  [2019/11/20 v1.1.2 GB/T 7714-2015 BibTeX Style]
-\newif\if@gbt@mmxv
-\newif\if@gbt@numerical
-\newif\if@gbt@super
-\DeclareOption{2015}{\@gbt@mmxvtrue}
-\DeclareOption{2005}{\@gbt@mmxvfalse}
-\DeclareOption{super}{\@gbt@numericaltrue\@gbt@supertrue}
-\DeclareOption{numbers}{\@gbt@numericaltrue\@gbt@superfalse}
-\DeclareOption{authoryear}{\@gbt@numericalfalse}
+  [2020/03/14 v2.0.1 GB/T 7714-2015 BibTeX Style]
+\newif\ifgbt@legacy@interface
+\newif\ifgbt@mmxv
+\newif\ifgbt@numerical
+\newif\ifgbt@super
+\newcommand\gbt@obselete@option[1]{%
+  \PackageWarning{gbt7714}{The option "#1" is obselete}%
+}
+\DeclareOption{2015}{%
+  \gbt@obselete@option{2015}%
+  \gbt@legacy@interfacetrue
+  \gbt@mmxvtrue
+}
+\DeclareOption{2005}{%
+  \gbt@obselete@option{2005}%
+  \gbt@legacy@interfacetrue
+  \gbt@mmxvfalse
+}
+\DeclareOption{super}{%
+  \gbt@obselete@option{super}%
+  \gbt@legacy@interfacetrue
+  \gbt@numericaltrue
+  \gbt@supertrue
+}
+\DeclareOption{numbers}{%
+  \gbt@obselete@option{numbers}%
+  \gbt@legacy@interfacetrue
+  \gbt@numericaltrue
+  \gbt@superfalse
+}
+\DeclareOption{authoryear}{%
+  \gbt@obselete@option{authoryear}%
+  \gbt@legacy@interfacetrue
+  \gbt@numericalfalse
+}
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{natbib}}
-\ExecuteOptions{2015,super}
 \ProcessOptions\relax
-\if@gbt@numerical
-  \PassOptionsToPackage{sort&compress}{natbib}
-\fi
-\RequirePackage{natbib}
+% \RequirePackage[compress]{natbib}
+\setcitestyle{compress}
 \RequirePackage{url}
+\renewcommand\newblock{\space}
 \newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
 \newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
-\newcommand\gbtbibstyle[1]{%
-  \@ifundefined{gbt@bib@#1}{%
-    \PackageError{gbt7714}{Invalid argument #1}{}%
-  }{%
-    \@nameuse{gbt@bib@#1}
-  }%
-}
-\newcommand\gbt@bib@numerical{%
-  \if@gbt@mmxv
-    \bibliographystyle{gbt7714-buaa}%
-  \else
-    \bibliographystyle{gbt7714-2005-unsrt}%
-  \fi
-}
-\newcommand\gbt@bib@authoryear{%
-  \if@gbt@mmxv
-    \bibliographystyle{gbt7714-plain}%
-  \else
-    \bibliographystyle{gbt7714-2005-plain}%
-  \fi
-}
-\if@gbt@numerical
-  \if@gbt@super
-    \citestyle{super}%
-    \gbtbibstyle{numerical}%
-  \else
-    \citestyle{numbers}
-    \gbtbibstyle{numerical}%
-  \fi
-\else
-  \citestyle{authoryear}
-  \gbtbibstyle{authoryear}%
-\fi
+\newcommand\bibstyle@inline{\bibstyle@numbers}
+\@namedef{bibstyle@gbt7714-numerical}{\bibstyle@super}
+\@namedef{bibstyle@gbt7714-author-year}{\bibstyle@authoryear}
+\@namedef{bibstyle@gbt7714-2005-numerical}{\bibstyle@super}
+\@namedef{bibstyle@gbt7714-2005-author-year}{\bibstyle@authoryear}
 \def\NAT@citexnum[#1][#2]#3{%
   \NAT@reset@parser
   \NAT@sort@cites{#3}%
@@ -268,3 +264,33 @@
   \do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z
 }
 \Urlmuskip=0mu plus 0.1mu
+\newif\ifgbt@bib@style@written
+\@ifpackageloaded{chapterbib}{}{%
+  \def\bibliography#1{%
+    \ifgbt@bib@style@written\else
+      \bibliographystyle{gbt7714-numerical}%
+    \fi
+    \if@filesw
+      \immediate\write\@auxout{\string\bibdata{\zap@space#1 \@empty}}%
+    \fi
+    \@input@{\jobname.bbl}}
+  \def\bibliographystyle#1{%
+    \gbt@bib@style@writtentrue
+    \ifx\@begindocumenthook\@undefined\else
+      \expandafter\AtBeginDocument
+    \fi
+      {\if@filesw
+        \immediate\write\@auxout{\string\bibstyle{#1}}%
+      \fi}%
+  }%
+}
+\ifgbt@legacy@interface
+  \ifgbt@numerical
+    \ifgbt@super\else
+      \citestyle{numbers}
+    \fi
+    \bibliographystyle{gbt7714-numerical}
+  \else
+    \bibliographystyle{gbt7714-author-year}
+  \fi
+\fi
