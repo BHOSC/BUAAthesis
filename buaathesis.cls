@@ -6,9 +6,9 @@
 
 \NeedsTeXFormat{LaTeX2e}[2007/10/19]
 \ProvidesClass{buaathesis}
-              [2012/07/06 v0.8
+              [2020/03/05 v0.9
 The LaTeX template for thesis of BUAA]
-\typeout{Document Class `buaathesis' v0.8 by BHOSC (2012/07)}
+\typeout{Document Class `buaathesis' v0.9 by BHOSC (2020/03)}
 
 %%%%%%%%%% class options %%%%%%%%%%
 % 模板选项
@@ -254,8 +254,6 @@ The LaTeX template for thesis of BUAA]
 
 %%%%%%%%%% reference %%%%%%%%%%
 % 参考文献
-
-%\bibliographystyle{buaathesis} % 参考文献格式
 \RequirePackage[sort&compress]{natbib}
 \bibpunct{[}{]}{,}{n}{}{}
 \setlength{\bibsep}{0pt}
