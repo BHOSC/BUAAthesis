@@ -958,7 +958,7 @@ The LaTeX template for thesis of BUAA]
     均已在论文中作出了明确的说明。\par
     若有不实之处，本人愿意承担相关法律责任。\par
     ~~\\
-    {\zihao{5}学位论文作者签名：\uline{\hspace{6em}}\hspace{8em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日}
+    {\zihao{5}学位论文作者签名：\uline{\mbox{\hspace{6em}}}\hspace{8em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日}
     \vskip130bp
     \centerline{\zihao{3}\heiti 学位论文使用授权书}
     ~~\par
@@ -969,8 +969,8 @@ The LaTeX template for thesis of BUAA]
     保密学位论文在解密后的使用授权同上。\par
     ~~\\
     {\zihao{5}
-    学位论文作者签名：\uline{\hspace{6em}}\hspace{8em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日\\
-    指导教师签名：\uline{\hspace{8em}}\hspace{8em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日}
+    学位论文作者签名：\uline{\mbox{\hspace{6em}}}\hspace{8em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日\\
+    指导教师签名：\uline{\mbox{\hspace{8em}}}\hspace{8em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日}
 }
 
 %%%%%%%%%% denotation %%%%%%%%%%
