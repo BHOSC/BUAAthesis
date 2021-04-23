@@ -104,7 +104,26 @@ The LaTeX template for thesis of BUAA]
 %%%%%%%%%% header & footer %%%%%%%%%%
 % 页眉页脚
 
+% Force enter compat v3 mode when requires fancyhdr.
+%
+% There's chances after v3 that breaks BUAAThesis, see issue report:
+%
+%   https://github.com/BHOSC/BUAAthesis/issues/265
+%
+% and commit from fancyhdr
+%
+%   https://github.com/pietvo/fancyhdr/commit/00a7445aec70d3246de8faf108900d06e9caea1b
+%
+% The fix is tricky, but I think it is the best option we currently have...
+%
 \RequirePackage{fancyhdr}
+\ifbuaa@bachelor
+    \newif\iff@nch@compatViii
+    \let\f@nch@gbl\relax
+    \let\f@nch@gbl\global
+        \f@nch@compatViiitrue
+\fi
+
 \fancypagestyle{frontmatter}{
     \renewcommand{\headrulewidth}{0pt}
     \renewcommand{\footrulewidth}{0pt}
