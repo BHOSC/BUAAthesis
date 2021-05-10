@@ -80,6 +80,14 @@ The LaTeX template for thesis of BUAA]
     headsep=5mm, includefoot
 }
 \savegeometry{bachelorgeometry}
+
+% geometry for tasks pages for bachelor thesis, see also #270
+\newgeometry{
+    top=30mm, bottom=25mm, left=30mm, right=20mm,
+    headsep=5mm
+}
+\savegeometry{bachelortaskgeometry}
+
 \newgeometry{
     top=25mm, bottom=25mm, left=30mm, right=20mm,
     headsep=5mm, headheight=10mm, footskip=10mm,
@@ -893,6 +901,7 @@ The LaTeX template for thesis of BUAA]
         \ulinel{\buaa@bachelor@assign@work@three}
         \ulinel{\buaa@bachelor@assign@work@four}
         \ulinel{\buaa@bachelor@assign@work@five}
+        \ulinel{\buaa@bachelor@assign@work@six}
         \newpage
         \thispagestyle{empty}
         \begin{spacing}{1.9}
@@ -905,6 +914,8 @@ The LaTeX template for thesis of BUAA]
         \ulinel{\buaa@bachelor@assign@ref@four}
         \ulinel{\buaa@bachelor@assign@ref@five}
         \ulinel{\buaa@bachelor@assign@ref@six}
+        \ulinel{\buaa@bachelor@assign@ref@seven}
+        \ulinel{\buaa@bachelor@assign@ref@eight}
         \ulinec[.28]{\buaa@school}学院\ulinec[.28]{\buaa@major}~专业类~\ulinec[.15]{\buaa@class}班 \\
         学生\ulinec[.3]{\buaa@thesisauthor} \\
         毕业设计(论文)时间：~~\ulinec[.1]{\buaa@thesisbeginyear}年\ulinec[.06]{\buaa@thesisbeginmonth}月\ulinec[.06]{\buaa@thesisbeginday}日至\ulinec[.1]{\buaa@thesisendyear}年\ulinec[.06]{\buaa@thesisendmonth}月\ulinec[.06]{\buaa@thesisendday}日 \\
@@ -1022,7 +1033,9 @@ The LaTeX template for thesis of BUAA]
     \titlech
     \ifbuaa@bachelor
         \pagestyle{empty}
+        \loadgeometry{bachelortaskgeometry}
         \buaa@bachelor@assign     %本科生论文任务书
+        \loadgeometry{bachelorgeometry}
         \announce                 %本科生声明
         \pagestyle{fancy}
         \frontmatter
