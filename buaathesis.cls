@@ -125,10 +125,10 @@ The LaTeX template for thesis of BUAA]
 % The fix is tricky, but I think it is the best option we currently have...
 %
 \RequirePackage{fancyhdr}
-\ifbuaa@bachelor
-    \let\f@nch@gbl\global
+\newif\iff@nch@compatViii
+\let\f@nch@gbl\relax
+\let\f@nch@gbl\global
     \f@nch@compatViiitrue
-\fi
 
 \fancypagestyle{frontmatter}{
     \renewcommand{\headrulewidth}{0pt}
