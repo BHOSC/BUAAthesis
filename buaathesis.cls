@@ -126,8 +126,10 @@ The LaTeX template for thesis of BUAA]
 %
 \RequirePackage{fancyhdr}
 \ifbuaa@bachelor
+    \newif\iff@nch@compatViii
+    \let\f@nch@gbl\relax
     \let\f@nch@gbl\global
-    \f@nch@compatViiitrue
+        \f@nch@compatViiitrue
 \fi
 
 \fancypagestyle{frontmatter}{
