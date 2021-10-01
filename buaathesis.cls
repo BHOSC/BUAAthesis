@@ -664,13 +664,13 @@ The LaTeX template for thesis of BUAA]
         \begin{center}
             \zihao{-3}
             \ifbuaa@twoteacher
-                \begin{tabular}{rl}
+                \begin{tabular}{ll}
                     \textbf{Candidate:\ }&\textbf{\buaa@thesisauthoreng}\\[0.5ex]
                     \textbf{Supervisor:\ }&\textbf{\buaa@teacherdegreeeng ~~\buaa@teachereng}\\
                     ~~ & \textbf{\buaa@subteacherdegreeeng ~~\buaa@subteachereng}\\
                 \end{tabular}
             \else
-                \begin{tabular}{rl}
+                \begin{tabular}{ll}
                     \textbf{Candidate:\ }&\textbf{\buaa@thesisauthoreng}\\[0.5ex]
                     \textbf{Supervisor:\ }&\textbf{\buaa@teacherdegreeeng ~~\buaa@teachereng}\\
                 \end{tabular}
