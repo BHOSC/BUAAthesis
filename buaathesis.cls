@@ -587,7 +587,7 @@ The LaTeX template for thesis of BUAA]
             \begin{center}
                 \begin{spacing}{1.5}
                     {
-                        \zihao{5}\heiti
+                        \zihao{5}\heiti\bfseries
                         \begin{flushleft}
                             中图分类号：\buaa@category  \\
 							%中图分类号：\buaa@category\hfill 密级\ding{73}~~\buaa@mibao \\ % 保密论文时用此行代码替换上行代码即可
@@ -604,7 +604,7 @@ The LaTeX template for thesis of BUAA]
                     \begin{minipage}[h]{.85\textwidth}
                         \begin{spacing}{3}
                             % actually, it should be 1.5, but I think 3 will be prefect.
-                            \centering{\xiaochuhao\songti \buaa@thesistitle}
+                            \centering{\xiaochuhao\songti\bfseries\buaa@thesistitle}
                         \end{spacing}
                     \end{minipage}
                     %\vspace{5bp}
