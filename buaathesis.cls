@@ -252,7 +252,7 @@ The LaTeX template for thesis of BUAA]
         {\hspace{.5em}\titlerule*[4pt]{$\cdot$}{\zihao{-4}\contentspage}}[\vspace{0.07\baselineskip}]
     \titlecontents{section}[2em]{\songti\zihao{-4}}{\thecontentslabel\ }{}
         {\hspace{.5em}\titlerule*[4pt]{$\cdot$}{\zihao{-4}\contentspage}}[\vspace{0.1\baselineskip}]
-    \titlecontents{subsection}[4em]{\vspace{-0.2\baselineskip}\heiti\zihao{5}}{\thecontentslabel\ }{}
+    \titlecontents{subsection}[4em]{\vspace{-0.2\baselineskip}\songti\zihao{5}}{\thecontentslabel\ }{}
         {\hspace{.5em}\titlerule*[4pt]{$\cdot$}{\zihao{-4}\contentspage}}[\vspace{0.1\baselineskip}]
 \fi
 
@@ -279,14 +279,25 @@ The LaTeX template for thesis of BUAA]
 \else
     \hypersetup{hidelinks}
 \fi
-\hypersetup{
-    bookmarksnumbered,
-    bookmarksopen,
-    pdftitle={BUAA thesis},
-    pdfauthor={BHOSC},
-    pdfsubject={北航毕业设计开题报告/文献综述},
-    pdfcreator={LaTeXed~By~BHOSC}
-}
+\ifbuaa@ktreport
+    \hypersetup{
+        bookmarksnumbered,
+        bookmarksopen,
+        pdftitle={BUAA thesis},
+        pdfauthor={BHOSC},
+        pdfsubject={北航毕业设计开题报告/文献综述},
+        pdfcreator={LaTeXed~By~BHOSC}
+    }
+\else
+    \hypersetup{
+        bookmarksnumbered,
+        bookmarksopen,
+        pdftitle={BUAA thesis},
+        pdfauthor={BHOSC},
+        pdfsubject={北航毕业设计论文},
+        pdfcreator={LaTeXed~By~BHOSC}
+    }
+\fi
 
 %%%%%%%%%% reference %%%%%%%%%%
 % 参考文献
@@ -1264,14 +1275,6 @@ The LaTeX template for thesis of BUAA]
 \newcommand{\ktclass}[1]{%
     \def\buaa@ktclass{#1}
 }
-% \def\buaa@ktclassheadname{}
-% \def\buaa@ktclassdegreeeng{}
-% \def\buaa@ktclassheadname{}
-% \newcommand{\ktclassheadname}[3]{%
-%     \def\buaa@ktclassdegree{#1}
-%     \def\buaa@ktclassdegreeeng{#2}
-%     \def\buaa@ktclassheadname{#3}
-% }
 %%%%%%%%%% bachelor user info %%%%%%%%%%
 % 本科生信息
 
