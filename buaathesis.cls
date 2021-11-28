@@ -17,16 +17,18 @@ The LaTeX template for thesis of BUAA]
 % 前四个为对应学位类型，决定不同样式
 % 第五个为颜色选项，用于电子版的情况
 \newif\ifbuaa@bachelor\buaa@bachelorfalse
-\newif\ifbuaa@master\buaa@mastertrue
-\newif\ifbuaa@engineer\buaa@engineerfalse
+\newif\ifbuaa@master\buaa@masterfalse
 \newif\ifbuaa@doctor\buaa@doctorfalse
+\newif\ifbuaa@professional\buaa@professionalfalse
+\newif\ifbuaa@classfied\buaa@classfiedfalse
 \newif\ifbuaa@color\buaa@colorfalse
 \newif\ifbuaa@twoteacher\buaa@twoteacherfalse
 \newif\ifbuaa@ktreport\buaa@ktreportfalse
 \DeclareOption{bachelor}{\buaa@bachelortrue}
 \DeclareOption{master}{\buaa@mastertrue}
-\DeclareOption{engineer}{\buaa@engineertrue}
 \DeclareOption{doctor}{\buaa@doctortrue}
+\DeclareOption{professional}{\buaa@professionaltrue}
+\DeclareOption{classfied}{\buaa@classfiedtrue}
 \DeclareOption{color}{\buaa@colortrue}
 \DeclareOption{twoteacher}{\buaa@twoteachertrue}
 \DeclareOption{ktreport}{\buaa@ktreporttrue}
@@ -649,14 +651,18 @@ The LaTeX template for thesis of BUAA]
                 \begin{center}
                     \begin{spacing}{1.5}
                         {
-                            \zihao{5}\heiti
+                            \zihao{5}\heiti\bfseries
                             \begin{flushleft}
                                 中图分类号：\buaa@category  \\
-    							%中图分类号：\buaa@category\hfill 密级\ding{73}~~\buaa@mibao \\ % 保密论文时用此行代码替换上行代码即可
                                 论\,\,文\,\,编\,\,号：\buaa@thesisID\\
+                                \ifbuaa@classfied
+                                    \buaa@clevel\ding{73}~~\buaa@climit \\
+                                \else
+                                    \vskip 20bp
+                                \fi
                             \end{flushleft}
                         }
-                        \vskip 80bp
+                        \vskip 60bp
                         \includegraphics[width=.5\textwidth]{figure/buaaname.jpg}
                         \vskip 30bp
                         \centerline{\zihao{0}\ziju{0.2}\hwxingkai\buaa@degree 论文}
@@ -684,17 +690,25 @@ The LaTeX template for thesis of BUAA]
                             \ifbuaa@twoteacher
                                 \begin{tabular}[b]{ll}
                                     作~~者~~姓~~名~~ & \buaa@thesisauthor\\[.3ex]
-                                    学~~科~~专~~业~~ & \buaa@major\\[.3ex]
+                                    \ifbuaa@professional
+                                        专~~业~~名~~称~~ & \buaa@major\\[.3ex]
+                                    \else
+                                        学~~科~~专~~业~~ & \buaa@major\\[.3ex]
+                                    \fi
                                     指~~导~~教~~师~~ & \buaa@teacher\quad\buaa@teacherdegree\\[.3ex]
                                     ~~ & \buaa@subteacher\quad\buaa@subteacherdegree\\[.3ex]
-                                    培~~养~~院~~系~~ & \buaa@school 学院\\
+                                    培~~养~~学~~院~~ & \buaa@school 学院\\
                                 \end{tabular}
                             \else
                                 \begin{tabular}[b]{ll}
                                     作~~者~~姓~~名~~ & \buaa@thesisauthor\\[.4ex]
-                                    学~~科~~专~~业~~ & \buaa@major\\[.4ex]
+                                    \ifbuaa@professional
+                                        专~~业~~名~~称~~ & \buaa@major\\[.4ex]
+                                    \else
+                                        学~~科~~专~~业~~ & \buaa@major\\[.4ex]
+                                    \fi
                                     指~~导~~教~~师~~ & \buaa@teacher \quad\buaa@teacherdegree\\[.4ex]
-                                    培~~养~~院~~系~~ & \buaa@school 学院\\
+                                    培~~养~~学~~院~~ & \buaa@school 学院\\
                                 \end{tabular}
                             \fi
                         }
@@ -1021,7 +1035,11 @@ The LaTeX template for thesis of BUAA]
             \begin{tabular}[b]{llll}
                 \makebox[6em][s]{作者姓名\hfill} & \buaa@thesisauthor& 申请学位级别 & \buaa@appdegree \\
                 指导教师姓名 & \makebox[9em][s]{\buaa@teacher\quad\buaa@subteacher\hfill} & 职\qquad 称 & \buaa@teacherdegree \\
-                \makebox[6em][s]{学科专业\hfill} & \buaa@major  &
+                \ifbuaa@professional
+                    \makebox[6em][s]{专业名称\hfill} & \buaa@major  &
+                \else
+                    \makebox[6em][s]{学科专业\hfill} & \buaa@major  &
+                \fi
                 \makebox[6em][s]{研究方向\hfill} & \buaa@direction \\
                 \makebox[6em][s]{学习时间自\hfill} &\buaa@thesisbeginyear~~年~~\buaa@thesisbeginmonth~~月~~\buaa@thesisbeginday~~日\qquad &
                 \makebox[6em][s]{\hfill 起至\hfill} & \buaa@thesisendyear~~年~~\buaa@thesisendmonth~~月~~\buaa@thesisendday~~日止\qquad\\
@@ -1223,16 +1241,20 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@degreetitle{#3}
     \def\buaa@degreehead{#4}
 }
-\ifbuaa@doctor
-    \degree{博士学位}{Doctor of Philosophy}{博士学位}{博士}
+\ifbuaa@bachelor
+    \degree{学士学位}{Bachelor}{学士学位}{学士}
 \else
-    \ifbuaa@engineer
-        \degree{专业硕士学位}{Master}{硕士学位}{硕士}
-    \else
-        \ifbuaa@bachelor
-            \degree{学士学位}{Bachelor}{学士学位}{学士}
+    \ifbuaa@master
+        \ifbuaa@professional
+            \degree{专业硕士学位}{Master}{硕士学位}{硕士}
         \else
             \degree{硕士学位}{Master}{硕士学位}{硕士}
+        \fi
+    \else
+        \ifbuaa@professional
+            \degree{专业博士学位}{Doctor of Philosophy}{博士学位}{博士}
+        \else
+            \degree{博士学位}{Doctor of Philosophy}{博士学位}{博士}
         \fi
     \fi
 \fi
@@ -1280,9 +1302,11 @@ The LaTeX template for thesis of BUAA]
 % 研究生信息
 
 % 保密等级
-\def\buaa@mibao{}
-\newcommand{\mibao}[1]{%
-    \def\buaa@mibao{#1}
+\def\buaa@clevel{}
+\def\buaa@climit{}
+\newcommand{\mibao}[2]{%
+    \def\buaa@clevel{#1}
+    \def\buaa@climit{#2}
 }
 % 研究方向
 \def\buaa@direction{}
