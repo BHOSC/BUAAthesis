@@ -35,7 +35,8 @@ goto help
 :thesis
 echo 正在编译文件
 if not exist buaathesis.cls goto clserr
-if not exist buaathesis.bst goto bsterr
+if not exist gbt7714-author-year.bst goto bsterr
+if not exist gbt7714-numerical.bst goto bsterr
 if /i {%1}=={bachelor} set mythesis=sample-bachelor
 if /i {%1}=={master} set mythesis=sample-master
 if /i {%1}=={kaitireport} set mythesis=sample-kaitireport

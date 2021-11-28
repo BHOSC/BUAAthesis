@@ -90,9 +90,9 @@ Mac\TeX{}是基于\TeX{}Live为Mac系统设计的套件。
 为例演示字体的安装。
 
 首先需要获取字体文件，Windows系统默认包含了Times New Roman和华文行楷这两种字体，可以从
-{\verb C:\Windows\Fonts\ }文件夹下将字体文件拷贝出来（显示为{\verb STXingkai }和
-{\verb Times New Roman }），当然，用户也可以从其他途径获取这两个字体文件。然后将字体文件
-拷贝到Ubuntu的{\verb /usr/share/fonts }目录下，为了方便管理，可以在这些外部字体放在一个新
+\verb|C:\Windows\Fonts\|文件夹下将字体文件拷贝出来（显示为\verb|STXingkai|和
+\verb|Times New Roman|），当然，用户也可以从其他途径获取这两个字体文件。然后将字体文件
+拷贝到Ubuntu的\verb|/usr/share/fonts|目录下，为了方便管理，可以在这些外部字体放在一个新
 文件夹中：
 \begin{lstlisting}[
     language={bash},
@@ -133,7 +133,7 @@ fc-cache: succeeded
 
 以上介绍了三款\LaTeX{}套装，涵盖了主流的三大平台，除了C\TeX{}自带了WinEdt，
 其余两款均需要自己选择编辑器，理论上任何文本编辑器都是可以使用的，
-如Windows上的Notepad++，Linux/MacOS上的vim，emacs，
+如Windows上的 vscode，Linux/MacOS上的vim，emacs，
 一方面要考虑对\LaTeX{}的支持，一方面还是自己的熟悉程度。
 
 这里推荐一款大众化的编辑器\TeX{}maker，它是跨平台的，支持Windows、Linux和MacOS。
@@ -171,7 +171,7 @@ xelatex sample-bachelor.tex
 \subsection{批处理 [ Windows only ]}
 
 进入cmd（Win+R，然后输入cmd），cd到BUAAthesis对应目录，
-如{\verb D:\BUAAthesis\ }，然后运行{\verb msmake }即可。
+如\verb|D:\BUAAthesis\|，然后运行\verb|msmake|即可。
 
 \subsection{Makefile [ Windows(cygwin) / Linux / MacOS ]}
 需要要你的命令行环境支持Make，cd到BUAAthesis相应目录，

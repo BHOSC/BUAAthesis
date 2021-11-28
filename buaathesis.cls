@@ -82,6 +82,14 @@ The LaTeX template for thesis of BUAA]
     headsep=5mm, includefoot
 }
 \savegeometry{bachelorgeometry}
+
+% geometry for tasks pages for bachelor thesis, see also #270
+\newgeometry{
+    top=30mm, bottom=25mm, left=30mm, right=20mm,
+    headsep=5mm
+}
+\savegeometry{bachelortaskgeometry}
+
 \newgeometry{
     top=25mm, bottom=25mm, left=30mm, right=20mm,
     headsep=5mm, headheight=10mm, footskip=10mm,
@@ -106,7 +114,24 @@ The LaTeX template for thesis of BUAA]
 %%%%%%%%%% header & footer %%%%%%%%%%
 % 页眉页脚
 
+% Force enter compat v3 mode when requires fancyhdr.
+%
+% There's chances after v3 that breaks BUAAThesis, see issue report:
+%
+%   https://github.com/BHOSC/BUAAthesis/issues/265
+%
+% and commit from fancyhdr
+%
+%   https://github.com/pietvo/fancyhdr/commit/00a7445aec70d3246de8faf108900d06e9caea1b
+%
+% The fix is tricky, but I think it is the best option we currently have...
+%
 \RequirePackage{fancyhdr}
+\newif\iff@nch@compatViii
+\let\f@nch@gbl\relax
+\let\f@nch@gbl\global
+    \f@nch@compatViiitrue
+
 \fancypagestyle{frontmatter}{
     \renewcommand{\headrulewidth}{0pt}
     \renewcommand{\footrulewidth}{0pt}
@@ -125,20 +150,19 @@ The LaTeX template for thesis of BUAA]
     \else
         \ifbuaa@ktreport
             \fancyhead[CO]{\zihao{-5}\songti
-                    \buaa@university\buaa@headdegree\buaa@ktclass\vspace{1.5mm}
-                }
-            \fancyhead[CE]{\zihao{-5}\songti\leftmark\vspace{1.5mm}
+                \buaa@university\buaa@degreehead\buaa@ktclass\vspace{1.5mm}
             }
+            \fancyhead[CE]{\zihao{-5}\songti\leftmark\vspace{1.5mm}}
         \else
             \if@twoside
                 \fancyhead[CO]{\zihao{-5}\songti
-                    \buaa@university\buaa@headdegree 学位论文\vspace{1.5mm}
+                    \buaa@university\buaa@degreehead 学位论文\vspace{1.5mm}
                 }
                 \fancyhead[CE]{\zihao{-5}\songti\leftmark\vspace{1.5mm}}
             \else
                 \fancyhead[C]{\zihao{-5}\songti
                     \ifthenelse{\isodd{\value{page}}}
-                        {\buaa@university\buaa@headdegree 学位论文}
+                        {\buaa@university\buaa@degreehead 学位论文}
                         {\leftmark}
                     \vspace{1.5mm}
                 }
@@ -420,9 +444,9 @@ The LaTeX template for thesis of BUAA]
 \DeclareCaptionFormat{bachelorfigure}{\songti\zihao{5}{#1\textrm{#2}#3}}
 \DeclareCaptionFormat{bachelortable}{\heiti\bf\zihao{5}{#1\textrm{#2}#3}}
 \DeclareCaptionFormat{bachelorlstlisting}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
-\DeclareCaptionFormat{masterfigure}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
-\DeclareCaptionFormat{mastertable}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
-\DeclareCaptionFormat{masterlstlisting}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
+\DeclareCaptionFormat{masterfigure}{\bf\songti\zihao{5}{#1\textrm{#2}#3}}
+\DeclareCaptionFormat{mastertable}{\bf\songti\zihao{5}{#1\textrm{#2}#3}}
+\DeclareCaptionFormat{masterlstlisting}{\bf\songti\zihao{5}{#1\textrm{#2}#3}}
 \ifbuaa@bachelor
     \captionsetup[figure]{format=bachelorfigure,labelsep=quad}
     \captionsetup[table]{format=bachelortable,labelsep=quad}
@@ -703,13 +727,13 @@ The LaTeX template for thesis of BUAA]
         \begin{center}
             \zihao{-3}
             \ifbuaa@twoteacher
-                \begin{tabular}{rl}
+                \begin{tabular}{ll}
                     \textbf{Candidate:\ }&\textbf{\buaa@thesisauthoreng}\\[0.5ex]
                     \textbf{Supervisor:\ }&\textbf{\buaa@teacherdegreeeng ~~\buaa@teachereng}\\
                     ~~ & \textbf{\buaa@subteacherdegreeeng ~~\buaa@subteachereng}\\
                 \end{tabular}
             \else
-                \begin{tabular}{rl}
+                \begin{tabular}{ll}
                     \textbf{Candidate:\ }&\textbf{\buaa@thesisauthoreng}\\[0.5ex]
                     \textbf{Supervisor:\ }&\textbf{\buaa@teacherdegreeeng ~~\buaa@teachereng}\\
                 \end{tabular}
@@ -938,6 +962,7 @@ The LaTeX template for thesis of BUAA]
         \ulinel{\buaa@bachelor@assign@work@three}
         \ulinel{\buaa@bachelor@assign@work@four}
         \ulinel{\buaa@bachelor@assign@work@five}
+        \ulinel{\buaa@bachelor@assign@work@six}
         \newpage
         \thispagestyle{empty}
         \begin{spacing}{1.9}
@@ -950,6 +975,8 @@ The LaTeX template for thesis of BUAA]
         \ulinel{\buaa@bachelor@assign@ref@four}
         \ulinel{\buaa@bachelor@assign@ref@five}
         \ulinel{\buaa@bachelor@assign@ref@six}
+        \ulinel{\buaa@bachelor@assign@ref@seven}
+        \ulinel{\buaa@bachelor@assign@ref@eight}
         \ulinec[.28]{\buaa@school}学院\ulinec[.28]{\buaa@major}~专业类~\ulinec[.15]{\buaa@class}班 \\
         学生\ulinec[.3]{\buaa@thesisauthor} \\
         毕业设计(论文)时间：~~\ulinec[.1]{\buaa@thesisbeginyear}年\ulinec[.06]{\buaa@thesisbeginmonth}月\ulinec[.06]{\buaa@thesisbeginday}日至\ulinec[.1]{\buaa@thesisendyear}年\ulinec[.06]{\buaa@thesisendmonth}月\ulinec[.06]{\buaa@thesisendday}日 \\
@@ -981,7 +1008,7 @@ The LaTeX template for thesis of BUAA]
     \end{flushleft}
     \begin{center}
         \vskip 130bp
-        {\zihao{-2}\heiti{\ziju{1.3}\buaa@degree 论文}}
+        {\zihao{-2}\heiti{\ziju{1.3}\buaa@degreetitle 论文}}
         \vskip 120bp
         \begin{minipage}[h]{.85\textwidth}
             \zihao{-1}\heiti\centering{\buaa@thesistitle}
@@ -1022,7 +1049,7 @@ The LaTeX template for thesis of BUAA]
     均已在论文中作出了明确的说明。\par
     若有不实之处，本人愿意承担相关法律责任。\par
     ~~\\
-    {\zihao{5}学位论文作者签名：\uline{\hspace{6em}}\hspace{8em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日}
+    {\zihao{5}学位论文作者签名：\uline{\mbox{\hspace{6em}}}\hspace{8em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日}
     \vskip130bp
     \centerline{\zihao{3}\heiti 学位论文使用授权书}
     ~~\par
@@ -1033,8 +1060,8 @@ The LaTeX template for thesis of BUAA]
     保密学位论文在解密后的使用授权同上。\par
     ~~\\
     {\zihao{5}
-    学位论文作者签名：\uline{\hspace{6em}}\hspace{8em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日\\
-    指导教师签名：\uline{\hspace{8em}}\hspace{8em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日}
+    学位论文作者签名：\uline{\mbox{\hspace{6em}}}\hspace{8em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日\\
+    指导教师签名：\uline{\mbox{\hspace{8em}}}\hspace{8em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日}
 }
 
 %%%%%%%%%% denotation %%%%%%%%%%
@@ -1067,7 +1094,9 @@ The LaTeX template for thesis of BUAA]
     \titlech
     \ifbuaa@bachelor
         \pagestyle{empty}
+        \loadgeometry{bachelortaskgeometry}
         \buaa@bachelor@assign     %本科生论文任务书
+        \loadgeometry{bachelorgeometry}
         \announce                 %本科生声明
         \pagestyle{fancy}
         \frontmatter
@@ -1184,24 +1213,26 @@ The LaTeX template for thesis of BUAA]
 \newcommand{\ekeyword}[1]{%
     \def\buaa@ekeyword{#1}}
 % 学位
-\def\buaa@degree{} % 中文首页和题名页
+\def\buaa@degree{} % 中文首页
 \def\buaa@degreeeng{} % 英文首页
-\def\buaa@headdegree{} % 页眉页脚
-\newcommand{\degree}[3]{%
+\def\buaa@degreetitle{} % 题名页
+\def\buaa@degreehead{} % 页眉页脚
+\newcommand{\degree}[4]{%
     \def\buaa@degree{#1}
     \def\buaa@degreeeng{#2}
-    \def\buaa@headdegree{#3}
+    \def\buaa@degreetitle{#3}
+    \def\buaa@degreehead{#4}
 }
 \ifbuaa@doctor
-    \degree{博士学位}{Doctor of Philosophy}{博士}
+    \degree{博士学位}{Doctor of Philosophy}{博士学位}{博士}
 \else
     \ifbuaa@engineer
-        \degree{专业硕士学位}{Master}{硕士}
+        \degree{专业硕士学位}{Master}{硕士学位}{硕士}
     \else
         \ifbuaa@bachelor
-            \degree{学士学位}{Bachelor}{学士}
+            \degree{学士学位}{Bachelor}{学士学位}{学士}
         \else
-            \degree{硕士学位}{Master}{硕士}
+            \degree{硕士学位}{Master}{硕士学位}{硕士}
         \fi
     \fi
 \fi
