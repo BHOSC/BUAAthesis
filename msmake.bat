@@ -7,7 +7,7 @@
 :: 使用说明
 ::
 ::   1、生成文档
-::   msmake [bachelor|master] [fast]
+::   msmake [bachelor|master|kaitireport] [fast]
 ::     在当前目录下编译论文，将执行xelatex命令，若无相应的cls/bst文件，将直接报错
 ::      - fast: 首次编译或完全清空时，不需要fast选项，将执行xelatex->bibtex->xelatex->xelatex命令
 ::              启用fast选项时仅执行xelatex，以改善编译速度
@@ -23,6 +23,7 @@
 :init
 if /i {%1}=={bachelor} goto thesis
 if /i {%1}=={master} goto thesis
+if /i {%1}=={kaitireport} goto thesis
 if /i {%1}=={clean} goto clean
 if /i {%1}=={help} goto help
 if /i {%1}=={} goto help
@@ -38,6 +39,7 @@ if not exist gbt7714-author-year.bst goto bsterr
 if not exist gbt7714-numerical.bst goto bsterr
 if /i {%1}=={bachelor} set mythesis=sample-bachelor
 if /i {%1}=={master} set mythesis=sample-master
+if /i {%1}=={kaitireport} set mythesis=sample-kaitireport
 :: 如若主文件名更改，请将上面的"sample-bachelor"或"sample-master"更改。
 call xelatex %mythesis%
 if not {%2}=={fast} (goto full)

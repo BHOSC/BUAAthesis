@@ -8,6 +8,11 @@ master:
 	-bibtex  sample-master.aux
 	xelatex sample-master.tex
 	xelatex sample-master.tex
+kaitireport:
+	xelatex sample-kaitireport.tex
+	-bibtex  sample-kaitireport.aux
+	xelatex sample-kaitireport.tex
+	xelatex sample-kaitireport.tex
 clean:
 	find . -name '*.aux' -print0 | xargs -0 rm -rf
 	rm -rf *.lof *.log *.lot *.out *.toc *.bbl *.blg *.thm
