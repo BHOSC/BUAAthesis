@@ -20,12 +20,14 @@ The LaTeX template for thesis of BUAA]
 \newif\ifbuaa@master\buaa@masterfalse
 \newif\ifbuaa@doctor\buaa@doctorfalse
 \newif\ifbuaa@professional\buaa@professionalfalse
+\newif\ifbuaa@classfied\buaa@classfiedfalse
 \newif\ifbuaa@color\buaa@colorfalse
 \newif\ifbuaa@twoteacher\buaa@twoteacherfalse
 \DeclareOption{bachelor}{\buaa@bachelortrue}
 \DeclareOption{master}{\buaa@mastertrue}
 \DeclareOption{doctor}{\buaa@doctortrue}
 \DeclareOption{professional}{\buaa@professionaltrue}
+\DeclareOption{classfied}{\buaa@classfiedtrue}
 \DeclareOption{color}{\buaa@colortrue}
 \DeclareOption{twoteacher}{\buaa@twoteachertrue}
 % 其余选项传递给ctexbook
@@ -590,11 +592,15 @@ The LaTeX template for thesis of BUAA]
                         \zihao{5}\heiti\bfseries
                         \begin{flushleft}
                             中图分类号：\buaa@category  \\
-							%中图分类号：\buaa@category\hfill 密级\ding{73}~~\buaa@mibao \\ % 保密论文时用此行代码替换上行代码即可
                             论\,\,文\,\,编\,\,号：\buaa@thesisID\\
+                            \ifbuaa@classfied
+                                \buaa@clevel\ding{73}~~\buaa@climit \\
+                            \else
+                                \vskip 20bp
+                            \fi
                         \end{flushleft}
                     }
-                    \vskip 80bp
+                    \vskip 60bp
                     \includegraphics[width=.5\textwidth]{figure/buaaname.jpg}
                     \vskip 30bp
                     \centerline{\zihao{0}\ziju{0.2}\hwxingkai\buaa@degree 论文}
@@ -1215,9 +1221,11 @@ The LaTeX template for thesis of BUAA]
 % 研究生信息
 
 % 保密等级
-\def\buaa@mibao{}
-\newcommand{\mibao}[1]{%
-    \def\buaa@mibao{#1}
+\def\buaa@clevel{}
+\def\buaa@climit{}
+\newcommand{\mibao}[2]{%
+    \def\buaa@clevel{#1}
+    \def\buaa@climit{#2}
 }
 % 研究方向
 \def\buaa@direction{}
