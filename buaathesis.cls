@@ -352,7 +352,6 @@ The LaTeX template for thesis of BUAA]
 % 图片
 
 \RequirePackage{graphicx}
-\DeclareGraphicsExtensions{.eps,.ps,.jpg,.bmp}
 \graphicspath{{figure/}}
 \RequirePackage{pifont} % “秘级”后的五角星
 \RequirePackage{subfigure}
