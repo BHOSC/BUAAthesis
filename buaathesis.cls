@@ -1076,8 +1076,8 @@ The LaTeX template for thesis of BUAA]
     或其它教育机构的学位或学历证书而使用过的材料。与我一同工作的同志对研究所做的任何贡献
     均已在论文中作出了明确的说明。\par
     若有不实之处，本人愿意承担相关法律责任。\par
-    ~~\\
-    {\zihao{5}学位论文作者签名：\uline{\mbox{\hspace{6em}}}\hspace{8em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日}
+    ~~\par
+    {\zihao{5}\ 学位论文作者签名：\uline{\mbox{\hspace{7em}}}\hspace{5em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日}
     \vskip130bp
     \centerline{\zihao{3}\heiti 学位论文使用授权书}
     ~~\par
@@ -1086,10 +1086,10 @@ The LaTeX template for thesis of BUAA]
     以学术交流为目的赠送和交换学位论文，允许学位论文被查阅、借阅和复印，将学位论文的全部
     或部分内容编入有关数据库进行检索，采用影印、缩印或其他复制手段保存学位论文。\par
     保密学位论文在解密后的使用授权同上。\par
-    ~~\\
+    ~~\par
     {\zihao{5}
-    学位论文作者签名：\uline{\mbox{\hspace{6em}}}\hspace{8em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日\\
-    指导教师签名：\uline{\mbox{\hspace{8em}}}\hspace{8em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日}
+    \ 学位论文作者签名：\uline{\mbox{\hspace{7em}}}\hspace{5em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日\par
+    \ 指导教师签名：\uline{\mbox{\hspace{9em}}}\hspace{5em}日期：\hspace{7ex}年\hspace{5ex}月\hspace{5ex}日}
 }
 
 %%%%%%%%%% denotation %%%%%%%%%%
