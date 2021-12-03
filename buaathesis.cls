@@ -682,7 +682,7 @@ The LaTeX template for thesis of BUAA]
                         \begin{minipage}[h]{.85\textwidth}
                             \begin{spacing}{3}
                                 % actually, it should be 1.5, but I think 3 will be prefect.
-                                \centering{\xiaochuhao\songti \buaa@thesistitle}
+                                \centering{\xiaochuhao\songti\bfseries\buaa@thesistitle}
                             \end{spacing}
                         \end{minipage}
                         %\vspace{5bp}
