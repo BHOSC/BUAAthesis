@@ -819,7 +819,7 @@ The LaTeX template for thesis of BUAA]
     \ifbuaa@bachelor
         \noindent
     \fi
-    {\heiti\zihao{-4} 关键词：}\buaa@ckeyword
+    {\heiti\zihao{-4} 关键词：}\heiti\buaa@ckeyword
 }
 
 % 英文摘要
