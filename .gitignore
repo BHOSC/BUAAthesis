@@ -33,3 +33,4 @@
 *.thm
 *.pdf
 .DS_Store
+/local_fonts

@@ -1,0 +1,52 @@
+name: Build Paper
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  unittest:
+    name: Paper build
+    runs-on: ${{ matrix.os }}
+    if: "!contains(github.event.head_commit.message, 'ci skip')"
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - 'ubuntu-18.04'
+        latex-entry:
+          - 'sample-bachelor'
+          - 'sample-kaitireport'
+          - 'sample-master'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 10
+      - name: Set up system dependences on linux
+        if: ${{ runner.os == 'Linux' }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y tree cloc make
+      - name: Load the font requirements
+        run: |
+          git clone "https://github.com/HansBug/BUAAthesis_fonts" -b master local_fonts
+      - name: Test the basic environment
+        run: |
+          tree .
+          cloc .
+      - name: Compile ${{ matrix.latex-entry }}.tex to pdf
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: ${{ matrix.latex-entry }}.tex
+          latexmk_use_xelatex: true
+          extra_fonts: |
+            ./local_fonts/fonts/*
+      - name: Test the compiled file
+        run: |
+          ls -al *.pdf
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.latex-entry }}.pdf
+          path: ${{ matrix.latex-entry }}.pdf
