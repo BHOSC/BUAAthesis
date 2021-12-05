@@ -40,6 +40,7 @@ jobs:
           rm -rf times_new_roman times_new_roman.zip
 
           curl -L 'https://github.com/dolbydu/font/raw/master/unicode/STXingkai.TTF' -o ./local_fonts/STXingkai.ttf  # download STXingKai
+          curl -L 'https://github.com/dolbydu/font/raw/master/unicode/STKaiti.TTF' -o ./local_fonts/STKaiti.ttf  # download STKaiTi
       - name: Test the basic environment
         run: |
           tree .

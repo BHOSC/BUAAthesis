@@ -50,10 +50,13 @@ echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select tr
 sudo apt-get install -y ttf-mscorefonts-installer  # 安装微软核心字体库
 ```
 
-* `STXingKai`，该字体暂无可靠的自动安装手段，可以从Windows系统字体库中获取，或从[此链接下载](https://www.wfonts.com/download/data/2014/06/01/stxingkai/stxingkai.zip)。
+* `STXingKai`，该字体暂无可靠的自动安装手段，可以从Windows系统字体库中获取，或从[此链接下载](https://github.com/dolbydu/font/raw/master/unicode/STXingkai.TTF)。
+
+* `STKaiTi`，该字体暂无可靠的自动安装手段，可以从Windows系统字体库中获取，或从[此链接下载](https://github.com/dolbydu/font/raw/master/unicode/STKaiti.TTF)。
 
 关于Linux环境下安装字体，可以参考此篇：[linux安装字体](https://www.cnblogs.com/wangjiming/p/12553535.html)
 
+如需更多字体文件，可以去[此仓库查找并下载](https://github.com/dolbydu/font)。
 
 
 ## 使用方法
