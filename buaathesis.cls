@@ -63,7 +63,9 @@ The LaTeX template for thesis of BUAA]
 % 直接设置反而会在只有adobefonts的情况下报错
 % \setCJKmainfont{宋体}
 \setCJKfamilyfont{hwxingkai}{STXingkai}
+\setCJKfamilyfont{hwkaiti}{STKaiti}
 \newcommand{\hwxingkai}{\CJKfamily{hwxingkai}}
+\newcommand{\hwkaiti}{\CJKfamily{hwkaiti}}
 \newcommand{\xiaochuhao}{\fontsize{32pt}{\baselineskip}\selectfont}
 
 %%%%%%%%%% color %%%%%%%%%%
@@ -144,11 +146,26 @@ The LaTeX template for thesis of BUAA]
     \fancyhead{}
     \fancyfoot{}
     \ifbuaa@bachelor
-        \fancyhead[C]{
-            \includegraphics[width=37bp]{figure/buaamark.eps}\hfill
-            \raisebox{2ex}{\heiti\zihao{4}\buaa@university 毕业设计(论文)}\hfill
-            \raisebox{2ex}{\songti\zihao{5}第\quad\thepage\quad 页}
-        }
+        \ifbuaa@ktreport
+            \fancyhead[C]{\zihao{-5}\hwkaiti
+                \buaa@degreehead 学位论文\buaa@ktclass\vspace{1.5mm}
+            }
+            \fancyfoot[C]{
+                \hspace{1.5mm}
+                \hwkaiti\zihao{-5}\buaa@university\buaa@school 学院
+                \hfill\hfill
+                \songti\zihao{-5}$\cdot$\quad\thepage\quad$\cdot$
+                \hspace{1.5mm}
+            }
+            % 本科开题报告有页脚线
+            \renewcommand{\footrulewidth}{0.4bp}
+        \else
+            \fancyhead[C]{
+                \includegraphics[width=37bp]{figure/buaamark.eps}\hfill
+                \raisebox{2ex}{\heiti\zihao{4}\buaa@university 毕业设计(论文)}\hfill
+                \raisebox{2ex}{\songti\zihao{5}第\quad\thepage\quad 页}
+            }
+        \fi
     \else
         \ifbuaa@ktreport
             \fancyhead[CO]{\zihao{-5}\songti
@@ -460,6 +477,7 @@ The LaTeX template for thesis of BUAA]
 \DeclareCaptionFormat{mastertable}{\bf\songti\zihao{5}{#1\textrm{#2}#3}}
 \DeclareCaptionFormat{masterlstlisting}{\bf\songti\zihao{5}{#1\textrm{#2}#3}}
 \ifbuaa@bachelor
+    % 本科无论是否是开题报告，图表序号都和章节有关
     \captionsetup[figure]{format=bachelorfigure,labelsep=quad}
     \captionsetup[table]{format=bachelortable,labelsep=quad}
     \captionsetup[lstlisting]{format=bachelorlstlisting,labelsep=quad}
@@ -469,9 +487,9 @@ The LaTeX template for thesis of BUAA]
 \else
     % ktreport 中图标序号跟章节相关
     \ifbuaa@ktreport
-        \captionsetup[figure]{format=bachelorfigure,labelsep=quad}
-        \captionsetup[table]{format=bachelortable,labelsep=quad}
-        \captionsetup[lstlisting]{format=bachelorlstlisting,labelsep=quad}
+        \captionsetup[figure]{format=masterfigure,labelsep=quad}
+        \captionsetup[table]{format=mastertable,labelsep=quad}
+        \captionsetup[lstlisting]{format=masterlstlisting,labelsep=quad}
         \renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
         \renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
         \renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
@@ -1121,13 +1139,18 @@ The LaTeX template for thesis of BUAA]
 \renewcommand{\maketitle}{%
     \titlech
     \ifbuaa@bachelor
-        \pagestyle{empty}
-        \loadgeometry{bachelortaskgeometry}
-        \buaa@bachelor@assign     %本科生论文任务书
-        \loadgeometry{bachelorgeometry}
-        \announce                 %本科生声明
-        \pagestyle{fancy}
-        \frontmatter
+        \ifbuaa@ktreport
+            \pagestyle{fancy}
+            \frontmatter
+        \else
+            \pagestyle{empty}
+            \loadgeometry{bachelortaskgeometry}
+            \buaa@bachelor@assign     %本科生论文任务书
+            \loadgeometry{bachelorgeometry}
+            \announce                 %本科生声明
+            \pagestyle{fancy}
+            \frontmatter
+        \fi
     \else
         \ifbuaa@ktreport
             \clearemptydoublepage
@@ -1252,7 +1275,8 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@degreehead{#4}
 }
 \ifbuaa@bachelor
-    \degree{学士学位}{Bachelor}{学士学位}{学士}
+    \degree
+    {学士学位}{Bachelor}{学士学位}{学士}
 \else
     \ifbuaa@master
         \ifbuaa@professional
