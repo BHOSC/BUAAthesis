@@ -39,6 +39,8 @@ jobs:
           mv ./times_new_roman/*.ttf ./local_fonts
           rm -rf times_new_roman times_new_roman.zip
 
+          curl -L 'https://github.com/dolbydu/font/raw/master/unicode/SimSun.ttc' -o ./local_fonts/SimSun.ttc  # download songti
+          curl -L 'https://github.com/dolbydu/font/raw/master/unicode/SimHei.ttf' -o ./local_fonts/SimHei.ttf  # download heiti
           curl -L 'https://github.com/dolbydu/font/raw/master/unicode/STXingkai.TTF' -o ./local_fonts/STXingkai.ttf  # download STXingKai
           curl -L 'https://github.com/dolbydu/font/raw/master/unicode/STKaiti.TTF' -o ./local_fonts/STKaiti.ttf  # download STKaiTi
       - name: Test the basic environment
