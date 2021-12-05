@@ -39,11 +39,7 @@ jobs:
           mv ./times_new_roman/*.ttf ./local_fonts
           rm -rf times_new_roman times_new_roman.zip
 
-          curl -L 'https://www.wfonts.com/download/data/2014/06/01/stxingkai/stxingkai.zip' -o stxingkai.zip  # download STXingKai
-          mkdir -p stxingkai
-          unzip stxingkai.zip -d stxingkai
-          mv stxingkai/*.ttf ./local_fonts
-          rm -rf stxingkai stxingkai.zip
+          curl -L 'https://github.com/dolbydu/font/raw/master/unicode/STXingkai.TTF' -o ./local_fonts/STXingkai.ttf  # download STXingKai
       - name: Test the basic environment
         run: |
           tree .
