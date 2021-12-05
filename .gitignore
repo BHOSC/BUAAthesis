@@ -32,4 +32,7 @@
 *.swp
 *.thm
 *.pdf
+*.zip
 .DS_Store
+/local_fonts
+/times_new_roman

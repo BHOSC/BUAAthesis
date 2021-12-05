@@ -39,6 +39,23 @@
 
 对于老版本的 LaTeX 发行版，请通过包管理器升级 ctex 的版本。
 
+
+
+此外，对于非Windows环境，会需要额外安装两个字体：
+
+* `Times New Roman`，该字体可以在Windows系统字体库中获取，可以从[此链接下载](https://dl.freefontsfamily.com/download/Times-New-Roman-Font/)，也可以在Ubuntu/Debian下快速安装（**推荐使用此方法以实现自动化**）
+
+```shell
+echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections  # 用于非交互模式下自动安装，其他情况下非必须
+sudo apt-get install -y ttf-mscorefonts-installer  # 安装微软核心字体库
+```
+
+* `STXingKai`，该字体暂无可靠的自动安装手段，可以从Windows系统字体库中获取，或从[此链接下载](https://www.wfonts.com/download/data/2014/06/01/stxingkai/stxingkai.zip)。
+
+关于Linux环境下安装字体，可以参考此篇：[linux安装字体](https://www.cnblogs.com/wangjiming/p/12553535.html)
+
+
+
 ## 使用方法
 
 1. 可以使用命令行或 PowerShell 等，配合项目中的 `mamske.bat` 批处理文件进行编译，详细使用方法请见 `mamske.bat` 文件；
