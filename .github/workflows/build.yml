@@ -31,7 +31,19 @@ jobs:
           sudo apt-get install -y tree cloc make
       - name: Load the font requirements
         run: |
-          git clone "https://github.com/HansBug/BUAAthesis_fonts" -b master local_fonts
+          mkdir -p ./local_fonts
+
+          curl -L 'https://dl.freefontsfamily.com/download/Times-New-Roman-Font/' -o times_new_roman.zip  # download times_new_roman
+          unzip times_new_roman.zip
+          mv 'Times New Roman' times_new_roman
+          mv ./times_new_roman/*.ttf ./local_fonts
+          rm -rf times_new_roman times_new_roman.zip
+
+          curl -L 'https://www.wfonts.com/download/data/2014/06/01/stxingkai/stxingkai.zip' -o stxingkai.zip  # download STXingKai
+          mkdir -p stxingkai
+          unzip stxingkai.zip -d stxingkai
+          mv stxingkai/*.ttf ./local_fonts
+          rm -rf stxingkai stxingkai.zip
       - name: Test the basic environment
         run: |
           tree .
@@ -42,7 +54,7 @@ jobs:
           root_file: ${{ matrix.latex-entry }}.tex
           latexmk_use_xelatex: true
           extra_fonts: |
-            ./local_fonts/fonts/*
+            ./local_fonts/*
       - name: Test the compiled file
         run: |
           ls -al *.pdf
