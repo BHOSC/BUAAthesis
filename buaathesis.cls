@@ -63,7 +63,9 @@ The LaTeX template for thesis of BUAA]
 % 直接设置反而会在只有adobefonts的情况下报错
 % \setCJKmainfont{宋体}
 \setCJKfamilyfont{hwxingkai}{STXingkai}
+\setCJKfamilyfont{hwkaiti}{STKaiti}
 \newcommand{\hwxingkai}{\CJKfamily{hwxingkai}}
+\newcommand{\hwkaiti}{\CJKfamily{hwkaiti}}
 \newcommand{\xiaochuhao}{\fontsize{32pt}{\baselineskip}\selectfont}
 
 %%%%%%%%%% color %%%%%%%%%%
@@ -144,11 +146,26 @@ The LaTeX template for thesis of BUAA]
     \fancyhead{}
     \fancyfoot{}
     \ifbuaa@bachelor
-        \fancyhead[C]{
-            \includegraphics[width=37bp]{figure/buaamark.eps}\hfill
-            \raisebox{2ex}{\heiti\zihao{4}\buaa@university 毕业设计(论文)}\hfill
-            \raisebox{2ex}{\songti\zihao{5}第\quad\thepage\quad 页}
-        }
+        \ifbuaa@ktreport
+            \fancyhead[C]{\zihao{-5}\hwkaiti
+                \buaa@degreehead 学位论文\buaa@ktclass\vspace{1.5mm}
+            }
+            \fancyfoot[C]{
+                \hspace{1.5mm}
+                \hwkaiti\zihao{-5}\buaa@university\buaa@school 学院
+                \hfill\hfill
+                \songti\zihao{-5}$\cdot$\quad\thepage\quad$\cdot$
+                \hspace{1.5mm}
+            }
+            % 本科开题报告有页脚线
+            \renewcommand{\footrulewidth}{0.4bp}
+        \else
+            \fancyhead[C]{
+                \includegraphics[width=37bp]{figure/buaamark.eps}\hfill
+                \raisebox{2ex}{\heiti\zihao{4}\buaa@university 毕业设计(论文)}\hfill
+                \raisebox{2ex}{\songti\zihao{5}第\quad\thepage\quad 页}
+            }
+        \fi
     \else
         \ifbuaa@ktreport
             \fancyhead[CO]{\zihao{-5}\songti
@@ -460,6 +477,7 @@ The LaTeX template for thesis of BUAA]
 \DeclareCaptionFormat{mastertable}{\bf\songti\zihao{5}{#1\textrm{#2}#3}}
 \DeclareCaptionFormat{masterlstlisting}{\bf\songti\zihao{5}{#1\textrm{#2}#3}}
 \ifbuaa@bachelor
+    % 本科无论是否是开题报告，图表序号都和章节有关
     \captionsetup[figure]{format=bachelorfigure,labelsep=quad}
     \captionsetup[table]{format=bachelortable,labelsep=quad}
     \captionsetup[lstlisting]{format=bachelorlstlisting,labelsep=quad}
@@ -469,9 +487,9 @@ The LaTeX template for thesis of BUAA]
 \else
     % ktreport 中图标序号跟章节相关
     \ifbuaa@ktreport
-        \captionsetup[figure]{format=bachelorfigure,labelsep=quad}
-        \captionsetup[table]{format=bachelortable,labelsep=quad}
-        \captionsetup[lstlisting]{format=bachelorlstlisting,labelsep=quad}
+        \captionsetup[figure]{format=masterfigure,labelsep=quad}
+        \captionsetup[table]{format=mastertable,labelsep=quad}
+        \captionsetup[lstlisting]{format=masterlstlisting,labelsep=quad}
         \renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
         \renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
         \renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
@@ -561,58 +579,102 @@ The LaTeX template for thesis of BUAA]
 % 中文首页
 \newcommand{\titlech}{
     \ifbuaa@bachelor
-        \begin{titlepage}
-            % 第二个()里的参数表示左移35pt，下移55pt
-            \begin{picture}(0,0)(35,55)
-                \includegraphics[width=90pt]{figure/buaamark.eps}
-            \end{picture}
-            \hfill
-            \raisebox{-.2cm}[0pt][0pt]{
-                \zihao{5}\heiti
-                \begin{tabular}{c}
-                    单位代码~\ulinecvrtc{\bf\buaa@unicode}\\[.1ex]
-                    学\qquad 号~\ulinecvrtc{\bf\buaa@studentID}\\[.1ex]
-                    分~~类~~号~\ulinecvrtc{\bf\buaa@category}\\
-                \end{tabular}
-            }
-            \vskip 95bp
-            \begin{center}
-                \includegraphics[width=360bp]{figure/buaaname.eps}
+        \ifbuaa@ktreport
+            \begin{titlepage}
+                % 第二个()里的参数表示左移35pt，下移55pt
+                \hfill
                 \vskip 45bp
-                \centerline{\zihao{-0}\heiti 毕业设计(论文)}
-                ~~\\
-                \vspace*{\stretch{4}}
-                \begin{minipage}[h]{.8\textwidth}
-                    \centering{\heiti\zihao{2}\buaa@thesistitle}
-                \end{minipage}
-                \vskip 20bp
-                \begin{minipage}[h]{.75\textwidth}
-                    \centering{\heiti\zihao{3}\buaa@thesissubtitle}
-                \end{minipage}
-                \vspace*{\stretch{3}}
-                ~~\\
-                {
-                    \zihao{-3}\heiti
-                    \ifbuaa@twoteacher
-                        \begin{tabular}{cc}
-                            学~~~院~~~名~~~称~~&\ulinecvcbc{\buaa@school 学院}\\[.4ex]
-                            专~~~业~~~名~~~称~~&\ulinecvcbc{\buaa@major 专业}\\[.4ex]
-                            学~~~生~~~姓~~~名~~&\ulinecvcbc{\buaa@thesisauthor}\\[.4ex]
-                            指~~~导~~~教~~~师~~&\ulinecvcbc{\buaa@teacher \quad \buaa@subteacher}\\
-                        \end{tabular}
-                    \else
-                        \begin{tabular}{cc}
-                            学~~~院~~~名~~~称~~&\ulinecvcbc{\buaa@school 学院}\\[.4ex]
-                            专~~~业~~~名~~~称~~&\ulinecvcbc{\buaa@major 专业}\\[.4ex]
-                            学~~~生~~~姓~~~名~~&\ulinecvcbc{\buaa@thesisauthor}\\[.4ex]
-                            指~~~导~~~教~~~师~~&\ulinecvcbc{\buaa@teacher}\\
-                        \end{tabular}
-                    \fi
+                \begin{center}
+                    \includegraphics[width=310bp]{figure/buaaname.eps}
+                    ~~\\
+                    \vskip 60bp
+                    ~~\\
+                    \centerline{\zihao{-1}\heiti \buaa@degree 论文\buaa@ktclass}
+                    ~~\\
+                    \vskip 60bp
+                    ~~\\
+                    {
+                        \zihao{-3}\heiti
+                        \ifbuaa@twoteacher
+                            \begin{tabular}{c p{0.7\textwidth}<{\raggedright}}
+                                \hwkaiti \textbf{论文题目}  : &\hwkaiti\buaa@thesistitle\\[.4ex]
+                                \hwkaiti \textbf{专~~~~~~~~业}  : &\hwkaiti\buaa@major\\[.4ex]
+                                \hwkaiti \textbf{本~~科~~生}  : &\hwkaiti\buaa@thesisauthor\\[.4ex]
+                                \hwkaiti \textbf{学~~~~~~~~号}  : &\hwkaiti\buaa@studentID\\[.4ex]
+                                \hwkaiti \textbf{指导教师}  : &\hwkaiti\buaa@teacher \quad \buaa@subteacher\\
+                            \end{tabular}
+                        \else
+                            \begin{tabular}{c p{0.7\textwidth}<{\raggedright}}
+                                \hwkaiti \textbf{论文题目}  : &\hwkaiti\buaa@thesistitle\\[.4ex]
+                                \hwkaiti \textbf{专~~~~~~~~业}  : &\hwkaiti\buaa@major\\[.4ex]
+                                \hwkaiti \textbf{本~~科~~生}  : &\hwkaiti\buaa@thesisauthor\\[.4ex]
+                                \hwkaiti \textbf{学~~~~~~~~号}  : &\hwkaiti\buaa@studentID\\[.4ex]
+                                \hwkaiti \textbf{指导教师}  : &\hwkaiti\buaa@teacher\\
+                            \end{tabular}
+                        \fi
+                    }
+                    ~~\\
+                    \vskip 75bp
+                    ~~\\
+                    \centerline{\heiti\zihao{-2}\textbf{\buaa@university\buaa@school 学院}}
+                    \vskip 15bp
+                    \centerline{\heiti\zihao{-3}\buaa@thesisdateyear ~~年~~\buaa@thesisdatemonth ~~月}
+                \end{center}
+            \end{titlepage}
+        \else
+            \begin{titlepage}
+                % 第二个()里的参数表示左移35pt，下移55pt
+                \begin{picture}(0,0)(35,55)
+                    \includegraphics[width=90pt]{figure/buaamark.eps}
+                \end{picture}
+                \hfill
+                \raisebox{-.2cm}[0pt][0pt]{
+                    \zihao{5}\heiti
+                    \begin{tabular}{c}
+                        单位代码~\ulinecvrtc{\bf\buaa@unicode}\\[.1ex]
+                        学\qquad 号~\ulinecvrtc{\bf\buaa@studentID}\\[.1ex]
+                        分~~类~~号~\ulinecvrtc{\bf\buaa@category}\\
+                    \end{tabular}
                 }
-                \vskip 60bp
-                \centerline{\heiti\zihao{-3}\buaa@thesisdateyear ~~年~~\buaa@thesisdatemonth ~~月}
-            \end{center}
-        \end{titlepage}
+                \vskip 95bp
+                \begin{center}
+                    \includegraphics[width=360bp]{figure/buaaname.eps}
+                    \vskip 45bp
+                    \centerline{\zihao{-0}\heiti 毕业设计(论文)}
+                    ~~\\
+                    \vspace*{\stretch{4}}
+                    \begin{minipage}[h]{.8\textwidth}
+                        \centering{\heiti\zihao{2}\buaa@thesistitle}
+                    \end{minipage}
+                    \vskip 20bp
+                    \begin{minipage}[h]{.75\textwidth}
+                        \centering{\heiti\zihao{3}\buaa@thesissubtitle}
+                    \end{minipage}
+                    \vspace*{\stretch{3}}
+                    ~~\\
+                    {
+                        \zihao{-3}\heiti
+                        \ifbuaa@twoteacher
+                            \begin{tabular}{cc}
+                                学~~~院~~~名~~~称~~&\ulinecvcbc{\buaa@school 学院}\\[.4ex]
+                                专~~~业~~~名~~~称~~&\ulinecvcbc{\buaa@major 专业}\\[.4ex]
+                                学~~~生~~~姓~~~名~~&\ulinecvcbc{\buaa@thesisauthor}\\[.4ex]
+                                指~~~导~~~教~~~师~~&\ulinecvcbc{\buaa@teacher \quad \buaa@subteacher}\\
+                            \end{tabular}
+                        \else
+                            \begin{tabular}{cc}
+                                学~~~院~~~名~~~称~~&\ulinecvcbc{\buaa@school 学院}\\[.4ex]
+                                专~~~业~~~名~~~称~~&\ulinecvcbc{\buaa@major 专业}\\[.4ex]
+                                学~~~生~~~姓~~~名~~&\ulinecvcbc{\buaa@thesisauthor}\\[.4ex]
+                                指~~~导~~~教~~~师~~&\ulinecvcbc{\buaa@teacher}\\
+                            \end{tabular}
+                        \fi
+                    }
+                    \vskip 60bp
+                    \centerline{\heiti\zihao{-3}\buaa@thesisdateyear ~~年~~\buaa@thesisdatemonth ~~月}
+                \end{center}
+            \end{titlepage}
+        \fi
     \else
         \ifbuaa@ktreport
             \begin{titlepage}
@@ -1121,13 +1183,18 @@ The LaTeX template for thesis of BUAA]
 \renewcommand{\maketitle}{%
     \titlech
     \ifbuaa@bachelor
-        \pagestyle{empty}
-        \loadgeometry{bachelortaskgeometry}
-        \buaa@bachelor@assign     %本科生论文任务书
-        \loadgeometry{bachelorgeometry}
-        \announce                 %本科生声明
-        \pagestyle{fancy}
-        \frontmatter
+        \ifbuaa@ktreport
+            \pagestyle{fancy}
+            \frontmatter
+        \else
+            \pagestyle{empty}
+            \loadgeometry{bachelortaskgeometry}
+            \buaa@bachelor@assign     %本科生论文任务书
+            \loadgeometry{bachelorgeometry}
+            \announce                 %本科生声明
+            \pagestyle{fancy}
+            \frontmatter
+        \fi
     \else
         \ifbuaa@ktreport
             \clearemptydoublepage
