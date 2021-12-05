@@ -1319,8 +1319,7 @@ The LaTeX template for thesis of BUAA]
     \def\buaa@degreehead{#4}
 }
 \ifbuaa@bachelor
-    \degree
-    {学士学位}{Bachelor}{学士学位}{学士}
+    \degree{学士学位}{Bachelor}{学士学位}{学士}
 \else
     \ifbuaa@master
         \ifbuaa@professional
