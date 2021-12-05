@@ -62,11 +62,30 @@ The LaTeX template for thesis of BUAA]
 % 不仅设置了粗体为黑体，斜体为楷体，还兼容了winfonts和adobefonts
 % 直接设置反而会在只有adobefonts的情况下报错
 % \setCJKmainfont{宋体}
-\setCJKfamilyfont{hwxingkai}{STXingkai}
-\setCJKfamilyfont{hwkaiti}{STKaiti}
+% 重新定义了一下宋体和黑体，让其能支持textbf
+% 华文行楷、华文楷体同上
+\let\songti\relax
+\let\heiti\relax
+\newCJKfontfamily\sonti{宋体}[AutoFakeBold = {2.17}]
+\newCJKfontfamily\heiti{黑体}[AutoFakeBold = {2.17}]
+\setCJKfamilyfont{hwxingkai}[AutoFakeBold = {2.17}]{STXingkai}
+\setCJKfamilyfont{hwkaiti}[AutoFakeBold = {2.17}]{STKaiti}
 \newcommand{\hwxingkai}{\CJKfamily{hwxingkai}}
 \newcommand{\hwkaiti}{\CJKfamily{hwkaiti}}
+
+% 预定义的字体大小，以后用得着
 \newcommand{\xiaochuhao}{\fontsize{32pt}{\baselineskip}\selectfont}
+\newcommand{\yihao}{\fontsize{26pt}{39pt}\selectfont}
+\newcommand{\xiaoyi}{\fontsize{24pt}{36pt}\selectfont}
+\newcommand{\erhao}{\fontsize{22pt}{33pt}\selectfont}
+\newcommand{\xiaoer}{\fontsize{18pt}{27pt}\selectfont}
+\newcommand{\sanhao}{\fontsize{16pt}{24pt}\selectfont}
+\newcommand{\xiaosan}{\fontsize{15pt}{22.5pt}\selectfont}
+\newcommand{\sihao}{\fontsize{14pt}{21pt}\selectfont}
+\newcommand{\xiaosi}{\fontsize{12pt}{18pt}\selectfont}
+\newcommand{\wuhao}{\fontsize{10.5pt}{15.75pt}\selectfont}
+\newcommand{\xiaowu}{\fontsize{9pt}{13.5pt}\selectfont}
+\newcommand{\liuhao}{\fontsize{7.5pt}{11.25pt}\selectfont}
 
 %%%%%%%%%% color %%%%%%%%%%
 % 颜色设置
@@ -589,14 +608,14 @@ The LaTeX template for thesis of BUAA]
                     ~~\\
                     \vskip 60bp
                     ~~\\
-                    \centerline{\zihao{-1}\heiti \buaa@degree 论文\buaa@ktclass}
+                    \centerline{\yihao\heiti \textbf{\buaa@degree 论文\buaa@ktclass}}
                     ~~\\
                     \vskip 60bp
                     ~~\\
                     {
                         \zihao{-3}\heiti
                         \ifbuaa@twoteacher
-                            \begin{tabular}{c p{0.7\textwidth}<{\raggedright}}
+                            \begin{tabular}{c p{0.55\textwidth}<{\raggedright}}
                                 \hwkaiti \textbf{论文题目}  : &\hwkaiti\buaa@thesistitle\\[.4ex]
                                 \hwkaiti \textbf{专~~~~~~~~业}  : &\hwkaiti\buaa@major\\[.4ex]
                                 \hwkaiti \textbf{本~~科~~生}  : &\hwkaiti\buaa@thesisauthor\\[.4ex]
@@ -604,7 +623,7 @@ The LaTeX template for thesis of BUAA]
                                 \hwkaiti \textbf{指导教师}  : &\hwkaiti\buaa@teacher \quad \buaa@subteacher\\
                             \end{tabular}
                         \else
-                            \begin{tabular}{c p{0.7\textwidth}<{\raggedright}}
+                            \begin{tabular}{c p{0.55\textwidth}<{\raggedright}}
                                 \hwkaiti \textbf{论文题目}  : &\hwkaiti\buaa@thesistitle\\[.4ex]
                                 \hwkaiti \textbf{专~~~~~~~~业}  : &\hwkaiti\buaa@major\\[.4ex]
                                 \hwkaiti \textbf{本~~科~~生}  : &\hwkaiti\buaa@thesisauthor\\[.4ex]
@@ -616,8 +635,8 @@ The LaTeX template for thesis of BUAA]
                     ~~\\
                     \vskip 75bp
                     ~~\\
-                    \centerline{\heiti\zihao{-2}\textbf{\buaa@university\buaa@school 学院}}
-                    \vskip 15bp
+                    \centerline{\heiti\sanhao\textbf{\buaa@university\buaa@school 学院}}
+                    \vskip 20bp
                     \centerline{\heiti\zihao{-3}\buaa@thesisdateyear ~~年~~\buaa@thesisdatemonth ~~月}
                 \end{center}
             \end{titlepage}
