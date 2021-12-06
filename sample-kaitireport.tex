@@ -1,5 +1,7 @@
 % !Mode:: "TeX:UTF-8"
-\documentclass[ktreport, twoside, color]{buaathesis}
+\documentclass[bachelor, ktreport, twoside, color]{buaathesis}
+% \documentclass[master, ktreport, twoside, color]{buaathesis}
+% \documentclass[doctor, ktreport, twoside, color]{buaathesis}
 % openany, oneside
 % 参考文献
 \usepackage{gbt7714}
@@ -12,11 +14,6 @@
 %% 开题文件类型
 \ktclass{开题报告}
 %\ktclass{文献综述}
-
-%% 学位类型  (中文学位名称、英文学位名称、每页页眉名称)
-% \degree{博士学位}{Doctor of Philosophy}{博士学位}{博士}
-% \degree{专业硕士学位}{Master}{硕士学位}{硕士}
-\degree{硕士学位}{Master}{硕士学位}{硕士}
 
 %% 学院中英文名称
 \school{XXXXXXXXX}{test}
@@ -48,6 +45,9 @@
 % 前言页眉页脚样式
 \pagestyle{frontmatter}
 
+% % 摘要，仅文献综述需要
+% \include{data/abstract}
+
 % 目录
 \tableofcontents
 
@@ -72,13 +72,5 @@
 \appendix
 \include{data/appendix1-faq}
 \include{data/appendix2-contactus}
-
-% 附页标题样式
-\backmatter
-
-% 附页
-\include{data/master/back1-achievement}
-\include{data/master/back2-acknowledgement}
-\include{data/master/back3-aboutauthor}
 
 \end{document}
