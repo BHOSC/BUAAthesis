@@ -33,12 +33,6 @@ jobs:
         run: |
           mkdir -p ./local_fonts
 
-          curl -L 'https://dl.freefontsfamily.com/download/Times-New-Roman-Font/' -o times_new_roman.zip  # download times_new_roman
-          unzip times_new_roman.zip
-          mv 'Times New Roman' times_new_roman
-          mv ./times_new_roman/*.ttf ./local_fonts
-          rm -rf times_new_roman times_new_roman.zip
-
           curl -L 'https://github.com/dolbydu/font/raw/master/unicode/SimSun.ttc' -o ./local_fonts/SimSun.ttc  # download songti
           curl -L 'https://github.com/dolbydu/font/raw/master/unicode/SimHei.ttf' -o ./local_fonts/SimHei.ttf  # download heiti
           curl -L 'https://github.com/dolbydu/font/raw/master/unicode/STXingkai.TTF' -o ./local_fonts/STXingkai.ttf  # download STXingKai
