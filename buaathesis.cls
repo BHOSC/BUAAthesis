@@ -724,7 +724,7 @@ The LaTeX template for thesis of BUAA]
                         \zihao{-3}\heiti
                         \ifbuaa@master
                             \ifbuaa@twoteacher
-                                \begin{tabular}{c p{0.65\textwidth}<{\raggedright}}
+                                \begin{tabular}{c p{0.55\textwidth}<{\raggedright}}
                                     \hwkaiti \textbf{题~~~~~~~~目}  : &\hwkaiti\buaa@thesistitle\\[.4ex]
                                     \hwkaiti \textbf{专~~~~~~~~业}  : &\hwkaiti\buaa@major\\[.4ex]
                                     \hwkaiti \textbf{研究方向}  : &\hwkaiti\buaa@direction\\[.4ex]
@@ -733,7 +733,7 @@ The LaTeX template for thesis of BUAA]
                                     \hwkaiti \textbf{指导教师}  : &\hwkaiti\buaa@teacher \quad \buaa@subteacher\\
                                 \end{tabular}
                             \else
-                                \begin{tabular}{c p{0.65\textwidth}<{\raggedright}}
+                                \begin{tabular}{c p{0.55\textwidth}<{\raggedright}}
                                     \hwkaiti \textbf{题~~~~~~~~目}  : &\hwkaiti\buaa@thesistitle\\[.4ex]
                                     \hwkaiti \textbf{专~~~~~~~~业}  : &\hwkaiti\buaa@major\\[.4ex]
                                     \hwkaiti \textbf{研究方向}  : &\hwkaiti\buaa@direction\\[.4ex]
@@ -744,7 +744,7 @@ The LaTeX template for thesis of BUAA]
                             \fi
                         \else
                             \ifbuaa@twoteacher
-                                \begin{tabular}{c p{0.65\textwidth}<{\raggedright}}
+                                \begin{tabular}{c p{0.55\textwidth}<{\raggedright}}
                                     \hwkaiti \textbf{题~~~~~~~~目}  : &\hwkaiti\buaa@thesistitle\\[.4ex]
                                     \hwkaiti \textbf{专~~~~~~~~业}  : &\hwkaiti\buaa@major\\[.4ex]
                                     \hwkaiti \textbf{研究方向}  : &\hwkaiti\buaa@direction\\[.4ex]
@@ -753,7 +753,7 @@ The LaTeX template for thesis of BUAA]
                                     \hwkaiti \textbf{指导教师}  : &\hwkaiti\buaa@teacher \quad \buaa@subteacher\\
                                 \end{tabular}
                             \else
-                                \begin{tabular}{c p{0.65\textwidth}<{\raggedright}}
+                                \begin{tabular}{c p{0.55\textwidth}<{\raggedright}}
                                     \hwkaiti \textbf{题~~~~~~~~目}  : &\hwkaiti\buaa@thesistitle\\[.4ex]
                                     \hwkaiti \textbf{专~~~~~~~~业}  : &\hwkaiti\buaa@major\\[.4ex]
                                     \hwkaiti \textbf{研究方向}  : &\hwkaiti\buaa@direction\\[.4ex]
