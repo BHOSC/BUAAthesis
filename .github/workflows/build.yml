@@ -49,8 +49,13 @@ jobs:
         with:
           root_file: ${{ matrix.latex-entry }}.tex
           latexmk_use_xelatex: true
+          latexmk_shell_escape: true
           extra_fonts: |
             ./local_fonts/*
+          pre_compile: |
+            apk add msttcorefonts-installer fontconfig
+            update-ms-fonts
+            fc-cache -f
       - name: Test the compiled file
         run: |
           ls -al *.pdf
