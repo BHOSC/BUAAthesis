@@ -67,7 +67,7 @@ sudo apt-get install -y ttf-mscorefonts-installer  # 安装微软核心字体库
 
 + `make bachelor` # 编译本科生的 LATEX（文件默认项，亦可直接输入 make）
 + `make master` # 编译研究生的 LATEX 文件
-+ `make kaitireport` # 编译研究生的开题报告文件
++ `make kaitireport` # 编译本科生/研究生/博士生的开题报告/文献综述文件
 + `make clean` # 删除编译过程中生成的文件（除了 pdf）
 + `make depclean` # 删除编译过程中生成的文件（包括 pdf）
 
