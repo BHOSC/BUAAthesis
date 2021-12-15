@@ -1,7 +1,8 @@
 % !Mode:: "TeX:UTF-8"
+
+% 默认为本科生开题报告
+% 如需修改为硕士/博士开题报告，请将bachelor替换为master/doctor
 \documentclass[bachelor, ktreport, twoside, color]{buaathesis}
-% \documentclass[master, ktreport, twoside, color]{buaathesis}
-% \documentclass[doctor, ktreport, twoside, color]{buaathesis}
 % openany, oneside
 % 参考文献
 \usepackage{gbt7714}
@@ -11,35 +12,37 @@
 
 \begin{document}
 
-%% 开题文件类型
+% 开题文件类型，如果为文献综述请自行更改
 \ktclass{开题报告}
-%\ktclass{文献综述}
 
-%% 学院中英文名称
+% 学院中英文名称
 \school{XXXXXXXXX}{test}
 
-%% 专业中英文名
+% 专业中英文名
 \major{XXXXXXX}{XXXX Engineering}
 
-%% 论文中英文标题（注意，无论是否有子标题，必须包含3个以上的大括号）
+% 研究方向名称（仅研究生）
+\direction{XXXXX}
+
+% 论文中英文标题（注意，无论是否有子标题，必须包含3个以上的大括号）
 \thesistitle{基于Texlive的北航毕设论文模板设计长标题长标题长标题长标题}{}{}
 
 % 学号
 \studentID{XXXXXXX}
 
-%% 作者中英文名
+% 作者中英文名
 \thesisauthor{XXXXX}{XXXXXX}
 
-%% 导师中英文名
+% 导师中英文名
 \teacher{XXXXXXXX}{XXXXXXX}
 
-%% 毕设答辩时间
+% 毕设答辩时间
 \thesisdate{2020}{09}
 
-%% 页眉页脚样式
+% 页眉页脚样式
 \pagestyle{mainmatter}
 
-%% 封面、任务书、声明
+% 封面、任务书、声明
 \maketitle
 
 % 前言页眉页脚样式
@@ -51,7 +54,7 @@
 % 目录
 \tableofcontents
 
-%% 正文页码样式
+% 正文页码样式
 \mainmatter
 % 正文页眉页脚样式
 \pagestyle{mainmatter}

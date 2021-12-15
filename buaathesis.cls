@@ -189,10 +189,19 @@ The LaTeX template for thesis of BUAA]
         \fi
     \else
         \ifbuaa@ktreport
-            \fancyhead[CO]{\zihao{-5}\songti
-                \buaa@university\buaa@degreehead\buaa@ktclass\vspace{1.5mm}
+            % 研究生开题报告/文献综述，与本科生格式基本一致
+            \fancyhead[C]{\zihao{-5}\hwkaiti
+                \buaa@degreehead 学位论文\buaa@ktclass\vspace{1.5mm}
             }
-            \fancyhead[CE]{\zihao{-5}\songti\leftmark\vspace{1.5mm}}
+            \fancyfoot[C]{
+                \hspace{1.5mm}
+                \hwkaiti\zihao{-5}\buaa@university\buaa@school 学院
+                \hfill\hfill
+                \songti\zihao{-5}$\cdot$\quad\thepage\quad$\cdot$
+                \hspace{1.5mm}
+            }
+            % 研究生开题报告有页脚线
+            \renewcommand{\footrulewidth}{0.4bp}
         \else
             \if@twoside
                 \fancyhead[CO]{\zihao{-5}\songti
@@ -207,8 +216,8 @@ The LaTeX template for thesis of BUAA]
                     \vspace{1.5mm}
                 }
             \fi
+            \fancyfoot[C]{\zihao{5}\thepage}
         \fi
-        \fancyfoot[C]{\zihao{5}\thepage}
     \fi
 
     \renewcommand{\headrulewidth}{0.5bp} % 页眉线宽度
@@ -700,42 +709,66 @@ The LaTeX template for thesis of BUAA]
         \ifbuaa@ktreport
             \begin{titlepage}
                 % 第二个()里的参数表示左移35pt，下移55pt
-                \begin{center}
-                    \includegraphics[width=90pt]{figure/buaamark.eps}
-                \end{center}
-                % \hfill
+                \hfill
                 \vskip 45bp
                 \begin{center}
-                    \includegraphics[width=360bp]{figure/buaaname.eps}
-                    \vskip 45bp
-                    \centerline{\zihao{-0}\heiti \buaa@ktclass}
+                    \includegraphics[width=310bp]{figure/buaaname.eps}
                     ~~\\
-                    \vspace*{\stretch{2}}
-                    \begin{minipage}[h]{.8\textwidth}
-                        \centering{\heiti\zihao{2}\buaa@thesistitle}
-                    \end{minipage}
-                    \vspace*{\stretch{3}}
+                    \vskip 60bp
+                    ~~\\
+                    \centerline{\yihao\heiti \textbf{\buaa@degree 论文\buaa@ktclass}}
+                    ~~\\
+                    \vskip 60bp
                     ~~\\
                     {
                         \zihao{-3}\heiti
-                        \ifbuaa@twoteacher
-                            \begin{tabular}{cc}
-                                学~~~院~~~名~~~称~~&\ulinecvcbc{\buaa@school 学院}\\[.4ex]
-                                专~~~业~~~名~~~称~~&\ulinecvcbc{\buaa@major 专业}\\[.4ex]
-                                学~~~生~~~姓~~~名~~&\ulinecvcbc{\buaa@thesisauthor}\\[.4ex]
-                                指~~~导~~~教~~~师~~&\ulinecvcbc{\buaa@teacher \quad \buaa@subteacher}\\
-                            \end{tabular}
+                        \ifbuaa@master
+                            \ifbuaa@twoteacher
+                                \begin{tabular}{c p{0.55\textwidth}<{\raggedright}}
+                                    \hwkaiti \textbf{题~~~~~~~~目}  : &\hwkaiti\buaa@thesistitle\\[.4ex]
+                                    \hwkaiti \textbf{专~~~~~~~~业}  : &\hwkaiti\buaa@major\\[.4ex]
+                                    \hwkaiti \textbf{研究方向}  : &\hwkaiti\buaa@direction\\[.4ex]
+                                    \hwkaiti \textbf{研~~究~~生}  : &\hwkaiti\buaa@thesisauthor\\[.4ex]
+                                    \hwkaiti \textbf{学~~~~~~~~号}  : &\hwkaiti\buaa@studentID\\[.4ex]
+                                    \hwkaiti \textbf{指导教师}  : &\hwkaiti\buaa@teacher \quad \buaa@subteacher\\
+                                \end{tabular}
+                            \else
+                                \begin{tabular}{c p{0.55\textwidth}<{\raggedright}}
+                                    \hwkaiti \textbf{题~~~~~~~~目}  : &\hwkaiti\buaa@thesistitle\\[.4ex]
+                                    \hwkaiti \textbf{专~~~~~~~~业}  : &\hwkaiti\buaa@major\\[.4ex]
+                                    \hwkaiti \textbf{研究方向}  : &\hwkaiti\buaa@direction\\[.4ex]
+                                    \hwkaiti \textbf{研~~究~~生}  : &\hwkaiti\buaa@thesisauthor\\[.4ex]
+                                    \hwkaiti \textbf{学~~~~~~~~号}  : &\hwkaiti\buaa@studentID\\[.4ex]
+                                    \hwkaiti \textbf{指导教师}  : &\hwkaiti\buaa@teacher\\
+                                \end{tabular}
+                            \fi
                         \else
-                            \begin{tabular}{cc}
-                                学~~~院~~~名~~~称~~&\ulinecvcbc{\buaa@school 学院}\\[.4ex]
-                                专~~~业~~~名~~~称~~&\ulinecvcbc{\buaa@major 专业}\\[.4ex]
-                                学~~~生~~~学~~~号~~&\ulinecvcbc{\buaa@studentID}\\[.4ex]
-                                学~~~生~~~姓~~~名~~&\ulinecvcbc{\buaa@thesisauthor}\\[.4ex]
-                                指~~~导~~~教~~~师~~&\ulinecvcbc{\buaa@teacher}\\
-                            \end{tabular}
+                            \ifbuaa@twoteacher
+                                \begin{tabular}{c p{0.55\textwidth}<{\raggedright}}
+                                    \hwkaiti \textbf{题~~~~~~~~目}  : &\hwkaiti\buaa@thesistitle\\[.4ex]
+                                    \hwkaiti \textbf{专~~~~~~~~业}  : &\hwkaiti\buaa@major\\[.4ex]
+                                    \hwkaiti \textbf{研究方向}  : &\hwkaiti\buaa@direction\\[.4ex]
+                                    \hwkaiti \textbf{博~~士~~生}  : &\hwkaiti\buaa@thesisauthor\\[.4ex]
+                                    \hwkaiti \textbf{学~~~~~~~~号}  : &\hwkaiti\buaa@studentID\\[.4ex]
+                                    \hwkaiti \textbf{指导教师}  : &\hwkaiti\buaa@teacher \quad \buaa@subteacher\\
+                                \end{tabular}
+                            \else
+                                \begin{tabular}{c p{0.55\textwidth}<{\raggedright}}
+                                    \hwkaiti \textbf{题~~~~~~~~目}  : &\hwkaiti\buaa@thesistitle\\[.4ex]
+                                    \hwkaiti \textbf{专~~~~~~~~业}  : &\hwkaiti\buaa@major\\[.4ex]
+                                    \hwkaiti \textbf{研究方向}  : &\hwkaiti\buaa@direction\\[.4ex]
+                                    \hwkaiti \textbf{博~~士~~生}  : &\hwkaiti\buaa@thesisauthor\\[.4ex]
+                                    \hwkaiti \textbf{学~~~~~~~~号}  : &\hwkaiti\buaa@studentID\\[.4ex]
+                                    \hwkaiti \textbf{指导教师}  : &\hwkaiti\buaa@teacher\\
+                                \end{tabular}
+                            \fi
                         \fi
                     }
-                    \vskip 60bp
+                    ~~\\
+                    \vskip 75bp
+                    ~~\\
+                    \centerline{\heiti\sanhao\textbf{\buaa@university\buaa@school 学院}}
+                    \vskip 20bp
                     \centerline{\heiti\zihao{-3}\buaa@thesisdateyear ~~年~~\buaa@thesisdatemonth ~~月}
                 \end{center}
             \end{titlepage}
