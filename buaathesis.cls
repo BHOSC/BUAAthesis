@@ -787,7 +787,7 @@ The LaTeX template for thesis of BUAA]
                             \end{flushleft}
                         }
                         \vskip 60bp
-                        \includegraphics[width=.5\textwidth]{figure/buaaname_cn.pdf}
+                        \includegraphics[width=.5\textwidth]{figure/buaaname_ch.pdf}
                         \vskip 30bp
                         \centerline{\zihao{0}\ziju{0.2}\hwxingkai\buaa@degree 论文}
                         ~~\\
