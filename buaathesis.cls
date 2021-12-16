@@ -182,7 +182,7 @@ The LaTeX template for thesis of BUAA]
             \renewcommand{\footrulewidth}{0.4bp}
         \else
             \fancyhead[C]{
-                \includegraphics[width=37bp]{figure/buaamark.eps}\hfill
+                \includegraphics[width=37bp]{figure/buaamark.pdf}\hfill
                 \raisebox{2ex}{\heiti\zihao{4}\buaa@university 毕业设计(论文)}\hfill
                 \raisebox{2ex}{\songti\zihao{5}第\quad\thepage\quad 页}
             }
@@ -615,7 +615,7 @@ The LaTeX template for thesis of BUAA]
                 \hfill
                 \vskip 45bp
                 \begin{center}
-                    \includegraphics[width=310bp]{figure/buaaname.eps}
+                    \includegraphics[width=310bp]{figure/buaaname.pdf}
                     ~~\\
                     \vskip 60bp
                     ~~\\
@@ -655,7 +655,7 @@ The LaTeX template for thesis of BUAA]
             \begin{titlepage}
                 % 第二个()里的参数表示左移35pt，下移55pt
                 \begin{picture}(0,0)(35,55)
-                    \includegraphics[width=90pt]{figure/buaamark.eps}
+                    \includegraphics[width=90pt]{figure/buaamark.pdf}
                 \end{picture}
                 \hfill
                 \raisebox{-.2cm}[0pt][0pt]{
@@ -668,7 +668,7 @@ The LaTeX template for thesis of BUAA]
                 }
                 \vskip 95bp
                 \begin{center}
-                    \includegraphics[width=360bp]{figure/buaaname.eps}
+                    \includegraphics[width=360bp]{figure/buaaname.pdf}
                     \vskip 45bp
                     \centerline{\zihao{-0}\heiti 毕业设计(论文)}
                     ~~\\
@@ -712,7 +712,7 @@ The LaTeX template for thesis of BUAA]
                 \hfill
                 \vskip 45bp
                 \begin{center}
-                    \includegraphics[width=310bp]{figure/buaaname.eps}
+                    \includegraphics[width=310bp]{figure/buaaname.pdf}
                     ~~\\
                     \vskip 60bp
                     ~~\\
@@ -789,7 +789,7 @@ The LaTeX template for thesis of BUAA]
                             \end{flushleft}
                         }
                         \vskip 60bp
-                        \includegraphics[width=.5\textwidth]{figure/buaaname.jpg}
+                        \includegraphics[width=.5\textwidth]{figure/buaaname_cn.pdf}
                         \vskip 30bp
                         \centerline{\zihao{0}\ziju{0.2}\hwxingkai\buaa@degree 论文}
                         ~~\\

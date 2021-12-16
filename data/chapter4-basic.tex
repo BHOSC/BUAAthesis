@@ -159,12 +159,12 @@ itemize是最简单的，enumerate是带序号的，description是带描述的�
 \label{sec-figure}
 插入图形时可以使用\texttt{figure}环境，示例如图\ref{fig-sample}所示。
 其中figure环境的参数\verb|[h!]|表示尽量排版在当前位置，一般情况下照用即可。
-\verb|\includegraphics|的参数\verb|[width=90bp]|是图片大小的设置，
+\verb|\includegraphics|的参数\verb|[width=0.4\textwidth]|是图片大小的设置，
 也可以使用height或者两个一起使用，设置其中一个即可实现等比例缩放。
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=90bp]{figure/buaamark.eps}
-    \caption{校徽}
+    \includegraphics[width=0.4\textwidth]{figure/image.pdf}
+    \caption{图片}
     \label{fig-sample}
 \end{figure}
 
@@ -307,13 +307,13 @@ void main()
 \begin{figure}[h!] % [h!] 表示尽量排在当前位置
     \begin{minipage}{.5\textwidth} % .5\textwidth 表示正文宽度的一半
         \centering
-        \includegraphics[width=0.35\textwidth]{figure/buaamark.eps}
+        \includegraphics[width=0.6\textwidth]{figure/image.pdf}
         \caption{并排的左图}
         \label{fig-mini-l}
     \end{minipage}
     \begin{minipage}{.5\textwidth}
         \centering
-        \includegraphics[width=0.35\textwidth]{figure/buaamark.eps}
+        \includegraphics[width=0.6\textwidth]{figure/image.pdf}
         \caption{并排的右图}
         \label{fig-mini-r}
     \end{minipage}
@@ -325,12 +325,12 @@ void main()
     \centering
     \subfigure[并排小图a]{
         \label{fig-sub-l}
-        \includegraphics[width=.2\textwidth]{figure/buaamark.eps}
+        \includegraphics[width=0.3\textwidth]{figure/image.pdf}
     }
-    \hspace{7em} % 水平间隔
+    \hspace{4em} % 水平间隔
     \subfigure[并排小图b]{
         \label{fig-sub-r}
-        \includegraphics[width=.2\textwidth]{figure/buaamark.eps}
+        \includegraphics[width=0.3\textwidth]{figure/image.pdf}
     }
     \caption{子图并排的示例}
     \label{fig-sub}
@@ -341,23 +341,24 @@ void main()
 图\ref{fig-matrix-c}和图\ref{fig-matrix-d}。
 \begin{figure}[h!]
     \centering
+    \subfigcapskip=6pt
     \begin{tabular}{cc}
         \subfigure[矩阵子图A]{
             \label{fig-matrix-a}
-            \includegraphics[width=.18\textwidth]{figure/buaamark.eps}
-        } \hspace{7em} &
+            \includegraphics[width=0.3\textwidth]{figure/image.pdf}
+        } \hspace{4em} &
         \subfigure[矩阵子图B]{
             \label{fig-matrix-b}
-            \includegraphics[width=.18\textwidth]{figure/buaamark.eps}
+            \includegraphics[width=0.3\textwidth]{figure/image.pdf}
         } \\
         \subfigure[矩阵子图C]{
             \label{fig-matrix-c}
-            \includegraphics[width=.18\textwidth]{figure/buaamark.eps}
-        } \hspace{7em} &
+            \includegraphics[width=0.3\textwidth]{figure/image.pdf}
+        } \hspace{4em} &
         \subfigure[矩阵子图D]{
             \label{fig-matrix-d}
-            \includegraphics[width=.18\textwidth]{figure/buaamark.eps}
-        }\\
+            \includegraphics[width=0.3\textwidth]{figure/image.pdf}
+        } \\
     \end{tabular}
     \caption{矩形的subfig排列}
     \label{fig-matrix}
