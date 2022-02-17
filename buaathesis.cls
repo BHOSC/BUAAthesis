@@ -627,7 +627,7 @@ The LaTeX template for thesis of BUAA]
                             \begin{tabular}{c p{0.55\textwidth}<{\raggedright}}
                                 \hwkaiti \textbf{论文题目}  : &\hwkaiti\buaa@thesistitle\\[.4ex]
                                 \hwkaiti \textbf{专~~~~~~~~业}  : &\hwkaiti\buaa@major\\[.4ex]
-                                \hwkaiti \textbf{本~~科~~生}  : &\hwkaiti\buaa@thesisauthor\\[.4ex]
+                                \hwkaiti \textbf{姓~~~~~~~~名}  : &\hwkaiti\buaa@thesisauthor\\[.4ex]
                                 \hwkaiti \textbf{学~~~~~~~~号}  : &\hwkaiti\buaa@studentID\\[.4ex]
                                 \hwkaiti \textbf{指导教师}  : &\hwkaiti\buaa@teacher \quad \buaa@subteacher\\
                             \end{tabular}
@@ -635,7 +635,7 @@ The LaTeX template for thesis of BUAA]
                             \begin{tabular}{c p{0.55\textwidth}<{\raggedright}}
                                 \hwkaiti \textbf{论文题目}  : &\hwkaiti\buaa@thesistitle\\[.4ex]
                                 \hwkaiti \textbf{专~~~~~~~~业}  : &\hwkaiti\buaa@major\\[.4ex]
-                                \hwkaiti \textbf{本~~科~~生}  : &\hwkaiti\buaa@thesisauthor\\[.4ex]
+                                \hwkaiti \textbf{姓~~~~~~~~名}  : &\hwkaiti\buaa@thesisauthor\\[.4ex]
                                 \hwkaiti \textbf{学~~~~~~~~号}  : &\hwkaiti\buaa@studentID\\[.4ex]
                                 \hwkaiti \textbf{指导教师}  : &\hwkaiti\buaa@teacher\\
                             \end{tabular}
