@@ -409,8 +409,8 @@ The LaTeX template for thesis of BUAA]
 \RequirePackage{enumitem}
 \setlist{noitemsep}
 \setlist[1,2]{labelindent=\parindent}
-\setlist[enumerate,1]{label=\arabic*、}
-\setlist[enumerate,2]{label=（\arabic*）}
+\setlist[enumerate,1]{label=（\arabic*）}
+\setlist[enumerate,2]{label=（\alph*）}
 \setlist{
     topsep=0pt,
     itemsep=0pt,
