@@ -16,18 +16,6 @@
 + 硕士：https://github.com/BHOSC/BUAAthesis/releases/download/v0.1/sample-master.pdf
 + 博士：https://github.com/BHOSC/BUAAthesis/releases/download/v0.1/sample-doctor.pdf
 
-## 最佳实践
-
-** 目前学院的要求是毕设论文必须以 Word 格式提交，这给使用 LaTeX
-模板书写毕设论文的同学带来了诸多不便。为此，我们推荐使用在线工
-具将 PDF 文档转为 Word 格式：**
-
-[https://cloud.gonitro.com/](https://cloud.gonitro.com/) 需注册，经过尝试本链接效果更好，可以较好处理目录、段落格式和字体等问题。
-
-[http://convertonlinefree.com/PDFToWORDEN.aspx](http://convertonlinefree.com/PDFToWORDEN.aspx)
-
-** 以上链接对公式转换效果均不好，推荐使用 pandoc 转换或使用其他公式插件进行公式插入 **
-
 ## 依赖
 
 模板依赖 v2.0 及以上版本的 ctex 包，请使用较新版本的 LaTeX 发行版。
@@ -94,3 +82,24 @@ sudo apt-get install -y ttf-mscorefonts-installer  # 安装微软核心字体库
 + 若编译的参考文献条目中出现 “出版者不详” 或 “s.n.”，请在相应的 bib 条目中添加 publisher 相关信息
 
 实际使用中应避免出现 `［S.l.］:［s.n.］` 这样的著录形式。
+
+## 文件格式相关
+
+目前论文提交网站不再要求必须提交 docx 等格式的 Word 文件，但部分老师会要求在 Word 文件上修改和批注。
+可使用如下方法将 Latex 文件（或编译后的 pdf 格式文件）转换为 Word 文件。
+
+**注意**：将未公开的论文上传至网络有风险，推荐在本地进行转换。
+
+### pandoc 本地转换
+
+- 具体操作可参考 [Latex2Word](http://mingzf.xyz/zh-cn/posts/latex2word/) 这篇博客。
+- 优点：公式支持相对较好；可以基于 Word 模板进行转换。
+- 缺点： `subfigure` 支持差（可手动对编译后的 pdf 文件截图，进行替换）；需手动调整对公式的`\ref`（可使用 Word 全局替换）。
+
+### 在线转换
+
+如下网址效果较好：
+
+- [ilovepdf](https://www.ilovepdf.com/)：整体效果好，包括页眉和页脚；公式支持差。
+- [nitro](https://cloud.gonitro.com/)：需要注册；对超链接、目录、段落格式和字体等支持较好；公式支持差。
+
