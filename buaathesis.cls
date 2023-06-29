@@ -894,11 +894,11 @@ The LaTeX template for thesis of BUAA]
     \ifbuaa@bachelor
         \begin{center}
             \begin{minipage}[h]{.75\textwidth}
-                \centering{\zihao{3}\heiti\buaa@thesistitle}
+                \centering{\zihao{-3}\heiti\buaa@thesistitle}
             \end{minipage}
             \begin{minipage}[h]{.8\textwidth}
                 \begin{flushright}
-                    {\zihao{3}\heiti\buaa@thesissubtitle}
+                    {\zihao{-3}\heiti\buaa@thesissubtitle}
                 \end{flushright}
                 % subtitle should be flush right?
             \end{minipage}
@@ -933,7 +933,7 @@ The LaTeX template for thesis of BUAA]
     \ifbuaa@bachelor
         \noindent
     \fi
-    {\heiti\zihao{-4} 关键词：}\heiti\buaa@ckeyword
+    {\heiti\zihao{4} 关键词：}\songti\zihao{-4}\buaa@ckeyword
 }
 
 % 英文摘要
@@ -947,7 +947,7 @@ The LaTeX template for thesis of BUAA]
             \end{minipage}
             \begin{minipage}[h]{.8\textwidth}
                 \begin{flushright}
-                    {\zihao{3}\heiti\buaa@thesissubtitleeng}
+                    {\zihao{-3}\heiti\buaa@thesissubtitleeng}
                 \end{flushright}
             % subtitle should be flushright?
             \end{minipage}
@@ -981,7 +981,7 @@ The LaTeX template for thesis of BUAA]
     \ifbuaa@bachelor
         \noindent
     \fi
-    {\bf\zihao{-4} Key words: }\buaa@ekeyword
+    {\bf\zihao{4} Key words: }\zihao{-4}\buaa@ekeyword
 }
 
 %%%%%%%%%% announce %%%%%%%%%%
