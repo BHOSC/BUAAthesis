@@ -42,7 +42,7 @@ jobs:
           tree .
           cloc .
       - name: Compile ${{ matrix.latex-entry }}.tex to pdf
-        uses: xu-cheng/latex-action@v2
+        uses: xu-cheng/latex-action@v3
         with:
           root_file: ${{ matrix.latex-entry }}.tex
           latexmk_use_xelatex: true
