@@ -90,11 +90,10 @@ sudo apt-get install -y ttf-mscorefonts-installer  # 安装微软核心字体库
 
 **注意**：将未公开的论文上传至网络有风险，推荐在本地进行转换。
 
-### pandoc 本地转换
+### 本地转换
 
-- 具体操作可参考 [Latex2Word](http://mingzf.xyz/zh-cn/posts/latex2word/) 这篇博客。
-- 优点：公式支持相对较好；可以基于 Word 模板进行转换。
-- 缺点： `subfigure` 支持差（可手动对编译后的 pdf 文件截图，进行替换）；需手动调整对公式的`\ref`（可使用 Word 全局替换）。
+推荐使用 [latex2word](https://github.com/Mingzefei/latex2word) 这一项目。
+该项目支持指定 Word 文件格式，并且支持公式转换、多子图导入、公式图表文献的交叉引用等功能，转换出的 Word 文件可满足修改和批注需求。
 
 ### 在线转换
 
