@@ -1,0 +1,41 @@
+% 使用 xelatex -halt-on-error tests/algorithm-emphasis.tex 编译。
+\documentclass[master,openright,twoside,color,AutoFakeBold=true]{buaathesis}
+\usepackage[ruled]{algorithm2e}
+
+\begin{document}
+% ulem 不应接管强调命令；算法条件也使用这一命令。
+\makeatletter
+\emph{%
+  \edef\actualshape{\f@shape}%
+  \def\expectedshape{it}%
+  \ifx\actualshape\expectedshape\else
+    \PackageError{algorithm-emphasis}{Emphasis no longer selects italic text}{}%
+  \fi
+  Ordinary emphasis%
+}
+\makeatother
+
+\begin{algorithm}[H]
+  \SetAlgoLined
+  \KwData{this text}
+  \KwResult{how to write an algorithm}
+  initialization\;
+  \While{not at end of this document}{
+    read current\;
+    \eIf{understand}{
+      go to next section\;
+      current section becomes this one\;
+    }{
+      go back to the beginning of current section\;
+    }
+  }
+  \caption{Algorithm emphasis regression}
+\end{algorithm}
+
+% 显式下划线及封面使用的辅助命令仍须可用。
+\uline{Explicit underline}
+
+\ulinecvrtc{Student ID}
+
+\ulinecvcbc{School}
+\end{document}
