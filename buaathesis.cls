@@ -563,8 +563,8 @@ The LaTeX template for thesis of BUAA]
     \oldappendix\rmrelation
 }
 
-% 下划线
-\RequirePackage{ulem}
+% 保留显式下划线命令，同时避免将强调文字（如 algorithm2e 的条件）改为下划线
+\RequirePackage[normalem]{ulem}
 
 % 设置行距
 \RequirePackage{setspace}
